@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_09_15_195528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "transaction_types", force: :cascade do |t|
+    t.integer "type_num"
+    t.string "description"
+    t.integer "nature"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
