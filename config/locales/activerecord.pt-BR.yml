@@ -12,7 +12,7 @@ pt-BR:
         other: Lojas
     attributes:
       transaction:
-        occured_at: Data da Ocorrência
+        occurred_at: Data da Ocorrência
         value: Valor
         cpf: CPF
         credit_card_number: Cartão

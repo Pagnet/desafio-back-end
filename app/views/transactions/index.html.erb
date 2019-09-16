@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1><%= Transaction.model_name.human(count: 2) %></h1>
+      <hr />
+      <%= form_tag import_cnab_files_path, multipart: true do %>
+        <div class="form-group">
+          <label for="" class="mr-4">Importar CNAB</label>
+          <input type="file" name="file" id="" />
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= Transaction.human_attribute_name(:occurred_at) %></th>
+            <th><%= TransactionType.model_name.human %></th>
+            <th><%= Store.model_name.human %></th>
+            <th><%= Transaction.human_attribute_name(:value) %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @transactions.each do |transaction| %>
+            <tr>
+              <td><%= transaction.formatted_occurred_at %></td>
+              <td><%= transaction.transaction_type_description %></td>
+              <td><%= transaction.store_name %></td>
+              <td><%= number_to_currency(transaction.value) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

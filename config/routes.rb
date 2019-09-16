@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :transactions, only: [:index]
+  resources :cnab_files do
+    post :import, on: :collection
+  end
+
+  root 'transactions#index'
 end
