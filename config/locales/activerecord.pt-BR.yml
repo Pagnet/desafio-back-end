@@ -1,0 +1,25 @@
+pt-BR:
+  activerecord:
+    models:
+      transaction:
+        one: Transação
+        other: Transações
+      transaction_type:
+        one: Tipo de Transação
+        other: Tipos de Transação
+      store:
+        one: Loja
+        other: Lojas
+    attributes:
+      transaction:
+        occured_at: Data da Ocorrência
+        value: Valor
+        cpf: CPF
+        credit_card_number: Cartão
+      transaction_type:
+        type_num: Tipo
+        description: Descrição
+        nature: Natureza
+      store:
+        name: Nome
+        owner_name: Dono da Loja
