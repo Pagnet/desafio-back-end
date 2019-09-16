@@ -12,26 +12,34 @@
       <% end %>
     </div>
     <div class="col-12">
-      <table class="table">
-        <thead>
-          <tr>
-            <th><%= Transaction.human_attribute_name(:occurred_at) %></th>
-            <th><%= TransactionType.model_name.human %></th>
-            <th><%= Store.model_name.human %></th>
-            <th><%= Transaction.human_attribute_name(:value) %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @transactions.each do |transaction| %>
+      <% @stores_transactions.each do |store, transactions| %>
+        <h3><%= store.name %></h3>
+        <table class="table">
+          <thead>
             <tr>
-              <td><%= transaction.formatted_occurred_at %></td>
-              <td><%= transaction.transaction_type_description %></td>
-              <td><%= transaction.store_name %></td>
-              <td><%= number_to_currency(transaction.value) %></td>
+              <th><%= Transaction.human_attribute_name(:occurred_at) %></th>
+              <th><%= TransactionType.model_name.human %></th>
+              <th><%= Store.model_name.human %></th>
+              <th><%= Transaction.human_attribute_name(:value) %></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% transactions.sort_by(&:occurred_at).each do |transaction| %>
+              <tr>
+                <td><%= transaction.formatted_occurred_at %></td>
+                <td><%= transaction.transaction_type_description %></td>
+                <td><%= transaction.store_name %></td>
+                <td class="<%= transaction.nature %>"><%= number_to_currency(transaction.value_with_sign) %></td>
+              </tr>
+            <% end %>
+            <tr>
+              <th colspan="3">Saldo</th>
+              <td class="<%= 'outcome' if store.balance < 0 %>"><%= number_to_currency(store.balance) %></td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+      <% end %>
     </div>
   </div>
 </div>

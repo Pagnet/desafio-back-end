@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
   def index
-    @transactions = Transaction.all
+    @stores_transactions = Transaction.all.group_by(&:store)
   end
 end
