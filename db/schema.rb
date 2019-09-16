@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_15_205221) do
+ActiveRecord::Schema.define(version: 2019_09_16_013010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cnab_files", force: :cascade do |t|
+    t.string "filename"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "store_owners", force: :cascade do |t|
     t.string "name"
@@ -47,12 +54,15 @@ ActiveRecord::Schema.define(version: 2019_09_15_205221) do
     t.bigint "store_owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "cnab_file_id"
+    t.index ["cnab_file_id"], name: "index_transactions_on_cnab_file_id"
     t.index ["store_id"], name: "index_transactions_on_store_id"
     t.index ["store_owner_id"], name: "index_transactions_on_store_owner_id"
     t.index ["transaction_type_id"], name: "index_transactions_on_transaction_type_id"
   end
 
   add_foreign_key "store_owners", "stores"
+  add_foreign_key "transactions", "cnab_files"
   add_foreign_key "transactions", "store_owners"
   add_foreign_key "transactions", "stores"
   add_foreign_key "transactions", "transaction_types"
