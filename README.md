@@ -1,3 +1,26 @@
+# Instruções para rodar o projeto
+
+## Requisitos
+
+Ruby 2.6.4
+PostgreSQL >= 9.4
+
+## Instalando as dependências
+
+`bundle install`
+
+## Configurando o banco
+
+`bundle exec rake db:create db:migrate db:seed`
+
+## Iniciando o servidor
+
+`rails s`
+
+Pronto! A aplicação já pode ser acessada em `localhost:3000`
+
+-----
+
 # Desafio programação - para vaga Back-end
 
 Por favor leiam este documento do começo ao fim, com muita atenção.
