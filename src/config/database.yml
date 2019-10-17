@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['DB_SERVER'] %>
+  user: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: pagnet_cnab_development
+
+test:
+  <<: *default
+  database: pagnet_cnab_test
+
+production:
+  <<: *default
+  database: pagnet_cnab_production
