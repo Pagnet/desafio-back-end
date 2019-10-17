@@ -1,0 +1,42 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:11.5-alpine
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    env_file:
+      - './src/.env'
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: 'redis:5-alpine'
+    command: redis-server
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./data/redis:/var/lib/redis/data
+
+  app:
+    build: .
+    command: /bin/bash -c "sh bin/entrypoint.sh"
+    volumes:
+      - ./src:/app
+    environment:
+      - REDIS_URL=redis://redis:6379/1
+    env_file:
+      - './src/.env'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - postgres
+      - redis
+    tty: true
+    stdin_open: true
+    dns:
+      - 8.8.8.8
+
+volumes:
+  redis:
+  postgres:

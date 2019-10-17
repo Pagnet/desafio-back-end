@@ -1,0 +1,11 @@
+.git
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+data/*
+src/.env
+src/log/*
+src/tmp/*
+src/node_modules/*
