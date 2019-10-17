@@ -18,7 +18,7 @@ services:
     volumes:
       - ./data/redis:/var/lib/redis/data
 
-  app:
+  app: &app
     build: .
     command: /bin/bash -c "sh bin/entrypoint.sh"
     volumes:
@@ -36,6 +36,10 @@ services:
     stdin_open: true
     dns:
       - 8.8.8.8
+
+  sidekiq:
+    <<: *app
+    command: bin/bundle exec sidekiq -C config/sidekiq.yml
 
 volumes:
   redis:

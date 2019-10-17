@@ -17,6 +17,7 @@ module PagnetCnab
     # the framework and any gems in your application.
 
     config.time_zone = 'Brasilia'
+    config.active_job.queue_adapter = :sidekiq
 
     config.generators do |g|
       g.system_tests = nil
