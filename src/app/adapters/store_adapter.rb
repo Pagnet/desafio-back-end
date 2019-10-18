@@ -1,9 +1,9 @@
-module TransactionAdapter
+module StoreAdapter
 
-  def self.adapt_from_cnab(cnab_data)
+  def self.adapt(data)
     {
-        name: cnab_data[:store_name],
-        owner: cnab_data[:store_owner],
+        name: data[:store_name],
+        owner: data[:store_owner],
     }
   end
 
