@@ -23,3 +23,28 @@ Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2
 NameError (uninitialized constant CustomersController::Customer):
   
 app/controllers/customers_controller.rb:3:in `index'
+Started GET "/customers/6" for ::1 at 2019-10-18 12:41:29 -0300
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:7:in `show'
+  Rendering customers/show.html.erb within layouts/application
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."customer_id" = $1[0m  [["customer_id", 6]]
+  ↳ app/views/customers/show.html.erb:14:in `map'
+  Rendered customers/show.html.erb within layouts/application (Duration: 25.7ms | Allocations: 13146)
+Completed 500 Internal Server Error in 90ms (ActiveRecord: 11.1ms | Allocations: 22878)
+
+
+  
+ActionView::Template::Error (:"pt-BR" is not a valid locale):
+    14:     <% @customer.transactions.map do |transaction| %>
+    15:       <tr>
+    16:         <td><%= transaction.id %></td>
+    17:         <td><%= t(transaction.transaction_type, scope: 'activerecord.attributes.transaction.transaction_type') %></td>
+    18:         <td><%= number_to_currency transaction.value, unit: 'R$', separator: ',' %></td>
+    19:         <td><%= transaction.card_number %></td>
+    20:         <td><%= transaction.ocurrence_datetime %></td>
+  
+app/views/customers/show.html.erb:17
+app/views/customers/show.html.erb:14:in `map'
+app/views/customers/show.html.erb:14
