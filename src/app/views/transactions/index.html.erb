@@ -1,0 +1,29 @@
+<% @stores.each do |store| %>
+  <div class="card mb-4">
+    <div class="card-header bg-dark text-white"><%= store %> ( <%= store.owner %> )</div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <tr>
+          <th>description</th>
+          <th>kind</th>
+          <th>amount</th>
+          <th>date</th>
+        </tr>
+        <% store.transactions.each do |transaction| %>
+          <tr>
+            <td><%= transaction.transaction_type %></td>
+            <td><%= transaction.transaction_type.transaction_kind %></td>
+            <td><%= transaction.total_amount %></td>
+            <td><%= transaction.date %></td>
+          </tr>
+        <% end %>
+        <tr class="bg-light">
+          <th></th>
+          <th>total</th>
+          <th><%= store.sum_transactions %></th>
+          <th></th>
+        </tr>
+      </table>
+    </div>
+  </div>
+<% end %>
