@@ -1,24 +1,22 @@
-# README
+# Instruções de uso
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Instalação
 
-Things you may want to cover:
+### Requisitos
 
-* Ruby version
+* NodeJS (Preferencialmente versão superior à 8)
+* Ruby (2.6.3)
+* PostgreSQL (Versão 12.x)
 
-* System dependencies
+### Instruções
 
-* Configuration
+* Faça um clone deste projeto para sua máquina local
+* Execute o comando `bundle install` para instalar as dependências
+* Execute o comando `bundle exec rake db:setup` para configurar o banco de dados
+* Execute o comando `yarn install` para instalar as dependências de CSS e Javascript
 
-* Database creation
+## Desenvolvendo
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Use o comando `rspec` para rodar os testes
+* Use o comando `formeman start -f Procfile.dev` para rodar o servidor do rails e webpacker
+* Use o comando `bin/rails c` para acessar diretamente a shell da aplicação em ruby
