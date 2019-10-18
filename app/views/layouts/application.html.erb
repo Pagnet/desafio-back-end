@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DesafioBlu</title>
+    <title>Pagnet</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar">
+      <ul class="nav justify-content-center">  
+        <li class="nav-item"><%= link_to 'Clientes', customers_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'Enviar cnab', cnab_path, class: 'nav-link' %></li>
+      </ul>
+    </nav>
+    <div id="contents">
+      <%= yield %>
+    </div>
   </body>
 </html>
