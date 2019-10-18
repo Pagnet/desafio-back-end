@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>Empresa</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.map do |customer| %>
+    <tr>
+      <td><%= customer.id %></td>
+      <td><%= customer.cpf %></td>
+      <td><%= customer.name %></td>
+      <td><%= customer.company_name %></td>
+      <td><%= link_to 'Visualizar', customer_path(customer) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

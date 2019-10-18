@@ -1,0 +1,26 @@
+<h1>Transações do cliente <%= @customer.name %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Tipo</th>
+      <th>Valor</th>
+      <th>Cartão</th>
+      <th>Data da ocorrência</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customer.transactions.map do |transaction| %>
+      <tr>
+        <td><%= transaction.id %></td>
+        <td><%= t(transaction.transaction_type, scope: 'activerecord.attributes.transaction.transaction_type') %></td>
+        <td><%= number_to_currency transaction.value, unit: 'R$', separator: ',' %></td>
+        <td><%= transaction.card_number %></td>
+        <td><%= transaction.ocurrence_datetime %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Total: <%= number_to_currency @customer.transactions.sum(:value), unit: 'R$', separator: ',' %></h3>

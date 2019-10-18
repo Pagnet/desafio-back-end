@@ -1,0 +1,25 @@
+Started GET "/" for ::1 at 2019-10-18 12:39:15 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/cavallari/.rvm/gems/ruby-2.6.3/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/cavallari/.rvm/gems/ruby-2.6.3/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.4ms | Allocations: 479)
+Completed 200 OK in 50ms (Views: 42.4ms | ActiveRecord: 0.0ms | Allocations: 2731)
+
+
+Started GET "/cnab" for ::1 at 2019-10-18 12:39:20 -0300
+Processing by CnabController#index as HTML
+  Rendering cnab/index.html.erb within layouts/application
+  Rendered cnab/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1169)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/cavallari/dev/challenges/desafio-blu/public/packs
+Completed 200 OK in 5257ms (Views: 5255.5ms | ActiveRecord: 0.0ms | Allocations: 1269367)
+
+
+Started GET "/customers" for ::1 at 2019-10-18 12:39:33 -0300
+Processing by CustomersController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2183)
+
+
+  
+NameError (uninitialized constant CustomersController::Customer):
+  
+app/controllers/customers_controller.rb:3:in `index'
