@@ -40,6 +40,7 @@ services:
   sidekiq:
     <<: *app
     command: bin/bundle exec sidekiq -C config/sidekiq.yml
+    ports: []
 
 volumes:
   redis:
