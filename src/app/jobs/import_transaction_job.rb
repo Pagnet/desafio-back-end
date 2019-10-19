@@ -19,7 +19,7 @@ class ImportTransactionJob < ApplicationJob
     parsed = {
         type: (line[0].to_i rescue nil),
         date: line[1..8],
-        value: ((line[9..18].to_i / 100) rescue nil),
+        value: ((line[9..18].to_f() / 100) rescue nil),
         cpf: line[19..29],
         card_number: line[30..41],
         time: line[42..47],
