@@ -24,7 +24,7 @@ def register_driver_headless
 end
 
 
-case ENV["TEST_BROWSER_MODE"]
+case ENV["BROWSER_MODE"]
 when 'headless' then register_driver_headless
 when 'local' then register_driver_local
 else register_driver_headless

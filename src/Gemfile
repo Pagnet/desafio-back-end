@@ -33,10 +33,12 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
+  gem 'capybara'
+  gem 'site_prism'
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'shoulda-matchers'
+  # gem 'rails-controller-testing'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

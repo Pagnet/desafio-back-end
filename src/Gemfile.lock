@@ -113,7 +113,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
-    pagy (3.5.1)
+    pagy (3.6.0)
     pg (1.1.4)
     pgreset (0.1.1)
     popper_js (1.14.5)
@@ -202,6 +202,11 @@ GEM
       rack (>= 1.5.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
+    site_prism (3.4.1)
+      addressable (~> 2.5)
+      capybara (~> 3.3)
+      site_prism-all_there (~> 0.3)
+    site_prism-all_there (0.3)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -242,7 +247,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   byebug
-  capybara (>= 2.15)
+  capybara
   dotenv-rails
   factory_bot_rails
   faker
@@ -260,6 +265,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   sidekiq (~> 5.2)
+  site_prism
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
