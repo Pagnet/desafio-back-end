@@ -15,4 +15,7 @@
 //= require popper
 //= require bootstrap
 //= require activestorage
+//= require pagy
 //= require_tree .
+
+window.addEventListener("load", Pagy.init);

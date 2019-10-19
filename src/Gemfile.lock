@@ -113,6 +113,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
+    pagy (3.5.1)
     pg (1.1.4)
     pgreset (0.1.1)
     popper_js (1.14.5)
@@ -248,6 +249,7 @@ DEPENDENCIES
   font-awesome-sass (~> 5.8.1)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  pagy
   pg (>= 0.18, < 2.0)
   pgreset
   puma (~> 3.11)
