@@ -11,6 +11,9 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
 
 RUN npm config get registry prints: https://registry.npmjs.org
 
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome*.deb; apt-get -fy install
+
 ENV src ./src
 COPY $src/Gemfile* /tmp/
 WORKDIR /tmp

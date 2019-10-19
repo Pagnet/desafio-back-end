@@ -27,7 +27,7 @@ Inicie o app:
 rails s -p 3000
 ```
 
-# Docker
+#### No docker
 Crie as imagens:
 ```
 docker-compose build
@@ -40,5 +40,41 @@ docker-compose run app bin/setup
 
 Inicie o app:
 ```
-docker-compose up app
+docker-compose up
+```
+
+___
+
+# Tests
+
+* Integração (capybara: usa o browser)
+* Unitário (rspec)
+
+Rodando tudo:
+```
+rspec 
+```
+
+Rodando todos exceto **:features** e **:pages**
+```
+rspec --exclude-pattern "spec/{features,pages}/**/*_spec.rb
+```
+
+
+#### No docker
+
+
+Rodando todos:
+```
+docker-compose exec -e BROWSER_MODE=headless app rspec
+```
+
+Rodando somente testes unitários:
+```
+docker-compose exec app rspec --exclude-pattern "spec/{features,pages}/**/*_spec.rb"
+```
+
+Rodando somente testes de feature:
+```
+docker-compose exec -e BROWSER_MODE=headless app rspec spec/features
 ```
