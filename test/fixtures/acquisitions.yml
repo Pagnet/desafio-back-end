@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 1
+  value: 9.99
+  date: 2019-10-18 20:47:34
+
+two:
+  type: 1
+  value: 9.99
+  date: 2019-10-18 20:47:34

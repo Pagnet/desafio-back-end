@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cpf: 1
+  card: 1
+  time: 2019-10-18 20:51:41
+
+two:
+  cpf: 1
+  card: 1
+  time: 2019-10-18 20:51:41

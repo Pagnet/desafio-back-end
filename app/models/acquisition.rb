@@ -1,0 +1,2 @@
+class Acquisition < ApplicationRecord
+end
