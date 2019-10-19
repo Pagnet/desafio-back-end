@@ -1,0 +1,29 @@
+<div class="modal fade show" tabindex="-1" role="dialog" id="modal-failed">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger">Upload falhou</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="text-center mb-3">
+          <i class="fa fa-bug text-danger fa-4x"></i>
+        </div>
+
+        <div class="text-center">
+          <p><strong>Houve um erro e seu upload não foi concluído.</strong></p>
+        </div>
+
+        <div class="text-center mt-3">
+          <a href="<%= root_path %>" class="btn btn-outline-danger">
+            Fechar
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

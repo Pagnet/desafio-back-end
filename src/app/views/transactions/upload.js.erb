@@ -1,0 +1,8 @@
+$(function(){
+    <% if @feedback == 'completed' %>
+      $('#modal-completed').modal('show')
+    <% elsif @feedback == 'failed' %>
+      $('#modal-failed').modal('show')
+    <% end %>
+})
+

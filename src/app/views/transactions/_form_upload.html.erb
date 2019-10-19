@@ -1,0 +1,20 @@
+<%= form_with url: upload_transactions_path, method: :post, html: { multipart: true, remote: true} do |f| %>
+
+    <span class="custom-file w-75">
+      <%= f.file_field :file, name: :file, class: 'custom-file-input', id: 'file-input' %>
+      <label class="custom-file-label" for="file-input">Choose file</label>
+    </span>
+    <span class="float-right">
+      <%= button_tag data: {disable_with: 'Enviando...'}, class: "btn btn-primary", remote: true do %>
+        <i class="fa fa-file-import"></i> Import
+      <% end %>
+    </span>
+
+<% end %>
+
+<script>
+    $(".custom-file-input").on("change", function() {
+        let fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>

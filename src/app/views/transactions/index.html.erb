@@ -1,29 +1,40 @@
-<% @stores.each do |store| %>
-  <div class="card mb-4">
-    <div class="card-header bg-dark text-white"><%= store %> ( <%= store.owner %> )</div>
-    <div class="card-body">
-      <table class="table table-bordered">
-        <tr>
-          <th>description</th>
-          <th>kind</th>
-          <th>amount</th>
-          <th>date</th>
-        </tr>
-        <% store.transactions.each do |transaction| %>
+<div class="d-flex bg-light p-2 fixed-top">
+  <div class="mr-auto p-2"><%= render 'form_upload' %></div>
+  <div class="p-2"><%== pagy_bootstrap_combo_nav_js(@pagy) %></div>
+</div>
+
+<div style="margin-top: 70px;">
+  <% @stores.each do |store| %>
+    <div class="card mb-3">
+      <div class="card-header bg-primary text-white"><%= store %> ( <%= store.owner %> )</div>
+      <div class="card-body">
+        <table class="table table-bordered">
           <tr>
-            <td><%= transaction.transaction_type %></td>
-            <td><%= transaction.transaction_type.transaction_kind %></td>
-            <td><%= transaction.total_amount %></td>
-            <td><%= transaction.date %></td>
+            <th>description</th>
+            <th>kind</th>
+            <th>amount</th>
+            <th>date</th>
           </tr>
-        <% end %>
-        <tr class="bg-light">
-          <th></th>
-          <th>total</th>
-          <th><%= store.sum_transactions %></th>
-          <th></th>
-        </tr>
-      </table>
+          <% store.transactions.each do |transaction| %>
+            <tr>
+              <td><%= transaction.transaction_type %></td>
+              <td><%= transaction.transaction_type.transaction_kind %></td>
+              <td><%= number_to_currency(transaction.total_amount, unit: "R$", separator: ",", delimiter: ".") %></td>
+              <td><%= transaction.date.strftime("%d/%m/%Y - %H:%M:%S") %></td>
+            </tr>
+          <% end %>
+          <tr class="bg-light">
+            <th></th>
+            <th>total</th>
+            <th><%= number_to_currency(store.sum_transactions, unit: "R$", separator: ",", delimiter: ".") %></th>
+            <th></th>
+          </tr>
+        </table>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
+
+
+<%= render 'modal_completed' %>
+<%= render 'modal_failed' %>
