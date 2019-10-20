@@ -29,7 +29,7 @@ class ImportTransactionJob < ApplicationJob
 
     error('line does not contain valid type', line) unless (1..9).to_a.include?(parsed[:type])
     error('line does not contain valid date', line) unless is_date?(parsed[:date])
-    error('line does not contain valid time', line) unless is_date?(parsed[:time])
+    error('line does not contain valid time', line) unless is_time?(parsed[:time])
     error('line does not contain valid cpf', line) unless is_number?(parsed[:cpf])
     error('line does not contain valid value', line) unless is_number?(parsed[:value])
     error('line does not contain valid store_owner', line) unless parsed[:store_owner].present?
@@ -46,11 +46,11 @@ class ImportTransactionJob < ApplicationJob
     true if Float(string) rescue false
   end
 
-  def is_date?(string)
+  def is_time?(string)
     true if DateTime.strptime(string, '%H%M%S') rescue false
   end
 
-  def is_time?(string)
+  def is_date?(string)
     true if DateTime.strptime(string, '%Y%m%d') rescue false
   end
 
