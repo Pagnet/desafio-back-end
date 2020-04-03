@@ -6,7 +6,7 @@ module TransactionsHelper
   end
 
   def only_time(date_time)
-    date_time.localtime.strftime('%H/%M/%S')
+    date_time.localtime.strftime('%H:%M:%S')
   end
 
   def cpf_mask(cpf)
@@ -14,6 +14,6 @@ module TransactionsHelper
   end
 
   def credit_card_number(transaction)
-    "#{transaction.credit_card_first_digits}  * * * *  * * * *  #{transaction.credit_card_last_digits}"
+    "#{transaction.credit_card_first_digits}  ****  ****  #{transaction.credit_card_last_digits}"
   end
 end

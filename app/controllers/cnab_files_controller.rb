@@ -6,7 +6,7 @@ class CnabFilesController < ApplicationController
 
     if cnab_importer_service.call
       flash[:notice] = 'Arquivo importado com sucesso'
-      redirect_to root_path
+      redirect_to stores_path
     else
       flash[:alert] = 'Falha para importar o arquivo'
       render :new
