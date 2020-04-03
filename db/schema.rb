@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_050644) do
+ActiveRecord::Schema.define(version: 2020_04_03_063752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,12 +42,11 @@ ActiveRecord::Schema.define(version: 2020_04_03_050644) do
     t.bigint "transaction_type_id"
     t.bigint "credit_card_id"
     t.bigint "store_id"
-    t.date "event_date"
-    t.time "event_time"
     t.decimal "amount"
     t.string "beneficiary_cpf"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "event_date_time"
     t.index ["credit_card_id"], name: "index_transactions_on_credit_card_id"
     t.index ["store_id"], name: "index_transactions_on_store_id"
     t.index ["transaction_type_id"], name: "index_transactions_on_transaction_type_id"

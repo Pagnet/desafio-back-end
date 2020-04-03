@@ -42,6 +42,8 @@ gem 'popper_js'
 gem 'bootstrap', '~> 4.4.1'
 # Font awesome
 gem 'font-awesome-rails'
+# Internationalization
+gem 'rails-i18n', '~> 5.1'
 
 ################################################################################
 

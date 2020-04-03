@@ -8,5 +8,5 @@ class Transaction < ApplicationRecord
   belongs_to :store
 
   # Validations
-  validates_presence_of :event_date, :event_time, :amount, :beneficiary_cpf
+  validates_presence_of :event_date_time, :amount, :beneficiary_cpf
 end
