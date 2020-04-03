@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header">
+    <b>Importar CNAB</b>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      <%= form_for :cnab_files, url: cnab_files_url do |f| %>
+        <div class="form-row">
+          <div class="form-group col-12">
+            <%= f.file_field :cnab_file %>
+          </div>
+
+          <div class="form-group col-12">
+            <%= f.submit 'Importar', class: "btn btn-outline-primary mt-4 px-5" %>
+          </div>
+        </div>
+      <% end %>
+    </p>
+  </div>
+</div>
+
+<script>
+  $('#list-tab').find('*').removeClass('active');
+  $('#list-importer-list').addClass('active')
+</script>
+
+<style media="screen">
+  .centered {
+    position: relative;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center;
+  }
+</style>

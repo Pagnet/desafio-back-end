@@ -3,5 +3,6 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
-  resources :home, only: %i[index]
+  resources :home, only: :index
+  resources :cnab_files, only: %i[new create]
 end

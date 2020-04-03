@@ -1,13 +1,13 @@
-<div class="list-group" id="list-tab" role="tablist">
-  <%= link_to root_path, class: "list-group-item list-group-item-action active", id: "list-home-list", role: "tab", data: { toggle: "list" } do %>
+<div class="list-group" id="list-tab">
+  <%= link_to root_path, class: "list-group-item list-group-item-action active", id: "list-home-list" do %>
     <%= fa_icon('home') %> &nbsp;&nbsp; Home
   <% end %>
 
-  <%= link_to '#', class: "list-group-item list-group-item-action", id: "list-importer-list", role: "tab", data: { toggle: "list" } do  %>
+  <%= link_to new_cnab_file_path, class: "list-group-item list-group-item-action", id: "list-importer-list" do  %>
     <%= fa_icon('upload') %> &nbsp;&nbsp; Importar CNAB
   <% end %>
 
-  <%= link_to '#', class: "list-group-item list-group-item-action", id: "list-store-list", role: "tab", data: { toggle: "list" } do %>
+  <%= link_to '#', class: "list-group-item list-group-item-action", id: "list-store-list" do %>
     <%= fa_icon('list') %> &nbsp;&nbsp; Lojas
   <% end %>
 </div>
