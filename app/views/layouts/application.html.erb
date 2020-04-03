@@ -9,7 +9,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body id="page-top">
+
+    <div id="wrapper">
+      <%= render partial: 'layouts/topbar' %>
+
+      <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+          <div class="container-fluid py-1">
+            <div class="row">
+              <div class="col-3">
+                <%= render partial: 'layouts/sidebar' %>
+              </div>
+              <div class="col-9 pl-0">
+                <div class="tab-content" id="nav-tabContent">
+                  <%= yield %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
