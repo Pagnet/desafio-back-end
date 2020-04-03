@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="card-header">
+    <b>Store</b>
+    <span class="pull-right <%=  @store.current_balance.negative? ? 'negative-money' : 'postive-money' %>">
+      <b>Saldo: </b> <%= @store.current_balance %>
+    </span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-4 pb-4">
+        <%= select_tag("store[id]",
+                       options_from_collection_for_select(@stores_for_select, 'id', 'name', params[:id]),
+                       { class: "custom-select", include_blank: 'Selecione uma loja' }) %>
+      </div>
+
+      <div class="col-12">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Data</th>
+              <th scope="col">Hora</th>
+              <th scope="col">Valor</th>
+              <th scope="col">CPF do beneficiário</th>
+              <th scope="col">Cartão de crédito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @transactions.each do |transaction| %>
+              <tr>
+                <td><%= only_date(transaction.event_date_time) %></td>
+                <td><%= only_time(transaction.event_date_time) %></td>
+                <td><%= number_to_currency(transaction.amount, unit: "R$", separator: ",", delimiter: ".") %></td>
+                <td><%= cpf_mask(transaction.beneficiary_cpf) %></td>
+                <td><%= credit_card_number(transaction) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Update active menu
+  $('#list-tab').find('*').removeClass('active');
+  $('#list-store-list').addClass('active')
+
+  // Change store when change select_tag
+  var url = window.location.origin
+  let select_tag = $('#store_id')
+
+  select_tag.on('change', function () {
+    url += '/stores/'+select_tag.val()
+
+    window.location.replace(url);
+  })
+</script>

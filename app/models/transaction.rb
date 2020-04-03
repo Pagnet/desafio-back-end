@@ -9,4 +9,8 @@ class Transaction < ApplicationRecord
 
   # Validations
   validates_presence_of :event_date_time, :amount, :beneficiary_cpf
+
+  # Alias and Delegates
+  delegate :first_digits, to: :credit_card, prefix: true
+  delegate :last_digits, to: :credit_card, prefix: true
 end

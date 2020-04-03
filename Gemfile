@@ -44,6 +44,8 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'font-awesome-rails'
 # Internationalization
 gem 'rails-i18n', '~> 5.1'
+# Decorator
+gem 'draper'
 
 ################################################################################
 

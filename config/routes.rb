@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resources :home, only: :index
   resources :cnab_files, only: %i[new create]
+  resources :stores, only: %i[index show]
+  resources :transactions, only: :index
 end

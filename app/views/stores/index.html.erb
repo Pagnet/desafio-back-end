@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-header">
+    <b>Lojas</b>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Proprietário</th>
+            <th scope="col">Quantidade de operações</th>
+            <th scope="col">Saldo atual</th>
+            <th scope="col">Lista operações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @stores.each do |store| %>
+            <tr>
+              <td><%= store.name %></td>
+              <td><%= store.owner_name %></td>
+              <td class="<%=  store.current_balance.negative? ? 'negative-money' : 'postive-money' %>">
+                <%= number_to_currency(store.current_balance, unit: "R$", separator: ",", delimiter: ".") %>
+              </td>
+              <td><%= store.total_transactions %></td>
+              <td>
+                <%= link_to "Visualizar operações", store_path(store) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </p>
+  </div>
+</div>
+
+<script>
+  // Update active menu
+  $('#list-tab').find('*').removeClass('active');
+  $('#list-store-list').addClass('active')
+</script>
