@@ -49,7 +49,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
+  gem 'pry'
+  gem 'pry-rails'
+
   # RSpec testing framework
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
   gem 'rspec-rails', '~> 4.0.0'
 end
 
