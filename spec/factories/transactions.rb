@@ -2,12 +2,11 @@
 
 FactoryBot.define do
   factory :transaction do
-    association :store, factory: :store
-    association :credit_card, factory: :credit_card
+    association :transaction_type
+    association :store
+    association :credit_card
 
-    transaction_type_id { 1 }
-    event_date          { Date.today }
-    event_time          { Time.now }
+    event_date_time     { DateTime.now }
     amount              { 100 }
     beneficiary_cpf     { '12345678900' }
   end
