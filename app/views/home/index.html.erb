@@ -8,3 +8,10 @@
     </p>
   </div>
 </div>
+
+<script>
+  $( document ).on('turbolinks:load', function() {
+    $('#list-tab').find('*').removeClass('active');
+    $('#list-home-list').addClass('active')
+  })
+</script>
