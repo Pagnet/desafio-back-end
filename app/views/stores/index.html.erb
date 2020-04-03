@@ -35,7 +35,9 @@
 </div>
 
 <script>
-  // Update active menu
-  $('#list-tab').find('*').removeClass('active');
-  $('#list-store-list').addClass('active')
+  $( document ).on('turbolinks:load', function() {
+    // Update active menu
+    $('#list-tab').find('*').removeClass('active');
+    $('#list-store-list').addClass('active')
+  }
 </script>

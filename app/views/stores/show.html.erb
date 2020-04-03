@@ -10,7 +10,7 @@
       <div class="col-4 pb-4">
         <%= select_tag("store[id]",
                        options_from_collection_for_select(@stores_for_select, 'id', 'name', params[:id]),
-                       { class: "custom-select", include_blank: 'Selecione uma loja' }) %>
+                       { class: "custom-select", include_blank: 'Voltar para listagem das lojas' }) %>
       </div>
 
       <div class="col-12">
@@ -42,17 +42,19 @@
 </div>
 
 <script>
-  // Update active menu
-  $('#list-tab').find('*').removeClass('active');
-  $('#list-store-list').addClass('active')
+  $( document ).on('turbolinks:load', function() {
+    // Update active menu
+    $('#list-tab').find('*').removeClass('active');
+    $('#list-store-list').addClass('active')
 
-  // Change store when change select_tag
-  var url = window.location.origin
-  let select_tag = $('#store_id')
+    // Change store data when change select_tag
+    var url = window.location.origin
+    let select_tag = $('#store_id')
 
-  select_tag.on('change', function () {
-    url += '/stores/'+select_tag.val()
+    select_tag.on('change', function () {
+      url += '/stores/'+select_tag.val()
 
-    window.location.replace(url);
+      window.location.replace(url);
+    })
   })
 </script>

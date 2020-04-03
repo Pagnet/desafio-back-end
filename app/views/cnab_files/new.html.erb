@@ -20,6 +20,8 @@
 </div>
 
 <script>
-  $('#list-tab').find('*').removeClass('active');
-  $('#list-importer-list').addClass('active')
+  $( document ).on('turbolinks:load', function() {
+    $('#list-tab').find('*').removeClass('active');
+    $('#list-importer-list').addClass('active')
+  }
 </script>

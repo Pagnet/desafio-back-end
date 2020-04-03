@@ -10,7 +10,7 @@ module TransactionsHelper
   end
 
   def cpf_mask(cpf)
-    "#{cpf.first(3)}.#{cpf[3...6]}.#{cpf[6...]}-#{cpf.last(2)}"
+    "#{cpf.first(3)}.#{cpf[3...6]}.#{cpf[6...9]}-#{cpf.last(2)}"
   end
 
   def credit_card_number(transaction)
