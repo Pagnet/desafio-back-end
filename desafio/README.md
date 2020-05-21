@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Como rodar a aplicação
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
+> git clone <esse_projeto>
+> cd desafio-back-end
+> bundle install
+> bundle exec rake db:create db:migrate
+> yarn install
+> rails s 
 
 * Database creation
+A configuração do banco está em config/database.yml
 
-* Database initialization
+> rake db:create 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Test
+> bundle exec rspec -fd
