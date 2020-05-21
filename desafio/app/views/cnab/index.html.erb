@@ -1,0 +1,59 @@
+<% if flash['notice'] %>
+  <div class="alert">
+    <%= flash['notice'] %>
+  </div>
+<% end %>
+
+<div class="container">
+  <%= form_with :url => '/cnab', :html=> {:multipart=>true} do %>
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <%= file_field_tag :file , :class => "file-path"%>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="Upload one or more files" id="filename" onchange="">
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Enviar</button>
+  <% end %>
+</div>
+
+<% @summary.each do |nome, dados|%>
+  <div class="container">
+    <h3><%= nome %></h3>
+    <label> Saldo:</label> 
+    <span class="<%= positivo?(dados[:valor]) ? '': 'red-text'%>">
+      <%= number_to_currency(dados[:valor], :unit => "R$ ", :separator => ",", :delimiter => ".") %>
+    </span>
+    <table>
+      <tr>
+        <th>tipo</th>
+        <th>data</th>       
+        <th>valor</th>       
+        <th>cpf</th>
+        <th>cartao</th>
+        <th>hora</th>     
+        <th>dono_da_loja</th>
+        <th>nome_da_loja</th>
+      </tr>
+      <% dados[:data].each do |cnab|%>
+        <tr>
+          <td><%= cnab.tipo %> </td>
+          <td><%= cnab.data %> </td>
+          <td><%= number_to_currency(cnab.valor, :unit => "R$ ", :separator => ",", :delimiter => ".") %> </td>
+          <td><%= cnab.cpf %> </td>
+          <td><%= cnab.cartao %> </td>
+          <td><%= cnab.hora %> </td>
+          <td><%= cnab.dono_da_loja %> </td>
+          <td><%= cnab.nome_da_loja %> </td>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+
+<script type="javascript">
+    document.getElementById('file').addEventListener("change", function(e) {
+        return document.getElementById('filename').value = e.target.files[0].name;
+    });
+</script>
