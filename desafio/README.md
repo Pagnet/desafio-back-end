@@ -1,10 +1,9 @@
 # Como rodar a aplicação
-
 >git clone <esse_projeto>
-cd desafio-back-end
-bundle install
-bundle exec rake db:create db:migrate
-yarn install
+>cd desafio-back-end
+>bundle install
+>bundle exec rake db:create db:migrate
+>yarn install
 >rails s 
 
 
