@@ -1,3 +1,8 @@
-h1 {
-  color: #ff0000;
+body {
+  padding-top: 5rem;
+}
+
+.template {
+  padding: 3rem 1.5rem;
+  text-align: center;
 }
