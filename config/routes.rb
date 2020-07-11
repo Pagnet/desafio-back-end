@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get 'home/index'
   root to: 'home#index'
+  post '/file_upload' => 'home#file_upload', as: :file_upload
 end
