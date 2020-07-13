@@ -8,6 +8,6 @@ class CnabImporter < ApplicationService
   def call
     return false unless @imported_file.save
 
-    ProcessCnabWorker.perform_async(@imported_file.id)
+    ProcessCnabJob.perform_later(@imported_file.id)
   end
 end

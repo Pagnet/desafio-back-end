@@ -1,7 +1,5 @@
-class ProcessCnabWorker
-  include Sidekiq::Worker
-
-  sidekiq_options queue: :default
+class ProcessCnabJob < ApplicationJob
+  queue_as :default
 
   def perform(file_id)
     imported_file = ImportedFile.find(file_id)
