@@ -6,3 +6,5 @@ en:
     first_lead: Upload the transaction file.
     last_lead: This application will parse the file and persist its content in the database.
     submit_text: Save
+    enqueued: Processing file.
+    processing: Wait until result is available.

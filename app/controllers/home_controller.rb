@@ -1,15 +1,17 @@
 class HomeController < ApplicationController
-  def index
-    description = 'upload'
-    partial = 'form'
+  def index; end
 
-    if params[:imported_file].present?
-      CnabImporter.call(ImportedFile.new(attachment_params))
-      description = 'done'
-      partial = 'result'
+  def file_upload
+    service = CnabImporter.call(ImportedFile.new(attachment_params))
+
+    if service[:errors].empty?
+      debugger
+      @transactions = service[:imported_file].transactions
+    else
+      render :index
     end
 
-    render :index, locals: { description: description, partial: partial }
+    render :results
   end
 
   private

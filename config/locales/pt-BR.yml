@@ -6,3 +6,5 @@ pt-BR:
     first_lead: Faça o upload do arquivo de transações.
     last_lead: A aplicação irá interpretar os dados e persistí-los no banco de dados.
     submit_text: Salvar
+    enqueued: Arquivo em processamento.
+    processing: Aguarde enquanto o resultado é carregado.
