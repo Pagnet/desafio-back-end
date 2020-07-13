@@ -4,10 +4,9 @@ class HomeController < ApplicationController
     partial = 'form'
 
     if params[:imported_file].present?
-      @imported_file = ImportedFile.new(attachment_params)
-      CnabImporter.call(@imported_file)
-      description = 'result'
-      partial = 'done'
+      CnabImporter.call(ImportedFile.new(attachment_params))
+      description = 'done'
+      partial = 'result'
     end
 
     render :index, locals: { description: description, partial: partial }
