@@ -24,7 +24,7 @@ class CnabLineParser
   end
 
   def value
-    @line[9..18].to_i / 100
+    @line[9..18].to_i
   end
 
   def beneficiary_document

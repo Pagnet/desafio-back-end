@@ -1,13 +1,34 @@
 <h1 class="title"><%= t('attachment.enqueued') %></h1>
 <p class="lead"><%= t('attachment.processing') %></p>
 
-<div id="transactions">
-  <%= @transactions.each do |transaction| %>
-    <div class="transaction">
-      <strong><%= transaction.value %></strong>
-      <br>
-      <small>at <%= transaction.created_at %></small>
-      <hr>
+<div id="transactions" class="row mb-3">
+  <% @grouped_transactions.each do |hash| %>
+    <div class="col-md-12 themed-grid-col text-left">
+      <strong><%= hash[:store] %></strong>
+    </div>
+
+    <div class="col-md-12 themed-grid-col text-left">
+      <div class="row">
+        <div class="col-md-2"><strong>CPF</strong></div>
+        <div class="col-md-2"><strong>Cartão</strong></div>
+        <div class="col-md-4"><strong>Tipo</strong></div>
+        <div class="col-md-2"><strong>Data</strong></div>
+        <div class="col-md-2"><strong>Valor</strong></div>
+      </div>
+
+      <% hash[:transactions].each do |transaction| %>
+        <div class="row <%= transaction.kind.eql?('outcoming') ? 'text-danger' : 'text-success' %>">
+          <div class="col-md-2"><%= transaction.beneficiary_document %></div>
+          <div class="col-md-2"><%= transaction.credit_card_number %></div>
+          <div class="col-md-4"><%= transaction.type_info['description'] %></div>
+          <div class="col-md-2"><%= l(transaction.occurrence_datetime, format: :short) %></div>
+          <div class="col-md-2"><%= number_to_currency(transaction.value / 100.0) %></div>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="col-md-10 themed-grid-col"></div>  
+        <div class="col-md-2 themed-grid-col"><strong>Saldo: </strong><%= number_to_currency(hash[:balance] / 100.0) %></div>
+      </div>
     </div>
   <% end %>
 </div>

@@ -5,8 +5,7 @@ class HomeController < ApplicationController
     service = CnabImporter.call(ImportedFile.new(attachment_params))
 
     if service[:errors].empty?
-      debugger
-      @transactions = service[:imported_file].transactions
+      @grouped_transactions = GroupedTransactions.call(service[:imported_file])
     else
       render :index
     end
