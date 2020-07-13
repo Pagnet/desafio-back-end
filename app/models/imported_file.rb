@@ -1,5 +1,5 @@
 class ImportedFile < ApplicationRecord
-  include TransactionsUploader[:attachment]
+  include TransactionsUploader::Attachment(:attachment)
 
-  validates_presence_of :attachment_data
+  validates_presence_of :attachment
 end

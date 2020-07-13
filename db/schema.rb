@@ -10,13 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_11_005624) do
+ActiveRecord::Schema.define(version: 2020_07_11_191827) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "hstore"
   enable_extension "plpgsql"
 
   create_table "imported_files", force: :cascade do |t|
     t.text "attachment_data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.datetime "occurrence_datetime", null: false
+    t.integer "value", null: false
+    t.string "beneficiary_document", null: false
+    t.string "credit_card_number", null: false
+    t.hstore "type_info", default: {"kind"=>nil, "description"=>nil}
+    t.hstore "store_info", default: {"name"=>nil, "owner_name"=>nil}
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

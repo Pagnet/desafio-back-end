@@ -1,0 +1,6 @@
+<%= form_for :imported_file, url: file_upload_path do |f| %>
+  <%= f.file_field :attachment %>
+  <%= f.submit t('attachment.submit_text'), class: 'btn btn-secondary attachment-save',
+                                            data: { toggle: 'tooltip', placement: 'top' },
+                                            title: t('attachment.tip') %>
+<% end %>
