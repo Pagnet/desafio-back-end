@@ -3,6 +3,7 @@ class CreateTransactions < ActiveRecord::Migration[6.0]
     enable_extension 'hstore' unless extension_enabled?('hstore')
 
     create_table :transactions do |t|
+      t.references :imported_file, index: true, null: false
       t.datetime :occurrence_datetime, null: false
       t.integer :value, null: false
       t.string :beneficiary_document, null: false

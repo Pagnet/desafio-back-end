@@ -1,3 +1,9 @@
-<%= render partial: description %>
+<h1 class="title"><%= t('attachment.title') %></h1>
+<p class="lead"><%= t('attachment.first_lead') %><br><%= t('attachment.last_lead') %></p>
 
-<%= render partial: partial %>
+<%= form_for :imported_file, url: results_path do |f| %>
+  <%= f.file_field :attachment %>
+  <%= f.submit t('attachment.submit_text'), class: 'btn btn-secondary attachment-save',
+                                            data: { toggle: 'tooltip', placement: 'top' },
+                                            title: t('attachment.tip') %>
+<% end %>

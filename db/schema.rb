@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_07_11_191827) do
   end
 
   create_table "transactions", force: :cascade do |t|
+    t.bigint "imported_file_id", null: false
     t.datetime "occurrence_datetime", null: false
     t.integer "value", null: false
     t.string "beneficiary_document", null: false
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_07_11_191827) do
     t.hstore "store_info", default: {"name"=>nil, "owner_name"=>nil}
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["imported_file_id"], name: "index_transactions_on_imported_file_id"
   end
 
 end

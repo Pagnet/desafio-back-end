@@ -1,0 +1,13 @@
+<h1 class="title"><%= t('attachment.enqueued') %></h1>
+<p class="lead"><%= t('attachment.processing') %></p>
+
+<div id="transactions">
+  <%= @transactions.each do |transaction| %>
+    <div class="transaction">
+      <strong><%= transaction.value %></strong>
+      <br>
+      <small>at <%= transaction.created_at %></small>
+      <hr>
+    </div>
+  <% end %>
+</div>
