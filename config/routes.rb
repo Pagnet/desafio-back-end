@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'file_importeds#index'
+  resources :file_importeds, only: %i[index new create destroy]
 end

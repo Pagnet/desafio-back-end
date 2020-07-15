@@ -1,0 +1,26 @@
+<h1>Upload de arquivo CNAE</h1>
+
+<%= form_with(model: @file_imported, local: true) do |form| %>
+  <% if @file_imported.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@file_imported.errors.count, "error") %> prohibited this file_imported from being saved:</h2>
+
+      <ul>
+        <% @file_imported.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.file_field :file, accept: '.txt', required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit%>
+  </div>
+<% end %>
+
+
+<%= link_to 'Back', file_importeds_path %>

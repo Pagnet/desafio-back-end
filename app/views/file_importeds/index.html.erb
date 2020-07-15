@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Arquivos CNAB importados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>created at</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @file_importeds.each do |file_imported| %>
+      <tr>
+        <td><%= file_imported.id %></td>
+        <td><%= file_imported.created_at %></td>
+        <td><%= link_to file_imported.file.filename, url_for(file_imported.file) %></td>
+        <td><%= link_to 'Destroy', file_imported, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New File Imported', new_file_imported_path %>
