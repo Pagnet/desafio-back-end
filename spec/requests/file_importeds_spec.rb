@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe '/file_importeds', type: :request do
-
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    { file: Rack::Test::UploadedFile.new('spec/fixtures/files/CNAB.txt') }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    { filename: 'xpto' }
   end
 
   describe 'GET /index' do
