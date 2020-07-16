@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'file_importeds#index'
+  resources :file_importeds, only: %i[index new create destroy]
 end
