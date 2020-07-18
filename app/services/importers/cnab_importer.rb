@@ -32,14 +32,23 @@ module Importers
     end
 
     def parse_line(line)
+      type = line.slice(TYPE_POSITION[:start_at], TYPE_POSITION[:size])
+      date = line.slice(DATE_POSITION[:start_at], DATE_POSITION[:size])
+      time = line.slice(TIME_POSITION[:start_at], TIME_POSITION[:size])
+      amount = line.slice(AMOUNT_POSITION[:start_at], AMOUNT_POSITION[:size])
+      cpf = line.slice(CPF_POSITION[:start_at], CPF_POSITION[:size])
+      card_number = line.slice(CARD_POSITION[:start_at], CARD_POSITION[:size])
+      storekeeper = line.slice(STOREKEEPER_POSITION[:start_at], STOREKEEPER_POSITION[:size])
+      store = line.slice(STORE_POSITION[:start_at], STORE_POSITION[:size])
+
       OpenStruct.new(
-        type: line.slice(TYPE_POSITION[:start_at], TYPE_POSITION[:size]).to_i,
-        processed_at: DateTime.strptime("#{line[1..8]} #{line[42..47]}", '%Y%m%d %H%M%S'),
-        amount: line.slice(AMOUNT_POSITION[:start_at], AMOUNT_POSITION[:size]).to_f / 100.0,
-        cpf: line.slice(CPF_POSITION[:start_at], CPF_POSITION[:size]),
-        card_number: line.slice(CARD_POSITION[:start_at], CARD_POSITION[:size]),
-        storekeeper: line.slice(STOREKEEPER_POSITION[:start_at], STOREKEEPER_POSITION[:size]).strip,
-        store: line.slice(STORE_POSITION[:start_at], STORE_POSITION[:size]).strip
+        type: type.to_i,
+        processed_at: DateTime.strptime(date + ' ' + time, '%Y%m%d %H%M%S'),
+        amount: amount.to_f / 100.0,
+        cpf: cpf,
+        card_number: card_number,
+        storekeeper: storekeeper.strip,
+        store: store.strip
       )
     end
 
