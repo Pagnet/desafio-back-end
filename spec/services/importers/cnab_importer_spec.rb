@@ -1,6 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Importers::CnabImporter do
+  describe '#perform' do
+    subject(:transaction) { described_class.new.perform(file_path) }
+
+    let(:file_path) { 'spec/fixtures/files/CNAB.txt' }
+
+    before do
+      1.upto(9) do |i|
+        create(:transaction_type, id: i)
+      end
+    end
+
+    it { expect { transaction }.to change(Transaction, :count).to(21) }
+  end
+
   describe '#import_transaction' do
     subject(:transaction) { described_class.new.import_transaction(line) }
 
