@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_135748) do
+ActiveRecord::Schema.define(version: 2020_07_18_152531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,5 +75,24 @@ ActiveRecord::Schema.define(version: 2020_07_18_135748) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "transaction_type_id", null: false
+    t.bigint "customer_id", null: false
+    t.bigint "card_id", null: false
+    t.bigint "store_id", null: false
+    t.datetime "processed_at", null: false
+    t.float "amount", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["card_id"], name: "index_transactions_on_card_id"
+    t.index ["customer_id"], name: "index_transactions_on_customer_id"
+    t.index ["store_id"], name: "index_transactions_on_store_id"
+    t.index ["transaction_type_id"], name: "index_transactions_on_transaction_type_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "transactions", "cards"
+  add_foreign_key "transactions", "customers"
+  add_foreign_key "transactions", "stores"
+  add_foreign_key "transactions", "transaction_types"
 end
