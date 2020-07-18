@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :transaction_type do
     description { 'Débito' }
-    kindle { :input }
+    kind { :input }
   end
 end

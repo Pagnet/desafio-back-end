@@ -1,26 +1,54 @@
 module Importers
   class CnabImporter
+    TYPE_POSITION = { start_at: 0, size: 1 }.freeze
+    DATE_POSITION = { start_at: 1, size: 8 }.freeze
+    AMOUNT_POSITION = { start_at: 9, size: 10 }.freeze
+    CPF_POSITION = { start_at: 19, size: 11 }.freeze
+    CARD_POSITION = { start_at: 30, size: 12 }.freeze
+    TIME_POSITION = { start_at: 42, size: 6 }.freeze
+    STOREKEEPER_POSITION = { start_at: 48, size: 14 }.freeze
+    STORE_POSITION = { start_at: 62, size: 19 }.freeze
+
     def perform(file_path)
-      File.foreach(file_path) { |line| import_line(line) }
+      File.foreach(file_path) { |line| import_transaction(line) }
     end
 
-    def import_line(line)
-      parsed_transaction = line_parser(line)
+    def import_transaction(line)
+      parsed_transaction = parse_line(line)
 
-    end
+      type = TransactionType.find(parsed_transaction.type)
+      customer = Customer.find_or_create_by(cpf: parsed_transaction.cpf)
+      card = Card.find_or_create_by(number: parsed_transaction.card_number)
+      store = sync_store(parsed_transaction.store, parsed_transaction.storekeeper)
 
-    def line_parser(line)
-      OpenStruct.new(
-        type: line[0].to_i,
-        date: "#{line[1..4]}/#{line[5..6]}/#{line[7..8]}".to_date,
-        amount: line[9..18].to_f / 100.0,
-        cpf: line[19..29],
-        card_number: line[30..41],
-        hour: "#{line[42..43]}:#{line[44..45]}:#{line[46..47]}",
-        storekeeper: line[48..61].strip,
-        store: line[62..80].strip
+      Transaction.create(
+        transaction_type: type,
+        customer: customer,
+        card: card,
+        store: store,
+        processed_at: parsed_transaction.processed_at,
+        amount: parsed_transaction.amount
       )
     end
 
+    def parse_line(line)
+      OpenStruct.new(
+        type: line.slice(TYPE_POSITION[:start_at], TYPE_POSITION[:size]).to_i,
+        processed_at: DateTime.strptime("#{line[1..8]} #{line[42..47]}", '%Y%m%d %H%M%S'),
+        amount: line.slice(AMOUNT_POSITION[:start_at], AMOUNT_POSITION[:size]).to_f / 100.0,
+        cpf: line.slice(CPF_POSITION[:start_at], CPF_POSITION[:size]),
+        card_number: line.slice(CARD_POSITION[:start_at], CARD_POSITION[:size]),
+        storekeeper: line.slice(STOREKEEPER_POSITION[:start_at], STOREKEEPER_POSITION[:size]).strip,
+        store: line.slice(STORE_POSITION[:start_at], STORE_POSITION[:size]).strip
+      )
+    end
+
+    private
+
+    def sync_store(store, storekeeper)
+      store = Store.find_or_create_by(name: store)
+      store.update(storekeeper: storekeeper) if store.storekeeper != storekeeper
+      store
+    end
   end
 end
