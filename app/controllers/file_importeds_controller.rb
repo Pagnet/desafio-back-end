@@ -15,10 +15,11 @@ class FileImportedsController < ApplicationController
   def create
     @file_imported = FileImported.new
     @file_imported.file.attach(params[:file_imported][:file])
-
     respond_to do |format|
       if @file_imported.save
-        format.html { redirect_to @file_imported, notice: 'File imported was successfully created.' }
+        CnabImporterJob.perform_later(@file_imported.id)
+
+        format.html { redirect_to file_importeds_url, notice: 'File imported was successfully created.' }
       else
         format.html { render :new }
       end
