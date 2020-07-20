@@ -110,7 +110,7 @@ You're all set! Now you're ready to code!
 You can run the Rails up using the following command:
 
 ```sh
-$ docker-compose up rails
+$ docker-compose up sidekiq rails
 ```
 
 If you want to run Webpack Dev server as well:

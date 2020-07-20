@@ -74,6 +74,7 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     concurrent-ruby (1.1.6)
+    connection_pool (2.2.3)
     crass (1.0.6)
     diff-lcs (1.4.4)
     dip (6.0.0)
@@ -155,6 +156,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.2.1)
     regexp_parser (1.7.1)
     rexml (3.2.4)
     rspec-core (3.9.2)
@@ -208,6 +210,10 @@ GEM
       rubyzip (>= 1.2.2)
     shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
+    sidekiq (6.1.0)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -270,6 +276,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   shoulda-matchers
+  sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

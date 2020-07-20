@@ -20,8 +20,15 @@ FrozenStringLiteralComment:
 Layout/LineLength:
   Max: 120
 
+Metrics/AbcSize:
+  Max: 20
+
 Metrics/MethodLength:
-  Max: 15
+  Max: 20
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
 
 Rails:
   Enabled: true
