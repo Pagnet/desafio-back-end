@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe '/file_importeds', type: :request do
+  include ActiveJob::TestHelper
+
   let(:valid_attributes) do
     { file: Rack::Test::UploadedFile.new('spec/fixtures/files/CNAB.txt') }
   end
@@ -35,6 +37,12 @@ RSpec.describe '/file_importeds', type: :request do
       it 'redirects to the created file_imported' do
         post file_importeds_url, params: { file_imported: valid_attributes }
         expect(response).to redirect_to(file_importeds_url)
+      end
+
+      it 'enqueues one job to process the import' do
+        assert_enqueued_with(job: CnabImporterJob) do
+          post file_importeds_url, params: { file_imported: valid_attributes }
+        end
       end
     end
 
