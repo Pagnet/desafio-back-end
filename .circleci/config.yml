@@ -18,6 +18,9 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: app_test
 
+      - image: circleci/redis:6-alpine
+
+
     steps:
       - checkout
 
