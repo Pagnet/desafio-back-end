@@ -34,7 +34,7 @@ RSpec.describe '/file_importeds', type: :request do
 
       it 'redirects to the created file_imported' do
         post file_importeds_url, params: { file_imported: valid_attributes }
-        expect(response).to redirect_to(file_imported_url(FileImported.last))
+        expect(response).to redirect_to(file_importeds_url)
       end
     end
 
