@@ -1,0 +1,45 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.7
+  TargetRailsVersion: 6
+
+  Exclude:
+    - "bin/**/*"
+    - "db/**/*"
+    - vendor/**/*
+    - log/**/*
+    - node_modules/**/*
+
+FrozenStringLiteralComment:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Rails:
+  Enabled: true
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - spec/**/*
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+

@@ -1,3 +1,73 @@
+# Executar o projeto utilizando o Docker (Recomendado)
+
+Você deve instalar `docker` e `docker-compose`.
+
+## Provisionando
+
+Executte os comandos a baixo para preoarar seu ambiente utilizando Docker:
+
+```sh
+$ docker-compose build
+$ docker-compose run runner yarn install
+$ docker-compose run runner ./bin/setup
+```
+
+Além de criar a imagem Docker, tambem será instalado as dependencias do projeto e configurar o banco de dados.
+
+Executando o projeto:
+
+```sh
+$ docker-compose up sidekiq rails
+```
+
+### Dip
+
+Você tambpem pode utilizar o [`dip`](https://github.com/bibendi/dip)–CLI ele ajuda provisionar e facilita a interação com o projeto usando o `docker-compose`.
+
+Para instalar o `dip` execute o comando:
+
+```sh
+$ gem install dip
+```
+
+Em seguida, use os seguintes comandos:
+
+```sh
+# provisionar a aplicação
+dip provision
+
+# executar a aplicação web app com recursos de debugging (i.e. `binding.pry`)
+dip rails s
+
+# console do rails
+dip rails c
+
+# executar  webpacker dev server
+dip up webpacker
+```
+
+##  No ambiente de desenvolvimento local
+Você deve ter as seguintes dependencias instaladas:
+- [PostgreSQL](https://www.postgresql.org/)
+- [Ruby 2.7.1](https://www.ruby-lang.org/en/)
+- [Redis 6](https://redis.io/)
+- [NodeJS 11](https://nodejs.org/en/download/)
+- [Yarn 1.22.4](https://yarnpkg.com/lang/en/docs/install).
+
+Defina as variaveis de ambiente
+ ```
+  - REDIS_URL=redis://redis:6379/
+  - DATABASE_URL=postgres://postgres:postgres@postgres
+ ```
+Instale as dependencias do projeto com os comandos `yarn && bundle`.
+
+Configure o banco de dados com o comando `bundle exec rails db:prepare`
+
+Inicie o sidekiq com o comando `bundle exec sidekiq -C config/sidekiq.yml`
+
+Inicie o servidor com o comando `bundle exec rails s`
+
+
 # Desafio programação - para vaga Back-end
 
 Por favor leiam este documento do começo ao fim, com muita atenção.
@@ -35,30 +105,30 @@ Sua tarefa é criar uma interface web que aceite upload do [arquivo CNAB](https:
 
 # Documentação do CNAB
 
-| Descrição do campo  | Inicio | Fim | Tamanho | Comentário
-| ------------- | ------------- | -----| ---- | ------
-| Tipo  | 1  | 1 | 1 | Tipo da transação
-| Data  | 2  | 9 | 8 | Data da ocorrência
-| Valor | 10 | 19 | 10 | Valor da movimentação. *Obs.* O valor encontrado no arquivo precisa ser divido por cem(valor / 100.00) para normalizá-lo.
-| CPF | 20 | 30 | 11 | CPF do beneficiário
-| Cartão | 31 | 42 | 12 | Cartão utilizado na transação 
-| Hora  | 43 | 48 | 6 | Hora da ocorrência atendendo ao fuso de UTC-3
-| Dono da loja | 49 | 62 | 14 | Nome do representante da loja
-| Nome loja | 63 | 81 | 19 | Nome da loja
+| Descrição do campo | Inicio | Fim | Tamanho | Comentário                                                                                                                |
+| ------------------ | ------ | --- | ------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Tipo               | 1      | 1   | 1       | Tipo da transação                                                                                                         |
+| Data               | 2      | 9   | 8       | Data da ocorrência                                                                                                        |
+| Valor              | 10     | 19  | 10      | Valor da movimentação. _Obs._ O valor encontrado no arquivo precisa ser divido por cem(valor / 100.00) para normalizá-lo. |
+| CPF                | 20     | 30  | 11      | CPF do beneficiário                                                                                                       |
+| Cartão             | 31     | 42  | 12      | Cartão utilizado na transação                                                                                             |
+| Hora               | 43     | 48  | 6       | Hora da ocorrência atendendo ao fuso de UTC-3                                                                             |
+| Dono da loja       | 49     | 62  | 14      | Nome do representante da loja                                                                                             |
+| Nome loja          | 63     | 81  | 19      | Nome da loja                                                                                                              |
 
 # Documentação sobre os tipos das transações
 
-| Tipo | Descrição | Natureza | Sinal |
-| ---- | -------- | --------- | ----- |
-| 1 | Débito | Entrada | + |
-| 2 | Boleto | Saída | - |
-| 3 | Financiamento | Saída | - |
-| 4 | Crédito | Entrada | + |
-| 5 | Recebimento Empréstimo | Entrada | + |
-| 6 | Vendas | Entrada | + |
-| 7 | Recebimento TED | Entrada | + |
-| 8 | Recebimento DOC | Entrada | + |
-| 9 | Aluguel | Saída | - |
+| Tipo | Descrição              | Natureza | Sinal |
+| ---- | ---------------------- | -------- | ----- |
+| 1    | Débito                 | Entrada  | +     |
+| 2    | Boleto                 | Saída    | -     |
+| 3    | Financiamento          | Saída    | -     |
+| 4    | Crédito                | Entrada  | +     |
+| 5    | Recebimento Empréstimo | Entrada  | +     |
+| 6    | Vendas                 | Entrada  | +     |
+| 7    | Recebimento TED        | Entrada  | +     |
+| 8    | Recebimento DOC        | Entrada  | +     |
+| 9    | Aluguel                | Saída    | -     |
 
 # Avaliação
 

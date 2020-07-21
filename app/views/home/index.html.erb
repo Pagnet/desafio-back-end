@@ -1,0 +1,39 @@
+<div>
+  <%= link_to 'Importar arquivo CNAB', file_importeds_path %>
+</div>
+<div>
+  <div>
+    <% @stores.each do |store| %>
+      <div>
+        <h2><%= store.name %></h2>
+        <span>Proprietario: <%= store.storekeeper%></span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Cliente</th>
+            <th>Cartão</th>
+            <th>Horario</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% store.transactions.each do |transaction| %>
+            <tr>
+              <td><%= transaction.transaction_type.description %></td>
+              <td><%= transaction.customer.cpf %></td>
+              <td><%= transaction.card.number %></td>
+              <td><%= I18n.l(transaction.processed_at, format: :long) %></td>
+              <td><%= number_to_currency(transaction.amount) %></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td><strong><strong><%= number_to_currency(store.balance) %></strong></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>

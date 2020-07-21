@@ -1,0 +1,14 @@
+<h1>Importar novo arquivo CNAE</h1>
+
+<%= form_with(model: @file_imported, local: true) do |form| %>
+  <div class="field">
+    <%= form.file_field :file, accept: '.txt', required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Enviar"%>
+  </div>
+<% end %>
+
+
+<%= link_to 'Voltar', file_importeds_path %>
