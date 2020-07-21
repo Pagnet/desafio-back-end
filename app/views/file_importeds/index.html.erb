@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1>Arquivos CNAB</h1>
 <br>
-<%= link_to 'Importar arquivo CNAB', new_file_imported_path %>
+<%= link_to 'Importar arquivo', new_file_imported_path %>
 <br>
 <br>
 <% if @file_importeds.present? %>
@@ -18,7 +18,7 @@
         <tr>
           <td><%= link_to file_imported.file.filename, url_for(file_imported.file) %></td>
           <td><%= I18n.l(file_imported.created_at, format: :long) %></td>
-          <td><%= link_to 'Apagar', file_imported, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Apagar', file_imported, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
         </tr>
       <% end %>
     </tbody>
