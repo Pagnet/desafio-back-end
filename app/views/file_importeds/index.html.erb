@@ -1,29 +1,28 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Arquivos CNAB importados</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>created at</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @file_importeds.each do |file_imported| %>
-      <tr>
-        <td><%= file_imported.id %></td>
-        <td><%= file_imported.created_at %></td>
-        <td><%= link_to file_imported.file.filename, url_for(file_imported.file) %></td>
-        <td><%= link_to 'Destroy', file_imported, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<h1>Arquivos CNAB</h1>
 <br>
-
-<%= link_to 'New File Imported', new_file_imported_path %>
+<%= link_to 'Importar arquivo', new_file_imported_path %>
+<br>
+<br>
+<% if @file_importeds.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome do arquivo</th>
+        <th>Criado em</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @file_importeds.each do |file_imported| %>
+        <tr>
+          <td><%= link_to file_imported.file.filename, url_for(file_imported.file) %></td>
+          <td><%= I18n.l(file_imported.created_at, format: :long) %></td>
+          <td><%= link_to 'Apagar', file_imported, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+<br>
+<%= link_to 'Home', root_path %>

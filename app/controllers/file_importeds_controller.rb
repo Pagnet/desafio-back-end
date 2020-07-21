@@ -19,7 +19,7 @@ class FileImportedsController < ApplicationController
       if @file_imported.save
         CnabImporterJob.perform_later(@file_imported.id)
 
-        format.html { redirect_to file_importeds_url, notice: 'File imported was successfully created.' }
+        format.html { redirect_to file_importeds_url, notice: 'Arquivo importado com sucesso!' }
       else
         format.html { render :new }
       end
@@ -30,7 +30,7 @@ class FileImportedsController < ApplicationController
   def destroy
     @file_imported.destroy
     respond_to do |format|
-      format.html { redirect_to file_importeds_url, notice: 'File imported was successfully destroyed.' }
+      format.html { redirect_to file_importeds_url, notice: 'Arquivo apagado!' }
     end
   end
 
