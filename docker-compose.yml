@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+    environment:
+      BUNDLE_PATH: /app/vendor/bundle
+      SSH_CLIENT: 172.17.0.1
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+
+volumes:
+  postgresql_data:
