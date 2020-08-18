@@ -1,0 +1,10 @@
+= form_for :upload, html: { multipart: true, url: import_financial_entries_path, class: "form form-horizontal financial_entry" } do |f|
+  .form-group
+    = f.label :file, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.file_field :file, class: 'form-control', required: true
+    = f.error_span(:file)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit nil,class: 'btn btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), financial_entries_path, :class => 'btn btn-default'

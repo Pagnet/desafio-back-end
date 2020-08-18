@@ -32,6 +32,7 @@
             - if user_signed_in?
               %li.nav-item= link_to 'Log out', destroy_user_session_path, method: 'delete', class: 'nav-link'
               %li.nav-item= link_to 'Stores', stores_path, class: 'nav-link'
+              %li.nav-item= link_to 'Import entries', import_financial_entries_path, class: 'nav-link'
             - else
               %li.nav-item= link_to 'Login', new_user_session_path, class: 'nav-link'
               %li.nav-item= link_to 'Sign Up', new_user_registration_path, class: 'nav-link'

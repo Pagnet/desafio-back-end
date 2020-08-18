@@ -48,22 +48,28 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'sidekiq'
 gem 'haml-rails'
-gem 'twitter-bootstrap-rails'
 gem 'kaminari'
 gem 'awesome_print'
 gem 'draper'
 gem 'rack-attack'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'bundler-audit'
+  gem 'bundler-audit', require: false
   gem 'rails_best_practices'
+end
+
+group :development, :production do
+  gem 'twitter-bootstrap-rails'
 end
 
 group :test do
   gem 'rspec-rails'
   gem 'factory_bot'
   gem 'faker'
+  gem 'rails-controller-testing'
+  gem 'database_cleaner'
 end
 
 group :development do

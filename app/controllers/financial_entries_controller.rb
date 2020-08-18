@@ -61,6 +61,14 @@ class FinancialEntriesController < ApplicationController
     end
   end
 
+  def import_form
+    render :import
+  end
+
+  def import
+    Command::FinancialEntry::Import.new(file: entry_import_params[:file]).execute
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_financial_entry
@@ -72,4 +80,7 @@ class FinancialEntriesController < ApplicationController
       params.require(:financial_entry).permit(:kind, :transaction_date, :transaction_time, :amount, :social_number, :card_number, :store_id)
     end
 
+    def entry_import_params
+      params.require(:upload).permit(:file)
+    end
 end

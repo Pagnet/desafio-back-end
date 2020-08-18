@@ -15,7 +15,7 @@ describe FixedFormatFile::CNAB::FieldBuilder do
       ]}
 
       it 'returns built field configuration' do
-        expect(declared_fields.map{ |field| described_class.build(*field)}).to eq([
+        expect(declared_fields.map{ |field| described_class.build(field[0], **field[1])}).to eq([
           { type: [1, 1] },
           { transaction_date: [2, 9] },
           { amount: [10, 19] },

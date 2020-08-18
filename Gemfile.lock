@@ -84,6 +84,7 @@ GEM
     concurrent-ruby (1.1.7)
     connection_pool (2.2.3)
     crass (1.0.6)
+    database_cleaner (1.8.5)
     debug_inspector (0.0.3)
     devise (4.7.2)
       bcrypt (~> 3.0)
@@ -230,6 +231,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 6.0.3.2)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -369,6 +374,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   bundler-audit
   byebug
+  database_cleaner
   devise
   devise-i18n
   draper
@@ -388,6 +394,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rack-attack
   rails (~> 6.0.3, >= 6.0.3.2)
+  rails-controller-testing
   rails-i18n
   rails_best_practices
   rspec-rails
