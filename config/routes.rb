@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   authenticate :user do
     resources :stores
+    resources :financial_entries
   end
 end

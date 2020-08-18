@@ -1,0 +1,40 @@
+= form_for @financial_entry, html: { class: "form form-horizontal financial_entry" } do |f|
+  .form-group
+    = f.label :kind, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :kind, class: 'form-control', required: true
+    = f.error_span(:kind)
+  .form-group
+    = f.label :transaction_date, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :transaction_date, class: 'form-control', required: true
+    = f.error_span(:transaction_date)
+  .form-group
+    = f.label :transaction_time, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :transaction_time, class: 'form-control', required: true
+    = f.error_span(:transaction_time)
+  .form-group
+    = f.label :amount, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :amount, class: 'form-control', required: true
+    = f.error_span(:amount)
+  .form-group
+    = f.label :social_number, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :social_number, class: 'form-control', required: true
+    = f.error_span(:social_number)
+  .form-group
+    = f.label :card_number, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :card_number, class: 'form-control', required: true
+    = f.error_span(:card_number)
+  .form-group
+    = f.label :store_id, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :store_id, class: 'form-control', required: true
+    = f.error_span(:store_id)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit nil,class: 'btn btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), financial_entries_path, :class => 'btn btn-default'
