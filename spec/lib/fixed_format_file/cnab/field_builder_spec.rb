@@ -1,6 +1,6 @@
 require 'fixed_format_file/cnab/field_builder'
 
-describe FixedFormatFile::CNAB::FieldBuilder do
+RSpec.describe FixedFormatFile::CNAB::FieldBuilder do
   context 'when building a CNAB field' do
     context 'when correct field name and range are given' do
       let(:declared_fields) {[

@@ -2,7 +2,7 @@ require 'fixed_format_file/base/dsl'
 require 'fixed_format_file/cnab/line_reader'
 require 'fixed_format_file/cnab/field_builder'
 
-describe FixedFormatFile::Base::DSL do
+RSpec.describe FixedFormatFile::Base::DSL do
   context 'when parsing a CNAB line' do
     context 'when correct field declarations are given' do
       class SampleDSL

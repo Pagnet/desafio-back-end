@@ -73,9 +73,6 @@ GEM
     bootsnap (1.4.8)
       msgpack (~> 1.0)
     builder (3.2.4)
-    bundler-audit (0.7.0.1)
-      bundler (>= 1.2.0, < 3)
-      thor (>= 0.18, < 2)
     byebug (11.1.3)
     code_analyzer (0.5.2)
       sexp_processor
@@ -95,6 +92,7 @@ GEM
     devise-i18n (1.9.1)
       devise (>= 4.7.1)
     diff-lcs (1.4.4)
+    docile (1.3.2)
     draper (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -106,6 +104,9 @@ GEM
     execjs (2.7.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     faker (2.13.0)
       i18n (>= 1.6, < 2)
     ffi (1.13.1)
@@ -275,6 +276,8 @@ GEM
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
       rspec-mocks (~> 3.9.0)
+    rspec-collection_matchers (1.2.0)
+      rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.9.2)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.2)
@@ -318,10 +321,16 @@ GEM
       tilt
     sexp_processor (4.15.0)
     shellany (0.0.1)
+    shoulda-matchers (4.3.0)
+      activesupport (>= 4.2.0)
     sidekiq (6.1.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
+    simplecov (0.19.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+    simplecov-html (0.12.2)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -372,13 +381,13 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap (>= 1.4.2)
-  bundler-audit
   byebug
   database_cleaner
   devise
   devise-i18n
   draper
   factory_bot
+  factory_bot_rails
   faker
   guard
   guard-rails_best_practices
@@ -397,9 +406,12 @@ DEPENDENCIES
   rails-controller-testing
   rails-i18n
   rails_best_practices
+  rspec-collection_matchers
   rspec-rails
   sass-rails (>= 6)
+  shoulda-matchers
   sidekiq
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

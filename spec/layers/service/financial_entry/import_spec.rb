@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-describe Service::FinancialEntry::Import do
+RSpec.describe Service::FinancialEntry::Import do
   describe '.execute' do
     context 'single processing' do
       subject do
         described_class.execute(file: File.new(Rails.root.join('spec/fixtures/CNAB-sample.txt')))
       end
 
-      it 'imports one financial entry', tz: 'Brasilia' do
+      it 'imports one financial entry' do
         expect{ subject }.to change{ FinancialEntry.count }.by(1)
           .and change{ Store.count }.by(1)
 

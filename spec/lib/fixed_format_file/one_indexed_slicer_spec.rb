@@ -1,6 +1,6 @@
 require 'fixed_format_file/one_indexed_slicer'
 
-describe FixedFormatFile::OneIndexedSlicer do
+RSpec.describe FixedFormatFile::OneIndexedSlicer do
   context 'when slicing a fixed format input string' do
     let(:input) { '3201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO        ' }
     let(:format) {[

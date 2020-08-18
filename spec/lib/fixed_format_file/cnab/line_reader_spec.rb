@@ -1,7 +1,7 @@
 require 'fixed_format_file/cnab/line_reader'
 require 'fixed_format_file/base/slicer'
 
-describe FixedFormatFile::CNAB::LineReader do
+RSpec.describe FixedFormatFile::CNAB::LineReader do
   context 'when reading a CNAB line' do
     subject { described_class.new(fields: fields, **config) }
 

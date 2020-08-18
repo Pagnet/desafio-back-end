@@ -9,6 +9,8 @@ class FinancialEntry < ApplicationRecord
   attribute :created_at,       :datetime
   attribute :updated_at,       :datetime
 
+  validates_presence_of %i(store kind transaction_date amount social_number transaction_time)
+
   belongs_to :store
 
   enum kind: {

@@ -56,7 +56,6 @@ gem 'rack-attack'
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'bundler-audit', require: false
   gem 'rails_best_practices'
 end
 
@@ -67,9 +66,13 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'factory_bot'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'rails-controller-testing'
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
+  gem 'rspec-collection_matchers'
 end
 
 group :development do

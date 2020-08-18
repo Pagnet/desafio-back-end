@@ -1,4 +1,6 @@
-describe FinancialEntryParserCNAB do
+require 'rails_helper'
+
+RSpec.describe FinancialEntryParserCNAB do
   describe '#parse' do
     subject { described_class.new }
     let(:input) { '3201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO        ' }
