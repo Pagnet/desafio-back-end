@@ -16,16 +16,24 @@ RSpec.describe FinancialEntriesController, type: :controller do
         }
       }
 
-      post :import, params: params, as: :json
+      post :import, params: params
     end
 
     it 'imports new financial entries' do
       expect{ subject }.to change{ FinancialEntry.count }.by(1)
         .and change{ Store.count }.by(1)
 
-      expect(response).to render_template('import')
+      expect(response).to redirect_to(import_financial_entries_path)
     end
+  end
 
-    it 'redirects to stores index'
+  describe 'DELETE destroy' do
+    let!(:entry) { create(:financial_entry) }
+    subject { delete :destroy, params: { id: entry.id } }
+
+    it 'imports new financial entries' do
+      expect{ subject }.to change{ FinancialEntry.count }.by(-1)
+      expect(response).to redirect_to(edit_store_path(entry.store_id))
+    end
   end
 end

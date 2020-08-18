@@ -14,3 +14,8 @@ stop:
 
 down:
 	docker-compose down
+
+setup:
+	docker-compose build
+	docker-compose run --rm web bundle exec rails db:setup
+	docker-compose up -d

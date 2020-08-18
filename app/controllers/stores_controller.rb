@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :set_store, only: [:show, :update, :destroy]
 
   # GET /stores
   # GET /stores.json
@@ -19,6 +19,7 @@ class StoresController < ApplicationController
 
   # GET /stores/1/edit
   def edit
+    @store = Store.find(params[:id]).decorate
   end
 
   # POST /stores
@@ -42,7 +43,7 @@ class StoresController < ApplicationController
   def update
     respond_to do |format|
       if @store.update(store_params)
-        format.html { redirect_to @store, notice: 'Store was successfully updated.' }
+        format.html { redirect_to edit_store_path(@store.id), notice: 'Store was successfully updated.' }
         format.json { render :show, status: :ok, location: @store }
       else
         format.html { render :edit }

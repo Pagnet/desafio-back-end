@@ -36,6 +36,6 @@ class FinancialEntry < ApplicationRecord
       transfer_ted: :+,
       transfer_doc: :+,
       rent: :-,
-    }[kind]
+    }.with_indifferent_access[kind]
   end
 end

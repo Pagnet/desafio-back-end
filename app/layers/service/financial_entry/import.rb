@@ -4,7 +4,7 @@ module Service
       def self.execute(file:, **config)
         parser = config.fetch(:parser) { FinancialEntryParserCNAB.new }
         associated_stores = Hash.new do |hash, (store_name, store_owner)|
-          hash[[store_name, store_owner]] = Store.find_or_create_by!(name: store_name, owner: store_owner)
+          hash[[store_name, store_owner]] = ::Store.find_or_create_by!(name: store_name, owner: store_owner)
         end
 
         ActiveRecord::Base.transaction do

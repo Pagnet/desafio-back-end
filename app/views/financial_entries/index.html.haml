@@ -1,33 +1,6 @@
 - model_class = FinancialEntry
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
-%table.table.table-striped
-  %thead
-    %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:kind)
-      %th= model_class.human_attribute_name(:transaction_date)
-      %th= model_class.human_attribute_name(:transaction_time)
-      %th= model_class.human_attribute_name(:amount)
-      %th= model_class.human_attribute_name(:social_number)
-      %th= model_class.human_attribute_name(:card_number)
-      %th= model_class.human_attribute_name(:store_id)
-      %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
-  %tbody
-    - @financial_entries.each do |financial_entry|
-      %tr
-        %td= link_to financial_entry.id, financial_entry_path(financial_entry)
-        %td= financial_entry.kind
-        %td= financial_entry.transaction_date
-        %td= financial_entry.transaction_time
-        %td= financial_entry.amount
-        %td= financial_entry.social_number
-        %td= financial_entry.card_number
-        %td= financial_entry.store_id
-        %td=l financial_entry.created_at
-        %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_financial_entry_path(financial_entry), :class => 'btn btn-default btn-xs'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), financial_entry_path(financial_entry), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
 
+= render :partial => "financial_entries/index_table", locals: { entries: @financial_entries }
 = link_to t('.new', :default => t("helpers.links.new")), new_financial_entry_path, :class => 'btn btn-primary'
