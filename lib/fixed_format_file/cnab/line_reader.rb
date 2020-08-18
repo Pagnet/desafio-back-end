@@ -1,4 +1,5 @@
 require_relative '../base/reader'
+require_relative '../one_indexed_slicer'
 
 module FixedFormatFile
   module CNAB
