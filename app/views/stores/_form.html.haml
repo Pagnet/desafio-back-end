@@ -1,0 +1,15 @@
+= form_for @store, html: { class: "form form-horizontal store" } do |f|
+  .form-group
+    = f.label :name, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :name, class: 'form-control', required: true
+    = f.error_span(:name)
+  .form-group
+    = f.label :owner, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :owner, class: 'form-control', required: true
+    = f.error_span(:owner)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit nil,class: 'btn btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), stores_path, :class => 'btn btn-default'
