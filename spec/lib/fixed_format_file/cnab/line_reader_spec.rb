@@ -33,6 +33,14 @@ describe FixedFormatFile::CNAB::LineReader do
       end
     end
 
+    context 'when no fields are given' do
+      let(:fields) { nil }
+
+      it 'returns empty data' do
+        expect(subject.read(input: input)).to be_nil
+      end
+    end
+
     context 'when a custom slicer is given' do
       class CustomSlicer < FixedFormatFile::Base::Slicer
         def self.slice(input:, format:)
@@ -58,10 +66,6 @@ describe FixedFormatFile::CNAB::LineReader do
 
     it 'fails without input' do
       expect{ subject.read }.to raise_error(ArgumentError, 'missing keyword: :input')
-    end
-
-    it 'fails without fields' do
-      expect{ described_class.new }.to raise_error(ArgumentError, 'missing keyword: :fields')
     end
   end
 end
