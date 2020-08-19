@@ -4,7 +4,7 @@ module Service
       def self.execute(**params)
         order = params.fetch(:order, 'created_at desc')
 
-        ::Store.all.order(order)
+        ::Store.all.order(order).decorate
       end
     end
   end
