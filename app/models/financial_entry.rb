@@ -36,6 +36,10 @@ class FinancialEntry < ApplicationRecord
       transfer_ted: :+,
       transfer_doc: :+,
       rent: :-,
-    }.with_indifferent_access[kind]
+    }.with_indifferent_access.fetch(kind)
+  end
+
+  def signed_amount
+    "#{FinancialEntry.kind_operator(self.kind)}1".to_i * amount
   end
 end

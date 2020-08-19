@@ -1,7 +1,8 @@
 class StoreDecorator < ApplicationDecorator
   delegate_all
+  decorates_association :financial_entries
 
   def balance
-    Command::Store::CalculateBalance.new(store: model).execute
+    helpers.number_to_currency Command::Store::CalculateBalance.new(store: model).execute
   end
 end
