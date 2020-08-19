@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   authenticate :user do
-    resources :stores
-    resources :financial_entries do
+    resources :stores, except: %i[show new create]
+
+    resources :financial_entries, only: :destroy do
       collection do
         get :import, action: :import_form
         post :import, action: :import

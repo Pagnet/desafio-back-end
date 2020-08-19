@@ -8,7 +8,7 @@ module Service
         end
 
         ActiveRecord::Base.transaction do
-          File.foreach(file) do |line|
+          File.foreach(file).reduce(0) do |count, line|
             entry_data = parser.parse(line).transform_values!(&:squish)
             store = associated_stores[entry_data.values_at(:store_name, :store_owner)]
 
@@ -20,6 +20,8 @@ module Service
               card_number: entry_data[:card_number],
               transaction_time: entry_data[:transaction_time],
             )
+
+            count += 1
           end
         end
       end

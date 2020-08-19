@@ -1,2 +1,0 @@
-module FinancialEntriesHelper
-end

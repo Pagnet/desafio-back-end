@@ -1,6 +1,4 @@
 class FinancialEntriesController < ApplicationController
-  before_action :set_financial_entry, only: [:destroy]
-
   # DELETE /financial_entries/1
   # DELETE /financial_entries/1.json
   def destroy
@@ -19,19 +17,15 @@ class FinancialEntriesController < ApplicationController
 
   # POST /financial_entries/import
   def import
-    Command::FinancialEntry::Import.new(file: entry_import_params[:file]).execute
+    count = Command::FinancialEntry::Import.new(file: entry_import_params[:file]).execute
 
     respond_to do |format|
-      format.html { redirect_to import_financial_entries_path, notice: 'Financial entries successfully imported.' }
+      format.html { redirect_to import_financial_entries_path, notice: "#{count} financial entries successfully imported." }
       format.json { head :ok }
     end
   end
 
   private
-    def set_financial_entry
-      @financial_entry = FinancialEntry.find(params[:id])
-    end
-
     def entry_import_params
       params.require(:upload).permit(:file)
     end
