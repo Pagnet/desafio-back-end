@@ -31,7 +31,7 @@ RSpec.describe FinancialEntriesController, type: :controller do
     let!(:entry) { create(:financial_entry) }
     subject { delete :destroy, params: { id: entry.id } }
 
-    it 'imports new financial entries' do
+    it 'destroys a financial entry' do
       expect{ subject }.to change{ FinancialEntry.count }.by(-1)
       expect(response).to redirect_to(edit_store_path(entry.store_id))
     end
