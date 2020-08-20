@@ -15,6 +15,9 @@ stop:
 down:
 	docker-compose down
 
+test:
+	docker-compose exec web bundle exec rspec
+
 setup:
 	docker-compose run --rm web bundle install
 	docker-compose up -d

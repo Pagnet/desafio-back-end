@@ -37,7 +37,7 @@ RSpec.describe StoresController, type: :controller do
     let!(:store) { create(:store) }
     subject { delete :destroy, params: { id: store.id } }
 
-    it 'destroy a store' do
+    it 'destroys a store' do
       expect{ subject }.to change{ Store.count }.by(-1)
       expect(response).to redirect_to(stores_path)
     end
