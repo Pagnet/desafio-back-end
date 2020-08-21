@@ -12,7 +12,7 @@ RSpec.describe FinancialEntriesController, type: :controller do
     subject do
       params = {
         upload: {
-          file: Rack::Test::UploadedFile.new(File.new(Rails.root.join('spec/fixtures/CNAB-sample.txt')))
+          file: Rack::Test::UploadedFile.new(File.new(Rails.root.join('spec/fixtures/CNAB-single.txt')))
         }
       }
 

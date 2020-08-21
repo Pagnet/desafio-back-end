@@ -4,7 +4,7 @@ RSpec.describe Service::FinancialEntry::Import do
   describe '.execute' do
     context 'single processing' do
       subject do
-        described_class.execute(file: File.new(Rails.root.join('spec/fixtures/CNAB-sample.txt')))
+        described_class.execute(file: File.new(Rails.root.join('spec/fixtures/CNAB-single.txt')))
       end
 
       it 'imports one financial entry' do

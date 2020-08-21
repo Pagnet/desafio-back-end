@@ -8,7 +8,7 @@ module Command
       end
 
       def execute
-        Service::Store::Search.execute(@params)
+        Service::Store::Search.execute(**@params)
       end
     end
   end
