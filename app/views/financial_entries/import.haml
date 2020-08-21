@@ -5,7 +5,7 @@
   .form-group
     = f.label :file, class: 'control-label col-lg-1'
     .col-lg-10
-      = f.file_field :file, class: 'form-control', required: true
+      = f.file_field :file, class: 'form-control', required: true, accept: Mime[:text]
     = f.error_span(:file)
   .form-group
     .col-lg-offset-1.col-lg-10
