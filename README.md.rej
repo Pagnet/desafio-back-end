@@ -1,0 +1,18 @@
+diff a/README.md b/README.md	(rejected hunks)
+@@ -26,6 +26,16 @@ It will build the docker containers and start the application. This could take a
+ 
+ After that, you can see Rails top page on http://localhost:3000/.
+ 
++### How to test
++
++```
++-- If you have Make installed
++  make test
++
++-- Otherwise
++  docker-compose exec web bundle exec rspec
++```
++
+ ### How to use
+ 
+ 1. Login with credentials:

@@ -1,0 +1,6 @@
+- model_class = FinancialEntry
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+
+= render :partial => "financial_entries/index_table", locals: { entries: @financial_entries }
+= link_to t('.new', :default => t("helpers.links.new")), new_financial_entry_path, :class => 'btn btn-primary'

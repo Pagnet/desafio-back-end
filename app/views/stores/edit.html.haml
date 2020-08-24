@@ -1,0 +1,10 @@
+- model_class = Store
+.page-header
+  %h1
+    =t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+    = link_to t('.cancel', :default => t("helpers.links.back")), stores_path, :class => 'btn btn-default'
+= render :partial => "form"
+
+.row
+  %h3= "Current account balance: #{@store.balance}"
+  = render :partial => "financial_entries/index_table", locals: { entries: @store.financial_entries }
