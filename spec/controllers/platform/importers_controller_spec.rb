@@ -109,17 +109,20 @@ RSpec.describe Platform::ImportersController, type: :controller do
 
       context 'call service' do
         let(:service) { double }
+        let(:job) { double }
         let(:importer) { Importer.last }
 
         before do
           allow(ImporterService).to receive(:new) { service }
-          allow(service).to receive(:call)
+          allow(service).to receive(:delay) { job }
+          allow(job).to receive(:call)
 
           post(:create, params: valid_params)
         end
 
         it { expect(ImporterService).to have_received(:new).with(importer.id) }
-        it { expect(service).to have_received(:call) }
+        it { expect(service).to have_received(:delay) }
+        it { expect(job).to have_received(:call) }
       end
     end
 

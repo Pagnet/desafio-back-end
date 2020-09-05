@@ -41,6 +41,6 @@ class Platform::ImportersController < ApplicationController
   end
 
   def call_service
-    ImporterService.new(importer.id).call
+    ImporterService.new(importer.id).delay.call
   end
 end
