@@ -1,9 +1,9 @@
 pt-BR:
   activerecord:
     attributes:
-      operation:
-        operation_type: Tipo
-        operation_types:
+      operation_type:
+        code: Tipo
+        codes:
           debit: Débito
           bank_slip: Boleto
           financing: Financiamento
@@ -13,18 +13,13 @@ pt-BR:
           ted: Recebimento TED
           doc: Recebimento DOC
           rent: Aluguel
-        operation_type_nature: Natureza
-        occurred_at: Data
-        value: Valor
-        cpf: CPF
-        card_number: Cartão
-        owner: Dono da loja
-        store: Loja
-        created_at: Criado em
-        updated_at: Atualizado em
+        nature: Natureza
+        natures:
+          input: Entrada
+          output: Saída
 
     errors:
       models:
-        operation:
+        operation_type:
           attributes:
 

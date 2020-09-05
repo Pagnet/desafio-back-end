@@ -21,7 +21,7 @@ class CnabParser
   end
 
   def operation_type(row)
-    Operation.operation_types.key(row[0].to_i).to_sym
+    OperationType.find_by(code: row[0].to_i)
   end
 
   def occurred_at(row)
@@ -29,7 +29,7 @@ class CnabParser
   end
 
   def value(row)
-    "#{operation_signal(row)}#{row[9,8]}.#{row[17, 2]}".to_f
+    "#{operation_type_signal(row)}#{row[9,8]}.#{row[17, 2]}".to_f
   end
 
   def cpf(row)
@@ -48,18 +48,7 @@ class CnabParser
     row[62..80].strip
   end
 
-  def operation_signal(row)
-    operation_input?(operation_type(row)) ? '+' : '-'
-  end
-
-  def operation_input?(operation_type)
-    %i[
-      debit
-      credit
-      loan
-      sales
-      ted
-      doc
-    ].include? operation_type
+  def operation_type_signal(row)
+    operation_type(row).signal
   end
 end

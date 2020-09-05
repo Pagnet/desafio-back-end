@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_05_175409) do
+ActiveRecord::Schema.define(version: 2020_09_05_194128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,8 +43,15 @@ ActiveRecord::Schema.define(version: 2020_09_05_175409) do
     t.text "error_message"
   end
 
+  create_table "operation_types", force: :cascade do |t|
+    t.integer "code"
+    t.integer "nature"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_operation_types_on_code"
+  end
+
   create_table "operations", force: :cascade do |t|
-    t.integer "operation_type"
     t.datetime "occurred_at"
     t.decimal "value", precision: 12, scale: 2
     t.string "cpf"
@@ -53,6 +60,8 @@ ActiveRecord::Schema.define(version: 2020_09_05_175409) do
     t.bigint "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "operation_type_id"
+    t.index ["operation_type_id"], name: "index_operations_on_operation_type_id"
     t.index ["store_id"], name: "index_operations_on_store_id"
   end
 
@@ -63,5 +72,6 @@ ActiveRecord::Schema.define(version: 2020_09_05_175409) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "operations", "operation_types"
   add_foreign_key "operations", "stores"
 end

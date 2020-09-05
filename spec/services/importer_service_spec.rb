@@ -51,7 +51,7 @@ describe ImporterService do
 
         before { service.call }
 
-        it { expect(operation.operation_type).to eq(parsed_row[:operation_type].to_s) }
+        it { expect(operation.operation_type).to eq(parsed_row[:operation_type]) }
         it { expect(operation.occurred_at).to eq(parsed_row[:occurred_at]) }
         it { expect(operation.value).to eq(parsed_row[:value]) }
         it { expect(operation.cpf).to eq(parsed_row[:cpf]) }

@@ -33,6 +33,9 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
+# load seeds before run tests
+Rails.application.load_seed
+
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include ActiveStorageValidations::Matchers
