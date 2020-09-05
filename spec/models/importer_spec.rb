@@ -12,6 +12,7 @@ RSpec.describe Importer, type: :model do
   describe 'db' do
     context 'columns' do
       it { is_expected.to have_db_column(:status).of_type(:integer) }
+      it { is_expected.to have_db_column(:error_message).of_type(:text) }
     end
   end
 

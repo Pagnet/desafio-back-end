@@ -36,5 +36,7 @@ module DesafioBackEnd
     config.i18n.load_path += Dir[
       Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s
     ]
+
+    Rails.application.routes.default_url_options[:host] = ENV['DEFAULT_HOST']
   end
 end
