@@ -23,4 +23,19 @@ RSpec.describe Store, type: :model do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_uniqueness_of(:name) }
   end
+
+  describe 'helpers' do
+    describe 'balance' do
+      subject(:store) { create(:store) }
+
+      before do
+        create_list(:operation, 3, store: store, value: rand(1..100).to_f)
+
+        # operation from other store (should not consider)
+        create(:operation)
+      end
+
+      it { expect(store.balance).to eq(store.operations.sum(:value)) }
+    end
+  end
 end

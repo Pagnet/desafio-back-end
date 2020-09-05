@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :operation do
     operation_type { :debit }
     occurred_at { "2020-09-05 01:56:57 UTC" }
-    value { "1.00" }
+    value { 1.00 }
     cpf { "MyString" }
     card_number { "MyString" }
     owner { "MyString" }

@@ -13,7 +13,7 @@
           .row.mb-3
             .col-12
               %label= Store.human_attribute_name(:balance)
-              %span.text-muted= number_to_currency store.operations.sum(:value)
+              %span.text-muted= number_to_currency store.balance
 
           .row
             .col-12
@@ -29,15 +29,12 @@
                     %th= Operation.human_attribute_name(:value)
                     %th= Operation.human_attribute_name(:cpf)
                     %th= Operation.human_attribute_name(:card_number)
-                    %th= Operation.human_attribute_name(:owner)
 
                 %tbody
                   - store.operations.each do |operation|
                     %tr
-
                       %td= I18n.t("activerecord.attributes.operation.operation_types.#{operation.operation_type}")
                       %td= l(operation.occurred_at)
                       %td= number_to_currency operation.value
                       %td= operation.cpf
                       %td= operation.card_number
-                      %td= operation.owner
