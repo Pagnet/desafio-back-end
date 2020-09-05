@@ -15,10 +15,10 @@ class Platform::ImportersController < ApplicationController
 
   def create
     if importer.save
-      flash[:notice] = t('.done')
+      flash.now[:notice] = t('.done')
       redirect_to platform_importers_path
     else
-      flash[:alert] = t('.error')
+      flash.now[:alert] = t('.error')
       render :new
     end
   end

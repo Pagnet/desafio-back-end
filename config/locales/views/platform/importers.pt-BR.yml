@@ -1,0 +1,17 @@
+pt-BR:
+  platform:
+    importers:
+      index:
+        title: Importações
+        commands:
+          new: Nova importação
+
+      new:
+        title: Nova importação
+        commands:
+          save: Enviar
+          cancel: Cancelar
+
+      create:
+        done: Arquivo importado com sucesso
+        error: Erro ao importar arquivo

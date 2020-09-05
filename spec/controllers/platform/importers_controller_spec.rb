@@ -79,7 +79,7 @@ RSpec.describe Platform::ImportersController, type: :controller do
         before { post(:create, params: valid_params) }
 
         it { expect(response).to redirect_to(platform_importers_path) }
-        it { expect(controller).to set_flash.to(expected_flash) }
+        it { expect(controller).to set_flash.now.to(expected_flash) }
       end
     end
 
@@ -98,7 +98,7 @@ RSpec.describe Platform::ImportersController, type: :controller do
         before { post(:create, params: valid_params) }
 
         it { expect(response).to render_template(:new) }
-        it { expect(controller).to set_flash.to(expected_flash) }
+        it { expect(controller).to set_flash.now.to(expected_flash) }
       end
     end
   end

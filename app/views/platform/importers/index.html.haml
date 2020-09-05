@@ -1,2 +1,26 @@
-%h1 Platform::CnabImporters#index
-%p Find me in app/views/platform/cnab_importers/index.html.haml
+.row.justify-content-center
+  .col-12.col-md-9
+
+    .card
+      .card-header
+        .row
+          .col-12.col-md-9
+            %h2.h4.card-title.mb-0= t('.title')
+          .col-12.col-md-3
+            = link_to t('.commands.new'), new_platform_importer_path, class: 'btn btn-success float-right'
+
+      .card-body
+        .card-text
+          %table.table
+            %thead
+              %tr
+                %th= Importer.human_attribute_name(:id)
+                %th= Importer.human_attribute_name(:file)
+                %th= Importer.human_attribute_name(:status)
+
+            %tbody
+              - importers.each do |importer|
+                %tr
+                  %td= importer.id
+                  %td= link_to importer.file.filename, url_for(importer.file)
+                  %td= I18n.t("activerecord.attributes.importer.statuses.#{importer.status}")

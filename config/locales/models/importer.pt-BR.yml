@@ -1,0 +1,18 @@
+pt-BR:
+  activerecord:
+    attributes:
+      importer:
+        id: Identificador
+        file: Arquivo CNAB
+        status: Status
+        statuses:
+          pending: Na fila
+          success: Sucesso
+          error: Erro
+        created_at: Criado em
+        updated_at: Atualizado em
+
+    errors:
+      models:
+        importer:
+          attributes:

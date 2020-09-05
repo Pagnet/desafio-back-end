@@ -1,2 +1,19 @@
-%h1 Platform::CnabImporters#new
-%p Find me in app/views/platform/cnab_importers/new.html.haml
+.row.justify-content-center
+  .col-12.col-md-9
+
+    .card
+      .card-header
+        %h2.h4.card-title.mb-0= t('.title')
+
+      .card-body
+        .card-text
+          = simple_form_for [:platform, importer] do |f|
+            .row
+              .col-12
+                = f.input :file
+
+            .row.mt-3
+              .col-12.col-md-6
+                = link_to t('.commands.cancel'), platform_importers_path, class: 'btn btn-warning float-left'
+              .col-12.col-md-6
+                = f.submit t('.commands.save'), class: 'btn btn-primary float-right'
