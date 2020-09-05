@@ -8,6 +8,9 @@ class ImporterService
   end
 
   def call
+    importer.in_progress!
+
+    sleep 10
     begin
       download_blob_to_tempfile do |tempfile|
         rows = CnabParser.new(tempfile.path).call

@@ -2,7 +2,7 @@ class Importer < ApplicationRecord
 
   # Enums
 
-  enum status: %i[pending success error]
+  enum status: %i[pending in_progress success error]
 
 
   # Attachments

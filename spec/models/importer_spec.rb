@@ -18,7 +18,7 @@ RSpec.describe Importer, type: :model do
 
   describe 'enums' do
     describe 'status' do
-      let(:expected) { %i[pending success error] }
+      let(:expected) { %i[pending in_progress success error] }
 
       it { is_expected.to define_enum_for(:status).with_values(expected) }
     end
