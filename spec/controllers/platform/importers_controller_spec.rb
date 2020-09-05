@@ -22,6 +22,31 @@ RSpec.describe Platform::ImportersController, type: :controller do
         it { expect(view_context.importers).to match_array(importers) }
       end
     end
+
+    context 'pagination' do
+      let(:per_page) { 3 }
+
+      context 'default page' do
+        before do
+          create_list(:importer, per_page + 1)
+
+          get(:index)
+        end
+
+        it { expect(controller.view_context.importers.count).to eq(per_page) }
+      end
+
+
+      context 'with page param' do
+        before do
+          create_list(:importer, per_page + 1)
+
+          get(:index, params: { page: 2 })
+        end
+
+        it { expect(controller.view_context.importers.count).to eq(1) }
+      end
+    end
   end
 
   describe 'GET #new' do

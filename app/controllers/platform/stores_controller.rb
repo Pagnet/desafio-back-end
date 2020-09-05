@@ -1,8 +1,10 @@
 class Platform::StoresController < ApplicationController
 
+  PER_PAGE = 3
+
   # helper methods
 
-  helper_method :stores, :store
+  helper_method :stores, :store, :last_operations
 
 
   # actions
@@ -16,10 +18,14 @@ class Platform::StoresController < ApplicationController
   private
 
   def stores
-    @stores ||= Store.all
+    @stores ||= Store.sorted.page(params[:page]).per(PER_PAGE)
   end
 
   def store
     @store ||= Store.find(params[:id])
+  end
+
+  def last_operations
+    @last_operations ||= store.operations.limit(5)
   end
 end

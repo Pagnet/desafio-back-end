@@ -20,3 +20,5 @@
                 %tr
                   %td= link_to store.name, platform_store_path(store)
                   %td= link_to number_to_currency(store.balance), platform_store_path(store)
+
+          = paginate stores

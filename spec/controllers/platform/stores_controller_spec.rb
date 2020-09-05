@@ -22,6 +22,31 @@ RSpec.describe Platform::StoresController, type: :controller do
         it { expect(view_context.stores).to match_array(stores) }
       end
     end
+
+    context 'pagination' do
+      let(:per_page) { 3 }
+
+      context 'default page' do
+        before do
+          create_list(:store, per_page + 1)
+
+          get(:index)
+        end
+
+        it { expect(controller.view_context.stores.count).to eq(per_page) }
+      end
+
+
+      context 'with page param' do
+        before do
+          create_list(:store, per_page + 1)
+
+          get(:index, params: { page: 2 })
+        end
+
+        it { expect(controller.view_context.stores.count).to eq(1) }
+      end
+    end
   end
 
   describe 'GET #show' do
@@ -41,6 +66,12 @@ RSpec.describe Platform::StoresController, type: :controller do
 
       context 'store' do
         it { expect(view_context.store).to eq(store) }
+      end
+
+      context 'last_operations' do
+        before { create_list(:operation, 6, store: store) }
+
+        it { expect(view_context.last_operations).to eq(store.operations.order(occurred_at: :desc).limit(5)) }
       end
     end
   end

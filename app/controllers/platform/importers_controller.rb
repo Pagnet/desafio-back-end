@@ -1,5 +1,7 @@
 class Platform::ImportersController < ApplicationController
 
+  PER_PAGE = 3
+
   # helper methods
 
   helper_method :importers, :importer
@@ -27,7 +29,7 @@ class Platform::ImportersController < ApplicationController
   private
 
   def importers
-    @importers ||= Importer.all
+    @importers ||= Importer.all.page(params[:page]).per(PER_PAGE)
   end
 
   def importer

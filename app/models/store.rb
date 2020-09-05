@@ -2,7 +2,7 @@ class Store < ApplicationRecord
 
   # Associations
 
-  has_many :operations
+  has_many :operations, -> { order(occurred_at: :desc) }
 
 
   #  Validations
@@ -12,6 +12,10 @@ class Store < ApplicationRecord
 
 
   # Helpers
+
+  def self.sorted
+    order(:name)
+  end
 
   def balance
     operations.sum(:signed_value)

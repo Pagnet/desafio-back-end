@@ -16,7 +16,7 @@ RSpec.describe Store, type: :model do
   end
 
   context 'associations' do
-    it { is_expected.to have_many(:operations) }
+    it { is_expected.to have_many(:operations).order(occurred_at: :desc) }
   end
 
   describe 'validations' do
@@ -25,6 +25,10 @@ RSpec.describe Store, type: :model do
   end
 
   describe 'helpers' do
+    describe 'sorted' do
+      it { expect(Store.sorted.to_sql).to eq(Store.order(:name).to_sql) }
+    end
+
     describe 'balance' do
       subject(:store) { create(:store) }
 
