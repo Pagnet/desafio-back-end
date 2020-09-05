@@ -81,6 +81,21 @@ RSpec.describe Platform::ImportersController, type: :controller do
         it { expect(response).to redirect_to(platform_importers_path) }
         it { expect(controller).to set_flash.now.to(expected_flash) }
       end
+
+      context 'call service' do
+        let(:service) { double }
+        let(:importer) { Importer.last }
+
+        before do
+          allow(ImporterService).to receive(:new) { service }
+          allow(service).to receive(:call)
+
+          post(:create, params: valid_params)
+        end
+
+        it { expect(ImporterService).to have_received(:new).with(importer.id) }
+        it { expect(service).to have_received(:call) }
+      end
     end
 
     context 'invalid' do
@@ -99,6 +114,16 @@ RSpec.describe Platform::ImportersController, type: :controller do
 
         it { expect(response).to render_template(:new) }
         it { expect(controller).to set_flash.now.to(expected_flash) }
+      end
+
+      context 'not call service' do
+        before do
+          allow(ImporterService).to receive(:new)
+
+          post(:create, params: valid_params)
+        end
+
+        it { expect(ImporterService).not_to have_received(:new) }
       end
     end
   end

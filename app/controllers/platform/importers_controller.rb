@@ -16,6 +16,7 @@ class Platform::ImportersController < ApplicationController
   def create
     if importer.save
       flash.now[:notice] = t('.done')
+      call_service
       redirect_to platform_importers_path
     else
       flash.now[:alert] = t('.error')
@@ -35,5 +36,9 @@ class Platform::ImportersController < ApplicationController
 
   def resource_params
     params.require(:importer).permit(:file) if params[:importer]
+  end
+
+  def call_service
+    ImporterService.new(importer.id).call
   end
 end
