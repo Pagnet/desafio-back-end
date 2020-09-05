@@ -16,7 +16,6 @@ module DesafioBackEnd
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-
     config.generators do |g|
       g.test_framework :rspec
       g.template_engine :haml
@@ -31,5 +30,11 @@ module DesafioBackEnd
     config.encoding = 'utf-8'
     config.i18n.default_locale = 'pt-BR'
     config.time_zone = 'Brasilia'
+
+
+    # Carrega os locales separados em vários arquivos
+    config.i18n.load_path += Dir[
+      Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s
+    ]
   end
 end
