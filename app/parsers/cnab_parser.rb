@@ -6,7 +6,7 @@ class CnabParser
     @file = File.open(path)
   end
 
-  def parse
+  def call
     file.readlines.map do |row|
       {
         type: row[0].strip,

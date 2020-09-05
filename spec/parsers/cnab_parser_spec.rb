@@ -11,9 +11,9 @@ describe CnabParser do
 
   let(:file_row) { '3201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO       '}
 
-  let(:result) { parser.parse }
+  let(:result) { parser.call }
 
-  describe 'parse' do
+  describe 'call' do
     let(:expected) do
       [
         {
