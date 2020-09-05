@@ -29,7 +29,7 @@ class CnabParser
   end
 
   def value(row)
-    "#{operation_type_signal(row)}#{row[9,8]}.#{row[17, 2]}".to_f
+    BigDecimal("#{row[9,8]}.#{row[17, 2]}")
   end
 
   def cpf(row)
@@ -46,9 +46,5 @@ class CnabParser
 
   def store(row)
     row[62..80].strip
-  end
-
-  def operation_type_signal(row)
-    operation_type(row).signal
   end
 end

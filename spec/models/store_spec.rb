@@ -35,7 +35,7 @@ RSpec.describe Store, type: :model do
         create(:operation)
       end
 
-      it { expect(store.balance).to eq(store.operations.sum(:value)) }
+      it { expect(store.balance).to eq(store.operations.sum(:signed_value)) }
     end
   end
 end

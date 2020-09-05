@@ -22,7 +22,7 @@ describe CnabParser do
             {
               operation_type: operation_type,
               occurred_at: Time.parse('2019-03-01 15:34:53 UTC'),
-              value: "#{operation_type.signal}142.00".to_f,
+              value: BigDecimal('142.00'),
               cpf: '09620676017',
               card_number: '4753****3153',
               owner: 'JOÃO MACEDO',

@@ -14,6 +14,6 @@ class Store < ApplicationRecord
   # Helpers
 
   def balance
-    operations.sum(:value)
+    operations.sum(:signed_value)
   end
 end

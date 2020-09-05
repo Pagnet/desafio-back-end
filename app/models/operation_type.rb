@@ -37,8 +37,4 @@ class OperationType < ApplicationRecord
     return if code.blank?
     I18n.t("activerecord.attributes.operation_type.codes.#{code}")
   end
-
-  def signal
-    input? ? '+' : '-'
-  end
 end

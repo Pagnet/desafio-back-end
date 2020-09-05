@@ -63,21 +63,5 @@ RSpec.describe OperationType, type: :model do
         it { expect(operation_type.title).to eq(nil) }
       end
     end
-
-    describe 'signal' do
-      before { operation_type.update(nature: nature) }
-
-      context 'when nature :input' do
-        let(:nature) { :input }
-
-        it { expect(operation_type.signal).to eq('+') }
-      end
-
-      context 'when nature :output' do
-        let(:nature) { :output }
-
-        it { expect(operation_type.signal).to eq('-') }
-      end
-    end
   end
 end
