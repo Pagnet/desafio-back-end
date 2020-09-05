@@ -1,0 +1,29 @@
+pt-BR:
+  activerecord:
+    attributes:
+      operation:
+        operation_type: Tipo
+        operation_types:
+          debit: Débito
+          bank_slip: Boleto
+          financing: Financiamento
+          credit: Crédito
+          loan: Recebimento Empréstimo
+          sales: Vendas
+          ted: Recebimento TED
+          doc: Recebimento DOC
+          rent: Aluguel
+        occurred_at: Data
+        value: Valor
+        cpf: CPF
+        card_number: Cartão
+        owner: Dono da loja
+        store: Loja
+        created_at: Criado em
+        updated_at: Atualizado em
+
+    errors:
+      models:
+        operation:
+          attributes:
+

@@ -1,0 +1,22 @@
+.row.justify-content-center
+  .col-12.col-md-9
+
+    .card
+      .card-header
+        .row
+          .col-12
+            %h2.h4.card-title.mb-0= t('.title')
+
+      .card-body
+        .card-text
+          %table.table
+            %thead
+              %tr
+                %th= Store.human_attribute_name(:name)
+                %th= Store.human_attribute_name(:balance)
+
+            %tbody
+              - stores.each do |store|
+                %tr
+                  %td= link_to store.name, platform_store_path(store)
+                  %td= link_to store.operations.sum(:value), platform_store_path(store)
