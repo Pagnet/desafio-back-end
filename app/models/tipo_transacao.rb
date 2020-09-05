@@ -1,0 +1,2 @@
+class TipoTransacao < ApplicationRecord
+end

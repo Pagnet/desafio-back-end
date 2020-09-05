@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
-    <title>DesafioBackEnd</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Solides - Controle de Ponto</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +12,39 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background-color: <%= '#f4f0eb;' if current_user.present? %> <%= '#1D253C' if !current_user.present? %>">
+    <% if logado? %>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 0px 20px 0px 20px;">
+        <div class="container">
+          <a class="navbar-brand" href="<%= jornadas_path %>">
+            <img class="mb-4" src="https://pagnet-production.s3.amazonaws.com/uploads/layout_setting/logo/5/logo-blu.png" alt="" width="75" height="30" style="margin-bottom: 2px !important;">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text" id="navbarsExample03">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <%= link_to 'Início', jornadas_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Olá <%= current_user.nome %></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown03" style="margin-bottom: 10px;">
+                  <%= link_to 'Minhas Jornadas', minhas_jornadas_path, class: "dropdown-item" %>
+                  <%= link_to 'Minha conta', edit_usuario_path(current_user), class: "dropdown-item" %>
+                  <%= link_to 'Sair', logout_path, method: 'delete', class: "dropdown-item" %>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <% else %>
+      <div class="container text-center" style="margin-top: 20px;">
+        <img class="mb-4" src="https://pagnet-production.s3.amazonaws.com/uploads/layout_setting/logo/5/logo-blu.png" alt="" width="135" height="60" style="margin-bottom: 15px !important;">
+      </div>
+    <% end %>
     <%= yield %>
   </body>
-</html>
+</html> 

@@ -1,0 +1,27 @@
+<div class="container text-center">
+  <h1 class="h3 mb-3 font-weight-normal" style="color: #706b97;">
+    Novo Cadastro
+  </h1>
+
+  <% if @usuario.errors.any? %>
+  	<div class="row" style="margin-bottom: 6px;">
+  	  <div class="col-md-6 offset-md-3">
+        <% @usuario.errors.each do |attribute, message| %>
+          <div class="alert alert-danger" style="padding: 5px 20px 5px 20px; margin-bottom: 4px;">
+          	<%= attribute %> <%= message %>
+          </div>
+        <% end %>
+  	  </div>
+	  </div>
+  <% end %>
+
+  <%= form_for @usuario do |usuario| %>
+    <%= render 'fields', usuario: usuario, labelbtsubmit: "Cadastrar", urlbtvoltar: root_path %>
+  <% end %>
+
+  <p style="color: #926cdc; margin: 10px 0px 10px 0px;">
+    <b>© Blu 2020</b>
+  </p>
+</div>
+
+<%= javascript_pack_tag 'usuarios' %> 

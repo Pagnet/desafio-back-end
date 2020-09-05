@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= usuario.text_field :nome, placeholder: 'Nome', required: true, class: "form-control", style: "border-radius: 5px 5px 0px 0px; border-top-width: 2px; border-bottom-width: 2px; height: 38px; color: black;" %>
+  </div>
+  <div class="col-md-6 offset-md-3">
+    <%= usuario.text_field :cpf, placeholder: 'Cadastro de Pessoa Física', required: true, class: "form-control", style: "height: 38px; border-top-width: 2px; border-bottom-width: 2px; color: black;" %>
+  </div>
+  <div class="col-md-6 offset-md-3">
+    <%= usuario.text_field :email, placeholder: 'E-mail', required: true, class: "form-control", style: "height: 38px; border-top-width: 2px; border-bottom-width: 2px; color: black;", type: 'email' %>
+  </div>
+  <div class="col-md-6 offset-md-3">
+    <%= usuario.text_field :celular, placeholder: 'Telefone Celular', required: true, class: "form-control", style: "height: 38px; border-top-width: 2px; border-bottom-width: 2px; color: black;", type: 'tel' %>
+  </div>
+  <div class="col-md-6 offset-md-3">
+    <%= usuario.text_field :user, placeholder: 'Usuário', required: true, class: "form-control", style: "height: 38px; border-top-width: 2px; border-bottom-width: 2px; color: black;" %>
+  </div>
+  <div class="col-md-6 offset-md-3">
+    <%= usuario.password_field :password, class: "form-control", placeholder: "Senha", required: true, style: "height: 38px; border-top-width: 2px; border-bottom-width: 2px; color: black;" %>
+  </div>
+  <div class="col-md-6 offset-md-3">
+    <%= usuario.password_field :password_confirmation, class: "form-control", placeholder: "Confirmação de Senha", required: true, style: "height: 38px; border-top-width: 2px; border-bottom-width: 2px; color: black;" %>
+  </div>
+  <div class="col-md-6 offset-md-3">
+    <%= usuario.submit labelbtsubmit, class: "btn btn-lg btn-block", style: "background-color: #1b92bf !important; border-color: #1b92bf; color: white; border-radius: 0px 0px 5px 5px;" %>
+    <hr class="mb-4" style="margin-bottom: 15px !important;">
+    <%= link_to 'Voltar', urlbtvoltar, class: "btn btn-block", style: "border-radius: 0px 0px 5px 5px; background-color: #ffd259 !important; border-color: #ffd259; padding-top: 2px; padding-bottom: 2px;" %>
+  </div>
+</div> 

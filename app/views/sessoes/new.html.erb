@@ -1,0 +1,46 @@
+<div class="container text-center">
+  <h1 class="h3 mb-3 font-weight-normal" style="color: #706b97;">
+    Login
+  </h1>
+
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-danger" style="padding: 5px 20px 5px 20px; margin-bottom: 4px;">
+          <%= msg %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= form_for :session, url: login_path do |login| %>
+    <div class="row" style="margin-top: 6px;">
+      <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+        <%= login.text_field :user, placeholder: 'Usuário', autofocus: true, required: true, class: "form-control", style: "border-radius: 5px 5px 0px 0px; color: black;" %>
+      </div>
+      <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+        <%= login.password_field :password, placeholder: 'Senha', required: true, class: "form-control", style: "color: black;" %>
+      </div>
+      <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+        <%= login.submit 'Entrar', class: "btn btn-lg btn-block", style: "border-radius: 0px 0px 5px 5px; background-color: #1b92bf !important; border-color: #1b92bf; color: white;" %>
+      </div>
+    </div>
+  <% end %>
+
+  <p style="margin-top: 10px; margin-bottom: 0px;">
+    <a class="" data-toggle="collapse" href="#login_help" role="button" aria-expanded="false" aria-controls="collapseExample" style="color: #fb5860;">
+      <b>Ops, precisa de ajuda?</b>
+    </a>
+  </p>
+
+  <div class="row">
+    <div class="collapse col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4" id="login_help" style="margin-bottom: 5px; margin-top: 15px;">
+      <%= link_to 'Novo Cadastro', new_usuario_path, class: "btn btn-block", style: "border-radius: 0px 0px 5px 5px; background-color: #ffd259; border-color: #ffd259; padding-top: 2px; padding-bottom: 2px;" %>
+      <%= button_tag 'Nova Senha', type: 'button', disabled: true, class: "btn btn-block", style: "border-radius: 0px 0px 5px 5px; background-color: #ffd259; border-color: #ffd259; padding-top: 2px; padding-bottom: 2px; cursor: default;" %>
+    </div>
+  </div>
+
+  <p style="color: #c5c5c5; margin: 10px 0px 10px 0px;">
+    <b>© Blu 2020</b>
+  </p>
+</div>
