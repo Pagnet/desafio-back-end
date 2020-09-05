@@ -1,0 +1,5 @@
+pt-BR:
+  platform:
+    navbar:
+      importers: Importações
+      stores: Lojas
