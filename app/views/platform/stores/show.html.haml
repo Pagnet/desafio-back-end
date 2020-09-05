@@ -11,9 +11,13 @@
         .card-text
 
           .row.mb-3
-            .col-12
+            .col-12.col-md-6
               %label= Store.human_attribute_name(:balance)
-              %span.text-muted= number_to_currency store.balance
+              .text-muted= number_to_currency store.balance
+
+            .col-12.col-md-6
+              %label= Store.human_attribute_name(:current_owner)
+              .text-muted= store.operations.first.owner
 
           .row
             .col-12
@@ -44,4 +48,4 @@
                 %tfoot
                   %tr
                     %td.text-center{ colspan: 6 }
-                      = link_to t('.commands.all_operations'), '#', class: 'btn btn-link'
+                      = link_to t('.commands.all_operations'), platform_store_operations_path(store), class: 'btn btn-link'

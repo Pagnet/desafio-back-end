@@ -5,6 +5,7 @@ pt-BR:
         name: Nome
         balance: Saldo em conta
         operations: Transações
+        current_owner: Dono atual
 
     errors:
       models:

@@ -1,0 +1,32 @@
+.row.justify-content-center
+  .col-12
+
+    .card
+      .card-header
+        .row
+          .col-12
+            %h2.h4.card-title.mb-0= t('.title', store: store.name)
+
+      .card-body
+        .card-text
+          %table.table
+            %thead
+              %tr
+                %th= Operation.human_attribute_name(:operation_type)
+                %th= Operation.human_attribute_name(:operation_type_nature)
+                %th= Operation.human_attribute_name(:occurred_at)
+                %th= Operation.human_attribute_name(:value)
+                %th= Operation.human_attribute_name(:cpf)
+                %th= Operation.human_attribute_name(:card_number)
+
+            %tbody
+              - operations.each do |operation|
+                %tr
+                  %td= operation.operation_type_title
+                  %td= I18n.t("activerecord.attributes.operation_type.natures.#{operation.operation_type_nature}")
+                  %td= l(operation.occurred_at)
+                  %td= number_to_currency operation.value
+                  %td= operation.cpf
+                  %td= operation.card_number
+
+          = paginate operations

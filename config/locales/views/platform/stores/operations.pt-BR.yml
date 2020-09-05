@@ -1,0 +1,6 @@
+pt-BR:
+  platform:
+    stores:
+      operations:
+        index:
+          title: '%{store} - Operações'
