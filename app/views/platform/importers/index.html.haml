@@ -24,3 +24,5 @@
                   %td= importer.id
                   %td= link_to importer.file.filename, url_for(importer.file)
                   %td= I18n.t("activerecord.attributes.importer.statuses.#{importer.status}")
+
+          = paginate importers

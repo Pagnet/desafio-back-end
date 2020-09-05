@@ -21,7 +21,7 @@
                 %thead
                   %tr
                     %th.text-center{ colspan: 6 }
-                      = Store.human_attribute_name(:operations)
+                      = t('.last_operations')
 
                   %tr
                     %th= Operation.human_attribute_name(:operation_type)
@@ -32,7 +32,7 @@
                     %th= Operation.human_attribute_name(:card_number)
 
                 %tbody
-                  - store.operations.each do |operation|
+                  - last_operations.each do |operation|
                     %tr
                       %td= operation.operation_type_title
                       %td= I18n.t("activerecord.attributes.operation_type.natures.#{operation.operation_type_nature}")
@@ -40,3 +40,8 @@
                       %td= number_to_currency operation.value
                       %td= operation.cpf
                       %td= operation.card_number
+
+                %tfoot
+                  %tr
+                    %td.text-center{ colspan: 6 }
+                      = link_to t('.commands.all_operations'), '#', class: 'btn btn-link'

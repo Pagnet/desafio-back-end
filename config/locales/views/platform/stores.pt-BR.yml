@@ -3,3 +3,8 @@ pt-BR:
     stores:
       index:
         title: Lojas
+
+      show:
+        last_operations: Últimas operações
+        commands:
+          all_operations: Ver todas operações
