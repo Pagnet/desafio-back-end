@@ -3,4 +3,5 @@ pt-BR:
     navbar:
       importers: Importações
       stores: Lojas
+      hello: 'Olá, %{user}!'
       logout: Sair

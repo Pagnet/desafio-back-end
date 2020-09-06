@@ -17,4 +17,6 @@
 
       %ul.navbar-nav.mr-2
         %li.nav-item
+          .nav-link= t('.hello', user: current_user.name)
+        %li.nav-item
           = link_to t('.logout'), destroy_user_session_path, method: :delete, class: "nav-link"
