@@ -5,10 +5,12 @@
     %title= t('app.title')
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    = stylesheet_link_tag    'platform', media: 'all'
+    = javascript_include_tag 'platform'
 
   %body
+    = render 'platform/navbar'
+
     .container.mt-3
       - if notice.present?
         .alert.alert-dismissible.fade.show.alert-success{ role: :alert }

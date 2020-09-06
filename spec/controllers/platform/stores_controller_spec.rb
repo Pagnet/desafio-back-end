@@ -1,50 +1,60 @@
 require 'rails_helper'
 
 RSpec.describe Platform::StoresController, type: :controller do
+  let(:user) { create(:user) }
+
   describe '#index' do
-    before { get(:index) }
+    describe 'unauthorized' do
+      before { get(:index) }
 
-    describe 'template' do
-      render_views
-
-      context 'responds with success and renders templates' do
-        it { expect(response).to be_successful }
-        it { expect(response).to render_template(:index) }
-      end
+      it { is_expected.to redirect_to(new_user_session_path) }
     end
 
-    describe 'helper methods' do
-      let(:view_context) { controller.view_context }
+    describe 'authorized' do
+      before { sign_in(user) && get(:index) }
 
-      context 'stores' do
-        let!(:stores) { create_list(:store, 2) }
+      describe 'template' do
+        render_views
 
-        it { expect(view_context.stores).to match_array(stores) }
-      end
-    end
-
-    context 'pagination' do
-      let(:per_page) { 3 }
-
-      context 'default page' do
-        before do
-          create_list(:store, per_page + 1)
-
-          get(:index)
+        context 'responds with success and renders templates' do
+          it { expect(response).to be_successful }
+          it { expect(response).to render_template(:index) }
         end
-
-        it { expect(controller.view_context.stores.count).to eq(per_page) }
       end
 
+      describe 'helper methods' do
+        let(:view_context) { controller.view_context }
 
-      context 'with page param' do
-        before do
-          create_list(:store, per_page + 1)
+        context 'stores' do
+          let!(:stores) { create_list(:store, 2) }
 
-          get(:index, params: { page: 2 })
+          it { expect(view_context.stores).to match_array(stores) }
+        end
+      end
+
+      context 'pagination' do
+        let(:per_page) { 3 }
+
+        context 'default page' do
+          before do
+            create_list(:store, per_page + 1)
+
+            get(:index)
+          end
+
+          it { expect(controller.view_context.stores.count).to eq(per_page) }
         end
 
-        it { expect(controller.view_context.stores.count).to eq(1) }
+
+        context 'with page param' do
+          before do
+            create_list(:store, per_page + 1)
+
+            get(:index, params: { page: 2 })
+          end
+
+          it { expect(controller.view_context.stores.count).to eq(1) }
+        end
       end
     end
   end
@@ -52,26 +62,34 @@ RSpec.describe Platform::StoresController, type: :controller do
   describe 'GET #show' do
     let(:store) { create(:store) }
 
-    before { get(:show, params: { id: store }) }
+    describe 'unauthorized' do
+      before { get(:show, params: { id: store }) }
 
-    describe 'template' do
-      render_views
-
-      it { is_expected.to respond_with(:success) }
-      it { is_expected.to render_template(:show) }
+      it { is_expected.to redirect_to(new_user_session_path) }
     end
 
-    describe 'helper methods' do
-      let(:view_context) { controller.view_context }
+    describe 'authorized' do
+      before { sign_in(user) && get(:show, params: { id: store }) }
 
-      context 'store' do
-        it { expect(view_context.store).to eq(store) }
+      describe 'template' do
+        render_views
+
+        it { is_expected.to respond_with(:success) }
+        it { is_expected.to render_template(:show) }
       end
 
-      context 'last_operations' do
-        before { create_list(:operation, 6, store: store) }
+      describe 'helper methods' do
+        let(:view_context) { controller.view_context }
 
-        it { expect(view_context.last_operations).to eq(store.operations.order(occurred_at: :desc).limit(5)) }
+        context 'store' do
+          it { expect(view_context.store).to eq(store) }
+        end
+
+        context 'last_operations' do
+          before { create_list(:operation, 6, store: store) }
+
+          it { expect(view_context.last_operations).to eq(store.operations.order(occurred_at: :desc).limit(5)) }
+        end
       end
     end
   end

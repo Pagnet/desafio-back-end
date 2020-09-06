@@ -3,3 +3,4 @@ pt-BR:
     navbar:
       importers: Importações
       stores: Lojas
+      logout: Sair

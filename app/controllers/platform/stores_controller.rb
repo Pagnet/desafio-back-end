@@ -1,4 +1,4 @@
-class Platform::StoresController < ApplicationController
+class Platform::StoresController < PlatformController
 
   PER_PAGE = 3
 

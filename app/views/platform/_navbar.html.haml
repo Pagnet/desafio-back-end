@@ -7,11 +7,14 @@
       %span.navbar-toggler-icon
 
     #navbar-toggleable.collapse.navbar-collapse
+      %ul.navbar-nav.mr-auto
+        %li.nav-item{ class: ('active' if controller_path == 'platform/importers') }
+          = link_to t('.importers'), platform_importers_path, class: "nav-link"
 
-      - if current_user.present?
-        %ul.navbar-nav.mr-auto
-          %li.nav-item{ class: ('active' if controller_path == 'platform/importers') }
-            = link_to t('.importers'), platform_importers_path, class: "nav-link"
+        %li.nav-item{ class: ('active' if controller_path == 'platform/stores') }
+          = link_to t('.stores'), platform_stores_path, class: "nav-link"
 
-          %li.nav-item{ class: ('active' if controller_path == 'platform/stores') }
-            = link_to t('.stores'), platform_stores_path, class: "nav-link"
+
+      %ul.navbar-nav.mr-2
+        %li.nav-item
+          = link_to t('.logout'), destroy_user_session_path, method: :delete, class: "nav-link"
