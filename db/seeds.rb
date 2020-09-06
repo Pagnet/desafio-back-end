@@ -21,3 +21,8 @@ operation_types = [
 operation_types.each do |data|
   OperationType.find_or_create_by(data)
 end
+
+User.find_or_create_by(email: 'user@example.com') do |user|
+  user.name = 'User'
+  user.password = '123456'
+end
