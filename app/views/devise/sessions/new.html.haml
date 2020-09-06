@@ -1,0 +1,26 @@
+.row.justify-content-center
+  .col-12.col-md-6
+
+    %h2= t('.title')
+
+    = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+      .row
+        .col-12
+          = f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email" }
+
+      .row
+        .col-12
+          = f.input :password, required: false, input_html: { autocomplete: "current-password" }
+
+      .row
+        .col-12
+          = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
+
+      .row
+        .col-12
+          = f.button :submit, t('.commands.submit'), class: 'btn btn-primary btn-block'
+
+    %hr
+
+    = render "devise/shared/links"

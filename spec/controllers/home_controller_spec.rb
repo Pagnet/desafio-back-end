@@ -7,7 +7,7 @@ RSpec.describe HomeController, type: :controller do
     context 'unauthorized' do
       before { get(:index) }
 
-      it { is_expected.to render_template(:index) }
+      it { is_expected.to redirect_to(new_user_session_path) }
     end
 
     context 'authorized' do
