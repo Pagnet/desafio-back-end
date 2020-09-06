@@ -1,4 +1,4 @@
-class Platform::ImportersController < ApplicationController
+class Platform::ImportersController < PlatformController
 
   PER_PAGE = 3
 
