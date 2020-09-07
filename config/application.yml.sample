@@ -1,0 +1,4 @@
+DEFAULT_HOST: 'http://localhost:3000'
+
+GOOGLE_CLIENT_ID: ''
+GOOGLE_CLIENT_SECRET: ''
