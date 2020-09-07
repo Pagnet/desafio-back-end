@@ -79,6 +79,7 @@ Este desafio foi baseado neste outro desafio: https://github.com/lschallenges/da
 
 Boa sorte!
 
+---
 # Instalação
 
 ## Dependências
@@ -87,7 +88,6 @@ Boa sorte!
 - PostgreSQL 12.4
 
 ## Configuração do projeto
----
 - Faça o clone do projeto para sua máquina
 ```bash
 git clone git@github.com:bzumpano/desafio-back-end.git
@@ -103,11 +103,11 @@ gem install bundler -v 2.1.4
 
 ---
 ## Variáveis de ambiente
-1. Copie o arquivo `config/application.yml.sample` e chame de `config/application.yml`
+- Copie o arquivo `config/application.yml.sample` e chame de `config/application.yml`
 ```bash
 cp config/application.yml.sample config/application.yml
 ```
-2. No arquivo `config/application.yml` configure as seguintes varáveis:
+- No arquivo `config/application.yml` configure as seguintes varáveis:
   - `DEFAULT_HOST` (para uso local definir como `http://localhost:3000`)
   - `GOOGLE_CLIENT_ID` (ver seção [Configuração OAuth2 Google](#configuração-oauth2-google))
   - `GOOGLE_CLIENT_SECRET` (ver seção [Configuração OAuth2 Google](#configuração-oauth2-google))
