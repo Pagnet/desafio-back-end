@@ -78,3 +78,71 @@ Este desafio foi baseado neste outro desafio: https://github.com/lschallenges/da
 ---
 
 Boa sorte!
+
+# Instalação
+
+## Dependências
+- Ruby 2.5.3
+- Rails 5.2.4.3
+- PostgreSQL 12.4
+
+## Configuração do projeto
+---
+- Faça o clone do projeto para sua máquina
+```bash
+git clone git@github.com:bzumpano/desafio-back-end.git
+cd desafio-back-end/
+```
+
+- Instale o `bundler`
+```bash
+gem install bundler -v 2.1.4
+```
+
+- Execute `bundle install`
+
+---
+## Variáveis de ambiente
+1. Copie o arquivo `config/application.yml.sample` e chame de `config/application.yml`
+```bash
+cp config/application.yml.sample config/application.yml
+```
+2. No arquivo `config/application.yml` configure as seguintes varáveis:
+  - `DEFAULT_HOST` (para uso local definir como `http://localhost:3000`)
+  - `GOOGLE_CLIENT_ID` (ver seção [Configuração OAuth2 Google](#configuração-oauth2-google))
+  - `GOOGLE_CLIENT_SECRET` (ver seção [Configuração OAuth2 Google](#configuração-oauth2-google))
+
+---
+## Banco de dados
+Para instalar e realizar a configuração inicial execute o comando:
+```bash
+bundle exec rake db:setup
+```
+
+---
+## Configuração OAuth2 Google
+- Acesse https://console.developers.google.com
+- Selecione seu projeto
+- Vá para `Credenciais`, selecione `Criar credenciais` > `ID do cliente OAuth`
+- Em `Tipo de aplicativo` selecione `Aplicativo da Web`
+- Defina um nome
+- Em `URIs de redirecionamento autorizados` adicione a url `<DEFAULT_HOST>/users/auth/google_oauth2/callback` substituindo o parâmetro `DEFAULT_URL` conforme pelo mesmo valor atribuido na variável de ambiente
+- Clique em `Salvar`
+- Copie os campos `ID do cliente` e `Chave secreta do cliente` da credencial criada e use para definir as variáveis de ambiente `GOOGLE_CLIENT_ID` e `GOOGLE_CLIENT_SECRET`, respectivamente
+
+---
+# Acessando a plataforma
+
+- Para rodar o projeto, execute:
+```
+rails server
+```
+
+- Acesse http://localhost:3000/
+
+- No arquivo `db/seeds.rb` é criado um usuário _default_. Para fazer login com ele use
+```
+email: user@example.com
+senha: 123456
+```
+- Caso tenha feito as configurações da seção [Configuração OAuth2 Google](#configuração-oauth2-google) também será possível fazer login com sua conta Google clicando em `Fazer login com GoogleOauth2`
