@@ -99,7 +99,10 @@ cd desafio-back-end/
 gem install bundler -v 2.1.4
 ```
 
-- Execute `bundle install`
+- Execute
+```bash
+bundle install
+```
 
 ---
 ## Variáveis de ambiente
@@ -133,9 +136,14 @@ bundle exec rake db:setup
 ---
 # Acessando a plataforma
 
-- Para rodar o projeto, execute:
-```
+- Para iniciar o servidor execute:
+```bash
 rails server
+```
+
+- As importações são feitas em segundo plano utilizando o [delayed_job](https://github.com/collectiveidea/delayed_job). Para iniciá-lo execute:
+```bash
+bin/delayed_job start
 ```
 
 - Acesse http://localhost:3000/
