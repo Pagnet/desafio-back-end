@@ -1,0 +1,45 @@
+<div class="row mt-2">
+  <div class="col-8">
+    <h1>Transações</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Data Transação</th>
+          <th>Tipo</th>
+          <th>Valor</th>
+          <th>Cpf</th>
+          <th>Cartão</th>
+          <th>Loja</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @transactions.each do |transaction| %>
+          <tr>
+            <td>
+              <%= transaction.processed_at.strftime("%d/%m/%y - %H:%M:%S") %>
+            </td>
+            <td>
+              <%= transaction.kind_description %> - <%= transaction.kind_text %>
+            </td>
+            <td>
+              <%= number_to_currency(transaction.amount/100.0, unit: "R$ ", separator: ",", delimiter: ".") %>
+            </td>
+            <td>
+              <%= transaction.cpf %>
+            </td>
+            <td>
+              <%= transaction.card %>
+            </td>
+            <td>
+              <%= transaction.store.name %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
