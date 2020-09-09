@@ -11591,3 +11591,525 @@ Processing by UsuariosController#new as HTML
 Completed 200 OK in 24ms (Views: 18.8ms | ActiveRecord: 0.3ms | Allocations: 9456)
 
 
+Started GET "/" for 127.0.0.1 at 2020-09-09 10:41:14 -0300
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by SessoesController#new as HTML
+  [1m[36mUsuario Load (3.6ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  Rendering sessoes/new.html.erb within layouts/application
+  Rendered sessoes/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1096)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+Completed 200 OK in 100ms (Views: 79.6ms | ActiveRecord: 4.5ms | Allocations: 15360)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-09-09 10:41:19 -0300
+Processing by SessoesController#create as HTML
+  Parameters: {"authenticity_token"=>"Nyf//Z2IfejrY+ODjTu45RnOfnJo/4cslAYDcP0AiZkBP8Jtyq2RCnxR0CcVO6is/SCcGPiPBZldi0QPx8EDtQ==", "session"=>{"user"=>"oathosassis", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`user` = 'oathosassis' LIMIT 1[0m
+  ↳ app/controllers/sessoes_controller.rb:8:in `create'
+  Rendering sessoes/new.html.erb within layouts/application
+  Rendered sessoes/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 386)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+Completed 200 OK in 382ms (Views: 7.1ms | ActiveRecord: 1.0ms | Allocations: 12614)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-09-09 10:41:24 -0300
+Processing by SessoesController#create as HTML
+  Parameters: {"authenticity_token"=>"mTJx84OdyWy2/3TsjECSZ5XC1J3MYGtLWuKCVGHqtoKvKkxj1LgljiHNR0gUQIIucSw291wQ6f6Tb8UrWys8rg==", "session"=>{"user"=>"oathosassis", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`user` = 'oathosassis' LIMIT 1[0m
+  ↳ app/controllers/sessoes_controller.rb:8:in `create'
+Redirected to http://localhost:3000/transacoes
+Completed 302 Found in 347ms (ActiveRecord: 0.4ms | Allocations: 1733)
+
+
+Started GET "/transacoes" for 127.0.0.1 at 2020-09-09 10:41:25 -0300
+Processing by TransacoesController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  Rendering transacoes/index.html.erb within layouts/application
+  [1m[36mTransacao Load (0.3ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` LIMIT 5[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:1
+Started POST "/login" for 127.0.0.1 at 2020-09-09 10:42:15 -0300
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by SessoesController#create as HTML
+  Parameters: {"authenticity_token"=>"mTJx84OdyWy2/3TsjECSZ5XC1J3MYGtLWuKCVGHqtoKvKkxj1LgljiHNR0gUQIIucSw291wQ6f6Tb8UrWys8rg==", "session"=>{"user"=>"oathosassis", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUsuario Load (2.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+Redirected to http://localhost:3000/transacoes
+Filter chain halted as :bloquear_acesso rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 2.2ms | Allocations: 2111)
+
+
+Started GET "/transacoes" for 127.0.0.1 at 2020-09-09 10:42:15 -0300
+Processing by TransacoesController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  Rendering transacoes/index.html.erb within layouts/application
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m
+  [1m[36mTransacao Load (6.7ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` LIMIT 5[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:1
+  [1m[36mLoja Load (2.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (2.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (16.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mLoja Load (4.7ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mLoja Load (16.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTipoTransacao Load (4.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE Loja Load (0.1ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTipoTransacao Load (4.4ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (2.8ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  [1m[36mTipoTransacao Load (3.1ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 88.3ms | Allocations: 24216)
+  Rendered transacoes/index.html.erb within layouts/application (Duration: 89.8ms | Allocations: 24867)
+  [1m[36mTipoTransacao Load (3.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 149.9ms | Allocations: 43372)
+  Rendered transacoes/index.html.erb within layouts/application (Duration: 50192.4ms | Allocations: 155004)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 124ms (Views: 83.7ms | ActiveRecord: 38.7ms | Allocations: 34357)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50224ms (Views: 50158.7ms | ActiveRecord: 57.3ms | Allocations: 163768)
+
+
+Started GET "/transacoes" for 127.0.0.1 at 2020-09-09 10:42:47 -0300
+Processing by TransacoesController#index as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  Rendering transacoes/index.html.erb within layouts/application
+  [1m[36mTransacao Load (1.9ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` LIMIT 5[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:1
+  [1m[36mLoja Load (2.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (3.7ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mLoja Load (0.5ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (0.6ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mLoja Load (0.8ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 183195.8ms | Allocations: 76293)
+  Rendered transacoes/index.html.erb within layouts/application (Duration: 183197.0ms | Allocations: 76942)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 183207ms (Views: 183195.5ms | ActiveRecord: 10.3ms | Allocations: 82768)
+
+
+Started GET "/transacoes" for 127.0.0.1 at 2020-09-09 10:45:58 -0300
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TransacoesController#index as HTML
+  [1m[36mUsuario Load (2.7ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  Rendering transacoes/index.html.erb within layouts/application
+  [1m[36mTransacao Load (4.6ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` LIMIT 5[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:1
+  [1m[36mTipoTransacao Load (1.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (0.7ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (1.9ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (3.8ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (2.9ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 194.9ms | Allocations: 24742)
+  Rendered transacoes/index.html.erb within layouts/application (Duration: 199.4ms | Allocations: 25582)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 282ms (Views: 206.3ms | ActiveRecord: 35.2ms | Allocations: 43502)
+
+
+Started GET "/mostrar_transacoes" for 127.0.0.1 at 2020-09-09 10:47:31 -0300
+Processing by TransacoesController#mostrar_transacoes as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mLoja Load (2.1ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` ORDER BY `lojas`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/transacoes_controller.rb:28:in `mostrar_transacoes'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 45[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  Rendering transacoes/mostrar_transacoes.html.erb within layouts/application
+  [1m[36mLoja Load (1.7ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas`[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:13
+  [1m[36mTransacao Load (2.3ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` WHERE `transacaos`.`loja_id` = 45[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:49
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.4ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 16.3ms | Allocations: 4667)
+  Rendered transacoes/mostrar_transacoes.html.erb within layouts/application (Duration: 24.3ms | Allocations: 7370)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 29.1ms | ActiveRecord: 8.0ms | Allocations: 13754)
+
+
+Started GET "/mostrar_transacoes?loja=46&commit=" for 127.0.0.1 at 2020-09-09 10:47:35 -0300
+Processing by TransacoesController#mostrar_transacoes as HTML
+  Parameters: {"loja"=>"46", "commit"=>""}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mLoja Load (0.4ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m
+  ↳ app/controllers/transacoes_controller.rb:26:in `mostrar_transacoes'
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 46[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  Rendering transacoes/mostrar_transacoes.html.erb within layouts/application
+  [1m[36mLoja Load (1.7ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas`[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:13
+  [1m[36mTransacao Load (0.7ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` WHERE `transacaos`.`loja_id` = 46[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:49
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (0.5ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (1.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 15.8ms | Allocations: 4669)
+  Rendered transacoes/mostrar_transacoes.html.erb within layouts/application (Duration: 23.5ms | Allocations: 6491)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 26.6ms | ActiveRecord: 7.6ms | Allocations: 12674)
+
+
+Started GET "/mostrar_transacoes?loja=47&commit=" for 127.0.0.1 at 2020-09-09 10:47:38 -0300
+Processing by TransacoesController#mostrar_transacoes as HTML
+  Parameters: {"loja"=>"47", "commit"=>""}
+  [1m[36mUsuario Load (1.7ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mLoja Load (2.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m
+  ↳ app/controllers/transacoes_controller.rb:26:in `mostrar_transacoes'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 47[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  Rendering transacoes/mostrar_transacoes.html.erb within layouts/application
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas`[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:13
+  [1m[36mTransacao Load (2.1ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` WHERE `transacaos`.`loja_id` = 47[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:49
+  [1m[36mTipoTransacao Load (0.8ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (1.7ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (1.8ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 8 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 8 LIMIT 1[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 36.2ms | Allocations: 12076)
+  Rendered transacoes/mostrar_transacoes.html.erb within layouts/application (Duration: 43.0ms | Allocations: 13957)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 63ms (Views: 46.3ms | ActiveRecord: 12.5ms | Allocations: 19964)
+
+
+Started GET "/mostrar_transacoes?loja=47&commit=" for 127.0.0.1 at 2020-09-09 10:50:14 -0300
+Processing by TransacoesController#mostrar_transacoes as HTML
+  Parameters: {"loja"=>"47", "commit"=>""}
+  [1m[36mUsuario Load (2.6ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m
+  ↳ app/controllers/transacoes_controller.rb:26:in `mostrar_transacoes'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.`id` FROM `tipo_transacaos` WHERE `tipo_transacaos`.`natureza` = 0[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 47 AND `transacaos`.`tipo_transacao_id` IN (2, 3, 9)[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.`id` FROM `tipo_transacaos` WHERE `tipo_transacaos`.`natureza` = 1[0m
+  ↳ app/controllers/transacoes_controller.rb:32:in `mostrar_transacoes'
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 47 AND `transacaos`.`tipo_transacao_id` IN (1, 4, 5, 6, 7, 8)[0m
+  ↳ app/controllers/transacoes_controller.rb:32:in `mostrar_transacoes'
+  Rendering transacoes/mostrar_transacoes.html.erb within layouts/application
+  [1m[36mLoja Load (7.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas`[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:13
+  [1m[36mTransacao Load (1.7ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` WHERE `transacaos`.`loja_id` = 47[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:49
+  [1m[36mTipoTransacao Load (0.4ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (2.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.1ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 8 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 8 LIMIT 1[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 49.6ms | Allocations: 16113)
+  Rendered transacoes/mostrar_transacoes.html.erb within layouts/application (Duration: 92.8ms | Allocations: 23243)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 174ms (Views: 89.8ms | ActiveRecord: 37.9ms | Allocations: 44705)
+
+
+Started GET "/mostrar_transacoes?loja=48&commit=" for 127.0.0.1 at 2020-09-09 10:51:39 -0300
+Processing by TransacoesController#mostrar_transacoes as HTML
+  Parameters: {"loja"=>"48", "commit"=>""}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mLoja Load (2.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 48 LIMIT 1[0m
+  ↳ app/controllers/transacoes_controller.rb:26:in `mostrar_transacoes'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.`id` FROM `tipo_transacaos` WHERE `tipo_transacaos`.`natureza` = 0[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 48 AND `transacaos`.`tipo_transacao_id` IN (2, 3, 9)[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `tipo_transacaos`.`id` FROM `tipo_transacaos` WHERE `tipo_transacaos`.`natureza` = 1[0m
+  ↳ app/controllers/transacoes_controller.rb:32:in `mostrar_transacoes'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 48 AND `transacaos`.`tipo_transacao_id` IN (1, 4, 5, 6, 7, 8)[0m
+  ↳ app/controllers/transacoes_controller.rb:32:in `mostrar_transacoes'
+  Rendering transacoes/mostrar_transacoes.html.erb within layouts/application
+  [1m[36mLoja Load (2.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas`[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:13
+  [1m[36mTransacao Load (0.3ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` WHERE `transacaos`.`loja_id` = 48[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:49
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 48 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.8ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 48 LIMIT 1[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 48 LIMIT 1[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 48 LIMIT 1[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 48 LIMIT 1[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 48 LIMIT 1[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 29.7ms | Allocations: 8946)
+  Rendered transacoes/mostrar_transacoes.html.erb within layouts/application (Duration: 36.2ms | Allocations: 10806)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 39.9ms | ActiveRecord: 9.1ms | Allocations: 18814)
+
+
+Started GET "/mostrar_transacoes?loja=49&commit=" for 127.0.0.1 at 2020-09-09 10:51:47 -0300
+Processing by TransacoesController#mostrar_transacoes as HTML
+  Parameters: {"loja"=>"49", "commit"=>""}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mLoja Load (0.4ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 49 LIMIT 1[0m
+  ↳ app/controllers/transacoes_controller.rb:26:in `mostrar_transacoes'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.`id` FROM `tipo_transacaos` WHERE `tipo_transacaos`.`natureza` = 0[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 49 AND `transacaos`.`tipo_transacao_id` IN (2, 3, 9)[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.`id` FROM `tipo_transacaos` WHERE `tipo_transacaos`.`natureza` = 1[0m
+  ↳ app/controllers/transacoes_controller.rb:32:in `mostrar_transacoes'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 49 AND `transacaos`.`tipo_transacao_id` IN (1, 4, 5, 6, 7, 8)[0m
+  ↳ app/controllers/transacoes_controller.rb:32:in `mostrar_transacoes'
+  Rendering transacoes/mostrar_transacoes.html.erb within layouts/application
+  [1m[36mLoja Load (0.1ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas`[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:13
+  [1m[36mTransacao Load (0.2ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` WHERE `transacaos`.`loja_id` = 49[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:49
+  [1m[36mTipoTransacao Load (0.7ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 49 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 6.9ms | Allocations: 1615)
+  Rendered transacoes/mostrar_transacoes.html.erb within layouts/application (Duration: 11.4ms | Allocations: 3410)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 19.8ms | ActiveRecord: 3.0ms | Allocations: 11404)
+
+
+Started GET "/mostrar_transacoes?loja=46&commit=" for 127.0.0.1 at 2020-09-09 10:51:53 -0300
+Processing by TransacoesController#mostrar_transacoes as HTML
+  Parameters: {"loja"=>"46", "commit"=>""}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mLoja Load (0.1ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m
+  ↳ app/controllers/transacoes_controller.rb:26:in `mostrar_transacoes'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.`id` FROM `tipo_transacaos` WHERE `tipo_transacaos`.`natureza` = 0[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 46 AND `transacaos`.`tipo_transacao_id` IN (2, 3, 9)[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.`id` FROM `tipo_transacaos` WHERE `tipo_transacaos`.`natureza` = 1[0m
+  ↳ app/controllers/transacoes_controller.rb:32:in `mostrar_transacoes'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 46 AND `transacaos`.`tipo_transacao_id` IN (1, 4, 5, 6, 7, 8)[0m
+  ↳ app/controllers/transacoes_controller.rb:32:in `mostrar_transacoes'
+  Rendering transacoes/mostrar_transacoes.html.erb within layouts/application
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas`[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:13
+  [1m[36mTransacao Load (0.2ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` WHERE `transacaos`.`loja_id` = 46[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:49
+  [1m[36mTipoTransacao Load (1.9ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (1.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.4ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 19.0ms | Allocations: 4669)
+  Rendered transacoes/mostrar_transacoes.html.erb within layouts/application (Duration: 22.1ms | Allocations: 6491)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 29.1ms | ActiveRecord: 9.0ms | Allocations: 14501)
+
+
+Started GET "/mostrar_transacoes?loja=45&commit=" for 127.0.0.1 at 2020-09-09 10:51:55 -0300
+Processing by TransacoesController#mostrar_transacoes as HTML
+  Parameters: {"loja"=>"45", "commit"=>""}
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mLoja Load (1.8ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m
+  ↳ app/controllers/transacoes_controller.rb:26:in `mostrar_transacoes'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.`id` FROM `tipo_transacaos` WHERE `tipo_transacaos`.`natureza` = 0[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 45 AND `transacaos`.`tipo_transacao_id` IN (2, 3, 9)[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.`id` FROM `tipo_transacaos` WHERE `tipo_transacaos`.`natureza` = 1[0m
+  ↳ app/controllers/transacoes_controller.rb:32:in `mostrar_transacoes'
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 45 AND `transacaos`.`tipo_transacao_id` IN (1, 4, 5, 6, 7, 8)[0m
+  ↳ app/controllers/transacoes_controller.rb:32:in `mostrar_transacoes'
+  Rendering transacoes/mostrar_transacoes.html.erb within layouts/application
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas`[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:13
+  [1m[36mTransacao Load (0.3ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` WHERE `transacaos`.`loja_id` = 45[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:49
+  [1m[36mTipoTransacao Load (2.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (1.4ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (1.8ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (1.4ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 19.3ms | Allocations: 4669)
+  Rendered transacoes/mostrar_transacoes.html.erb within layouts/application (Duration: 24.0ms | Allocations: 6488)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 26.8ms | ActiveRecord: 13.8ms | Allocations: 14513)
+
+

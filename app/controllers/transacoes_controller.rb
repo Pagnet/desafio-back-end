@@ -28,6 +28,8 @@ class TransacoesController < ApplicationController
 			@loja = @lojas.first
 		end
 		@transacoes = Transacao.where(loja: @loja)
-		@total = @transacoes.sum(:valor)
+		saidas = @transacoes.where(tipo_transacao_id: TipoTransacao.where(natureza: 0).pluck(:id)).sum(:valor)
+		entradas = @transacoes.where(tipo_transacao_id: TipoTransacao.where(natureza: 1).pluck(:id)).sum(:valor)
+		@total = entradas - saidas
 	end
 end
