@@ -11438,3 +11438,156 @@ Processing by TransacoesController#mostrar_transacoes as HTML
 Completed 200 OK in 48ms (Views: 31.0ms | ActiveRecord: 10.0ms | Allocations: 14505)
 
 
+Started GET "/mostrar_transacoes" for 127.0.0.1 at 2020-09-09 08:57:28 -0300
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TransacoesController#mostrar_transacoes as HTML
+  [1m[36mUsuario Load (2.4ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mLoja Load (0.8ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` ORDER BY `lojas`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/transacoes_controller.rb:28:in `mostrar_transacoes'
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 45[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  Rendering transacoes/mostrar_transacoes.html.erb within layouts/application
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas`[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:13
+  [1m[36mTransacao Load (2.1ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` WHERE `transacaos`.`loja_id` = 45[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:49
+  [1m[36mLoja Load (3.8ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 56.8ms | Allocations: 11418)
+  Rendered transacoes/mostrar_transacoes.html.erb within layouts/application (Duration: 151.4ms | Allocations: 18892)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 281ms (Views: 175.2ms | ActiveRecord: 30.1ms | Allocations: 43089)
+
+
+Started GET "/mostrar_transacoes" for 127.0.0.1 at 2020-09-09 08:57:29 -0300
+Processing by TransacoesController#mostrar_transacoes as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mLoja Load (1.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` ORDER BY `lojas`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/transacoes_controller.rb:28:in `mostrar_transacoes'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM(`transacaos`.`valor`) FROM `transacaos` WHERE `transacaos`.`loja_id` = 45[0m
+  ↳ app/controllers/transacoes_controller.rb:31:in `mostrar_transacoes'
+  Rendering transacoes/mostrar_transacoes.html.erb within layouts/application
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas`[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:13
+  [1m[36mTransacao Load (0.4ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` WHERE `transacaos`.`loja_id` = 45[0m
+  ↳ app/views/transacoes/mostrar_transacoes.html.erb:49
+  [1m[36mLoja Load (3.1ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 18.5ms | Allocations: 4655)
+  Rendered transacoes/mostrar_transacoes.html.erb within layouts/application (Duration: 25.6ms | Allocations: 6481)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 29.5ms | ActiveRecord: 6.2ms | Allocations: 12629)
+
+
+Started GET "/transacoes" for 127.0.0.1 at 2020-09-09 09:03:33 -0300
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by TransacoesController#index as HTML
+  [1m[36mUsuario Load (1.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  Rendering transacoes/index.html.erb within layouts/application
+  [1m[36mTransacao Load (0.4ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` LIMIT 5[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:1
+  [1m[36mLoja Load (0.4ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (1.6ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mLoja Load (0.5ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (1.4ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:4
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 29.8ms | Allocations: 8511)
+  Rendered transacoes/index.html.erb within layouts/application (Duration: 30.9ms | Allocations: 9044)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 30.7ms | ActiveRecord: 6.4ms | Allocations: 13949)
+
+
+Started GET "/usuarios/1/edit" for 127.0.0.1 at 2020-09-09 09:03:52 -0300
+Processing by UsuariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/usuarios_controller.rb:18:in `edit'
+  Rendering usuarios/edit.html.erb within layouts/application
+  Rendered usuarios/_fields.html.erb (Duration: 4.4ms | Allocations: 1098)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered usuarios/edit.html.erb within layouts/application (Duration: 10.8ms | Allocations: 3450)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+Completed 200 OK in 26ms (Views: 21.3ms | ActiveRecord: 0.5ms | Allocations: 9469)
+
+
+Started GET "/logout" for 127.0.0.1 at 2020-09-09 09:03:55 -0300
+Processing by SessoesController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 366)
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-09 09:03:55 -0300
+Processing by SessoesController#new as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  Rendering sessoes/new.html.erb within layouts/application
+  Rendered sessoes/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 740)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 0.3ms | Allocations: 7991)
+
+
+Started GET "/usuarios/new" for 127.0.0.1 at 2020-09-09 09:04:23 -0300
+Processing by UsuariosController#new as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  Rendering usuarios/new.html.erb within layouts/application
+  Rendered usuarios/_fields.html.erb (Duration: 0.5ms | Allocations: 558)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered usuarios/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2716)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+Completed 200 OK in 24ms (Views: 18.8ms | ActiveRecord: 0.3ms | Allocations: 9456)
+
+
