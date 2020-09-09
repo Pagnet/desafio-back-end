@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   resources :usuarios, :transacoes
   post   'importar'   => 'transacoes#importar'
-  get 	 'mostrar_transacoes', to: 'transacoes#mostrar_transacoes'
+ 	match  'mostrar_transacoes', to: 'transacoes#mostrar_transacoes', via: [:get, :post]
 end

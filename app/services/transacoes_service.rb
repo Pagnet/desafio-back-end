@@ -6,7 +6,8 @@ class TransacoesService
 
 	def processa
 		ActiveRecord::Base.transaction do
-			unless Loja.find_by(nome: @detalhes_transacao[:nome_loja])
+			loja = Loja.find_by(nome: @detalhes_transacao[:nome_loja])
+			unless loja
 				loja = Loja.new(
 					nome: @detalhes_transacao[:nome_loja], 
 					nome_representante: @detalhes_transacao[:nome_representante]

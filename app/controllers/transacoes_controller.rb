@@ -21,6 +21,13 @@ class TransacoesController < ApplicationController
 	end
 
 	def mostrar_transacoes
-		
+		@lojas = Loja.all
+		if params[:loja].present?
+			@loja = Loja.find(params[:loja])
+		else
+			@loja = @lojas.first
+		end
+		@transacoes = Transacao.where(loja: @loja)
+		@total = @transacoes.sum(:valor)
 	end
 end

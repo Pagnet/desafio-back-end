@@ -11,12 +11,11 @@ module TransacoesHelper
 			nome_representante: line[48..61],
 			nome_loja: line[62..80]
 		}
-		normalizar
 	end
 
 	private
 	def normalizar
-		@detalhes_transacao[:valor] = @detalhes_transacao[:valor].to_i
+		@detalhes_transacao[:valor] = @detalhes_transacao[:valor].to_f
 		@detalhes_transacao[:valor] /= 100
 		@detalhes_transacao 
 	end
