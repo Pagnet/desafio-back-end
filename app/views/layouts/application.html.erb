@@ -16,7 +16,7 @@
     <% if logado? %>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 0px 20px 0px 20px;">
         <div class="container">
-          <a class="navbar-brand" href="<%= jornadas_path %>">
+          <a class="navbar-brand" href="<%= transacoes_path %>">
             <img class="mb-4" src="https://pagnet-production.s3.amazonaws.com/uploads/layout_setting/logo/5/logo-blu.png" alt="" width="75" height="30" style="margin-bottom: 2px !important;">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,12 +26,12 @@
           <div class="collapse navbar-collapse text" id="navbarsExample03">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <%= link_to 'Início', jornadas_path, class: "nav-link" %>
+                <%= link_to 'Início', transacoes_path, class: "nav-link" %>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Olá <%= current_user.nome %></a>
                 <div class="dropdown-menu" aria-labelledby="dropdown03" style="margin-bottom: 10px;">
-                  <%= link_to 'Minhas Jornadas', minhas_jornadas_path, class: "dropdown-item" %>
+                  <%= link_to 'Lojas', mostrar_transacoes_path, class: "dropdown-item" %>
                   <%= link_to 'Minha conta', edit_usuario_path(current_user), class: "dropdown-item" %>
                   <%= link_to 'Sair', logout_path, method: 'delete', class: "dropdown-item" %>
                 </div>

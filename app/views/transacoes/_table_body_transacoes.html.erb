@@ -1,0 +1,15 @@
+<% if ultimas_transacoes.present? %>
+  <% ultimas_transacoes.each_with_index do |transacao, index| %>
+    <tr>
+      <td><%= transacao.loja.nome %></td>
+      <td><%= transacao.tipo_transacao.descricao %></td>
+      <td>R$ <%= sprintf('%.2f', transacao.valor) %></td>
+      <td class="d-none d-sm-table-cell"><%= transacao.data_hora %></td>
+      <td class="d-none d-sm-table-cell"><%= transacao.cpf_beneficiario %></td>
+    </tr>
+  <% end %>
+<% else %>
+  <tr>
+    <td colspan="5">Ops, nenhuma transação nos últimos dias.</td>
+  </tr>          
+<% end %>

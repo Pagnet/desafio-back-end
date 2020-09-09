@@ -6,7 +6,7 @@ class UsuariosController < ApplicationController
   end
 
   def create
-  	@usuario = Usuario.new(estagiario_params)
+  	@usuario = Usuario.new(usuario_params)
   	if @usuario.save
       redirect_to login_path
     else
@@ -15,13 +15,13 @@ class UsuariosController < ApplicationController
   end
 
   def edit
-    @estagiario = Estagiario.find(params[:id])
+    @usuario = Usuario.find(params[:id])
   end
 
   def update
-    @estagiario = Estagiario.find(params[:id])
-    if @estagiario.update_attributes(estagiario_params)
-      redirect_to edit_estagiario_path(current_user)
+    @usuario = Usuario.find(params[:id])
+    if @usuario.update_attributes(usuario_params)
+      redirect_to edit_usuario_path(current_user)
     else
       render 'edit'
     end
@@ -31,7 +31,7 @@ class UsuariosController < ApplicationController
   end
 
   private
-  def estagiario_params
+  def usuario_params
     params.require(:usuario).permit(:nome, :cpf, :email, :celular, :user, :password, :password_confirmation)
   end
 end

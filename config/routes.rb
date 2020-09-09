@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root 'sessoes#new'
   get    'login'   => 'sessoes#new'
   post   'login'   => 'sessoes#create'
-  delete 'logout'  => 'sessoes#destroy'
+  get 'logout'  => 'sessoes#destroy'
 
   resources :usuarios, :transacoes
-  get 'minhas_jornadas', to: 'jornadas#minhas_jornadas'
+  post   'importar'   => 'transacoes#importar'
+  get 	 'mostrar_transacoes', to: 'transacoes#mostrar_transacoes'
 end

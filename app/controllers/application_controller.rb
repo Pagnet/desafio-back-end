@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include SessoesHelper
 
   def authorize
-    unless logged_in?
+    unless logado?
       redirect_to root_url
     end
   end
