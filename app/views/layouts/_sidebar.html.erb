@@ -10,6 +10,9 @@
       <li class="nav-item">
         <%= link_to "Lojas", stores_path, class: "nav-link" %>
       </li>
+      <li>
+        <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link" %>
+      </li>
     </ul>
   </div>
 </nav>

@@ -20,8 +20,6 @@ class CnabImportService
       card = process_card(line)
       store = process_store(line)
 
-      byebug
-
       Transaction.create!(kind: kind[:kind],
                           kind_description: kind[:description],
                           processed_at: processed_at,
