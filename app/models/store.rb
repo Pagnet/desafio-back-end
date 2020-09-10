@@ -1,5 +1,5 @@
 class Store < ApplicationRecord
-  validates :name, presence: true
+  validates :name, :shopkeeper, presence: true
 
   has_many :transactions
 end

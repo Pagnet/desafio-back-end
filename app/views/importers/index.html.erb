@@ -17,7 +17,7 @@
       </thead>
       <tbody>
         <% @importers.each do |importer| %>
-          <tr>
+          <tr class="importer">
             <td>
               <%= importer.created_at.strftime("%d/%m/%y - %H:%M:%S") %>
             </td>

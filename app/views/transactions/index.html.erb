@@ -18,7 +18,7 @@
       </thead>
       <tbody>
         <% @transactions.each do |transaction| %>
-          <tr>
+          <tr class="transaction">
             <td>
               <%= transaction.processed_at.strftime("%d/%m/%y - %H:%M:%S") %>
             </td>

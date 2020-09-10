@@ -4,7 +4,7 @@
     <p><%= @store.shopkeeper %></p>
   </div>
   <div>
-    <h2>Saldo: <%= number_to_currency(@store.balance/100.0, unit: "R$ ", separator: ",", delimiter: ".") %></h2>
+    <h2 class="balance">Saldo: <%= number_to_currency(@store.balance/100.0, unit: "R$ ", separator: ",", delimiter: ".") %></h2>
   </div>
 </div>
 <div class="row">
@@ -21,7 +21,7 @@
       </thead>
       <tbody>
         <% @store.transactions.each do |transaction| %>
-          <tr>
+          <tr class="transaction">
             <td>
               <%= transaction.processed_at.strftime("%d/%m/%y - %H:%M:%S") %>
             </td>

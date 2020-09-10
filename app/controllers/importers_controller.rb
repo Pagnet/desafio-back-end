@@ -16,6 +16,8 @@ class ImportersController < ApplicationController
 
       @importer.save!
 
+      CnabImportService.new(@importer).process
+
       set_flash_message(:success, "Importador salvo com sucesso!")
       redirect_to importers_path
     rescue Exception => e
