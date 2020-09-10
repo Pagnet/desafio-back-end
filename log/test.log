@@ -1,0 +1,749 @@
+  [1m[35m (2.1ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (3.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS `desafio_back_end_test`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `desafio_back_end_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS `lojas` CASCADE[0m
+  [1m[35m (27.3ms)[0m  [1m[35mCREATE TABLE `lojas` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `nome` varchar(19), `nome_representante` varchar(14), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS `tipo_transacaos` CASCADE[0m
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE `tipo_transacaos` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `descricao` varchar(50), `natureza` int, `sinal` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS `transacaos` CASCADE[0m
+  [1m[35m (25.7ms)[0m  [1m[35mCREATE TABLE `transacaos` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `data_hora` datetime, `valor` float(24), `cpf_beneficiario` varchar(15), `cartao` varchar(12), `loja_id` bigint, `tipo_transacao_id` bigint, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL,  INDEX `fk_rails_048a0eddea`  (`loja_id`),  INDEX `fk_rails_31464e7104`  (`tipo_transacao_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS `usuarios` CASCADE[0m
+  [1m[35m (15.9ms)[0m  [1m[35mCREATE TABLE `usuarios` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `nome` varchar(25), `cpf` varchar(15), `email` varchar(50), `celular` varchar(15), `user` varchar(25), `password_digest` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4[0m
+  [1m[35m (50.0ms)[0m  [1m[35mALTER TABLE `transacaos` ADD CONSTRAINT `fk_rails_048a0eddea`
+FOREIGN KEY (`loja_id`)
+  REFERENCES `lojas` (`id`)
+[0m
+  [1m[35m (40.2ms)[0m  [1m[35mALTER TABLE `transacaos` ADD CONSTRAINT `fk_rails_31464e7104`
+FOREIGN KEY (`tipo_transacao_id`)
+  REFERENCES `tipo_transacaos` (`id`)
+[0m
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (2.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20200905204234)[0m
+  [1m[35m (6.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES
+(20200905174324),
+(20200905203924),
+(20200905204013),
+(20200905204119);
+
+[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'test', '2020-09-09 22:49:42.380327', '2020-09-09 22:49:42.380327')[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('schema_sha1', '1e2c222637d42c4e83bf4681da4d697319bdd589', '2020-09-09 22:49:42.394865', '2020-09-09 22:49:42.394865')[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.4ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:48:46.069436', '2020-09-09 23:48:46.069436')[0m
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[35m (3.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.6ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:48:46.093640', '2020-09-09 23:48:46.093640')[0m
+  [1m[36mTipoTransacao Load (1.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[35m (9.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (7.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.5ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:50:05.929916', '2020-09-09 23:50:05.929916')[0m
+  [1m[36mTipoTransacao Load (0.5ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[35m (3.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.5ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (1.0ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:50:05.989460', '2020-09-09 23:50:05.989460')[0m
+  [1m[36mTipoTransacao Load (0.8ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[35m (2.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.3ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:50:21.632344', '2020-09-09 23:50:21.632344')[0m
+  [1m[36mTipoTransacao Load (0.9ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[35m (6.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.4ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.5ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:51:40.033560', '2020-09-09 23:51:40.033560')[0m
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[35m (12.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.1ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:51:40.059024', '2020-09-09 23:51:40.059024')[0m
+  [1m[36mTipoTransacao Load (0.1ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[35m (3.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.3ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:51:42.436587', '2020-09-09 23:51:42.436587')[0m
+  [1m[36mTipoTransacao Load (0.1ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[35m (5.8ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.2ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:51:42.455470', '2020-09-09 23:51:42.455470')[0m
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[35m (2.8ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (2.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (3.2ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:51:59.770960', '2020-09-09 23:51:59.770960')[0m
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[35m (3.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.8ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:54:39.069876', '2020-09-09 23:54:39.069876')[0m
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[35m (10.9ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (1.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (2.1ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:54:39.108990', '2020-09-09 23:54:39.108990')[0m
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[35m (3.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Débito', 1, 1, '2020-09-09 23:54:41.448546', '2020-09-09 23:54:41.448546')[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (2.7ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Boleto', 0, 0, '2020-09-09 23:54:41.454274', '2020-09-09 23:54:41.454274')[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Financiamento', 0, 0, '2020-09-09 23:54:41.461346', '2020-09-09 23:54:41.461346')[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Crédito', 1, 1, '2020-09-09 23:54:41.464176', '2020-09-09 23:54:41.464176')[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento Empréstimo', 1, 1, '2020-09-09 23:54:41.468101', '2020-09-09 23:54:41.468101')[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Vendas', 1, 1, '2020-09-09 23:54:41.473058', '2020-09-09 23:54:41.473058')[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento TED', 1, 1, '2020-09-09 23:54:41.477576', '2020-09-09 23:54:41.477576')[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento DOC', 1, 1, '2020-09-09 23:54:41.480646', '2020-09-09 23:54:41.480646')[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('ALuguel', 0, 0, '2020-09-09 23:54:41.485716', '2020-09-09 23:54:41.485716')[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.4ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.2ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:54:44.014424', '2020-09-09 23:54:44.014424')[0m
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[36mTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 13, 3, '2020-09-09 23:54:44.031518', '2020-09-09 23:54:44.031518')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mTipoTransacao Load (0.1ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[36mTransacao Create (0.7ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 13, 3, '2020-09-09 23:54:46.028777', '2020-09-09 23:54:46.028777')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (2.6ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:54:46.055911', '2020-09-09 23:54:46.055911')[0m
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[35m (3.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Débito', 1, 1, '2020-09-09 23:55:01.911928', '2020-09-09 23:55:01.911928')[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Boleto', 0, 0, '2020-09-09 23:55:01.916236', '2020-09-09 23:55:01.916236')[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (4.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Financiamento', 0, 0, '2020-09-09 23:55:01.919879', '2020-09-09 23:55:01.919879')[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Crédito', 1, 1, '2020-09-09 23:55:01.927468', '2020-09-09 23:55:01.927468')[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento Empréstimo', 1, 1, '2020-09-09 23:55:01.932525', '2020-09-09 23:55:01.932525')[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Vendas', 1, 1, '2020-09-09 23:55:01.936729', '2020-09-09 23:55:01.936729')[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento TED', 1, 1, '2020-09-09 23:55:01.939959', '2020-09-09 23:55:01.939959')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento DOC', 1, 1, '2020-09-09 23:55:01.943229', '2020-09-09 23:55:01.943229')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('ALuguel', 0, 0, '2020-09-09 23:55:01.946393', '2020-09-09 23:55:01.946393')[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.2ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:55:01.955618', '2020-09-09 23:55:01.955618')[0m
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[36mTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 15, 3, '2020-09-09 23:55:01.975468', '2020-09-09 23:55:01.975468')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.1ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:55:01.987774', '2020-09-09 23:55:01.987774')[0m
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[36mTransacao Create (0.4ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 16, 10, '2020-09-09 23:55:01.989189', '2020-09-09 23:55:01.989189')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Débito', 1, 1, '2020-09-09 23:55:48.455660', '2020-09-09 23:55:48.455660')[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Boleto', 0, 0, '2020-09-09 23:55:48.460961', '2020-09-09 23:55:48.460961')[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Financiamento', 0, 0, '2020-09-09 23:55:48.465541', '2020-09-09 23:55:48.465541')[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (2.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Crédito', 1, 1, '2020-09-09 23:55:48.468578', '2020-09-09 23:55:48.468578')[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento Empréstimo', 1, 1, '2020-09-09 23:55:48.477896', '2020-09-09 23:55:48.477896')[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Vendas', 1, 1, '2020-09-09 23:55:48.481987', '2020-09-09 23:55:48.481987')[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento TED', 1, 1, '2020-09-09 23:55:48.486114', '2020-09-09 23:55:48.486114')[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento DOC', 1, 1, '2020-09-09 23:55:48.489937', '2020-09-09 23:55:48.489937')[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('ALuguel', 0, 0, '2020-09-09 23:55:48.494205', '2020-09-09 23:55:48.494205')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.2ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:55:48.504787', '2020-09-09 23:55:48.504787')[0m
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[36mTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 17, 3, '2020-09-09 23:55:48.526460', '2020-09-09 23:55:48.526460')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.2ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:55:48.539750', '2020-09-09 23:55:48.539750')[0m
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[36mTransacao Create (1.1ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 18, 10, '2020-09-09 23:55:48.541367', '2020-09-09 23:55:48.541367')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Débito', 1, 1, '2020-09-09 23:56:25.442930', '2020-09-09 23:56:25.442930')[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Boleto', 0, 0, '2020-09-09 23:56:25.447947', '2020-09-09 23:56:25.447947')[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Financiamento', 0, 0, '2020-09-09 23:56:25.452658', '2020-09-09 23:56:25.452658')[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Crédito', 1, 1, '2020-09-09 23:56:25.457366', '2020-09-09 23:56:25.457366')[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (2.5ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento Empréstimo', 1, 1, '2020-09-09 23:56:25.460067', '2020-09-09 23:56:25.460067')[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Vendas', 1, 1, '2020-09-09 23:56:25.468813', '2020-09-09 23:56:25.468813')[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento TED', 1, 1, '2020-09-09 23:56:25.474174', '2020-09-09 23:56:25.474174')[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento DOC', 1, 1, '2020-09-09 23:56:25.478956', '2020-09-09 23:56:25.478956')[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('ALuguel', 0, 0, '2020-09-09 23:56:25.483487', '2020-09-09 23:56:25.483487')[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.2ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:56:25.495550', '2020-09-09 23:56:25.495550')[0m
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[36mTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 19, 3, '2020-09-09 23:56:25.520858', '2020-09-09 23:56:25.520858')[0m
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.7ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:56:25.542096', '2020-09-09 23:56:25.542096')[0m
+  [1m[36mTipoTransacao Load (0.6ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[36mTransacao Create (1.3ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 20, 10, '2020-09-09 23:56:25.550322', '2020-09-09 23:56:25.550322')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (3.0ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Débito', 1, 1, '2020-09-09 23:57:17.929576', '2020-09-09 23:57:17.929576')[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Boleto', 0, 0, '2020-09-09 23:57:17.941545', '2020-09-09 23:57:17.941545')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Financiamento', 0, 0, '2020-09-09 23:57:17.944832', '2020-09-09 23:57:17.944832')[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Crédito', 1, 1, '2020-09-09 23:57:17.949462', '2020-09-09 23:57:17.949462')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento Empréstimo', 1, 1, '2020-09-09 23:57:17.952894', '2020-09-09 23:57:17.952894')[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Vendas', 1, 1, '2020-09-09 23:57:17.957701', '2020-09-09 23:57:17.957701')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento TED', 1, 1, '2020-09-09 23:57:17.961035', '2020-09-09 23:57:17.961035')[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento DOC', 1, 1, '2020-09-09 23:57:17.965552', '2020-09-09 23:57:17.965552')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTipoTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('ALuguel', 0, 0, '2020-09-09 23:57:17.968773', '2020-09-09 23:57:17.968773')[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.3ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:57:17.986428', '2020-09-09 23:57:17.986428')[0m
+  [1m[36mTipoTransacao Load (0.5ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[36mTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 21, 3, '2020-09-09 23:57:20.919257', '2020-09-09 23:57:20.919257')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (8.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (3.8ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:57:20.946484', '2020-09-09 23:57:20.946484')[0m
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `tipo_transacaos`[0m
+  [1m[36mTipoTransacao Load (0.4ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` LIMIT 11[0m
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[36mTransacao Create (0.7ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 22, 10, '2020-09-09 23:58:23.049039', '2020-09-09 23:58:23.049039')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.3ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:58:41.061595', '2020-09-09 23:58:41.061595')[0m
+  [1m[36mTipoTransacao Load (1.1ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` LIMIT 11[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `tipo_transacaos`[0m
+  [1m[36mTipoTransacao Load (0.5ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[36mTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 23, 3, '2020-09-09 23:58:51.890195', '2020-09-09 23:58:51.890195')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.2ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.8ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:58:51.954321', '2020-09-09 23:58:51.954321')[0m
+  [1m[36mTipoTransacao Load (0.7ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[36mTransacao Create (1.7ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 24, 10, '2020-09-09 23:58:53.381040', '2020-09-09 23:58:53.381040')[0m
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (6.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.3ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-09 23:59:42.733591', '2020-09-09 23:59:42.733591')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `tipo_transacaos`[0m
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` ORDER BY `tipo_transacaos`.`id` DESC LIMIT 1[0m
+  [1m[36mTipoTransacao Load (0.4ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` ORDER BY `tipo_transacaos`.`id` ASC LIMIT 1[0m
+  [1m[36mTipoTransacao Load (0.4ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` ORDER BY `tipo_transacaos`.`id` ASC LIMIT 1 OFFSET 1[0m
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` LIMIT 11[0m
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos`[0m
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[36mTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 25, 3, '2020-09-10 00:00:55.371875', '2020-09-10 00:00:55.371875')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.6ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-10 00:00:55.401431', '2020-09-10 00:00:55.401431')[0m
+  [1m[36mTipoTransacao Load (1.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[36mTransacao Create (1.2ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 14200.0, '09620676017', '4753****3153', 26, 10, '2020-09-10 00:00:57.396375', '2020-09-10 00:00:57.396375')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.3ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-10 00:02:54.417629', '2020-09-10 00:02:54.417629')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `tipo_transacaos`[0m
+  [1m[36mTipoTransacao Load (0.6ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[35m (6.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (7.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.7ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-10 00:03:07.834569', '2020-09-10 00:03:07.834569')[0m
+  [1m[36mTipoTransacao Load (0.4ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[35m (4.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Débito', 1, 1, '2020-09-10 00:09:14.821869', '2020-09-10 00:09:14.821869')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Boleto', 0, 0, '2020-09-10 00:09:14.823625', '2020-09-10 00:09:14.823625')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Financiamento', 0, 0, '2020-09-10 00:09:14.825263', '2020-09-10 00:09:14.825263')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Crédito', 1, 1, '2020-09-10 00:09:14.826582', '2020-09-10 00:09:14.826582')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento Empréstimo', 1, 1, '2020-09-10 00:09:14.828954', '2020-09-10 00:09:14.828954')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Vendas', 1, 1, '2020-09-10 00:09:14.830342', '2020-09-10 00:09:14.830342')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento TED', 1, 1, '2020-09-10 00:09:14.831474', '2020-09-10 00:09:14.831474')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento DOC', 1, 1, '2020-09-10 00:09:14.832516', '2020-09-10 00:09:14.832516')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('ALuguel', 0, 0, '2020-09-10 00:09:14.833449', '2020-09-10 00:09:14.833449')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.1ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.2ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-10 00:09:14.840696', '2020-09-10 00:09:14.840696')[0m
+  [1m[36mTipoTransacao Load (0.1ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (2.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Débito', 1, 1, '2020-09-10 00:09:14.860196', '2020-09-10 00:09:14.860196')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Boleto', 0, 0, '2020-09-10 00:09:14.861426', '2020-09-10 00:09:14.861426')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Financiamento', 0, 0, '2020-09-10 00:09:14.862417', '2020-09-10 00:09:14.862417')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Crédito', 1, 1, '2020-09-10 00:09:14.863416', '2020-09-10 00:09:14.863416')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento Empréstimo', 1, 1, '2020-09-10 00:09:14.864435', '2020-09-10 00:09:14.864435')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Vendas', 1, 1, '2020-09-10 00:09:14.865495', '2020-09-10 00:09:14.865495')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento TED', 1, 1, '2020-09-10 00:09:14.866561', '2020-09-10 00:09:14.866561')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento DOC', 1, 1, '2020-09-10 00:09:14.867546', '2020-09-10 00:09:14.867546')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('ALuguel', 0, 0, '2020-09-10 00:09:14.868537', '2020-09-10 00:09:14.868537')[0m
+  [1m[35m (2.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.2ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-10 00:09:14.873111', '2020-09-10 00:09:14.873111')[0m
+  [1m[36mTipoTransacao Load (0.1ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (3.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Débito', 1, 1, '2020-09-10 00:09:14.878813', '2020-09-10 00:09:14.878813')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Boleto', 0, 0, '2020-09-10 00:09:14.880048', '2020-09-10 00:09:14.880048')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Financiamento', 0, 0, '2020-09-10 00:09:14.881002', '2020-09-10 00:09:14.881002')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Crédito', 1, 1, '2020-09-10 00:09:14.881946', '2020-09-10 00:09:14.881946')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento Empréstimo', 1, 1, '2020-09-10 00:09:14.882884', '2020-09-10 00:09:14.882884')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Vendas', 1, 1, '2020-09-10 00:09:14.883868', '2020-09-10 00:09:14.883868')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (5.3ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento TED', 1, 1, '2020-09-10 00:09:14.884814', '2020-09-10 00:09:14.884814')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento DOC', 1, 1, '2020-09-10 00:09:14.891222', '2020-09-10 00:09:14.891222')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('ALuguel', 0, 0, '2020-09-10 00:09:14.892441', '2020-09-10 00:09:14.892441')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Débito', 1, 1, '2020-09-10 00:10:23.395513', '2020-09-10 00:10:23.395513')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (2.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Boleto', 0, 0, '2020-09-10 00:10:23.397222', '2020-09-10 00:10:23.397222')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Financiamento', 0, 0, '2020-09-10 00:10:23.400650', '2020-09-10 00:10:23.400650')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Crédito', 1, 1, '2020-09-10 00:10:23.403219', '2020-09-10 00:10:23.403219')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.6ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento Empréstimo', 1, 1, '2020-09-10 00:10:23.406898', '2020-09-10 00:10:23.406898')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Vendas', 1, 1, '2020-09-10 00:10:23.410438', '2020-09-10 00:10:23.410438')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento TED', 1, 1, '2020-09-10 00:10:23.411911', '2020-09-10 00:10:23.411911')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento DOC', 1, 1, '2020-09-10 00:10:23.412913', '2020-09-10 00:10:23.412913')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('ALuguel', 0, 0, '2020-09-10 00:10:23.413889', '2020-09-10 00:10:23.413889')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.1ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.2ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-10 00:10:23.421121', '2020-09-10 00:10:23.421121')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `tipo_transacaos`[0m
+  [1m[36mTipoTransacao Load (0.5ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[36mTipoTransacao Load (0.7ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (5.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Débito', 1, 1, '2020-09-10 00:11:00.476308', '2020-09-10 00:11:00.476308')[0m
+  [1m[35m (2.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Boleto', 0, 0, '2020-09-10 00:11:00.480050', '2020-09-10 00:11:00.480050')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (1.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Financiamento', 0, 0, '2020-09-10 00:11:00.481376', '2020-09-10 00:11:00.481376')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Crédito', 1, 1, '2020-09-10 00:11:00.485378', '2020-09-10 00:11:00.485378')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento Empréstimo', 1, 1, '2020-09-10 00:11:00.487665', '2020-09-10 00:11:00.487665')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Vendas', 1, 1, '2020-09-10 00:11:00.493646', '2020-09-10 00:11:00.493646')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento TED', 1, 1, '2020-09-10 00:11:00.496404', '2020-09-10 00:11:00.496404')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (2.3ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento DOC', 1, 1, '2020-09-10 00:11:00.497623', '2020-09-10 00:11:00.497623')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.1ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('ALuguel', 0, 0, '2020-09-10 00:11:00.502248', '2020-09-10 00:11:00.502248')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'BAR DO JOÃO       \n' LIMIT 1[0m
+  [1m[36mLoja Create (0.2ms)[0m  [1m[32mINSERT INTO `lojas` (`nome`, `nome_representante`, `created_at`, `updated_at`) VALUES ('BAR DO JOÃO       \n', 'JOÃO MACEDO   ', '2020-09-10 00:11:00.509561', '2020-09-10 00:11:00.509561')[0m
+  [1m[36mTipoTransacao Load (3.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 10 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (4.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Débito', 1, 1, '2020-09-10 00:11:01.596887', '2020-09-10 00:11:01.596887')[0m
+  [1m[35m (3.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (6.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Boleto', 0, 0, '2020-09-10 00:11:01.604931', '2020-09-10 00:11:01.604931')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.3ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Financiamento', 0, 0, '2020-09-10 00:11:01.614752', '2020-09-10 00:11:01.614752')[0m
+  [1m[35m (2.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (6.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Crédito', 1, 1, '2020-09-10 00:11:01.625391', '2020-09-10 00:11:01.625391')[0m
+  [1m[35m (2.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento Empréstimo', 1, 1, '2020-09-10 00:11:01.636310', '2020-09-10 00:11:01.636310')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (2.5ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Vendas', 1, 1, '2020-09-10 00:11:01.639123', '2020-09-10 00:11:01.639123')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento TED', 1, 1, '2020-09-10 00:11:01.652769', '2020-09-10 00:11:01.652769')[0m
+  [1m[35m (2.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (2.9ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('Recebimento DOC', 1, 1, '2020-09-10 00:11:01.656906', '2020-09-10 00:11:01.656906')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTipoTransacao Create (0.2ms)[0m  [1m[32mINSERT INTO `tipo_transacaos` (`descricao`, `natureza`, `sinal`, `created_at`, `updated_at`) VALUES ('ALuguel', 0, 0, '2020-09-10 00:11:01.669592', '2020-09-10 00:11:01.669592')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.6ms)[0m  [1m[31mROLLBACK[0m

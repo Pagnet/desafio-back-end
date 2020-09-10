@@ -12113,3 +12113,107 @@ Processing by TransacoesController#mostrar_transacoes as HTML
 Completed 200 OK in 52ms (Views: 26.8ms | ActiveRecord: 13.8ms | Allocations: 14513)
 
 
+Started GET "/" for 127.0.0.1 at 2020-09-09 19:28:28 -0300
+  [1m[35m (11.0ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by SessoesController#new as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  Rendering sessoes/new.html.erb within layouts/application
+  Rendered sessoes/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1111)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mCACHE Usuario Load (0.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+Completed 200 OK in 164ms (Views: 130.4ms | ActiveRecord: 2.2ms | Allocations: 15275)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-09-09 19:28:48 -0300
+Processing by SessoesController#create as HTML
+  Parameters: {"authenticity_token"=>"57dTMKYLNnCnFWxQwl5++/OClI3yii1O9s1AAm1QJ9iaRCw7vzgfRrBw7WCJoiQDLdwsXAIu35MPFaihFZPBOg==", "session"=>{"user"=>"oathosassis", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` IS NULL LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[36mUsuario Load (2.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`user` = 'oathosassis' LIMIT 1[0m
+  ↳ app/controllers/sessoes_controller.rb:8:in `create'
+Redirected to http://localhost:3000/transacoes
+Completed 302 Found in 429ms (ActiveRecord: 9.0ms | Allocations: 8308)
+
+
+Started GET "/transacoes" for 127.0.0.1 at 2020-09-09 19:28:49 -0300
+Processing by TransacoesController#index as HTML
+  [1m[36mUsuario Load (4.8ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  Rendering transacoes/index.html.erb within layouts/application
+  [1m[36mTransacao Load (1.4ms)[0m  [1m[34mSELECT `transacaos`.* FROM `transacaos` LIMIT 5[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:1
+  [1m[36mTipoTransacao Load (0.2ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (0.4ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 46 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mCACHE TipoTransacao Load (0.0ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 47 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  [1m[36mTipoTransacao Load (0.3ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:3
+  [1m[36mCACHE Loja Load (0.0ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`id` = 45 LIMIT 1[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/transacoes/_table_body_transacoes.html.erb:5
+  Rendered transacoes/_table_body_transacoes.html.erb (Duration: 61.3ms | Allocations: 24731)
+  Rendered transacoes/index.html.erb within layouts/application (Duration: 62.7ms | Allocations: 25413)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 81ms (Views: 61.6ms | ActiveRecord: 12.9ms | Allocations: 31709)
+
+
+Started POST "/importar" for 127.0.0.1 at 2020-09-09 19:37:33 -0300
+  [1m[35m (8.1ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TransacoesController#importar as HTML
+  Parameters: {"authenticity_token"=>"M6s4fprODUCHxjQMwzW8iU1IQZ/M/csPkKYe/r2it8IgPYJf9WKBaA3Fk1kDq0QtRSXTEa3OijDuM3MbPY5exA==", "arquivo"=>#<ActionDispatch::Http::UploadedFile:0x000055f68fb40768 @tempfile=#<Tempfile:/tmp/RackMultipart20200909-1877-6efqs6.txt>, @original_filename="CNAB.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"arquivo\"; filename=\"CNAB.txt\"\r\nContent-Type: text/plain\r\n">, "commit"=>"Importar"}
+  [1m[36mUsuario Load (0.9ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/helpers/sessoes_helper.rb:7:in `current_user'
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/transacoes_service.rb:9:in `block in processa'
+  [1m[36mLoja Load (0.4ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = ' BAR DO JOÃO      ' LIMIT 1[0m
+  ↳ app/services/transacoes_service.rb:9:in `block in processa'
+  [1m[36mTipoTransacao Load (1.9ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/services/transacoes_service.rb:17:in `block in processa'
+  [1m[36mTransacao Create (7.4ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 15:34:53', 142.0, '09620676017', '4753****3153', 45, 3, '2020-09-09 22:48:15.446604', '2020-09-09 22:48:15.446604')[0m
+  ↳ app/services/transacoes_service.rb:26:in `block in processa'
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/transacoes_service.rb:8:in `processa'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/transacoes_service.rb:9:in `block in processa'
+  [1m[36mLoja Load (0.3ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'LOJA DO Ó - MATRIZ' LIMIT 1[0m
+  ↳ app/services/transacoes_service.rb:9:in `block in processa'
+  [1m[36mTipoTransacao Load (1.7ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 5 LIMIT 1[0m
+  ↳ app/services/transacoes_service.rb:17:in `block in processa'
+  [1m[36mTransacao Create (3.3ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 14:56:07', 132.0, '55641815063', '3123****7687', 46, 5, '2020-09-09 22:48:16.695769', '2020-09-09 22:48:16.695769')[0m
+  ↳ app/services/transacoes_service.rb:26:in `block in processa'
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/transacoes_service.rb:8:in `processa'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/transacoes_service.rb:9:in `block in processa'
+  [1m[36mLoja Load (0.5ms)[0m  [1m[34mSELECT `lojas`.* FROM `lojas` WHERE `lojas`.`nome` = 'MERCADO DA AVENIDA\n' LIMIT 1[0m
+  ↳ app/services/transacoes_service.rb:9:in `block in processa'
+  [1m[36mTipoTransacao Load (1.9ms)[0m  [1m[34mSELECT `tipo_transacaos`.* FROM `tipo_transacaos` WHERE `tipo_transacaos`.`id` = 3 LIMIT 1[0m
+  ↳ app/services/transacoes_service.rb:17:in `block in processa'
+  [1m[36mTransacao Create (0.4ms)[0m  [1m[32mINSERT INTO `transacaos` (`data_hora`, `valor`, `cpf_beneficiario`, `cartao`, `loja_id`, `tipo_transacao_id`, `created_at`, `updated_at`) VALUES ('2019-03-01 17:27:12', 122.0, '84515254073', '6777****1313', 47, 3, '2020-09-09 22:48:18.089057', '2020-09-09 22:48:18.089057')[0m
+  ↳ app/services/transacoes_service.rb:26:in `block in processa'
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/transacoes_service.rb:8:in `processa'
+  [1m[35m (3.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/transacoes_service.rb:9:in `block in processa'
+Completed   in 646870ms (ActiveRecord: 47.0ms | Allocations: 128066)
+
+
