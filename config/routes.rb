@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: "importers#index"
 
   resources :importers, only: ["index", "new", "create"]

@@ -1,41 +1,46 @@
-<div class="row mt-2">
-  <div class="col-8">
-    <h1>Lojas</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Dono</th>
-          <th>Saldo</th>
-          <th>Quantidade de Transações</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @stores.each do |store| %>
-          <tr class="store">
-            <td>
-              <%= store.name %>
-            </td>
-            <td>
-              <%= store.shopkeeper %>
-            </td>
-            <td>
-              <%= number_to_currency(store.balance/100.0, unit: "R$ ", separator: ",", delimiter: ".") %>
-            </td>
-            <td>
-              <%= store.transactions.count %>
-            </td>
-            <td>
-              <%= link_to "Visualizar", store_path(store), class: "btn btn-primary" %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<div class="row mt-5">
+  <%= render partial: "layouts/sidebar"  %>
+  <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="row mt-2">
+      <div class="col-8">
+        <h1>Lojas</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Dono</th>
+              <th>Saldo</th>
+              <th>Quantidade de Transações</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @stores.each do |store| %>
+              <tr class="store">
+                <td>
+                  <%= store.name %>
+                </td>
+                <td>
+                  <%= store.shopkeeper %>
+                </td>
+                <td>
+                  <%= number_to_currency(store.balance/100.0, unit: "R$ ", separator: ",", delimiter: ".") %>
+                </td>
+                <td>
+                  <%= store.transactions.count %>
+                </td>
+                <td>
+                  <%= link_to "Visualizar", store_path(store), class: "btn btn-primary" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
 </div>

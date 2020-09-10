@@ -1,5 +1,5 @@
 class ImportersController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     @importers = Importer.all
   end
