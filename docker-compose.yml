@@ -15,6 +15,37 @@ services:
       - POSTGRES_PASSWORD=postgres
       - PGDATA=/var/lib/postgresql/data
 
+  redis:
+    container_name: redis
+    image: redis:6.0.8-alpine
+    command: ['redis-server', '--appendonly', 'yes']
+    volumes:
+      - 'redis:/data'
+    ports:
+      - '6379:6379'
+
+  sidekiq:
+    container_name: sidekiq
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - 'db'
+      - 'redis'
+    volumes:
+      - '.:/backend_challenge'
+      - '/backend_challenge/tmp'
+      - gem_cache:/usr/local/bundle/gems
+      - node_modules:/backend_challenge/node_modules
+    env_file: .env
+    environment:
+      - RAILS_ENV=development
+      - REDIS_URL_SIDEKIQ=redis://redis:6379/12
+    entrypoint: ./entrypoints/sidekiq_entrypoint.sh
+
 volumes:
+  redis:
   postgres:
+  gem_cache:
+  node_modules:
 
