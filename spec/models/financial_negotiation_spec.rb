@@ -7,5 +7,4 @@ RSpec.describe FinancialNegotiation, type: :model do
   it { should validate_presence_of(:movement_value) }
   it { should validate_presence_of(:beneficiary_identifier) }
   it { should validate_presence_of(:credit_card) }
-  it { should validate_presence_of(:hour_of_occurrence) }
 end

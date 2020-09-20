@@ -6,7 +6,6 @@ class CreateFinancialNegotiations < ActiveRecord::Migration[6.0]
       t.decimal :movement_value, precision: 18, scale: 2
       t.string :beneficiary_identifier
       t.string :credit_card
-      t.string :hour_of_occurrence
       t.references :shopkeeper, type: :uuid, foreign_key: true
 
       t.timestamps

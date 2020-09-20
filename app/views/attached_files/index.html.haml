@@ -22,6 +22,7 @@
           %th Arquivo
       %tbody
         - @attached_files.each do |attached_file|
+          - byebug
           %tr
             %td= attached_file.filename
             %td= attached_file.kind

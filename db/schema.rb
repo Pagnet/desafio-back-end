@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2020_09_19_234258) do
     t.decimal "movement_value", precision: 18, scale: 2
     t.string "beneficiary_identifier"
     t.string "credit_card"
-    t.string "hour_of_occurrence"
     t.uuid "shopkeeper_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

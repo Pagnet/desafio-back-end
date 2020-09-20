@@ -5,7 +5,6 @@ FactoryBot.define do
     movement_value { Faker::Name.name }
     beneficiary_identifier { Faker::Name.name }
     credit_card { Faker::Name.name }
-    hour_of_occurrence { Faker::Name.name }
     association :shopkeeper
   end
 end

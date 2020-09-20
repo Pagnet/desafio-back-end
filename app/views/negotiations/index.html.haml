@@ -11,18 +11,13 @@
           %th Ocorreu em
           %th CPF do beneficiário
           %th Cartão de Crédito
-          %th Hora da ocorrência
       %tbody
         - @negotiations.each do |negotiation|
           %tr
             %td=I18n.t("controllers.negotiations.kind.#{negotiation.negotiation_kind}")
             %td=number_to_currency(negotiation.movement_value)
-            %td=negotiation.occurrence_at.try(:strftime, '%d/%m/%y')
+            %td=negotiation.occurrence_at
             %td=negotiation.beneficiary_identifier
             %td=negotiation.credit_card
-            %td=negotiation.hour_of_occurrence
-
-
-
   %div{ class: 'col-lg-12' }
     = paginate @negotiations, theme: 'bootstrap4'
