@@ -1,25 +1,6 @@
 version: '3.3'
 
 services:
-  app:
-    container_name: app
-    build:
-      context: .
-      dockerfile: Dockerfile
-    depends_on:
-      - 'db'
-      - 'redis'
-    ports:
-      - '3000:3000'
-    volumes:
-      - '.:/backend_challenge'
-      - gem_cache:/usr/local/bundle/gems
-      - node_modules:/backend_challenge/node_modules
-    env_file: .env
-    environment:
-      - RAILS_ENV=development
-    entrypoint: ./entrypoints/app_entrypoint.sh
-
   db:
     container_name: postgres
     image: postgres:12.4-alpine
@@ -43,12 +24,32 @@ services:
     ports:
       - '6379:6379'
 
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - 'db'
+      - 'redis'
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/backend_challenge'
+      - gem_cache:/usr/local/bundle/gems
+      - node_modules:/backend_challenge/node_modules
+    env_file: .env
+    environment:
+      - RAILS_ENV=development
+    entrypoint: ./entrypoints/app_entrypoint.sh
+
   sidekiq:
     container_name: sidekiq
     build:
       context: .
       dockerfile: Dockerfile
     depends_on:
+      - 'app'
       - 'db'
       - 'redis'
     volumes:
