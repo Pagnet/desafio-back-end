@@ -39,7 +39,7 @@ module FileProcessors
 
           {
             'negotiation_kind' => transaction_types(line[0]),
-            'occurrence_at' => date(line[1..8]),
+            'occurrence_at' => occurrence_at,
             'movement_value' => divide_by_hundred(line[9..18].to_i),
             'beneficiary_identifier' => identifier_formatter(line[19..29]),
             'credit_card' => line[30..41],
@@ -67,7 +67,7 @@ module FileProcessors
       end
 
       def datetime(date_and_hour)
-        DateTime.parse("#{date_and_hour}") rescue nil
+        Time.zone.parse("#{date_and_hour}") rescue nil
       end
 
       def identifier_formatter(identifier)
