@@ -17,6 +17,7 @@ class Operations::AttachedFile::Create
     attached_file.save
     attached_file.reload
     result.assign(:attached_file, attached_file)
+    FileHandleWorker.enqueue(attached_file)
   end
 
   def validate(params)
