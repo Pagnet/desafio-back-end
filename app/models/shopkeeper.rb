@@ -1,0 +1,2 @@
+class Shopkeeper < ApplicationRecord
+end
