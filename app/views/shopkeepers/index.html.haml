@@ -1,0 +1,23 @@
+%div{ class: 'row' }
+  %div{ class: 'col-lg-12' }
+    %h3 Lojistas
+    %table{ class: 'table' }
+      %thead{ class: 'table-dark' }
+        %tr
+          %th Nome
+          %th Representante
+          %th Saldo total
+          %th Criado em
+          %th
+      %tbody
+        - @shopkeepers.each do |shopkeeper|
+          %tr
+            %td=shopkeeper.name
+            %td=shopkeeper.representative
+            %td=number_to_currency(shopkeeper.total_balance)
+            %td=shopkeeper.created_at.try(:strftime, '%d/%m/%Y %H:%M:%S')
+            %td
+              %a{href: (shopkeeper_negotiations_path(shopkeeper.id))}
+                Negociações do Lojista
+  %div{ class: 'col-lg-12' }
+    = paginate @shopkeepers, theme: 'bootstrap4'
