@@ -1,0 +1,13 @@
+pt-BR:
+  controllers:
+    negotiations:
+      kind:
+        debit: Débito
+        billet: Boleto
+        financing: Financiamento
+        credit: Crédito
+        loan_receipt: Recebimento Empréstimo
+        sales: Vendas
+        ted_receipt: Recebimento TED
+        doc_receipt: Recebimento DOC
+        rent: Aluguel

@@ -1,0 +1,6 @@
+pt-BR:
+  operations:
+    negotiations:
+      create:
+        errors:
+          invalid_negotiation: Não foi possível parsear, não foram passados dados suficientes.

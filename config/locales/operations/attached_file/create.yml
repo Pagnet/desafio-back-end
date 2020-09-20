@@ -1,0 +1,10 @@
+pt-BR:
+  operations:
+    attached_file:
+      create:
+        errors:
+          invalid_content_type: "Tipo de arquivo não aceito. Aceitos: %{accepted_types}, recebido: %{given_type}"
+          invalid_kind: "Layout de arquivo não aceito. Aceitos: %{accepted_kinds}, recebido: %{given_kind}"
+          invalid_file_size: "Tamanho de arquivo superior a %{max}"
+          file_does_not_exist: Arquivo não existe. Insira um arquivo e tente novamente.
+          content_empty: Arquivo está sem conteúdo

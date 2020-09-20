@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BackendChallenge
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %div{ class: "container-fluid" }
+      %ul.nav
+        %li.nav-item
+          %a.nav-link{:href => attached_files_path, class: "#{current_url(attached_files_path)}"} Importar Arquivo
+      = yield

@@ -1,0 +1,12 @@
+- if flash[:danger]
+  %div{ id: "error-flash-messages", class: "alert alert-danger alert-dismissible" }
+    %strong
+      Erro
+    %span
+      =flash[:danger]
+- if flash[:success]
+  %div{ id: "success-flash-messages", class: "alert alert-success alert-dismissible" }
+    %strong
+      Sucesso
+    %span
+      =flash[:success]

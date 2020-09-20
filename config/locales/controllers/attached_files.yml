@@ -1,0 +1,9 @@
+pt-BR:
+  controllers:
+    attached_files:
+      success: Seu upload será processado, por favor aguarde...
+      status:
+        pending: Pendente
+        processing: Processando
+        processed: Processado
+        error: Erro

@@ -1,0 +1,35 @@
+%div{class: 'row'}
+  %div{class: 'col-lg-12'}
+    = form_tag attached_files_path, :multipart => true, :method => :post do
+      %fieldset
+        %legend Importar Arquivos
+        %div{ class: 'form-group' }
+          = hidden_field_tag 'kind', 'CnabParser'
+          = render partial: 'error-flash-messages'
+          %div{class: 'mt-2'}
+            = file_field_tag 'file', class: 'form-control-file'
+          %div{ class: 'mt-3'}
+            = submit_tag 'Enviar', class: 'btn btn-primary'
+
+  %div{ class: 'col-lg-12' }
+    %table{ class: 'table' }
+      %thead{class: 'thead-dark' }
+        %tr
+          %th Nome do Arquivo
+          %th Processado por
+          %th Processado em
+          %th Status
+          %th Arquivo
+      %tbody
+        - @attached_files.each do |attached_file|
+          %tr
+            %td= attached_file.filename
+            %td= attached_file.kind
+            %td= attached_file.processed_at.try(:strftime, '%d/%m/%Y %H:%M:%S')
+            %td
+              %span{class: "#{attached_file.status}"}
+                =I18n.t("controllers.attached_files.status.#{attached_file.status}")
+            %td=link_to 'Download', url_for(attached_file.file_url), download: attached_file.filename
+
+  %div{ class: 'col-lg-12' }
+    = paginate @attached_files, theme: 'bootstrap4'

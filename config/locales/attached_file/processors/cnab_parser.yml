@@ -1,0 +1,6 @@
+pt-BR:
+  attached_file:
+    processors:
+      cnab_parser:
+        errors:
+          file_empty: Arquivo está vazio

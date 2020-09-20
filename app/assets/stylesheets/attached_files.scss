@@ -1,0 +1,24 @@
+.pending, .processing, .processed, .error {
+  padding: 5px;
+}
+
+.pending {
+  background-color: #FEF3CD;
+  color: #084185;
+}
+.processing {
+  background-color: #CCE5FF;
+  color: #0C555F;
+}
+.processed {
+  background-color: #D5EDDA;
+  color: #155824;
+}
+.error {
+  background-color: #F9D7DA;
+  color: #731C24;
+}
+
+form {
+  margin: 20px 0;
+}
