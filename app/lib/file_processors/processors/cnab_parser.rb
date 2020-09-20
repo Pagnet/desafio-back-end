@@ -1,8 +1,9 @@
-class AttachedFile
-  class Processors
+module FileProcessors
+  module Processors
     class CnabParser < Base
       def process
         return add_error(:file_empty) if lines.blank?
+        return add_error(:content_empty) if content_lines.blank?
         operation = Operations::Negotiations::Create.new
         operation.result = self.result
         negotiations = operation.call(grouped_by_content.deep_symbolize_keys)
@@ -27,18 +28,26 @@ class AttachedFile
       def content_lines
         lines.map do |line|
           store_name = line[62..80].squish
+          date = date(line[1..8])
+          hour = hour(line[42..47])
+          occurrence_at = datetime("#{date} #{hour}")
+
+          if occurrence_at.nil?
+            could_not_parse << line
+            next
+          end
+
           {
             'negotiation_kind' => transaction_types(line[0]),
             'occurrence_at' => date(line[1..8]),
             'movement_value' => divide_by_hundred(line[9..18].to_i),
             'beneficiary_identifier' => identifier_formatter(line[19..29]),
             'credit_card' => line[30..41],
-            'hour_of_occurrence' => hour(line[42..47]),
             'store_representative' => line[48..61].squish,
             'store_name' => store_name,
             'store' => store(store_name)
           }
-        end
+        end.compact
       end
 
       def lines
@@ -57,12 +66,20 @@ class AttachedFile
         hour.gsub(/(\d{2})(\d{2})(\d{2})/, '\1:\2:\3')
       end
 
+      def datetime(date_and_hour)
+        DateTime.parse("#{date_and_hour}") rescue nil
+      end
+
       def identifier_formatter(identifier)
         identifier.gsub(/(\d{3})(\d{3})(\d{3})(\d{2})/, '\1.\2.\3-\4')
       end
 
       def divide_by_hundred(number)
         number / 100
+      end
+
+      def could_not_parse
+        attached_file.metadata['could_not_parse'] ||= []
       end
 
       def transaction_types(key)

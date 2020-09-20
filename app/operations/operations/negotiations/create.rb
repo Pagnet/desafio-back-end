@@ -28,7 +28,6 @@ class Operations::Negotiations::Create
         negotiations.each do |negotiation|
           operator = negotiation_kinds(negotiation[:negotiation_kind])
           value = negotiation[:movement_value]
-          negotiation[:occurrence_at] = datetime(negotiation)
           total_balance = balance(total_balance, value, operator)
           shopkeeper.negotiations.create!(atributes_for(negotiation))
         end
@@ -59,11 +58,7 @@ class Operations::Negotiations::Create
   end
 
   def atributes_for(attr)
-    attr.except(:store_representative, :store_name, :store, :hour_of_occurrence)
-  end
-
-  def datetime(negotiation)
-    DateTime.parse("#{negotiation[:occurrence_at]} #{negotiation[:hour_of_occurrence]}") rescue nil
+    attr.except(:store_representative, :store_name, :store)
   end
 
   def negotiation_kinds(kind)

@@ -1,22 +1,33 @@
-.pending, .processing, .processed, .error {
+.pending, .processing, .processed, .error, .partial {
   padding: 5px;
+  & a {
+    color: inherit;
+  }
 }
 
 .pending {
-  background-color: #FEF3CD;
-  color: #084185;
+  background-color: #E2E3E5;
+  color: #383E42;
 }
+
 .processing {
   background-color: #CCE5FF;
   color: #0C555F;
 }
+
 .processed {
   background-color: #D5EDDA;
   color: #155824;
 }
+
 .error {
   background-color: #F9D7DA;
   color: #731C24;
+}
+
+.partial {
+  background-color: #FEEFBA;
+  color: #866406;
 }
 
 form {

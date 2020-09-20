@@ -1,6 +1,6 @@
 
-class AttachedFile
-  class Processors
+module FileProcessors
+  module Processors
     class Base
       attr_reader :result, :attached_file, :logger
       def initialize(attached_file, logger: Rails.logger)
@@ -27,11 +27,14 @@ class AttachedFile
         end
 
         if result.success?
-          attached_file.update(status: 'processed', processed_at: Time.current)
+          attached_file.update(
+            status: attached_file.metadata['could_not_parse'].blank? ? 'processed' : 'partial',
+            processed_at: Time.current
+          )
         else
           attached_file.processed_at = Time.current
           attached_file.status = 'error'
-          attached_file.metadata['errors'] = result.translated_errors
+          attached_file.metadata['errors'] = result.errors
           attached_file.save
         end
 

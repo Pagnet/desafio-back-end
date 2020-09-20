@@ -4,3 +4,4 @@ pt-BR:
       cnab_parser:
         errors:
           file_empty: Arquivo está vazio
+          content_empty: Não foi possível parsear o conteúdo, verifique seu arquivo

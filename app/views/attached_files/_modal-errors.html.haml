@@ -1,0 +1,16 @@
+%div{ id: "attached-files-errors-#{attached_file.id}", class: 'modal fade' ,data: { backdrop: 'static' }, 'aria-hidden' => 'true', 'aria-labelledby' => '', :role => 'dialog', :tabindex => '-1'}
+  .modal-dialog.modal-dialog-centered.modal-xl.modal-dialog-scrollable{:role => 'document'}
+    .modal-content
+      .modal-header
+        %h5#attached-files-errors.modal-title
+          = I18n.t("controllers.attached_files.modal_error_title")
+          =attached_file.filename
+        %button.close{'aria-label' => 'Fechar', 'data-dismiss' => 'modal', :type => 'button'}
+          %span{'aria-hidden' => 'true'} ×
+      .modal-body
+        - attached_file.errors do |error|
+          = error
+        - attached_file.metadata['could_not_parse'].each do |line|
+          = line
+      .modal-footer
+        %button.btn.btn-secondary{'data-dismiss' => 'modal', :type => 'button'} Fechar

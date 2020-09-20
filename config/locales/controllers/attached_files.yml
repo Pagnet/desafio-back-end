@@ -2,8 +2,10 @@ pt-BR:
   controllers:
     attached_files:
       success: Seu upload será processado, por favor aguarde...
+      modal_error_title: Linhas com problemas encontrados no arquivo
       status:
         pending: Pendente
         processing: Processando
         processed: Processado
+        partial: Processado parcialmente
         error: Erro

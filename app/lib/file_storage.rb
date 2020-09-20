@@ -1,6 +1,6 @@
-module FileStorage
-  require_relative './file_storage/local_storage'
+require_relative './file_storage/local_storage'
 
+module FileStorage
   def self.client
     if Rails.env.test?
       FileStorage::LocalStorage.new(Rails.root.join('spec/file_storage'))

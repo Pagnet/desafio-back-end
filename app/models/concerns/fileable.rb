@@ -7,10 +7,10 @@ module Fileable
 
   ACCEPTED_CONTENT_TYPES = %w(text/plain).freeze
 
-  PROCESSORS = { 'CnabParser' => AttachedFile::Processors::CnabParser }.freeze
+  PROCESSORS = { 'CnabParser' => FileProcessors::Processors::CnabParser }.freeze
 
   KINDS = PROCESSORS.keys.freeze
-  STATUS = %w(pending processing processed error).freeze
+  STATUS = %w(pending processing processed error partial).freeze
 
   def filepath
     self.id ||= SecureRandom.uuid
@@ -25,7 +25,7 @@ module Fileable
   end
 
   def metadata
-    self[:metadata] ||= { 'errors' => [], 'resources' => [] }
+    self[:metadata] ||= { 'errors' => [], 'resources' => [], 'could_not_parse' => [] }
   end
 
   def process

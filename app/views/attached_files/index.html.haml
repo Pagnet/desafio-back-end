@@ -22,14 +22,18 @@
           %th Arquivo
       %tbody
         - @attached_files.each do |attached_file|
-          - byebug
           %tr
             %td= attached_file.filename
             %td= attached_file.kind
             %td= attached_file.processed_at.try(:strftime, '%d/%m/%Y %H:%M:%S')
             %td
               %span{class: "#{attached_file.status}"}
-                =I18n.t("controllers.attached_files.status.#{attached_file.status}")
+                - status = I18n.t("controllers.attached_files.status.#{attached_file.status}")
+                - if attached_file.metadata['could_not_parse']
+                  = url_for_errors(attached_file, status)
+                - else
+                  =status
+              = render partial: 'modal-errors', locals: { attached_file: attached_file }
             %td=link_to 'Download', url_for(attached_file.file_url), download: attached_file.filename
 
   %div{ class: 'col-lg-12' }
