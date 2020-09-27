@@ -1,0 +1,21 @@
+%section
+  %h1.title= StoreOperation.model_name.human(count: 2)
+  %table.table
+    %thead
+      %tr
+        %th.col= StoreOperation.human_attribute_name :kind
+        %th.col= Store.human_attribute_name :name
+        %th.col= StoreOperation.human_attribute_name :document
+        %th.col= StoreOperation.human_attribute_name :card
+        %th.col= StoreOperation.human_attribute_name :operated_at
+        %th.col= StoreOperation.human_attribute_name :amount
+    %tbody
+      - @store_operations.each do |operation|
+        %tr
+          %td.row= I18n.t(operation.kind, scope: [:activerecord, :attributes, :store_operation, :kinds])
+          %td.row= operation.store_name
+          %td.row= operation.document
+          %td.row= operation.card
+          %td.row= I18n.l(operation.operated_at, format: :simplified)
+          %td.row= number_to_currency(operation.signed_amount)
+  %h2= I18n.t('.views.store_operations.index.footer', total: number_to_currency(StoreOperation.balance(@store_operations)))

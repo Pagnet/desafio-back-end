@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class StoreOperation < ApplicationRecord
+  INCOMING_OPERATIONS = %i[debt credit loan sales ted doc].freeze
+  OUTGOING_OPERATIONS = %i[boleto financing rent].freeze
+
   belongs_to :store
 
   enum kind: {
@@ -20,4 +23,14 @@ class StoreOperation < ApplicationRecord
   validates :card, presence: true
   validates :document, presence: true
   validates :kind, presence: true
+
+  delegate :name, to: :store, prefix: true
+
+  def self.balance(collection)
+    collection.inject(0) { |balance, operation| balance + operation.signed_amount }
+  end
+
+  def signed_amount
+    (INCOMING_OPERATIONS.include?(kind.to_sym) ? amount : amount * - 1) / 100.0
+  end
 end

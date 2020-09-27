@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'store_operations#new'
+
+  resources :stores, only: :index
+  resources :store_operations, only: [:create, :index, :new]
 end

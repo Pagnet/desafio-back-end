@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    %meta{ name: 'theme-color', content: '#363636' }
+    %title= I18n.t('.views.general.title')
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = stylesheet_link_tag    'https://fonts.googleapis.com/icon?family=Material+Icons'
+  %body
+    %nav{ role: 'navigation', 'aria-label': 'main navigation' }
+      .navbar
+        = link_to Store.model_name.human(count: 2), stores_path, class: 'right outline'
+        = link_to StoreOperation.model_name.human(count: 2), store_operations_path, class: 'right outline'
+        = link_to I18n.t('.views.store_operations.new.title'), new_store_operation_path, class: 'right outline'
+    = yield

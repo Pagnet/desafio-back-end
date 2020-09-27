@@ -1,0 +1,12 @@
+%section
+  %h1.title= Store.model_name.human(count: 2)
+  %table.table
+    %thead
+      %tr
+        %th.col= Store.human_attribute_name :name
+        %th.col= Store.human_attribute_name :storekeeper
+    %tbody
+      - @stores.each do |store|
+        %tr
+          %td= store.name
+          %td= store.storekeeper

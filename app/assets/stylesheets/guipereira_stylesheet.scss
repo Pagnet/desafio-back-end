@@ -1,0 +1,367 @@
+$black: #363636;
+$blue: #3273DD;
+$darkgray: #777777;
+$font-stack: 'Montserrat', sans-serif;
+$green: #23D260;
+$lightgray: #dbdbdb;
+$red: #FF3860;
+$white: #fafbfc;
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+nav {
+  background-color: #363636;
+  box-sizing: border-box;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08);
+  color: #fafbfc;
+  font-weight: 400;
+  height: 64px;
+  line-height: 64px;
+  padding: 0 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+body,
+table {
+  font-family: $font-stack;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+blockquote {
+  border-left: 4px solid $lightgray;
+  color: $darkgray;
+  margin: 30px 0;
+  padding:20px;
+}
+
+blockquote > :first-child {
+  margin-top: 0;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+blockquote:before{
+  content: none;
+}
+
+blockquote:after{
+  content: none;
+}
+
+code,
+pre {
+  background-color: #eaeef3;
+  border-radius: 0;
+  border: none;
+}
+
+code {
+  padding: 0 4px;
+}
+
+%header-default {
+  font-weight: inherit;
+  margin: 24px 0;
+}
+
+h1 {
+  @extend %header-default;
+  font-size: 2rem;
+
+  &.title {
+    margin-bottom: 0;
+    text-align: center;
+  }
+}
+
+h2 {
+  @extend %header-default;
+  font-size: 1.75rem;
+}
+
+h3 {
+  @extend %header-default;
+  font-size: 1.55rem;
+}
+
+h4 {
+  @extend %header-default;
+  font-size: 1.35rem;
+}
+
+h5 {
+  @extend %header-default;
+  font-size: 1.15rem;
+}
+
+h6 {
+  @extend %header-default;
+  font-size: 1rem;
+
+  &.title {
+    margin-top: 0;
+  }
+}
+
+p, ol, ul, li {
+  font-size: 100%;
+  font-weight: 300;
+  line-height: 1.5rem;
+}
+
+pre {
+  border-left: 4px solid $lightgray;
+  line-height: 1.5rem;
+  overflow: auto;
+  padding: 12px;
+  white-space: pre-wrap;
+}
+
+pre > code {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+code {
+  font-size: 100%;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="file"],
+textarea {
+  background-color: $white;
+  border-radius: 2px;
+  border: 1px solid $lightgray;
+  box-shadow: none;
+  box-sizing: border-box;
+  margin: 10px 0;
+  outline: none;
+  width: 100%;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="file"] {
+  height: 38px;
+  padding: 8px;
+}
+
+table {
+  border-collapse: collapse;
+  border-radius: 2px;
+  border: 1px solid $lightgray;
+  box-shadow: none;
+  box-sizing: border-box;
+  margin: 20px 0;
+  width: 100%;
+  white-space: nowrap;
+}
+
+thead {
+  background-color: $white;
+  border-bottom: 1px solid $lightgray;
+}
+
+tbody > tr {
+  border-bottom: 1px solid $lightgray;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+td,
+th {
+  border-right: 1px solid $lightgray;
+  padding: 10px;
+
+  &:last-of-type {
+    border-right: none;
+  }
+}
+
+textarea {
+  margin-top: 10px;
+  overflow: auto;
+  padding: 10px;
+  resize: none;
+}
+
+label{
+  display: block;
+}
+
+button,
+.button,
+input[type="button"],
+input[type="submit"] {
+  align-items: flex-start;
+  background-color: $white;
+  border-radius: 2px;
+  border: 1px solid $lightgray;
+  box-shadow: none;
+  color: $black;
+  display: block;
+  font-size: 100%;
+  margin: 10px 0;
+  min-width: 100px !important;
+  outline: none;
+  padding: 10px;
+  text-align: center;
+}
+
+button:hover,
+.button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background-color: $black;
+  border-color: transparent;
+  color: $white;
+}
+
+.outline {
+  background-color: $black;
+  border-radius: 0;
+  border: none;
+  color: $white;
+  height: 42px;
+  line-height: 4;
+  margin-left: 24px;
+
+  &:hover {
+    background-color: $black;
+    border-bottom: 4px solid $white;
+    color: $white;
+  }
+}
+
+.danger {
+  border-color: $red;
+  color: $red;
+
+  &:hover {
+    background-color: $red;
+    border-color: transparent;
+    color: $white;
+  }
+}
+
+.publish {
+  border-color: $green;
+  color: $green;
+
+  &:hover {
+    background-color: $green;
+    border-color: transparent;
+    color: $white;
+  }
+}
+
+.unpublish {
+  border-color: $blue;
+  color: $blue;
+
+  &:hover {
+    background-color: $blue;
+    border-color: transparent;
+    color: $white;
+  }
+}
+
+article {
+  margin: -1px;
+  padding: 1px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+form {
+  margin: 0 auto;
+  max-width: 480px;
+  padding: 48px 8px 8px 8px;
+
+  a {
+    margin-top: 20px;
+    display: inline-block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+section {
+  // max-width: 1200px;
+  margin: 48px 0 0 0;
+  padding: 20px;
+}
+
+.container {
+  margin: -1px;
+  padding: 1px;
+}
+
+.navbar {
+  height: 64px;
+  line-height: 64px;
+  margin: 0 auto;
+  max-width: 1280px;
+  position: relative;
+  width: 100%;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+@media only screen and (max-device-width: 540px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+@media only screen and (min-device-width: 541px) and (max-device-width: 650px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+@media only screen and (min-device-width: 651px) and (max-device-width: 720px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+@media only screen and (min-device-width: 721px) and (max-device-width: 1200px) {
+  html {
+    font-size: 100%;
+  }
+}
