@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_022224) do
+ActiveRecord::Schema.define(version: 2020_09_27_030038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "store_operations", force: :cascade do |t|
+    t.datetime "operated_at"
+    t.integer "amount"
+    t.string "card"
+    t.string "document"
+    t.integer "kind"
+    t.bigint "store_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["store_id"], name: "index_store_operations_on_store_id"
+  end
 
   create_table "stores", force: :cascade do |t|
     t.string "name"
@@ -22,4 +34,5 @@ ActiveRecord::Schema.define(version: 2020_09_27_022224) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "store_operations", "stores"
 end
