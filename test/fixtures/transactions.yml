@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  store: one
+  kind: 1
+  date_and_hour: 2020-09-30 21:06:15
+  value: 9.99
+  cpf: MyString
+  card_number: MyString
+
+two:
+  store: two
+  kind: 1
+  date_and_hour: 2020-09-30 21:06:15
+  value: 9.99
+  cpf: MyString
+  card_number: MyString

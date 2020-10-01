@@ -1,0 +1,5 @@
+<%= form_for @transaction do |f| %> <%= f.file_field :file %> <%=
+submit_tag("Submeter arquivo") %> <% end %> <br /><%= button_to "Lista de
+Transações", transactions_list_path, :method => "get" %>
+
+<br /><%= button_to "Lista de Lojas", stores_list_path, :method => "get" %>

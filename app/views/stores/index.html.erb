@@ -1,0 +1,30 @@
+<%= button_to "Início", transactions_path, :method => "get" %> <br>
+
+<h1>Lista de Lojas</h1>
+
+<table style="padding-left: 15px; padding-right: 15px;">
+<thead>
+  <tr>
+    <th style="padding-right: 5px;">Nome da Loja</th>
+    <th style="padding-left: 5px;">Nome do Dono</th>
+    <th style="padding-left: 5px;">Saldo</th>
+    
+    <th colspan="3"></th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @stores.each do |s| %>
+  <tr>
+    <td style="padding-right: 5px;"><%= s.name %></td>
+    <td style="padding-left: 15px;"><%= s.owner_name %></td>
+    <td style="padding-left: 15px;"><%= s.balance %></td>
+    <td style="padding-left: 15px;"><%= button_to "Ver Transações", store_transactions_path(:id => s.id), :method => "get" %></td>
+    </td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+
+
+

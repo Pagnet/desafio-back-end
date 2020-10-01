@@ -1,0 +1,38 @@
+<%= button_to "Início", transactions_path, :method => "get" %> <br>
+<%= button_to "Lista de Lojas", stores_list_path, :method => "get" %> <br>
+<h1>Lista de Transações</h1>
+
+<table style="padding-left: 15px; padding-right: 15px;">
+<thead>
+  <tr>
+    <th style="padding-right: 5px;">Tipo</th>
+    <th style="padding-left: 15px;">Data / Hora</th>
+    <th style="padding-left: 15px;">Valor</th>
+    <th style="padding-left: 15px;">CPF</th>
+    <th style="padding-left: 15px;">Cartão</th>
+    <th style="padding-left: 15px;">Dono da Loja</th>
+    <th style="padding-left: 15px;">Nome da Loja</th>
+
+    <th colspan="3"></th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @transactions.each do |t| %>
+  <tr>
+    <td style="padding-right: 5px;"><%= t.kind %></td>
+    <td style="padding-left: 15px;"><%= t.date_and_hour.in_time_zone("Brasilia") %></td>
+    <td style="padding-left: 21px;"><%= t.value %></td>
+    <td style="padding-left: 15px;"><%= t.cpf %></td>
+    <td style="padding-left: 15px;"><%= t.card_number %></td>
+    <td style="padding-left: 15px;"><%= t.store.owner_name %></td>
+    <td style="padding-left: 20px;"><%= t.store.name %></td>
+    
+    </td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+
+
+
