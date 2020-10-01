@@ -1,0 +1,15 @@
+@import "bootstrap";
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+.container-fluid { padding-top: 120px; }
+
+.w3-teal {
+  margin-bottom: 10px;
+}

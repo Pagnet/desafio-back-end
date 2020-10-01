@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :cnab_files, only: %i[new create]
+  resources :stores, only: %i[index show]
+
+  root to: 'cnab_files#new'
 end

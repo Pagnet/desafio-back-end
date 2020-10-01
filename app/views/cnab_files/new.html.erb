@@ -1,0 +1,11 @@
+<div class="w3-container w3-teal">
+  <h1>Importador</h1>
+</div>
+
+<div class="container">
+  <%= render "message" %>
+  <h3>Selecione um arquivo</h3>
+  <%= link_to "+ Importar", "#", class: "btn btn-primary btn-block", data: { toggle: "modal", target: "#importFileModal" } %>
+</div>
+
+<%= render "import_file_modal" %>

@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DesafioBackEnd</title>
+    <title>Desafio BackEnd</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
   <body>
-    <%= yield %>
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+      <h3 class="w3-bar-item">Menu</h3>
+      <%= link_to 'Importador', new_cnab_file_path, class: "w3-bar-item w3-button" %>
+      <%= link_to 'Lojas', stores_path, class: "w3-bar-item w3-button" %>
+    </div>
+
+    <div style="margin-left:25%">
+      <%= yield %>
+    </div>
   </body>
 </html>

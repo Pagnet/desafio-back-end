@@ -1,0 +1,34 @@
+<div class="w3-container w3-teal">
+  <h1>Lojas</h1>
+</div>
+
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Proprietário</th>
+          <th>Saldo atual</th>
+          <th>Quantidade de operações</th>
+          <th>Lista operações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @stores.each do |store| %>
+          <tr>
+            <td><%= store.name %></td>
+            <td><%= store.owner_name %></td>
+            <td class="<%= store.current_balance.negative? ? 'danger' : 'success' %>">
+              <%= number_to_currency(store.current_balance, unit: "R$", separator: ",") %>
+            </td>
+            <td><%= store.transactions.count %></td>
+            <td>
+              <%= link_to "Operações", store_path(store) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

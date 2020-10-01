@@ -23,7 +23,7 @@
   
 - Execute os seguintes comandos:  
   `$ bundle install`  
-  `$ rails db:create db:migrate`  
+  `$ rails db:create db:migrate db:seed`  
   
 ### Utilizando o importador
 - Execute:  

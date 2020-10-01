@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Hora</th>
+          <th scope="col">Valor</th>
+          <th scope="col">CPF do beneficiário</th>
+          <th scope="col">Cartão de crédito</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @transactions.each do |transaction| %>
+          <tr>
+            <td><%= only_date(transaction.event_date_time) %></td>
+            <td><%= only_time(transaction.event_date_time) %></td>
+            <td><%= number_to_currency(transaction.amount, unit: "R$", separator: ",", delimiter: ".") %></td>
+            <td><%= cpf_mask(transaction.beneficiary_cpf) %></td>
+            <td><%= credit_card_number(transaction) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <span class="pull-right <%=  @store.current_balance.negative? ? 'danger' : 'success' %>">
+      Saldo: <%= @store.current_balance %>
+    </span>
+  </div>
+
+  <%= <%= link_to 'Voltar', :back, class: "btn btn-info" %>
+</div>

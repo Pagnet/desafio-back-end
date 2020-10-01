@@ -1,0 +1,19 @@
+<div class="modal fade" id="importFileModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_for :cnab_files, url: cnab_files_url do |f| %>
+        <div class="modal-header">
+          <h2>Importar</h2>
+          <button class="close" type="button" data-dismiss="modal"><span>x</span></button>
+        </div>
+        <div class="modal-body">
+          <%= f.file_field :cnab_file %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit 'Enviar', class: "btn btn-primary" %>
+          <button class="btn btn-danger" type="button" data-dismiss="modal">Fechar</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
