@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  username: <%= ENV['POSTGRESQL_USERNAME'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
+  host: <%= ENV['POSTGRESQL_HOST'] %>
+  database: <%= ENV['POSTGRESQL_DATABASE'] %>
+  pool: <%= ENV['POOL_SIZE'] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

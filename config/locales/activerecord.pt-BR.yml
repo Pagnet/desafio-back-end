@@ -1,0 +1,32 @@
+pt-BR:
+  time:
+    formats:
+      ultima_atualizacao: "%d/%m/%Y, %H:%M h"
+      day_month_year: "%d/%m/%Y"
+      year_month: "%Y-%m"
+  date:
+    formats:
+      simples: "%m/%Y"
+      month_year: "%b/%y"
+      mes_extenso_ano: "%B %Y"
+      mes_extenso_barra_ano: "%B/%Y"
+  errors:
+    messages:
+      extension_whitelist_error: 'extensão inválida'
+  activerecord: &activerecords
+    attributes:
+      acesso:
+        numero_da_carteira: "Código do beneficiário"
+        cpf: 'CPF'
+      solicitacao_de_boleto:
+        telefone: "Celular"
+        email: "E-mail"
+        informacoes_complementares: Boletos
+      messages:
+    errors:
+      messages:
+        less_one: 'é necessário marcar ao menos 1'
+        invalid_date: 'não é uma data válida'
+
+  activemodel:
+    <<: *activerecords

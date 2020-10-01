@@ -1,0 +1,20 @@
+{
+  "name": "DesafioBackEnd",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.3.0",
+    "bootstrap": "^4.5.2",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.5.1",
+    "resolve-url-loader": "^3.1.1",
+    "turbolinks": "^5.2.0",
+    "typings-for-css-modules-loader": "^1.7.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
+  }
+}
