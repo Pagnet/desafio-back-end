@@ -3,30 +3,34 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">Data</th>
-          <th scope="col">Hora</th>
-          <th scope="col">Valor</th>
-          <th scope="col">CPF do beneficiário</th>
-          <th scope="col">Cartão de crédito</th>
+          <th>Operação</th>
+          <th>Data/Hora</th>
+          <th>Valor</th>
+          <th>CPF do beneficiário</th>
+          <th>Cartão de crédito</th>
         </tr>
       </thead>
       <tbody>
         <% @transactions.each do |transaction| %>
           <tr>
-            <td><%= only_date(transaction.event_date_time) %></td>
-            <td><%= only_time(transaction.event_date_time) %></td>
+            <td><%= transaction.transaction_type %></td>
+            <td><%= transaction.event_date_time %></td>
             <td><%= number_to_currency(transaction.amount, unit: "R$", separator: ",", delimiter: ".") %></td>
-            <td><%= cpf_mask(transaction.beneficiary_cpf) %></td>
-            <td><%= credit_card_number(transaction) %></td>
+            <td><%= transaction.beneficiary_cpf %></td>
+            <td><%= transaction.credit_card_number %></td>
           </tr>
         <% end %>
+        <tr>
+          <td colspan="4"></td> 
+          <td>
+            <span class="pull-right <%=  @store.current_balance.negative? ? 'text-danger' : 'text-success' %>">
+              Saldo: <%= @store.current_balance %>
+            </span>
+          </td>
+        </tr>
       </tbody>
-    </table>
-
-    <span class="pull-right <%=  @store.current_balance.negative? ? 'danger' : 'success' %>">
-      Saldo: <%= @store.current_balance %>
-    </span>
+    </table> 
   </div>
 
-  <%= <%= link_to 'Voltar', :back, class: "btn btn-info" %>
+  <%= link_to 'Voltar', stores_path, class: "btn btn-secondary" %>
 </div>

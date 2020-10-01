@@ -1,19 +1,20 @@
-class StoreDecorator < Draper::Decorator
+class TransactionDecorator < Draper::Decorator
   delegate_all
 
-  def only_date(date_time)
-    date_time.localtime.strftime('%d/%m/%Y')
+  def transaction_type
+    "#{object.transaction_type.description} #{object.transaction_type.icon_representation}"
   end
 
-  def only_time(date_time)
-    date_time.localtime.strftime('%H:%M:%S')
+  def event_date_time
+    object.event_date_time.localtime.strftime('%d/%m/%Y %H:%M:%S')
   end
 
-  def cpf_mask(cpf)
+  def beneficiary_cpf
+    cpf = object.beneficiary_cpf
     "#{cpf.first(3)}.#{cpf[3...6]}.#{cpf[6...9]}-#{cpf.last(2)}"
   end
 
-  def credit_card_number(transaction)
-    "#{transaction.credit_card_first_digits}  ****  ****  #{transaction.credit_card_last_digits}"
+  def credit_card_number
+    "#{object.credit_card_first_digits}  ****  ****  #{object.credit_card_last_digits}"
   end
 end

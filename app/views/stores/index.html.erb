@@ -3,6 +3,7 @@
 </div>
 
 <div class="container">
+  <%= render "cnab_files/message" %>
   <div class="table-responsive">
     <table class="table table-hover">
       <thead>
@@ -19,7 +20,7 @@
           <tr>
             <td><%= store.name %></td>
             <td><%= store.owner_name %></td>
-            <td class="<%= store.current_balance.negative? ? 'danger' : 'success' %>">
+            <td class="<%= store.current_balance.negative? ? 'text-danger' : 'text-success' %>">
               <%= number_to_currency(store.current_balance, unit: "R$", separator: ",") %>
             </td>
             <td><%= store.transactions.count %></td>
