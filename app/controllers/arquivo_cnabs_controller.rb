@@ -3,10 +3,14 @@ class ArquivoCnabsController < ApplicationController
 		@arquivo_cnab = ArquivoCnab.new
 	end
 
+	def index
+		redirect_to new_arquivo_cnab_path
+	end
+
 	def create
 		@arquivo_cnab = ArquivoCnab.new(arquivo_cnab_params)
 		return render "new" unless @arquivo_cnab.save
-		redirect_to new_arquivo_cnab_path
+		redirect_to new_arquivo_cnab_path, notice: "Arquivo Submetido com sucesso"
 	end
 
 	private

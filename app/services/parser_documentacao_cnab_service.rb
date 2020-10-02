@@ -1,4 +1,4 @@
-class DocumentacaoCnabService
+class ParserDocumentacaoCnabService
 	attr_reader :linha
 
 	def initialize(linha)
@@ -28,7 +28,7 @@ class DocumentacaoCnabService
 	end
 
 	def valor
-		BigDecimal(linha[/^\d{9}(\d{10})/, 1])
+		BigDecimal(linha[/^\d{9}(\d{10})/, 1]).fdiv(100)
 	end
 
 	def cpf

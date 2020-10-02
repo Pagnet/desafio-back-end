@@ -8,8 +8,8 @@ class ArquivoCnabService
 
 	def parsear_arquivo
 		arquivo.each do |linha|
-			documentacao_cnab_service = DocumentacaoCnabService.new(linha)
-			documentacao_cnab = DocumentacaoCnab.new(documentacao_cnab_service.to_h)
+			parser_documentacao_cnab_service = ParserDocumentacaoCnabService.new(linha)
+			documentacao_cnab = DocumentacaoCnab.new(parser_documentacao_cnab_service.to_h)
 			documentacao_cnab.arquivo_cnab = arquivo_cnab
 			documentacao_cnab.save!
 		end

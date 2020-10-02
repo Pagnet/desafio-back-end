@@ -1,0 +1,40 @@
+<div id="content">
+  <%= render partial: "layouts/partials/navbar_principal" %>
+  <!-- End of Topbar -->
+
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
+    <%= exibir_flash %>
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Documentações CNAB</h1>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+
+      <!-- Earnings (Monthly) Card Example -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome da Loja</th>
+            <th scope="col">Saldo em conta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @operacao_cnabs_service.each do |operacao| %>
+            <tr>
+              <th scope="row"></th>
+              <td><%= operacao["nome_da_loja"] %></td>
+              <td><%= operacao["saldo_em_conta"] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <!-- /.container-fluid -->
+
+</div>

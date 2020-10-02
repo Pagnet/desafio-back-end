@@ -11,6 +11,7 @@ module DesafioBackEnd
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.cache_store = :dalli_store
+    config.active_job.queue_adapter = :sidekiq
 
     config.time_zone = 'Brasilia'
     config.i18n.enforce_available_locales = false
