@@ -5,7 +5,7 @@ class InputFormatter
 
   def extract_infos
     @string = @string.split('')
-    transaction_type = @string.shift
+    transaction_type = @string.shift.to_i
     date = @string.slice!(0, 8)
     value = @string.slice!(0, 10)
     cpf = @string.slice!(0, 11)
@@ -14,9 +14,9 @@ class InputFormatter
     owner = @string.slice!(0, 14).join('').lstrip
     company = @string.slice!(0, 19).join('').lstrip
     {
-      transaction_type: transaction_type.to_i,
+      transaction_type: transaction_type,
       date: date_formatter(date),
-      value: value_formatter(value),
+      value: value_formatter(value, transaction_type),
       cpf: cpf_formatter(cpf),
       credit_card: credit_card,
       time: time_formatter(time),
@@ -32,8 +32,11 @@ class InputFormatter
     array.join('')
   end
 
-  def value_formatter(array)
-    array.join('').to_f / 100
+  def value_formatter(array, type)
+    array = array.join('').to_f / 100
+    return array * -1 if [2, 3, 9].include?(type)
+
+    array
   end
 
   def cpf_formatter(array)

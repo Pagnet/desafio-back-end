@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_203453) do
+ActiveRecord::Schema.define(version: 2020_10_04_031042) do
+
+  create_table "companies", force: :cascade do |t|
+    t.string "owner", limit: 14, null: false
+    t.string "name", limit: 19, null: false
+    t.decimal "total", precision: 8, scale: 2, default: "0.0"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "transactions", force: :cascade do |t|
     t.integer "transaction_type", null: false
@@ -19,10 +27,11 @@ ActiveRecord::Schema.define(version: 2020_10_02_203453) do
     t.string "cpf", limit: 14, null: false
     t.string "credit_card", limit: 12, null: false
     t.string "time", limit: 8, null: false
-    t.string "owner", limit: 14, null: false
-    t.string "company", limit: 19, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "company_id", null: false
+    t.index ["company_id"], name: "index_transactions_on_company_id"
   end
 
+  add_foreign_key "transactions", "companies"
 end

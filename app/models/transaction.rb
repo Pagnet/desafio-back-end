@@ -5,6 +5,6 @@ class Transaction < ApplicationRecord
   validates :cpf, presence: true, length: { is: 14 }
   validates :credit_card, presence: true, length: { is: 12 }
   validates :time, presence: true, length: { is: 8 }
-  validates :owner, presence: true, length: { maximum: 14 }
-  validates :company, presence: true, length: { maximum: 19 }
+
+  belongs_to :company
 end

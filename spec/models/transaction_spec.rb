@@ -9,8 +9,6 @@ RSpec.describe Transaction, type: :model do
   it { is_expected.to validate_presence_of(:cpf) }
   it { is_expected.to validate_presence_of(:credit_card) }
   it { is_expected.to validate_presence_of(:time) }
-  it { is_expected.to validate_presence_of(:company) }
-  it { is_expected.to validate_presence_of(:owner) }
 
   it { is_expected.to validate_numericality_of(:transaction_type).only_integer }
   it { is_expected.to validate_numericality_of(:value) }
@@ -19,6 +17,6 @@ RSpec.describe Transaction, type: :model do
   it { is_expected.to validate_length_of(:cpf).is_equal_to(14) }
   it { is_expected.to validate_length_of(:credit_card).is_equal_to(12) }
   it { is_expected.to validate_length_of(:time).is_equal_to(8) }
-  it { is_expected.to validate_length_of(:owner).is_at_most(14) }
-  it { is_expected.to validate_length_of(:company).is_at_most(19) }
+
+  it { is_expected.to belong_to(:company) }
 end

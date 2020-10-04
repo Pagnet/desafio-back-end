@@ -7,8 +7,6 @@ class CreateTransactions < ActiveRecord::Migration[6.0]
       t.string :cpf, null: false, limit: 14
       t.string :credit_card, null: false, limit: 12
       t.string :time, null: false, limit: 8
-      t.string :owner, null: false, limit: 14
-      t.string :company, null: false, limit: 19
 
       t.timestamps
     end
