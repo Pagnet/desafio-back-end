@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+  before_action :check_user
+
   def index
     @companies = Company.all.includes(:transactions)
   end
@@ -30,5 +32,9 @@ class TransactionsController < ApplicationController
   def update_total(company, transaction)
     new_total = company.total + transaction.value
     company.update(total: new_total)
+  end
+
+  def check_user
+    redirect_to new_user_session_path unless current_user
   end
 end

@@ -1,5 +1,7 @@
 <%= link_to 'Adicionar transações a partir de arquivo CNAB', new_transaction_path %>
 <br>
+<%= link_to 'Encerrar Sessão', destroy_user_session_path, method: :delete %>
+<br>
 <section class='companies'>
   <% @companies.each do |company| %>
     <article class='company'>
