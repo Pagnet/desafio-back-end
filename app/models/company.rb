@@ -3,5 +3,5 @@ class Company < ApplicationRecord
   validates :name, presence: true, length: { maximum: 19 }
   validates :total, numericality: true
 
-  has_many :transactions
+  has_many :transactions, -> { order(:date) }
 end

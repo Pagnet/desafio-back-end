@@ -1,3 +1,18 @@
 // Place all the styles related to the transactions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+td, th {
+  text-align: left;
+}
+
+table {
+  width: 100%;
+}
+
+.company {
+  padding-left: 1em;
+  margin-bottom: 1em;
+  border: black solid 1px;
+  width: 45em;
+}

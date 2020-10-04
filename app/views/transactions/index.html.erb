@@ -1,4 +1,31 @@
-<%= form_with url: transactions_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag 'Enviar' %>
-<% end %>
+<%= link_to 'Adicionar transações a partir de arquivo CNAB', new_transaction_path %>
+<br>
+<section class='companies'>
+  <% @companies.each do |company| %>
+    <article class='company'>
+      <h2><%= company.name %></h2>
+      <span>Representante: <%= company.owner %></span>
+      <h3>Transações</h3>
+      <table>
+        <tr>
+          <th>Data</th>
+          <th>Valor</th>
+          <th>Tipo</th>
+          <th>CPF</th>
+          <th>Cartão</th>
+        </tr>
+        <% company.transactions.each do |transaction| %>
+          <tr>
+            <td><%= transaction.date.strftime("%d/%m/%Y %H:%M") %></td>
+            <td>R$ <%= number_to_currency(transaction.value, unit: '', separator: ",", delimiter: ".", precision: 2) %></td>
+            <td><%= type_description(transaction.transaction_type) %></td>
+            <td><%= transaction.cpf %></td>
+            <td><%= transaction.credit_card %></td>
+          </tr>
+        <% end %>
+      </table>
+      <br>
+      <span>Total: R$ <%= number_to_currency(company.total, unit: '', separator: ",", delimiter: ".", precision: 2) %></span>
+    </article>
+  <% end %>
+</section>

@@ -1,7 +1,6 @@
 class TransactionsController < ApplicationController
   def index
-    @transactions = Transaction.all
-    @companies = Transaction.select(:company).distinct
+    @companies = Company.all.includes(:transactions)
   end
 
   def create

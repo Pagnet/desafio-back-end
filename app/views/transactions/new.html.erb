@@ -1,0 +1,7 @@
+<section class='form'>
+  <h2>Adicionar novas transações</h2>
+  <%= form_with url: transactions_path, multipart: true do %>
+    Selecione um arquivo CNAB: <%= file_field_tag :file %>
+    <%= submit_tag 'Enviar' %>
+  <% end %>
+</section>
