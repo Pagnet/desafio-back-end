@@ -6,21 +6,20 @@ class InputFormatter
   def extract_infos
     @string = @string.split('')
     transaction_type = @string.shift.to_i
-    date = @string.slice!(0, 8)
+    date = @string.slice!(0, 8).join('')
     value = @string.slice!(0, 10)
     cpf = @string.slice!(0, 11)
     credit_card = @string.slice!(0, 12).join('')
-    time = @string.slice!(0, 6)
+    time = @string.slice!(0, 6).join('')
     owner = @string.slice!(0, 14).join('').rstrip
     company = @string.slice!(0, 19).join('').rstrip
     {
       transaction: {
         transaction_type: transaction_type,
-        date: date_formatter(date),
+        date: Time.parse(date + time),
         value: value_formatter(value, transaction_type),
         cpf: cpf_formatter(cpf),
-        credit_card: credit_card,
-        time: time_formatter(time)
+        credit_card: credit_card
       },
       company: {
         owner: owner,
