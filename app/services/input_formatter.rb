@@ -11,17 +11,21 @@ class InputFormatter
     cpf = @string.slice!(0, 11)
     credit_card = @string.slice!(0, 12).join('')
     time = @string.slice!(0, 6)
-    owner = @string.slice!(0, 14).join('').lstrip
-    company = @string.slice!(0, 19).join('').lstrip
+    owner = @string.slice!(0, 14).join('').rstrip
+    company = @string.slice!(0, 19).join('').rstrip
     {
-      transaction_type: transaction_type,
-      date: date_formatter(date),
-      value: value_formatter(value, transaction_type),
-      cpf: cpf_formatter(cpf),
-      credit_card: credit_card,
-      time: time_formatter(time),
-      owner: owner,
-      company: company
+      transaction: {
+        transaction_type: transaction_type,
+        date: date_formatter(date),
+        value: value_formatter(value, transaction_type),
+        cpf: cpf_formatter(cpf),
+        credit_card: credit_card,
+        time: time_formatter(time)
+      },
+      company: {
+        owner: owner,
+        name: company
+      }
     }
   end
 

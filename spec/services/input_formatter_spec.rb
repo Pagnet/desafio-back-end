@@ -7,14 +7,18 @@ RSpec.describe InputFormatter, type: :helper do
       output = line.extract_infos
       expect(output).to eq(
         {
-          transaction_type: 3,
-          date: '01/03/2019',
-          value: -192,
-          cpf: '845.152.540-73',
-          credit_card: '6777****1313',
-          time: '17:27:12',
-          owner: 'MARCOS PEREIRA',
-          company: 'MERCADO DA AVENIDA'
+          transaction: {
+            transaction_type: 3,
+            date: '01/03/2019',
+            value: -192,
+            cpf: '845.152.540-73',
+            credit_card: '6777****1313',
+            time: '17:27:12'
+          },
+          company: {
+            owner: 'MARCOS PEREIRA',
+            name: 'MERCADO DA AVENIDA'
+          }
         }
       )
     end
