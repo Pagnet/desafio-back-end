@@ -1,0 +1,50 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:9.6
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: desafio_backend_development
+    volumes:
+      - ./tmp/postgres:/var/lib/postgresql/data
+  redis:
+    image: redis
+    command: "redis-server"
+    sysctls:
+      net.core.somaxconn: 1024
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./tmp/redis-data:/data
+  app: &app
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle install && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    ports:
+      - "3000:3000"
+    links:
+      - db
+      - redis
+    volumes:
+      - .:/usr/src/app
+      - gems:/gems
+    environment:
+      - RAILS_ENV=development
+      - CACHE_STORE_URL=redis://redis:6379/0
+      - DB_HOST=db
+      - DISABLE_SSL=true
+    stdin_open: true
+    tty: true
+
+  sidekiq:
+    <<: *app
+    command: bundle exec sidekiq -C config/sidekiq.yml
+
+volumes:
+  redis-data:
+    driver: local
+  postgres:
+    driver: local
+  gems:
