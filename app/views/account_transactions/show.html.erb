@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Transaction kind:</strong>
+  <%= @account_transaction.transaction_kind_id %>
+</p>
+
+<p>
+  <strong>Exec date:</strong>
+  <%= @account_transaction.exec_date %>
+</p>
+
+<p>
+  <strong>Exec time:</strong>
+  <%= @account_transaction.exec_time %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @account_transaction.value %>
+</p>
+
+<p>
+  <strong>Card:</strong>
+  <%= @account_transaction.card %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @account_transaction.cpf %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @account_transaction.company_id %>
+</p>
+
+<%= link_to 'Edit', edit_account_transaction_path(@account_transaction) %> |
+<%= link_to 'Back', account_transactions_path %>

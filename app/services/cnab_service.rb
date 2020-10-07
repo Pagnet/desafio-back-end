@@ -12,23 +12,42 @@ class CnabService
   end
 
   def build
-    return if line.nil?
+    return AccountTransaction.new if line.nil?
 
     extract
   end
 
   def extract
+    cpf = CPF.generate(line[19..29])
+
     {
-      kind: line[0],
-      ocurred_date: line[1..8],
-      value: line[9..18],
-      cpf: line[19..29],
-      ocurred_time: line[42..47],
-      store_owner: line[48..61].strip,
-      store_name: line[62..80].strip
+      transaction_kind_id: build_transaction_kind,
+      exec_date: normalize_date,
+      value_cents: line[9..18].to_i,
+      cpf: cpf,
+      card: line[30..41],
+      exec_time: normalize_time,
+      company_id: build_company
     }
   end
 
-  def normalize_date
-  end
+  private
+    def build_company
+      Company.find_or_create_by(owner_name: line[48..61].strip, name: line[62..80].strip).try(:id)
+    end
+
+    def build_transaction_kind
+      TransactionKind.find_by(kind: line[0]).try(:id)
+    end
+
+    def normalize_date
+      Date.parse(line[1..8]).strftime("%d-%m-%Y")
+    end
+
+    def normalize_time
+      Time.parse("#{line[42..43]}:#{line[44..45]}:#{line[46..47]}")
+    end
+
+    def normalize_cpf
+    end
 end

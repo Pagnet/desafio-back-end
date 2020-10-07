@@ -28,7 +28,7 @@ class CnabImportsController < ApplicationController
 
     respond_to do |format|
       if @cnab_import.save
-        format.html { redirect_to cnab_imports_url, notice: "Cnab import was successfully created." }
+        format.html { redirect_to account_transactions_url, notice: "Cnab import was successfully created." }
       else
         format.html { render :new }
       end

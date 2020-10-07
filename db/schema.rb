@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_07_100532) do
+ActiveRecord::Schema.define(version: 2020_10_07_224631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_balances", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.integer "value_cents", default: 0, null: false
+    t.string "value_currency", default: "BRL", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_account_balances_on_company_id"
+  end
+
+  create_table "account_transactions", force: :cascade do |t|
+    t.bigint "transaction_kind_id", null: false
+    t.date "exec_date"
+    t.time "exec_time"
+    t.integer "value_cents", default: 0, null: false
+    t.string "value_currency", default: "BRL", null: false
+    t.string "card"
+    t.string "cpf"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_account_transactions_on_company_id"
+    t.index ["transaction_kind_id"], name: "index_account_transactions_on_transaction_kind_id"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -69,20 +93,8 @@ ActiveRecord::Schema.define(version: 2020_10_07_100532) do
     t.index ["kind"], name: "index_transaction_kinds_on_kind", unique: true
   end
 
-  create_table "transactions", force: :cascade do |t|
-    t.bigint "transaction_kind_id", null: false
-    t.bigint "company_id", null: false
-    t.date "send_date"
-    t.time "send_time"
-    t.integer "value_cents", default: 0, null: false
-    t.string "value_currency", default: "BRL", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_transactions_on_company_id"
-    t.index ["transaction_kind_id"], name: "index_transactions_on_transaction_kind_id"
-  end
-
+  add_foreign_key "account_balances", "companies"
+  add_foreign_key "account_transactions", "companies"
+  add_foreign_key "account_transactions", "transaction_kinds"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "transactions", "companies"
-  add_foreign_key "transactions", "transaction_kinds"
 end
