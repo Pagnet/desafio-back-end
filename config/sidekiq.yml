@@ -6,5 +6,5 @@ staging:
 production:
   :concurrency: 20
 :queues:
-  - [hermes, 1]
-  - [searchkick, 1]
+  - [transactions, 1]
+  - [imports, 1]

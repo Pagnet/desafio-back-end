@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cnab_import.name %>
+</p>
+
+<p>
+  <strong>File:</strong>
+  <%= @cnab_import.file %>
+</p>
+
+<%= link_to 'Edit', edit_cnab_import_path(@cnab_import) %> |
+<%= link_to 'Back', cnab_imports_path %>

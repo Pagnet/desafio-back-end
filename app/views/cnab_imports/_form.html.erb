@@ -1,0 +1,27 @@
+<%= form_with(model: cnab_import, local: true) do |form| %>
+  <% if cnab_import.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cnab_import.errors.count, "error") %> prohibited this cnab_import from being saved:</h2>
+
+      <ul>
+        <% cnab_import.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file %>
+    <%= form.file_field :file %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -20,16 +20,17 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: <%= ENV['DB_NAME'] || 'desafio_development' %>
   port: <%= ENV['DB_PORT'] || 5432 %>
   host: <%= ENV['DB_HOST'] || 'localhost' %>
   username: <%= ENV['DB_USERNAME'] || 'postgres' %>
   password: <%= ENV['DB_PASSWORD'] || 'postgres' %>
 
 development:
+  database: <%= ENV['DB_NAME'] || 'desafio_development' %>
   <<: *default
 
 test:
+  database: <%= 'desafio_test' %>
   <<: *default
 
 production:

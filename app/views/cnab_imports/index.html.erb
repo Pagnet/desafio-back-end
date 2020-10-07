@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cnab Imports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cnab_imports.each do |cnab_import| %>
+      <tr>
+        <td><%= cnab_import.name %></td>
+        <td><%= cnab_import.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<center><%= will_paginate @cnab_imports %></center>
+
+<br>
+
+<%= link_to 'New Cnab Import', new_cnab_import_path %>

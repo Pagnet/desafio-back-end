@@ -37,6 +37,7 @@ WORKDIR /usr/src/app
 COPY Gemfile /usr/src/app/Gemfile
 COPY Gemfile.lock /usr/src/app/Gemfile.lock
 ENV BUNDLE_PATH /gems
+RUN gem install rubocop-performance rubocop-rails
 RUN bundle config build.libv8 --with-system-v8
 RUN bundle install --jobs "$(getconf _NPROCESSORS_ONLN)" --retry 5
 
