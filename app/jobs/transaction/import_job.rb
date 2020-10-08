@@ -2,6 +2,6 @@ class Transaction::ImportJob < Transaction::ApplicationJob
   def perform(line)
     data = CnabService.build(line)
 
-    Transaction.create(data)
+    AccountTransaction.create(data)
   end
 end

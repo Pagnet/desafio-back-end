@@ -6,20 +6,20 @@ module ImportMachine
 
     aasm column: :status do
       state :awaiting, initial: true
-      state :running
+      state :processing
       state :finished
       state :error
 
-      event :run do
-        transitions from: :awaiting, to: :running
+      event :start do
+        transitions from: :awaiting, to: :processing
       end
 
       event :finish do
-        transitions from: :running, to: :finished
+        transitions from: [:awaiting, :processing], to: :finished
       end
 
       event :error do
-        transitions from: [:awaiting, :running], to: :error
+        transitions from: [:awaiting, :processing], to: :error
       end
     end
   end

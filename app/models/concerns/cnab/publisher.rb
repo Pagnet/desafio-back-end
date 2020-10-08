@@ -3,7 +3,7 @@ module Cnab::Publisher
 
   included do
     @@events = {
-      created_import: -> (body) { CNAB::ImportCnabJob.perform_later(body) },
+      created_import: -> (body) { Cnab::ImportCnabJob.perform_later(body) }
     }
 
     def broadcast(trigger, body)

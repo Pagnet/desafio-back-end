@@ -4,7 +4,7 @@ class AccountTransactionsController < ApplicationController
   # GET /account_transactions
   # GET /account_transactions.json
   def index
-    @account_transactions = AccountTransaction.paginate(page: params[:page], per_page: 30)
+    @account_transactions = AccountTransaction.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /account_transactions/1

@@ -4,10 +4,10 @@ module Transaction::Events
   included do
     include Transaction::Publisher
 
-    after_create :created_transactions
+    after_create :created_transaction
 
     def created_transaction
-      broadcast(:created_transaction, self)
+      broadcast(:created_transaction, company)
     end
   end
 end

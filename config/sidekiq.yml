@@ -8,3 +8,5 @@ production:
 :queues:
   - [transactions, 1]
   - [imports, 1]
+  - [default, 1]
+  - [active_storage_analysis, 1]

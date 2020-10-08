@@ -4,7 +4,7 @@ class CnabImportsController < ApplicationController
   # GET /cnab_imports
   # GET /cnab_imports.json
   def index
-    @cnab_imports = CnabImport.paginate(page: params[:page], per_page: 30)
+    @cnab_imports = CnabImport.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /cnab_imports/1
