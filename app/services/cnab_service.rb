@@ -17,13 +17,15 @@ class CnabService
 
   def extract
     company = build_company
-    cpf = CPF.generate(line[19..29])
+    cpf = CPF.new(line[19..29]).formatted
     kind = build_transaction_kind
+    multiplier = kind.try(:multiplier) || 0
     time = normalize_time
+
     {
-      transaction_kind_id: kind.id,
+      transaction_kind_id: kind.try(:id),
       exec_date: normalize_date,
-      value_cents: normalize_value(kind.multiplier),
+      value_cents: normalize_value(multiplier),
       cpf: cpf,
       card: line[30..41],
       exec_time: time,
@@ -50,8 +52,5 @@ class CnabService
 
     def normalize_time
       Time.parse("#{line[42..43]}:#{line[44..45]}:#{line[46..47]}").strftime("%H:%M:%S")
-    end
-
-    def normalize_cpf
     end
 end

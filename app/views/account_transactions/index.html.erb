@@ -14,7 +14,6 @@
       <th>Hora</th>
       <th>Valor</th>
       <th>Total</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -23,17 +22,16 @@
       <tr>
         <td><%= account_transaction.transaction_kind.description %></td>
         <td><%= account_transaction.company.name %></td>
-        <td><%= account_transaction.exec_date %></td>
+        <td><%= account_transaction.exec_date.strftime("%d/%m/%Y") %></td>
         <td><%= account_transaction.exec_time.strftime("%H:%M:%S") %></td>
         <td><%= account_transaction.value.format %></td>
         <td><%= account_transaction.company.account_balance.value.format %></td>
-        <td><%= link_to 'Show', account_transaction %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
 </div>
-<center><%= will_paginate @account_transactions %></center>
+<center><%= will_paginate @account_transactions, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %></center>
 
 
