@@ -47,12 +47,12 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2020-10-08 09:22:09 -0300'>2020-10-08 09:22:09 -0300</time>
+          Updated <time class='js-timeago' datetime='2020-10-08 10:16:01 -0300'>2020-10-08 10:16:01 -0300</time>
         
       </span>
     </div>
     <div>
-      <h3><small>app/controllers /</small> account_transactions_controller.rb</h3>
+      <h3><small>spec/services /</small> cnab_service_spec.rb</h3>
     </div>
   </div>
   <!--End Page Title -->
@@ -68,15 +68,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">23</span><small> lines of codes</small></div>
-              <div><span class="metric">3</span><small> methods</small></div>
+              <div><span class="metric">26</span><small> lines of codes</small></div>
+              <div><span class="metric">0</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">3.0</span><small> complexity/method</small></div>
-              <div><span class="metric">3</span><small> churn</small></div>
+              <div><span class="metric">N/A</span><small> complexity/method</small></div>
+              <div><span class="metric">1</span><small> churn</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">8.93</span><small> complexity</small></div>
+              <div><span class="metric">5.4</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -88,7 +88,7 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                1
+                0
                 smell
               </a>
             </li>
@@ -97,28 +97,31 @@
       </div>
     </div>
 
-    <code class="prettyprint linenums lang-ruby file-code js-file-code">class AccountTransactionsController &lt; ApplicationController<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>AccountTransactionsController has no descriptive comment</span>          </div>  </li></ol>
-  before_action :set_account_transaction, only: [:show]
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &quot;rails_helper&quot;
 
-  # GET /account_transactions
-  # GET /account_transactions.json
-  def index
-    @account_transactions = AccountTransaction
-                              .includes(:transaction_kind, company: [:account_balance])
-                              .paginate(page: params[:page], per_page: 10)
-  end
+RSpec.describe CnabService do
+  let(:line) {
+    &quot;2201903010000050200845152540738473****1231231233MARCOS PEREIRAMERCADO DA AVENIDA&quot;
+  }
 
-  # GET /account_transactions/1
-  # GET /account_transactions/1.json
-  def show
-  end
+  let(:service) {
+    CnabService.new(line)
+  }
 
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_account_transaction
-      @account_transaction = AccountTransaction.find(params[:id])
-    end
+  it { expect(service.send(:build_company)).to eq nil }
+  it { expect(service.send(:normalize_date)).to eq &quot;01-03-2019&quot; }
+  it { expect(service.send(:normalize_time)).to eq &quot;23:12:33&quot; }
+  it {
+    data = service.extract
+    expect(data).to eq({
+    transaction_kind_id: nil,
+    exec_date: &quot;01-03-2019&quot;,
+    value_cents: 0,
+    cpf: &quot;845.152.540-73&quot;,
+    card: &quot;8473****1231&quot;,
+    exec_time: &quot;23:12:33&quot;,
+    company_id: nil
+  })}
 end
 </code>
   </div>
