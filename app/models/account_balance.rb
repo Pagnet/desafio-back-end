@@ -11,4 +11,6 @@
 #
 class AccountBalance < ApplicationRecord
   belongs_to :company
+
+  monetize :value_cents
 end

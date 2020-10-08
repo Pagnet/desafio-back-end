@@ -16,3 +16,11 @@ TransactionKind.create([
 { kind: 8, description: "Recebimento", nature: "DOC	Entrada", signal:	"+" },
 { kind: 9, description: "Aluguel", nature:	"Saída", signal: "-" },
 ])
+
+Company.create([
+ { owner_name: "JOÃO MACEDO", name: "BAR DO JOÃO" },
+ { owner_name: "MARIA JOSEFINA", name: "LOJA DO Ó - MATRIZ" },
+ { owner_name: "MARIA JOSEFINA", name: "LOJA DO Ó - FILIAL" },
+ { owner_name: "JOSÉ COSTA", name: "MERCEARIA 3 IRMÃOS" },
+ { owner_name: "MARCOS PEREIRA", name: "MERCADO DA AVENIDA" },
+])

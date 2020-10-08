@@ -47,7 +47,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2020-10-07 18:16:01 -0300'>2020-10-07 18:16:01 -0300</time>
+          Updated <time class='js-timeago' datetime='2020-10-08 08:43:25 -0300'>2020-10-08 08:43:25 -0300</time>
         
       </span>
     </div>
@@ -62,22 +62,22 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-1">
-            <div class="rating c big">
-              C
+            <div class="rating a big">
+              A
             </div>
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">72</span><small> lines of codes</small></div>
+              <div><span class="metric">39</span><small> lines of codes</small></div>
               <div><span class="metric">0</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">N/A</span><small> complexity/method</small></div>
-              <div><span class="metric">1</span><small> churn</small></div>
+              <div><span class="metric">2</span><small> churn</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">109.65</span><small> complexity</small></div>
-              <div><span class="metric">36</span><small> duplications</small></div>
+              <div><span class="metric">43.44</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                1
+                0
                 smell
               </a>
             </li>
@@ -114,26 +114,6 @@
  RSpec.describe &quot;/cnab_imports&quot;, type: :request do
    # CnabImport. As you add validations to CnabImport, be sure to
    # adjust the attributes here as well.
-   let(:valid_attributes) {
-     build(:cnab_import)
-   }
-
-   describe &quot;GET /index&quot; do
-     it &quot;renders a successful response&quot; do
-       CnabImport.create! valid_attributes
-       get cnab_imports_url
-       expect(response).to be_successful
-     end
-   end
-
-   describe &quot;GET /show&quot; do
-     it &quot;renders a successful response&quot; do
-       cnab_import = CnabImport.create! valid_attributes
-       get cnab_import_url(cnab_import)
-       expect(response).to be_successful
-     end
-   end
-
    describe &quot;GET /new&quot; do
      it &quot;renders a successful response&quot; do
        get new_cnab_import_url
@@ -143,28 +123,15 @@
 
    describe &quot;POST /create&quot; do
      context &quot;with valid parameters&quot; do
-       it &quot;creates a new CnabImport&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="cnab_imports_spec.html#L47" class="js-smell-location">0</a>                  <a href="cnab_imports_spec.html#L60" class="js-smell-location">1</a>                  </div>  </li></ol>
+       it &quot;creates a new CnabImport&quot; do
          expect {
-           post cnab_imports_url, params: { cnab_import: valid_attributes }
+           post cnab_imports_url, params: { cnab_import: attributes_for(:cnab_import) }
          }.to change(CnabImport, :count).by(1)
        end
 
-       it &quot;redirects to the created cnab_import&quot; do
-         post cnab_imports_url, params: { cnab_import: valid_attributes }
-         expect(response).to redirect_to(cnab_import_url(CnabImport.last))
-       end
-     end
-
-     context &quot;with invalid parameters&quot; do
-       it &quot;does not create a new CnabImport&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="cnab_imports_spec.html#L47" class="js-smell-location">0</a>                  <a href="cnab_imports_spec.html#L60" class="js-smell-location">1</a>                  </div>  </li></ol>
-         expect {
-           post cnab_imports_url, params: { cnab_import: invalid_attributes }
-         }.to change(CnabImport, :count).by(0)
-       end
-
-       it &quot;renders a successful response (i.e. to display the &#39;new&#39; template)&quot; do
-         post cnab_imports_url, params: { cnab_import: invalid_attributes }
-         expect(response).to be_successful
+       it &quot;redirects to the transactions page&quot; do
+         post cnab_imports_url, params: { cnab_import: attributes_for(:cnab_import) }
+         expect(response).to redirect_to(account_transactions_url)
        end
      end
    end

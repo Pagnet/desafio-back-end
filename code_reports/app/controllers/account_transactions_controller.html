@@ -68,15 +68,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">21</span><small> lines of codes</small></div>
+              <div><span class="metric">23</span><small> lines of codes</small></div>
               <div><span class="metric">3</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">2.6</span><small> complexity/method</small></div>
+              <div><span class="metric">3.0</span><small> complexity/method</small></div>
               <div><span class="metric">2</span><small> churn</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">7.76</span><small> complexity</small></div>
+              <div><span class="metric">8.93</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -103,7 +103,9 @@
   # GET /account_transactions
   # GET /account_transactions.json
   def index
-    @account_transactions = AccountTransaction.paginate(page: params[:page], per_page: 10)
+    @account_transactions = AccountTransaction
+                              .includes(:transaction_kind, company: [:account_balance])
+                              .paginate(page: params[:page], per_page: 10)
   end
 
   # GET /account_transactions/1

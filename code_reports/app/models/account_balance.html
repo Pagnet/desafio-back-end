@@ -68,7 +68,7 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">14</span><small> lines of codes</small></div>
+              <div><span class="metric">16</span><small> lines of codes</small></div>
               <div><span class="metric">0</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
@@ -110,6 +110,8 @@
 #
 class AccountBalance &lt; ApplicationRecord
   belongs_to :company
+
+  monetize :value_cents
 end
 </code>
   </div>

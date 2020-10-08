@@ -15,26 +15,6 @@
  RSpec.describe "/cnab_imports", type: :request do
    # CnabImport. As you add validations to CnabImport, be sure to
    # adjust the attributes here as well.
-   let(:valid_attributes) {
-     build(:cnab_import)
-   }
-
-   describe "GET /index" do
-     it "renders a successful response" do
-       CnabImport.create! valid_attributes
-       get cnab_imports_url
-       expect(response).to be_successful
-     end
-   end
-
-   describe "GET /show" do
-     it "renders a successful response" do
-       cnab_import = CnabImport.create! valid_attributes
-       get cnab_import_url(cnab_import)
-       expect(response).to be_successful
-     end
-   end
-
    describe "GET /new" do
      it "renders a successful response" do
        get new_cnab_import_url
@@ -46,26 +26,13 @@
      context "with valid parameters" do
        it "creates a new CnabImport" do
          expect {
-           post cnab_imports_url, params: { cnab_import: valid_attributes }
+           post cnab_imports_url, params: { cnab_import: attributes_for(:cnab_import) }
          }.to change(CnabImport, :count).by(1)
        end
 
-       it "redirects to the created cnab_import" do
-         post cnab_imports_url, params: { cnab_import: valid_attributes }
-         expect(response).to redirect_to(cnab_import_url(CnabImport.last))
-       end
-     end
-
-     context "with invalid parameters" do
-       it "does not create a new CnabImport" do
-         expect {
-           post cnab_imports_url, params: { cnab_import: invalid_attributes }
-         }.to change(CnabImport, :count).by(0)
-       end
-
-       it "renders a successful response (i.e. to display the 'new' template)" do
-         post cnab_imports_url, params: { cnab_import: invalid_attributes }
-         expect(response).to be_successful
+       it "redirects to the transactions page" do
+         post cnab_imports_url, params: { cnab_import: attributes_for(:cnab_import) }
+         expect(response).to redirect_to(account_transactions_url)
        end
      end
    end
