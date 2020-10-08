@@ -94,6 +94,11 @@ Adicionalmente, tentaremos verificar a sua familiarização com as bibliotecas p
 
 ``docker-compose up -d app db redis``
 
+5. Acesse a aplicação na url http://localhost:3000
+
+# Observações
+Foram adicionados reports de qualidade de código usando RubyCritic, para visualizá-los basta abir o index.html na pasta "code_reports"
+
 # Referência
 
 Este desafio foi baseado neste outro desafio: https://github.com/lschallenges/data-engineering
