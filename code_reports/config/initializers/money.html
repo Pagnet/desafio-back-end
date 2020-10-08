@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../simple_cov_index.html" class="project-nav-item coverage-index-nav"><i class="fa fa-umbrella"></i>Coverage</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2020-10-07 18:16:01 -0300'>2020-10-07 18:16:01 -0300</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>config/initializers /</small> money.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating a big">
+              A
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">115</span><small> lines of codes</small></div>
+              <div><span class="metric">0</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">N/A</span><small> complexity/method</small></div>
+              <div><span class="metric">1</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">0.0</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                0
+                smell
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># encoding : utf-8
+
+MoneyRails.configure do |config|
+
+  # To set the default currency
+  #
+  config.default_currency = :brl
+
+  # Set default bank object
+  #
+  # Example:
+  # config.default_bank = EuCentralBank.new
+
+  # Add exchange rates to current money bank object.
+  # (The conversion rate refers to one direction only)
+  #
+  # Example:
+  # config.add_rate &quot;USD&quot;, &quot;CAD&quot;, 1.24515
+  # config.add_rate &quot;CAD&quot;, &quot;USD&quot;, 0.803115
+
+  # To handle the inclusion of validations for monetized fields
+  # The default value is true
+  #
+  # config.include_validations = true
+
+  # Default ActiveRecord migration configuration values for columns:
+  #
+  # config.amount_column = { prefix: &#39;&#39;,           # column name prefix
+  #                          postfix: &#39;_cents&#39;,    # column name  postfix
+  #                          column_name: nil,     # full column name (overrides prefix, postfix and accessor name)
+  #                          type: :integer,       # column type
+  #                          present: true,        # column will be created
+  #                          null: false,          # other options will be treated as column options
+  #                          default: 0
+  #                        }
+  #
+  # config.currency_column = { prefix: &#39;&#39;,
+  #                            postfix: &#39;_currency&#39;,
+  #                            column_name: nil,
+  #                            type: :string,
+  #                            present: true,
+  #                            null: false,
+  #                            default: &#39;USD&#39;
+  #                          }
+
+  # Register a custom currency
+  #
+  # Example:
+  # config.register_currency = {
+  #   priority:            1,
+  #   iso_code:            &quot;EU4&quot;,
+  #   name:                &quot;Euro with subunit of 4 digits&quot;,
+  #   symbol:              &quot;€&quot;,
+  #   symbol_first:        true,
+  #   subunit:             &quot;Subcent&quot;,
+  #   subunit_to_unit:     10000,
+  #   thousands_separator: &quot;.&quot;,
+  #   decimal_mark:        &quot;,&quot;
+  # }
+
+  # Specify a rounding mode
+  # Any one of:
+  #
+  # BigDecimal::ROUND_UP,
+  # BigDecimal::ROUND_DOWN,
+  # BigDecimal::ROUND_HALF_UP,
+  # BigDecimal::ROUND_HALF_DOWN,
+  # BigDecimal::ROUND_HALF_EVEN,
+  # BigDecimal::ROUND_CEILING,
+  # BigDecimal::ROUND_FLOOR
+  #
+  # set to BigDecimal::ROUND_HALF_EVEN by default
+  #
+  # config.rounding_mode = BigDecimal::ROUND_HALF_UP
+
+  # Set default money format globally.
+  # Default value is nil meaning &quot;ignore this option&quot;.
+  # Example:
+  #
+  # config.default_format = {
+  #   no_cents_if_whole: nil,
+  #   symbol: nil,
+  #   sign_before_symbol: nil
+  # }
+
+  # If you would like to use I18n localization (formatting depends on the
+  # locale):
+  # config.locale_backend = :i18n
+  #
+  # Example (using default localization from rails-i18n):
+  #
+  # I18n.locale = :en
+  # Money.new(10_000_00, &#39;USD&#39;).format # =&gt; $10,000.00
+  # I18n.locale = :es
+  # Money.new(10_000_00, &#39;USD&#39;).format # =&gt; $10.000,00
+  #
+  # For the legacy behaviour of &quot;per currency&quot; localization (formatting depends
+  # only on currency):
+  # config.locale_backend = :currency
+  #
+  # Example:
+  # Money.new(10_000_00, &#39;USD&#39;).format # =&gt; $10,000.00
+  # Money.new(10_000_00, &#39;EUR&#39;).format # =&gt; €10.000,00
+  #
+  # In case you don&#39;t need localization and would like to use default values
+  # (can be redefined using config.default_format):
+  # config.locale_backend = nil
+
+  # Set default raise_error_on_money_parsing option
+  # It will be raise error if assigned different currency
+  # The default value is false
+  #
+  # Example:
+  # config.raise_error_on_money_parsing = false
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

@@ -16,12 +16,12 @@
 #
 FactoryBot.define do
   factory :account_transaction do
-    transaction_kind { nil }
+    association :transaction_kind, factory: :transaction_kind
     exec_date { "2020-10-07" }
-    exec_time { "2020-10-07 18:33:51" }
-    value { "" }
+    exec_time { "18:33:51" }
+    value_cents { 0 }
     card { "MyString" }
     cpf { "MyString" }
-    company { nil }
+    association :company, factory: :company
   end
 end

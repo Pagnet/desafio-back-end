@@ -17,5 +17,6 @@ FactoryBot.define do
     description { "MyString" }
     nature { "MyString" }
     signal { "MyString" }
+    multiplier { 1 }
   end
 end

@@ -11,7 +11,6 @@
 #
 FactoryBot.define do
   factory :cnab_import do
-    name { "MyString" }
-    file { "MyString" }
+    file {  Rack::Test::UploadedFile.new("spec/factories/CNAB.txt", "text/plain")  }
   end
 end

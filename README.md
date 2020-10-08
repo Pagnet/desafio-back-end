@@ -15,12 +15,6 @@ Este desafio deve ser feito por você em sua casa. Gaste o tempo que você quise
 
 # Descrição do projeto
 
-#todo
-- escrever testes
-- ajeitar views
-- criar seed de empresas
-
-
 Você recebeu um arquivo CNAB com os dados das movimentações finanaceira de várias lojas.
 Precisamos criar uma maneira para que estes dados sejam importados para um banco de dados.
 

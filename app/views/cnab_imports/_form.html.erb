@@ -1,8 +1,12 @@
+<div class="card">
+<div class="card-header">
+<%= link_to 'Voltar', account_transactions_path, class:"btn btn-info" %>
+</div>
+<div class="card-body">
 <%= form_with(model: cnab_import, local: true) do |form| %>
   <% if cnab_import.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(cnab_import.errors.count, "error") %> prohibited this cnab_import from being saved:</h2>
-
       <ul>
         <% cnab_import.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -16,6 +20,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Salvar", class: "btn btn-success" %>
   </div>
 <% end %>
+</div>

@@ -11,7 +11,7 @@
 #
 FactoryBot.define do
   factory :account_balance do
-    company { nil }
-    value { "" }
+    value_cents { 0 }
+    association :company, factory: :company
   end
 end

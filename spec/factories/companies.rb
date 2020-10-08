@@ -10,6 +10,7 @@
 #
 FactoryBot.define do
   factory :company do
-    name { "MyString" }
+    name { FFaker::Company.name }
+    owner_name { FFaker::Internet.user_name }
   end
 end
