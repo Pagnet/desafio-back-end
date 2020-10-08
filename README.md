@@ -71,6 +71,29 @@ Seu projeto será avaliado de acordo com os seguintes critérios.
 
 Adicionalmente, tentaremos verificar a sua familiarização com as bibliotecas padrões (standard libs), bem como sua experiência com programação orientada a objetos a partir da estrutura de seu projeto.
 
+# Instruções de Uso
+
+1. Copie a master.key enviada via email para ``config/master.key``
+
+2: Faça build da aplicação
+
+``docker-compose build app``
+
+3: Install Dependencies
+``docker-compose run app yarn install``
+
+3: Rode as migrations e seeds
+
+3.1 ``docker-compose run app bundle exec rails db:create``
+
+3.2 ``docker-compose run app bundle exec rails db:migrate``
+
+3.3 ``docker-compose run app bundle exec rails db:seed``
+
+4: Suba as aplicações em modo detached
+
+``docker-compose up -d app db redis``
+
 # Referência
 
 Este desafio foi baseado neste outro desafio: https://github.com/lschallenges/data-engineering
