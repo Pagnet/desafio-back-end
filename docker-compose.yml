@@ -1,0 +1,60 @@
+version: '3.7'
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    env_file:
+      - '.env'
+    networks:
+      - backend
+  
+  redis:
+    image: 'redis'
+    command: redis-server
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'redis:/data'
+    networks:
+      - backend  
+
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/pagnet
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+    env_file: 
+      - '.env'
+    networks:
+      - backend
+
+  sidekiq:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    depends_on:
+      - db
+      - redis
+      - app
+    command: bundle exec sidekiq
+    volumes: 
+      - .:/pagnet
+    networks: 
+      - backend
+    env_file: 
+      - .env
+      
+volumes:
+  redis:
+  db:
+  app:
+networks: 
+  backend:

@@ -1,0 +1,8 @@
+---
+:concurrency: 1
+:queues:
+  - default
+  - mailers
+
+  - pagnet_default
+  - pagnet_mailers
