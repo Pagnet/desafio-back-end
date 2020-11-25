@@ -1,3 +1,8 @@
+Desafio finaizado.
+
+Foi utilizado o framework Rails e o banco de dados SQLite, como trata-se de um framework, é possível alterar essa configuração no arquivo "config/database.yml"
+
+
 # Desafio programação - para vaga Back-end
 
 Por favor leiam este documento do começo ao fim, com muita atenção.

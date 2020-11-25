@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tp_transacao: MyString
+  dt_ocorrencia: MyString
+  vl_movimentacao: 9.99
+  cpf: MyString
+  cartao: MyString
+  hora: MyString
+  nm_representante: MyString
+  nm_loja: MyString
+
+two:
+  tp_transacao: MyString
+  dt_ocorrencia: MyString
+  vl_movimentacao: 9.99
+  cpf: MyString
+  cartao: MyString
+  hora: MyString
+  nm_representante: MyString
+  nm_loja: MyString

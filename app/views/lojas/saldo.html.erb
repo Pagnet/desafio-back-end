@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Saldo por Loja</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Tp transacao</th>
+      <th>Dt ocorrencia</th>
+      <th>Vl movimentacao</th>
+      <th>Cpf</th>
+      <th>Cartao</th>
+      <th>Hora</th>
+      <th>Nm representante</th>
+      <th>Nm loja</th>
+      <th>Criado em:</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lojas.each do |loja| %>
+      <tr>
+      	<td><%= loja.id %></td>
+        <td><%= loja.tp_transacao %></td>
+        <td><%= loja.dt_ocorrencia %></td>
+        <td><%= number_to_currency_br(loja.vl_movimentacao) %></td>
+        <td><%= loja.cpf %></td>
+        <td><%= loja.cartao %></td>
+        <td><%= loja.hora %></td>
+        <td><%= loja.nm_representante %></td>
+        <td><%= loja.nm_loja %></td>
+        <td><%= loja.created_at %></td>
+      </tr>
+    <% end %>
+    <tr>
+    	<th>Total</th><td><%= number_to_currency_br(@total) %></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', lojas_path %>

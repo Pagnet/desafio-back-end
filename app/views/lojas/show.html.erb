@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tp transacao:</strong>
+  <%= @loja.tp_transacao %>
+</p>
+
+<p>
+  <strong>Dt ocorrencia:</strong>
+  <%= @loja.dt_ocorrencia %>
+</p>
+
+<p>
+  <strong>Vl movimentacao:</strong>
+  <%= @loja.vl_movimentacao %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @loja.cpf %>
+</p>
+
+<p>
+  <strong>Cartao:</strong>
+  <%= @loja.cartao %>
+</p>
+
+<p>
+  <strong>Hora:</strong>
+  <%= @loja.hora %>
+</p>
+
+<p>
+  <strong>Nm representante:</strong>
+  <%= @loja.nm_representante %>
+</p>
+
+<p>
+  <strong>Nm loja:</strong>
+  <%= @loja.nm_loja %>
+</p>
+
+<%= link_to 'Edit', edit_loja_path(@loja) %> |
+<%= link_to 'Back', lojas_path %>

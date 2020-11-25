@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Importações</h1>
+
+<p>
+	<h3>Clique no CPF para filtrar por loja</h3>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tp transacao</th>
+      <th>Dt ocorrencia</th>
+      <th>Vl movimentacao</th>
+      <th>Cpf</th>
+      <th>Cartao</th>
+      <th>Hora</th>
+      <th>Nm representante</th>
+      <th>Nm loja</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lojas.each do |loja| %>
+      <tr>
+        <td><%= loja.tp_transacao %></td>
+        <td><%= loja.dt_ocorrencia %></td>
+        <td><%= number_to_currency_br(loja.vl_movimentacao) %></td>
+        <td><a href="/saldo/<%= loja.cpf %>"><%= loja.cpf %></a></td>
+        <td><%= loja.cartao %></td>
+        <td><%= loja.hora %></td>
+        <td><%= loja.nm_representante %></td>
+        <td><%= loja.nm_loja %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Importacao', new_importacao_path %>
+

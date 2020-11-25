@@ -1,0 +1,2 @@
+class Loja < ApplicationRecord
+end
