@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Importacaos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Arquivo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @importacaos.each do |importacao| %>
+      <tr>
+        <td><%= importacao.arquivo %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Importacao', new_importacao_path %>

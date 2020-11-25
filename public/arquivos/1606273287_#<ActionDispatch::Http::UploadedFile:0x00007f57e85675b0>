@@ -1,0 +1,24 @@
+Pacotes para instalar
+
+sudo apt-get install python-virtualenv virtualenvwrapper
+
+Exemplo de barchrc
+
+# aliases Django
+alias startapp='django-admin.py startapp'
+alias startproject='django-admin.py startproject'
+alias virtualenvnew='virtualenv --no-site-packages'
+alias runserver='python manage.py runserver'
+alias manage='python manage.py'
+
+# setting virtualenv-wrapper
+export WORKON_HOME=/home/[user]/.virtualenvs
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+pip install django==[versão] #Se for somente "pip install django" ira instalar a versão mais atual.
+
+
+#Meus contatos:
+
+fb.com/ant.celso
+twitter: @antoniocelso55
