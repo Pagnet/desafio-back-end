@@ -1,0 +1,42 @@
+<h2>
+  Resumo
+</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Loja</th>
+    <th>Saldo</th>
+  </tr>
+  <tr>
+     <th><%= @summary[0] %></th>
+     <th><%= @summary[1].round(2) %></th>
+  </tr>
+</table>
+
+<br>
+<h2>
+  Transações
+</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Tipo</th>
+    <th>Data</th>
+    <th>Valor</th>
+    <th>CPF</th>
+    <th>Cartão</th>
+    <th>Nome da loja</th>
+    <th>Dono da loja</th>            
+  </tr>
+  <% @transactions.each do |transaction| %>
+    <tr>
+       <th><%= transaction.cnab_type %></th>
+       <th><%= transaction.date.strftime('%d/%m/%Y %H:%M') %></th>
+       <th><%= transaction.value %></th>
+       <th><%= transaction.document %></th>
+       <th><%= transaction.card %></th>
+       <th><%= transaction.store.name %></th>
+       <th><%= transaction.user.name %></th>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,22 @@
+<table style="width:100%">
+  <tr>
+    <th>Lojas</th>
+  </tr>
+  <% @stores.each do |store| %>
+    <tr>
+       <th><a href="/store/<%= store.id %>"><%= store.name %></a></th>
+    </tr>
+  <% end %>
+</table>
+
+<br>
+
+<br>
+<h4>
+  Faça o upload de novas transações:
+</h4>
+
+<%= form_for :cnab, :url => {controller: 'cnab', action: 'create'} do |f| %>
+  <%= f.file_field :file %>
+  <%= f.submit :submit, class: 'btn btn-success' %>
+<% end %>
