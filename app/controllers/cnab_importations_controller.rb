@@ -14,12 +14,12 @@ class CnabImportationsController < ApplicationController
   end
 
   def create
-    @cnab_importation = CnabImportation.new(cnab_importations_params)
+    @cnab_importation = CnabImportation.new() 
     @cnab_importation.status = :starting
+    @cnab_importation.file = fetch_data_file
     if @cnab_importation.save
       begin
-        file_cnab = File.open(params[:cnab_importation][:file], 'r').each_line.map { |l| l }
-        ParseFileJob.new.perform(file_cnab, @cnab_importation.id)
+        ParseFileJob.new.perform(@cnab_importation.id)
       rescue => exception
         @cnab_importation.update_status(:failed)
       end
@@ -32,8 +32,8 @@ class CnabImportationsController < ApplicationController
 
   private
 
-  def cnab_importations_params
-    params.require(:cnab_importation).permit(:status, :file)
+  def fetch_data_file
+    File.open(params[:cnab_importation][:file], 'r').each_line.map { |l| l }
   end
 
   def fetch_status

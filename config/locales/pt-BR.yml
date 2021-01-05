@@ -38,9 +38,9 @@ pt-BR:
       stores:      'Lojas'
     cnab_importation:
       index:
-        title:             'Arquivos CNAB importados'
-        import:            'Importar'
-        original_filename: 'Nome do arquivo original'
+        title:          'Arquivos CNAB importados'
+        import:         'Importar'
+        number_records: 'Nº de registros'
       new:
         import_new_file:    'Importar Novo Arquivo Cnab'
         select_file_import: 'Selecione um arquivo para importar'

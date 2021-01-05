@@ -30,11 +30,11 @@ class CreateTransactionService
 
  
   def generate_datetime(date, time)
-    DateTime.strptime("#{date} #{time} -03:00", '%Y%m%d %H%M%S %z')
+    DateTime.parse("#{date}#{time}")
   end
 
   def create_transaction(transaction_data)
     Transaction.create!(transaction_data) rescue false
   end
-
+  
 end

@@ -12,6 +12,8 @@ module Myapp
     config.load_defaults 6.1
     config.i18n.default_locale = :"pt-BR"
     config.active_job.queue_adapter = :delayed_job
+    config.time_zone = 'Brasilia'
+    config.active_record.default_timezone = :local
 
     # Configuration for the application, engines, and railties goes here.
     #

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_195315) do
   enable_extension "plpgsql"
 
   create_table "cnab_importations", force: :cascade do |t|
-    t.integer "status", null: false
+    t.integer "status"
     t.jsonb "file"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -38,17 +38,17 @@ ActiveRecord::Schema.define(version: 2020_12_22_195315) do
   end
 
   create_table "stores", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.string "owner"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "transaction_types", force: :cascade do |t|
-    t.integer "sort", null: false
-    t.string "description", null: false
-    t.integer "kind", null: false
-    t.integer "signal", null: false
+    t.integer "sort"
+    t.string "description"
+    t.integer "kind"
+    t.integer "signal"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 2020_12_22_195315) do
   create_table "transactions", force: :cascade do |t|
     t.bigint "transaction_type_id", null: false
     t.bigint "store_id", null: false
-    t.datetime "date", null: false
-    t.decimal "amount", precision: 12, scale: 2, null: false
+    t.datetime "date"
+    t.decimal "amount", precision: 12, scale: 2
     t.string "cpf"
     t.string "card_number"
     t.datetime "created_at", precision: 6, null: false
