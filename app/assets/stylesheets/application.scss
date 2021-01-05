@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_true
+ *= require_self
+ */
+
+ @import 'bootstrap/scss/bootstrap';
+ @import '@fortawesome/fontawesome-free/css/all.min.css';
+
+ .login-page
+{
+    background-image: url('background-image-blu.png');
+    background-repeat: no-repeat;
+    background-size:100%;
+    bottom: 0;
+    color: black;
+    left: 0;
+    overflow: auto;
+    padding: 3em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    margin-top: 10%;
+    z-index: -1
+}
+
+.image_logo {
+    width: 60px;
+    height: 30px;
+}
+
+.m-t-10 {
+    margin-top: 10%;
+}
+
+.m-t-5 {
+    margin-top: 5%;
+}
+
+.flt-r {
+    float: right
+}
+
+.t-right {
+    text-align: right;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.t-left {
+    text-align: left;
+}
+
+.positive-color {
+    color:blue;
+}
+
+.negative-color {
+    color:red;
+}
+
+.bg-grey {
+    background-color: #BEBEBE;
+}

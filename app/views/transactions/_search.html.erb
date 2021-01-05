@@ -1,0 +1,29 @@
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron">
+        <h1><%= I18n.t('.default.filters') %></span></h1>
+        <%= search_form_for @q, url: store_transactions_path do |f| %>
+          <div class="row">
+
+            <div class="col-md-6">
+              <%= f.label I18n.t(".activerecord.attributes.transaction.cpf") %>
+              <%= f.search_field :cpf_cont, placeholder: I18n.t(".activerecord.attributes.transaction.cpf"), class: "form-control" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= f.label I18n.t(".activerecord.attributes.transaction.transaction_type") %>
+              <%= f.search_field :transaction_type_description_cont, placeholder: I18n.t(".activerecord.attributes.transaction.transaction_type"), class: "form-control" %>
+            </div>
+
+          </div>
+
+          <div class="row m-t-5">
+            <div class="col-md-12 t-right">
+              <%= link_to I18n.t('.default.clean'), store_transactions_path, title: I18n.t('.default.clean'), alt: I18n.t('.default.clean'), class: "btn btn-info"%>
+              <%= button_tag I18n.t('.default.search'), type: 'submit', class: "btn-primary btn" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

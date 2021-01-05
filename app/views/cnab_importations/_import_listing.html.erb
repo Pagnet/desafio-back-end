@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"><%= I18n.t(".activerecord.attributes.cnab_importation.status") %></th>
+            <th scope="col"><%= I18n.t(".activerecord.attributes.cnab_importation.created_at") %></th>
+            <th scope="col"><%= I18n.t(".views.cnab_importation.index.original_filename") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @imports.each do |import| %>
+            <tr>
+              <td><%= import.id %></td>
+              <td><%= I18n.t(".activerecord.attributes.cnab_importation.statuses.#{import.status}") %></td>
+              <td><%= format_date(import.created_at) %></td>
+              <td><%= import.file["original_filename"] %></td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

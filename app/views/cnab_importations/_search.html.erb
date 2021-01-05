@@ -1,0 +1,19 @@
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron">
+      <h1><%= I18n.t('.default.filters') %></span></h1>
+      <%= search_form_for @q do |f| %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.label I18n.t(".activerecord.attributes.cnab_importation.status") %>
+            <%= f.select :status_eq, @status, include_blank: true %>
+          </div>
+            <div class="col-md-6 t-right">
+              <%= link_to I18n.t('.default.clean'), stores_path, title: I18n.t('.default.clean'), alt: I18n.t('.default.clean'), class: "btn btn-info"%>
+              <%= button_tag I18n.t('.default.search'), type: 'submit', class: "btn-primary btn" %>
+            </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>

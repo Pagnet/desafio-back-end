@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"><%= I18n.t(".activerecord.attributes.store.name") %></th>
+            <th scope="col"><%= I18n.t(".activerecord.attributes.store.owner") %></th>
+            <th scope="col"><%= I18n.t(".activerecord.attributes.store.created_at") %></th>
+            <th class="t-center" scope="col"><%= I18n.t('.views.store.index.transactions') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @stores.each do |store| %>
+            <tr>
+              <td><%= store.id %></td>
+              <td><%= store.name %></td>
+              <td><%= store.owner %></td>
+              <td><%= format_date(store.created_at) %></td>
+              <td class="t-center">
+                <%= link_to store_transactions_path(store.id) do %>
+                  <i class="fas fa-eye fa-2x"></i>
+                <% end%>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

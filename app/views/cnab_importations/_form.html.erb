@@ -1,0 +1,22 @@
+<% if @cnab_importations.errors.present? %>
+  <div class="alert alert-danger" role="alert">
+    <%= @cnab_importations.errors.full_messages.html_safe %>
+  </div>
+<% end %>
+
+<div class="row">
+  <%= form_for @cnab_importations do |importation| %>
+    <div class="col-md-12">
+      <p class="lead">
+        <%= importation.label I18n.t('.views.cnab_importation.new.file') %>
+        <%= importation.file_field :file, class: "form-control" %>
+      </p>
+    </div>
+    <div class="col-md-12">
+      <p class="lead">
+        <%= button_tag I18n.t('.views.cnab_importation.new.import'), type: 'submit', class: "btn-xs btn-primary btn" %>
+      </p>
+    </div>
+  <% end %>
+</div>
+

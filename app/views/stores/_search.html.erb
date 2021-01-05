@@ -1,0 +1,26 @@
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron">
+        <h1><%= I18n.t('.default.filters') %></span></h1>
+        <%= search_form_for @q do |f| %>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.label I18n.t(".activerecord.attributes.store.name") %>
+              <%= f.search_field :name_cont, placeholder: I18n.t(".activerecord.attributes.store.name"), class: "form-control" %>
+            </div>
+            <div class="col-md-6">
+              <%= f.label I18n.t(".activerecord.attributes.store.owner") %>
+              <%= f.search_field :owner_cont, placeholder: I18n.t(".activerecord.attributes.store.owner"), class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="row m-t-5">
+            <div class="col-md-12 t-right">
+              <%= link_to I18n.t('.default.clean'), stores_path, title: I18n.t('.default.clean'), alt: I18n.t('.default.clean'), class: "btn btn-info"%>
+              <%= button_tag I18n.t('.default.search'), type: 'submit', class: "btn-primary btn" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,56 @@
+pt-BR:
+  default:
+    filters: 'Filtros'
+    clean:   'Limpar'
+    search:  'Pesquisar'
+  
+  controller:
+    cnab_importation:
+      success_message: 'Arquivo CNAB importado, verifique o status da importação!'
+
+  activerecord:
+    attributes:
+      cnab_importation:
+        status:     'Status'
+        created_at: 'Data de importação'
+        file:       'Arquivo'
+        statuses: 
+          starting:   'Iniciando'
+          processing: 'Em Processamento'
+          concluded:  'Concluído'
+          failed:     'Falhou'
+      store:
+        name:      'Nome da loja'
+        owner:      'Representante da loja'
+        created_at: 'Data de criação no sistema'
+      transaction:
+        transaction_type: 'Tipo de transação'
+        store:            'Loja'
+        date:             'Data da ocorrência'
+        amount:           'Valor da movimentação'
+        cpf:              'CPF'
+        card_number:      'Cartão n°'
+  views:
+    home:
+      title:       'Desafio programação - para vaga Back-end Blu'
+      import_cnab: 'importar CNAB'
+      index:       'Home'
+      stores:      'Lojas'
+    cnab_importation:
+      index:
+        title:             'Arquivos CNAB importados'
+        import:            'Importar'
+        original_filename: 'Nome do arquivo original'
+      new:
+        import_new_file:    'Importar Novo Arquivo Cnab'
+        select_file_import: 'Selecione um arquivo para importar'
+        import:             'Importar'
+        file:               'Arquivo'
+    store:
+      index:
+        title: 'Lista de lojas'
+        transactions: 'Transações'
+    transaction:
+      index:
+        title:       'Lista de Transações'
+        total_value: 'Valor Total:'

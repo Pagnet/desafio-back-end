@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row m-t-5">
+    <div class="col-md-6">
+      <h1><%= I18n.t('.views.cnab_importation.index.title') %></h1>
+    </div>
+    <div class="col-md-6 text-right">
+      <%= link_to(I18n.t('.views.cnab_importation.index.import'), new_cnab_importation_path, class: 'btn btn-primary') %>
+    </div>
+  </div>
+  <%= render partial: 'search' %>
+</div>
+<%= render partial: 'import_listing' %>
+

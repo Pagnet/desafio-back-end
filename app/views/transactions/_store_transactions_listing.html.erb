@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"><%= I18n.t(".activerecord.attributes.transaction.transaction_type") %></th>
+            <th scope="col"><%= I18n.t(".activerecord.attributes.transaction.cpf") %></th>
+            <th scope="col"><%= I18n.t(".activerecord.attributes.transaction.card_number") %></th>
+            <th scope="col"><%= I18n.t(".activerecord.attributes.transaction.date") %></th>
+            <th scope="col"><%= I18n.t(".activerecord.attributes.transaction.amount") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @transactions.each do |transaction| %>
+            <tr>
+              <td><%= transaction.transaction_type.description %></td>
+              <td><%= transaction.cpf %></td>
+              <td><%= transaction.card_number %></td>
+              <td><%= format_date(transaction.date) %></td>
+              <td class="<%= transaction.amount_signal_positive? ? "positive-color" : "negative-color" %>">
+                <%= transaction.amount_signal_positive? ? format_money(transaction.amount) : format_money_negative(transaction.amount) %>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+        <tfoot>
+          <tr class="bg-grey">
+            <td colspan="4">
+              <strong><%= I18n.t(".views.transaction.index.total_value") %></strong>
+            </td>
+            <td>
+              <strong><%= format_money(Transaction.fetch_amount_total(@store_id))%></strong>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

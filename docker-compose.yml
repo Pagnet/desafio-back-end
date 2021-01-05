@@ -1,0 +1,44 @@
+# docker-compose.yml
+
+version: "3"
+
+services:
+  web:
+    environment:
+      NODE_ENV: development
+      RAILS_ENV: development
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+
+    build:
+      context: .
+      args:
+        USER_ID: 1000
+        GROUP_ID: 1000
+        APP_DIR: /home/user/myapp
+
+    command: bash -c "rm -f tmp/pids/server.pid &&
+      ./bin/webpack-dev-server &
+      bundle exec rails server -p 3000 -b '0.0.0.0'"
+
+    volumes:
+      # make sure this lines up with APP_DIR above
+      - .:/home/user/myapp
+
+    ports:
+      - "3000:3000"
+      - "3035:3035"
+
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12.2
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
