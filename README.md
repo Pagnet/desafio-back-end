@@ -19,17 +19,11 @@
 
 ### Observações: 
 
-```sh
 - Porta 5432 deve estar liberada para o postgres, acaso não esteja liberada, no arquivo docker-compose.yml modifique a porta, exemplo: "5433:5432".
-```
 
-```sh
 - Quando executar os comandos docker-compose [comando], porventura retorne erro de permissões, execute sudo docker-compose [comando] e adicione sua senha.
-```
 
-```sh
-- Arquivos CNAB para testes na aplicação estão na pasta CNAB_files, nas raiz do projeto.
-```
+- Arquivos CNAB para testes na aplicação estão na pasta CNAB_files, nas raiz da projeto.
 
 Após instalar o docker e docker-compose, estando na pasta raiz do projeto, execute:
 
