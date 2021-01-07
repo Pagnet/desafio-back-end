@@ -18,9 +18,7 @@ services:
         GROUP_ID: 1000
         APP_DIR: /home/user/myapp
 
-    command: bash -c "rm -f tmp/pids/server.pid &&
-      ./bin/webpack-dev-server &
-      bundle exec rails server -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && yarn && bundle install && foreman start"
 
     volumes:
       # make sure this lines up with APP_DIR above
@@ -35,8 +33,11 @@ services:
 
   db:
     image: postgres:12.2
+    ports:
+      - "5433:5432"
     environment:
-      POSTGRES_PASSWORD: example
+      POSTGRES_USER: postgres
+      POSTGRES_DB: myapp_development
     volumes:
       - db_data:/var/lib/postgresql/data
 

@@ -1,63 +1,39 @@
-# Dockerfile
+FROM ruby:2.7.0
 
-# Pre setup stuff
-FROM ruby:2.7.0 as builder
+WORKDIR /app
 
-# Add Yarn to the repository
-RUN curl https://deb.nodesource.com/setup_12.x | bash     && curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN rm -rf *.lock
+RUN rm -rf node_modules/*
 
-# Install system dependencies & clean them up
-RUN apt-get update -qq && apt-get install -y \
-    postgresql-client build-essential yarn nodejs \
-    libnotify-dev && \
-    rm -rf /var/lib/apt/lists/*
+COPY Gemfile* ./
 
-# This is where we build the rails app
-FROM builder as rails-app
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
 
-# Allow access to port 3000
-EXPOSE 3000
-EXPOSE 3035
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends \
+    nodejs \
+    yarn=1.17.3-1 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -f tmp/pids/server.pid && \
+    gem install foreman
 
-# This is to fix an issue on Linux with permissions issues
-ARG USER_ID=1000
-ARG GROUP_ID=1000
-ARG APP_DIR=/home/user/myapp
-
-# Create a non-root user
-RUN groupadd --gid $GROUP_ID user
-RUN useradd --no-log-init --uid $USER_ID --gid $GROUP_ID user --create-home
-
-# Remove existing running server
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-
-# Permissions crap
-RUN mkdir -p $APP_DIR
-RUN chown -R $USER_ID:$GROUP_ID $APP_DIR
-
-
-# Define the user running the container
-USER $USER_ID:$GROUP_ID
-
-WORKDIR $APP_DIR
-
-# Install rails related dependencies
-COPY --chown=$USER_ID:$GROUP_ID Gemfile* $APP_DIR/
-
-# For webpacker / node_modules
-COPY --chown=$USER_ID:$GROUP_ID package.json $APP_DIR
-COPY --chown=$USER_ID:$GROUP_ID yarn.lock $APP_DIR
-
+# Atualiza bundler
+RUN gem update --system
+RUN gem update bundler
 RUN bundle install
 
-# Copy over all files
-COPY --chown=$USER_ID:$GROUP_ID . .
+COPY . /app
 
-RUN yarn install --check-files
+RUN yarn install
 
+RUN chown -R $USER:$USER **
+RUN chmod 777 bin/**
 
-ENTRYPOINT ["/usr/bin/entrypoint.sh"]
+RUN bundle exec rake assets:precompile
+RUN bin/webpack --css-loader
 
-# Start the main process.
+EXPOSE 3000
+
 CMD ["rails", "server", "-b", "0.0.0.0"]

@@ -16,10 +16,14 @@
 
 ## 🐳 Modo Desenvolvimento com Docker
 
+
+### Observação: Quando executar os comandos docker-compose [comando], porventura retorne erro de permissões, execute sudo docker-compose [comando] e adicione sua senha.
+
+
 Após instalar o docker e docker-compose, estando na pasta raiz do projeto, execute:
 
 ```sh
-docker-compose up
+docker-compose up web
 ```
 
 Para se certificar que os seus containers subiram corretamente, todos os containers deve estar com o status `UP`, execute:
@@ -43,10 +47,22 @@ docker exec-it [nome do db] bash
 Para derrubar e subir a instância do docker novamente, execute:
 
 ```sh
-docker-compose down && docker-compose up
+docker-compose down && docker-compose up web
 ```
 
 🚀 :clap: Para visualizar o sistema basta acessar no navegador no endereço: localhost:3000
+
+# Seeds
+
+### Necessário rodar as seeds, em um novo terminal execute:
+
+```sh
+docker-compose run --rm web bash
+```
+
+```sh
+rake db:seed
+```
 
 # Como executar a Suíte de Teste
 
@@ -69,7 +85,9 @@ bundle exec rspec
 
 # Jobs
 
-### Como subir o servidor, em outro terminal execute:
+### Necessário subir o servidor de jobs em outro terminal, pois o serviço que interpreta o arquivo é executado através de trends!
+
+### Como subir o servidor em outro terminal, execute:
 
 ```sh
 docker-compose run --rm web

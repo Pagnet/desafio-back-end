@@ -1,6 +1,9 @@
 {
   "name": "myapp",
   "private": true,
+  "scripts": {
+    "lint-staged": "$(yarn bin)/lint-staged"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@rails/actioncable": "^6.0.0",
