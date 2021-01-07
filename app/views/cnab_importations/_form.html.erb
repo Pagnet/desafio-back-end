@@ -1,4 +1,4 @@
-<% if @cnab_importations.errors.present? %>
+<% if @cnab_importations&.errors.present? %>
   <div class="alert alert-danger" role="alert">
     <%= @cnab_importations.errors.full_messages.html_safe %>
   </div>

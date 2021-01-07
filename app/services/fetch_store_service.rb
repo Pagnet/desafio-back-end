@@ -29,7 +29,7 @@ class FetchStoreService
   end
 
   def create_store(store_data)
-    Store.create!(store_data)
+    Store.create(store_data) rescue false
   end
 
 end

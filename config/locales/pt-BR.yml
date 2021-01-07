@@ -1,12 +1,17 @@
 pt-BR:
   default:
-    filters: 'Filtros'
-    clean:   'Limpar'
-    search:  'Pesquisar'
+    filters:    'Filtros'
+    clean:      'Limpar'
+    search:     'Pesquisar'
+    true:       'Formato correto'
+    false:      'Formato incorreto'
+    processing: 'Estamos processando sua requisição'
+
   
   controller:
     cnab_importation:
       success_message: 'Arquivo CNAB importado, verifique o status da importação!'
+      success_error:   'Arquivo CNAB Não importado, verifique o arquivo!'
 
   activerecord:
     attributes:
@@ -38,14 +43,28 @@ pt-BR:
       stores:      'Lojas'
     cnab_importation:
       index:
-        title:          'Arquivos CNAB importados'
-        import:         'Importar'
-        number_records: 'Nº de registros'
+        title:        'Arquivos CNAB importados'
+        import:       'Importar'
+        info_summary: 'Informações da importação'
       new:
         import_new_file:    'Importar Novo Arquivo Cnab'
         select_file_import: 'Selecione um arquivo para importar'
         import:             'Importar'
         file:               'Arquivo'
+      import_summary:
+        title:                     'Informações da importação'
+        line:                      'Linha no arquivo'
+        data:                      'Dados'
+        more_information:          'Mais informações'
+        transaction_type:          'Tipo de transação:'
+        date:                      'Data da ocorrência:'
+        time:                      'Horrio da ocorrência:'
+        amount:                    'Valor da movimentação:'
+        cpf:                       'CPF:'
+        card_number:               'Cartão n°:'
+        store_name:                'Nome da loja:'
+        store_owner:               'Representante da loja:'
+        invalid_number_characters: 'N° de caracteres inválido'
     store:
       index:
         title: 'Lista de lojas'

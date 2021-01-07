@@ -1,9 +1,12 @@
 class CreateTransactionService
 
-  def initialize(parsed_record, store_id, transaction_type_id)
+  def initialize(parsed_record, store, transaction_type)
+    if store.blank? || transaction_type.blank?
+      return false
+    end
     @parsed_record       = parsed_record
-    @store_id            = store_id
-    @transaction_type_id = transaction_type_id
+    @store_id            = store.id
+    @transaction_type_id = transaction_type.id
   end
 
   def self.build(parsed_record, store_id, transaction_type_id)
@@ -22,7 +25,7 @@ class CreateTransactionService
       transaction_type_id: transaction_type_id,
       store_id: store_id,
       date: generate_datetime(parsed_record[:date], parsed_record[:time]),
-      amount: parsed_record[:amount],
+      amount: (parsed_record[:amount].to_f / 100),
       cpf: parsed_record[:cpf],
       card_number: parsed_record[:card_number]
     }
@@ -34,7 +37,11 @@ class CreateTransactionService
   end
 
   def create_transaction(transaction_data)
-    Transaction.create!(transaction_data) rescue false
+    if Transaction.create(transaction_data)
+      return true
+    else
+      return false
+    end
   end
   
 end

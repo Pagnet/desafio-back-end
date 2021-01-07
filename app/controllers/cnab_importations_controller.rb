@@ -25,15 +25,21 @@ class CnabImportationsController < ApplicationController
       end
       redirect_to cnab_importations_url, notice: I18n.t(".controller.cnab_importation.success_message")
     else
-      render :new
+      redirect_to new_cnab_importation_url, notice: I18n.t(".controller.cnab_importation.success_error")
     end
 
+  end
+
+  def import_summary
+    @cnab_importation = CnabImportation.find(params[:id])
   end
 
   private
 
   def fetch_data_file
+    return nil if params[:cnab_importation][:file].blank?
     File.open(params[:cnab_importation][:file], 'r').each_line.map { |l| l }
+ 
   end
 
   def fetch_status

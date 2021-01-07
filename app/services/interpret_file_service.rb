@@ -11,14 +11,15 @@ class InterpretFileService
   end
 
   def perform
+    info_file = info_records
     ActiveRecord::Base.transaction do
       @cnab_importation.file.each do |record|
-        if valid_number_characters?(record)
+        if @status == true
           parsed_record    = parse(record)
           store            = FetchStoreService.build(parsed_record)
           transaction_type = fetch_transaction_type(parsed_record[:transaction_type])
-          @status          = CreateTransactionService.build(parsed_record, store.id, transaction_type.id)
-          if @status == false
+          @status          = CreateTransactionService.build(parsed_record, store, transaction_type)
+          if @status != true
             raise ActiveRecord::Rollback
           end
         else
@@ -26,24 +27,33 @@ class InterpretFileService
         end
       end
     end
-    @cnab_importation.update(file: info_record, status: @status == false ? :failed : :concluded)
+    @cnab_importation.update(file: info_file, status: @status != true ? :failed : :concluded)
   end
 
 
   private
 
   def fetch_transaction_type(transaction_type)
-    TransactionType.find_by_sort(transaction_type)
+    TransactionType.find_by_sort(transaction_type.to_i)
   end 
 
-  def info_record
+  def info_records
     info_file = { 
       results: []
     }
     @cnab_importation.file.each_with_index do |record, index|
-      if valid_number_characters?(record)
+      if invalid_number_characters?(record)
+        info_file[:results] << {
+          status: false,
+          line:   (index + 1),
+          record: record,
+          info:   true
+        }
+        @status = false
+      else
         parsed_record = parse(record)
         info_file[:results] << {
+          status:           nil,
           line:             (index + 1),
           record:           record,
           transaction_type: is_number?(parsed_record[:transaction_type]),
@@ -55,15 +65,13 @@ class InterpretFileService
           store_owner:      parsed_record[:store_name].present?,
           store_name:       parsed_record[:store_name].present?
         }
-      else
-        info_file[:results] << {
-          line:             (index + 1),
-          record:           record,
-          error: "N° de caracteres inválido"
-        }
       end
     end
+
+    put_status(info_file)
+
     return info_file
+
   end
 
   def is_number?(string)
@@ -78,16 +86,29 @@ class InterpretFileService
     true if DateTime.strptime(string, '%Y%m%d') rescue false
   end
 
-  def valid_number_characters?(record)
-    return if record.size == 81
+  def invalid_number_characters?(record)
+    return record.size != 81
+  end
+
+  def put_status(info_file)
+    info_file[:results].each_with_index do |result, index|
+      if result[:transaction_type] && result[:date] && result[:amount] && result[:cpf] && result[:card_number] && result[:time] && result[:store_owner] && result[:store_name]
+        result[:status] = true
+        @status = true
+      else
+        result[:status] = false
+        @status = false
+      end
+    end
+
   end
 
   def parse(record)
 
     parsed = {
-      transaction_type: (record[0].to_i),
+      transaction_type: record[0],
       date:             record[1..8],
-      amount:           (record[9..18].to_f / 100),
+      amount:           record[9..18],
       cpf:              record[19..29],
       card_number:      record[30..41],
       time:             record[42..47],

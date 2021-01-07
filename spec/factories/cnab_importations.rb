@@ -1,15 +1,23 @@
 FactoryBot.define do
   factory :cnab_importation do
     status { :starting }
-    file  { 
-            [
-              {
-                "headers"=>"Content-Disposition: form-data; name=\"cnab_importation[file]\"; filename=\"CNAB.txt\"\r\nContent-Type: text/plain\r\n",
-                "tempfile"=>"#<File:0x0000562b7853e720>",
-                "content_type"=>"text/plain",
-                "original_filename"=>"CNAB.txt"
-              }
-            ] 
-          }
+    file  {
+      results =
+      [
+        {
+          cpf: true, 
+          date: true, 
+          line: 1, 
+          time: true, 
+          amount: true, 
+          record: "3201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO       \n", 
+          status: true, 
+          store_name: true, 
+          card_number: true, 
+          store_owner: true, 
+          transaction_type: true
+        }
+      ]
+    }
   end
 end

@@ -1,0 +1,39 @@
+<% if @cnab_importation.check_status %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"><%= I18n.t(".views.cnab_importation.import_summary.line") %></th>
+              <th class="t-center" scope="col"><%= I18n.t(".views.cnab_importation.import_summary.data") %></th>
+              <th scope="col"><%= I18n.t(".views.cnab_importation.import_summary.more_information") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @cnab_importation.file["results"].each_with_index do |result, index| %>
+              <tr>
+                <td class="t-center"><%= result["line"] %></td>
+                <td><%= result["record"] %></td>
+                <td class="t-center">
+                  <button type="button" class="btn btn-<%= result["status"]%>" data-toggle="modal" data-target="#exampleModal-<%=index%>">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+              <%= render partial: 'modal_info', locals: { index: index, result: result } %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% else %>
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="t-center"><%= I18n.t(".default.processing") %></h3>
+        </div>
+      </div>
+    </div>
+<% end %>

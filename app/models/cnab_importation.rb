@@ -18,4 +18,12 @@ class CnabImportation < ApplicationRecord
     self.update(status: status)
   end
 
+  def check_status
+    if self.status == "concluded" || self.status == "failed"
+      return true
+    else
+      return false
+    end
+  end
+
 end

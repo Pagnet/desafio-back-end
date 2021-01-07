@@ -7,7 +7,7 @@
             <th scope="col">#</th>
             <th scope="col"><%= I18n.t(".activerecord.attributes.cnab_importation.status") %></th>
             <th scope="col"><%= I18n.t(".activerecord.attributes.cnab_importation.created_at") %></th>
-            <th scope="col"><%= I18n.t(".views.cnab_importation.index.number_records") %></th>
+            <th class="t-center" scope="col"><%= I18n.t(".views.cnab_importation.index.info_summary") %></th>
           </tr>
         </thead>
         <tbody>
@@ -16,7 +16,11 @@
               <td><%= import.id %></td>
               <td><%= I18n.t(".activerecord.attributes.cnab_importation.statuses.#{import.status}") %></td>
               <td><%= format_date(import.created_at) %></td>
-              <td><%= import.file.size %></td>
+              <td class="t-center">
+                <%= link_to import_summary_path(import.id) do %>
+                  <i class="fas fa-eye fa-2x"></i>
+                <% end%>
+              </td>
             </tr>
           <%end%>
         </tbody>

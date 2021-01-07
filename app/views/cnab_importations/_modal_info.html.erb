@@ -1,0 +1,51 @@
+<div class="modal fade" id="exampleModal-<%=index%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Mais Informações</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% if result["info"].present?%>
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="t-center"><%= I18n.t(".views.cnab_importation.import_summary.invalid_number_characters") %></h3>
+            </div>
+          </div>
+        <%else%>
+          <div class="row">
+            <div class="col-md-12">
+              <span><%= I18n.t(".views.cnab_importation.import_summary.transaction_type") %> <%= I18n.t(".default.#{result["transaction_type"]}") %></span>
+            </div>
+            <div class="col-md-12">
+              <span><%= I18n.t(".views.cnab_importation.import_summary.date") %> <%= I18n.t(".default.#{result["date"]}") %></span>
+            </div>
+            <div class="col-md-12">
+              <span><%= I18n.t(".views.cnab_importation.import_summary.time") %> <%= I18n.t(".default.#{result["time"]}") %></span>
+            </div>
+            <div class="col-md-12">
+              <span><%= I18n.t(".views.cnab_importation.import_summary.amount") %> <%= I18n.t(".default.#{result["amount"]}") %></span>
+            </div>
+            <div class="col-md-12">
+              <span><%= I18n.t(".views.cnab_importation.import_summary.cpf") %> <%= I18n.t(".default.#{result["cpf"]}") %></span>
+            </div>
+            <div class="col-md-12">
+              <span><%= I18n.t(".views.cnab_importation.import_summary.card_number") %> <%= I18n.t(".default.#{result["card_number"]}") %></span>
+            </div>
+            <div class="col-md-12">
+              <span><%= I18n.t(".views.cnab_importation.import_summary.store_owner") %> <%= I18n.t(".default.#{result["store_owner"]}") %></span>
+            </div>
+            <div class="col-md-12">
+              <span><%= I18n.t(".views.cnab_importation.import_summary.store_name") %> <%= I18n.t(".default.#{result["store_name"]}") %></span>
+            </div>
+          </div>
+        <%end%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
