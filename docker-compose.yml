@@ -8,8 +8,6 @@ services:
       NODE_ENV: development
       RAILS_ENV: development
       WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: example
 
     build:
       context: .
@@ -32,14 +30,11 @@ services:
       - db
 
   db:
-    image: postgres:12.2
-    ports:
-      - "5433:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_DB: myapp_development
+    image: postgres
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
 
 volumes:
   db_data:
