@@ -57,7 +57,7 @@ docker-compose down && docker-compose up web
 
 🚀 :clap: Para visualizar o sistema basta acessar no navegador no endereço: localhost:3000
 
-# Banco d Dados
+# Banco de Dados
 
 ### Em um novo terminal execute:
 
