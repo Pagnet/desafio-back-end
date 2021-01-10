@@ -4,21 +4,24 @@ RSpec.describe InterpretFileService do
 
   let(:valid_file){
     [
-      "3201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO       \n", 
-      "5201903010000013200556418150633123****7687145607MARIA JOSEFINALOJA DO Ó - MATRIZ\n", 
-      "3201903010000012200845152540736777****1313172712MARCOS PEREIRAMERCADO DA AVENIDA\n", 
-      "2201903010000011200096206760173648****0099234234JOÃO MACEDO   BAR DO JOÃO       \n"
+      "1201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO       \n", 
+      "2201903010000013200556418150633123****7687145607MARIA JOSEFINALOJA DO Ó - MATRIZ\n", 
+      "2201903010000012200845152540736777****1313172712MARCOS PEREIRAMERCADO DA AVENIDA\n", 
+      "1201903010000011200096206760173648****0099234234JOÃO MACEDO   BAR DO JOÃO       \n"
     ]
   }
 
   let(:invalid_file){
     [
       "A201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO       \n", 
-      "555201903010000013200556418150633123****768714560887MARIA JOSEFINALOJA DO Ó - MATRIZ\n", 
-      "3201A03010000012200845152540736777****1313172712MARCOS PEREIRAMERCADO DA AVENIDA\n", 
+      "155201903010000013200556418150633123****768714560887MARIA JOSEFINALOJA DO Ó - MATRIZ\n", 
+      "1201A03010000012200845152540736777****1313172712MARCOS PEREIRAMERCADO DA AVENIDA\n", 
       "2201903010000011200096206760173648****009923J234JOÃO MACEDO   BAR DO JOÃO       \n"
     ]
   }
+
+  let!(:transaction_type_positive) { create(:transaction_type_positive) }
+  let!(:transaction_type_negative) { create(:transaction_type_negative ) }
 
   context 'validate file interpretation service' do
 
@@ -46,7 +49,7 @@ RSpec.describe InterpretFileService do
       expect(cnab_importation.file["results"][0]["card_number"]).to be_truthy
       expect(cnab_importation.file["results"][0]["store_owner"]).to be_truthy
       expect(cnab_importation.file["results"][0]["transaction_type"]).to be_truthy
-      expect(cnab_importation.file["results"][0]["record"]).to eq("3201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO       \n")
+      expect(cnab_importation.file["results"][0]["record"]).to eq("1201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO       \n")
 
       expect(cnab_importation.file["results"][1]["status"]).to be_truthy
       expect(cnab_importation.file["results"][1]["line"]).to eq(2)
@@ -59,7 +62,7 @@ RSpec.describe InterpretFileService do
       expect(cnab_importation.file["results"][1]["card_number"]).to be_truthy
       expect(cnab_importation.file["results"][1]["store_owner"]).to be_truthy
       expect(cnab_importation.file["results"][1]["transaction_type"]).to be_truthy
-      expect(cnab_importation.file["results"][1]["record"]).to eq("5201903010000013200556418150633123****7687145607MARIA JOSEFINALOJA DO Ó - MATRIZ\n")
+      expect(cnab_importation.file["results"][1]["record"]).to eq("2201903010000013200556418150633123****7687145607MARIA JOSEFINALOJA DO Ó - MATRIZ\n")
 
     end
 
@@ -83,25 +86,21 @@ RSpec.describe InterpretFileService do
 
       expect(Transaction.count).to eq(4)
 
-      expect(Transaction.first.transaction_type_id).to eq(3)
       expect(Transaction.first.date.strftime("%Y-%m-%d %H:%M:%S")).to eq("2019-03-01 12:34:53")
       expect(Transaction.first.amount.to_f).to eq(142)
       expect(Transaction.first.cpf).to eq("09620676017")
       expect(Transaction.first.card_number).to eq("4753****3153")
 
-      expect(Transaction.second.transaction_type_id).to eq(5)
       expect(Transaction.second.date.strftime("%Y-%m-%d %H:%M:%S")).to eq("2019-03-01 11:56:07")
       expect(Transaction.second.amount.to_f).to eq(132)
       expect(Transaction.second.cpf).to eq("55641815063")
       expect(Transaction.second.card_number).to eq("3123****7687")
 
-      expect(Transaction.third.transaction_type_id).to eq(3)
       expect(Transaction.third.date.strftime("%Y-%m-%d %H:%M:%S")).to eq("2019-03-01 14:27:12")
       expect(Transaction.third.amount.to_f).to eq(122)
       expect(Transaction.third.cpf).to eq("84515254073")
       expect(Transaction.third.card_number).to eq("6777****1313")
 
-      expect(Transaction.last.transaction_type_id).to eq(2)
       expect(Transaction.last.date.strftime("%Y-%m-%d %H:%M:%S")).to eq("2019-03-01 20:42:34")
       expect(Transaction.last.amount.to_f).to eq(112)
       expect(Transaction.last.cpf).to eq("09620676017")
@@ -141,7 +140,7 @@ RSpec.describe InterpretFileService do
       expect(cnab_importation.file["results"][1]["status"]).to be_falsy
       expect(cnab_importation.file["results"][1]["info"]).to be_truthy
       expect(cnab_importation.file["results"][1]["line"]).to eq(2)
-      expect(cnab_importation.file["results"][1]["record"]).to eq("555201903010000013200556418150633123****768714560887MARIA JOSEFINALOJA DO Ó - MATRIZ\n")
+      expect(cnab_importation.file["results"][1]["record"]).to eq("155201903010000013200556418150633123****768714560887MARIA JOSEFINALOJA DO Ó - MATRIZ\n")
       
       expect(cnab_importation.file["results"][2]["status"]).to be_falsy
       expect(cnab_importation.file["results"][2]["date"]).to be_falsy
@@ -153,7 +152,7 @@ RSpec.describe InterpretFileService do
       expect(cnab_importation.file["results"][2]["store_name"]).to be_truthy
       expect(cnab_importation.file["results"][2]["card_number"]).to be_truthy
       expect(cnab_importation.file["results"][2]["store_owner"]).to be_truthy
-      expect(cnab_importation.file["results"][2]["record"]).to eq("3201A03010000012200845152540736777****1313172712MARCOS PEREIRAMERCADO DA AVENIDA\n")
+      expect(cnab_importation.file["results"][2]["record"]).to eq("1201A03010000012200845152540736777****1313172712MARCOS PEREIRAMERCADO DA AVENIDA\n")
 
       expect(cnab_importation.file["results"][3]["status"]).to be_falsy
       expect(cnab_importation.file["results"][3]["time"]).to be_falsy

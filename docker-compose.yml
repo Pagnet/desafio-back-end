@@ -1,40 +1,19 @@
 # docker-compose.yml
-
-version: "3"
-
+version: '3.0'
 services:
-  web:
-    environment:
-      NODE_ENV: development
-      RAILS_ENV: development
-      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
-
-    build:
-      context: .
-      args:
-        USER_ID: 1000
-        GROUP_ID: 1000
-        APP_DIR: /home/user/myapp
-
-    command: bash -c "rm -f tmp/pids/server.pid && yarn && bundle install && foreman start"
-
-    volumes:
-      # make sure this lines up with APP_DIR above
-      - .:/home/user/myapp
-
-    ports:
-      - "3000:3000"
-      - "3035:3035"
-
-    depends_on:
-      - db
-
   db:
     image: postgres
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
-
-volumes:
-  db_data:
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      PG_PASSWORD: password

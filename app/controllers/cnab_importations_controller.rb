@@ -37,9 +37,10 @@ class CnabImportationsController < ApplicationController
   private
 
   def fetch_data_file
-    return nil if params[:cnab_importation][:file].blank?
+     if params[:cnab_importation].blank? || params[:cnab_importation][:file].blank?
+      return nil
+     end
     File.open(params[:cnab_importation][:file], 'r').each_line.map { |l| l }
- 
   end
 
   def fetch_status

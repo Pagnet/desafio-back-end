@@ -19,7 +19,6 @@ RUN apt-get update -qq && \
     rm -f tmp/pids/server.pid && \
     gem install foreman
 
-# Atualiza bundler
 RUN gem update --system
 RUN gem update bundler
 RUN bundle install
@@ -31,7 +30,6 @@ RUN yarn install
 RUN chown -R $USER:$USER **
 RUN chmod 777 bin/**
 
-RUN bundle exec rake assets:precompile
 RUN bin/webpack --css-loader
 
 EXPOSE 3000

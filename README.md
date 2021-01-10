@@ -19,7 +19,7 @@
 
 ### Observações: 
 
-- Porta 5432 deve estar liberada para o postgres, acaso não esteja liberada, no arquivo docker-compose.yml modifique a porta, exemplo: "5433:5432".
+- Seguir todas as etapas abaixo.
 
 - Quando executar os comandos docker-compose [comando], porventura retorne erro de permissões, execute sudo docker-compose [comando] e adicione sua senha.
 
@@ -28,7 +28,7 @@
 Após instalar o docker e docker-compose, estando na pasta raiz do projeto, execute:
 
 ```sh
-docker-compose up web
+docker-compose up
 ```
 
 Para se certificar que os seus containers subiram corretamente, todos os containers deve estar com o status `UP`, execute:
@@ -59,10 +59,18 @@ docker-compose down && docker-compose up web
 
 # Seeds
 
-### Necessário rodar as seeds, em um novo terminal execute:
+### Necessário rodar comando para banco de dados, em um novo terminal execute:
 
 ```sh
 docker-compose run --rm web bash
+```
+
+```sh
+rake db:create
+```
+
+```sh
+rake db:migrate
 ```
 
 ```sh
