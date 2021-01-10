@@ -57,9 +57,9 @@ docker-compose down && docker-compose up web
 
 🚀 :clap: Para visualizar o sistema basta acessar no navegador no endereço: localhost:3000
 
-# Seeds
+# Banco d Dados
 
-### Necessário rodar comando para banco de dados, em um novo terminal execute:
+### Em um novo terminal execute:
 
 ```sh
 docker-compose run --rm web bash
@@ -80,6 +80,7 @@ rake db:seed
 # Como executar a Suíte de Teste
 
 ### Testes Unitários com Rspec, em um novo terminal execute:
+
 ```sh
 docker-compose run --rm web bash
 ```
