@@ -1,2 +1,9 @@
-  inherit_gem:
-    rubocop-shopify: rubocop.yml
+inherit_gem:
+  rubocop-shopify: rubocop.yml
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'db/**/*'
