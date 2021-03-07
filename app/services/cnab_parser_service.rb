@@ -8,7 +8,11 @@ class CnabParserService < ApplicationService
 
   def call
     cnab_file = File.open(file[:file].to_s)
+    store_owner = line.slice(48, 14).strip
+    store_name =  line.slice(62, 19).strip
+
     Store.find_or_create_by(name: store_name, owner: store_owner)
+    
     # cnab_file.each_line do |line|
     #   #puts line
     #   # puts line.slice(0,1)
