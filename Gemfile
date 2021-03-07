@@ -17,7 +17,7 @@ gem 'webpacker', '~> 5.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 3.35.3'
-  gem 'factory_bot', '~> 6.1.0'
+  gem 'factory_bot_rails', '~> 6.1.0'
   gem 'rspec-rails', '~> 4.1.0'
   gem 'rubocop', '~> 1.11', require: false
   gem "rubocop-shopify", require: false
