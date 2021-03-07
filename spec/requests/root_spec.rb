@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
-describe "Root path test",  type: :request do
+describe "Root path test", type: :request do
   before do
     get "/"
   end
