@@ -17,8 +17,11 @@ Run the following commands to create and setup the database.
 bundle exec rake db:create
 bundle exec rake db:setup
 ```
-
-##### 2. Start the Rails server
+##### 2. Install WebPacker
+```ruby
+rails webpacker:install
+```
+##### 3. Start the Rails server
 
 Start the rails server using the command given below.
 
