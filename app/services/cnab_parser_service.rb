@@ -25,7 +25,7 @@ class CnabParserService < ApplicationService
         amount_in_cents: transaction_amount,
         document_number: transaction_document_number,
         card_number: transaction_card_number,
-        store: Store.find_or_create_by(name: store_name, owner: store_owner)
+        store: Store.find_or_create_by(name: store_name, owner:  Owner.find_or_create_by(name: store_owner))
       )
       @transaction.save!
     end
