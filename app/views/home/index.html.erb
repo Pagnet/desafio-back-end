@@ -1,5 +1,7 @@
-<br><br><br><br><br><br>
-<%= form_tag({:action => :upload}, :multipart => true) do %>
-  <%= file_field_tag 'cnab_file'%>
-  <%= submit_tag 'Submit' %>
-<% end %>
+<h4>Selecione o arquivo para upload:</h4>
+<div class="form-group">
+  <%= form_tag({:action => :upload}, :multipart => true) do %>
+    <%= file_field_tag 'cnab_file'%>
+    <%= submit_tag 'Submit' %>
+  <% end %>
+</div>

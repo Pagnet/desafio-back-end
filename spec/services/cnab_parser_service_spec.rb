@@ -5,7 +5,7 @@ require 'rails_helper'
 describe CnabParserService do
   describe "#call" do
     context 'with a valid file' do
-      let(:file) { file_fixture("sample_file.txt")}
+      let(:file) { file_fixture("sample_file.txt") }
 
       subject do
         described_class.new(file: file).call

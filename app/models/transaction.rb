@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Transaction < ApplicationRecord
-  validates_presence_of :document_number,:paid_at, :kind 
+  validates_presence_of :document_number, :paid_at, :kind
   validates_numericality_of :amount_in_cents
   enum kind: {
     debit: 1,
@@ -14,5 +14,8 @@ class Transaction < ApplicationRecord
     rent: 9,
   }
 
+  scope :positive, -> { where(kind: [:debit, :credit, :loan, :sales, :ted, :doc]) }
+  scope :negative, -> { where(kind: [:bill, :financing, :rent]) }
   belongs_to :store
+  
 end

@@ -1,0 +1,53 @@
+<div class="table-responsive">
+  <table class="table table-condensed "  id="myTable">
+    <thead>
+      <tr>
+        <th colspan="2">Loja</th>
+        <th colspan="2">Dono</th>
+        <th>Entradas</th>
+        <th>Saídas</th>
+        <th>Saldo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @stores.each do |store| %>
+        <tr class="table-secondary" data-toggle="collapse" data-target="#demo<%=store.id%>" data-parent="#myTable">
+          <td colspan="2"><%=store.name %></td>
+          <td colspan="2"><%=store.owner.name %></td>
+          <td><%=number_to_currency(store.transactions.positive.sum(:amount_in_cents).to_f/100) %></td>
+          <td><%=number_to_currency(store.transactions.negative.sum(:amount_in_cents).to_f/100) %></td>
+          <td><%=number_to_currency(store.balance.to_f/100) %></td>
+        </tr>
+        <tr id="demo<%=store.id%>" class="collapse">
+          <th>Data</th>
+          <th>Tipo</th>
+          <th>CPF</th>
+          <th>Cartão</th>
+          <th>Entradas</th>
+          <th>Saídas</th>
+        </tr>
+
+        <% store.transactions.positive.each do |transaction| %>
+          <tr id="demo<%=store.id%>" class="collapse">
+              <td class="hiddenRow"><%=transaction.paid_at%></td>
+              <td class="hiddenRow"><%=transaction.kind%></td>
+              <td class="hiddenRow"><%=transaction.document_number%></td>
+              <td class="hiddenRow"><%=transaction.card_number%></td>
+              <td class="hiddenRow"><%=number_to_currency(transaction.amount_in_cents.to_f/100)%></td>
+              <td>&nbsp;</td>
+          </tr>
+        <% end %>
+        <% store.transactions.negative.each do |transaction| %>
+          <tr id="demo<%=store.id%>" class="collapse">
+              <td class="hiddenRow"><%=transaction.paid_at%></td>
+              <td class="hiddenRow"><%=transaction.kind%></td>
+              <td class="hiddenRow"><%=transaction.document_number%></td>
+              <td class="hiddenRow"><%=transaction.card_number%></td>
+              <td>&nbsp;</td>
+              <td class="hiddenRow"><%=number_to_currency(transaction.amount_in_cents.to_f/100)%></td>
+          </tr>
+        <% end %>        
+      <% end %>
+    </tbody>
+  </table>
+</div>

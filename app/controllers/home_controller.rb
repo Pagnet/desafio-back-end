@@ -25,7 +25,12 @@ class HomeController < ApplicationController
       return false
     end
 
+    File.open(Rails.root.join('app', 'assets', 'upload', uploaded_file.original_filename), 'wb') do |f|
+      f.write(uploaded_file.read)
+    end
+
+    CnabParserService.new(file: 'app/assets/upload/' + uploaded_file.original_filename).call
     flash[:success] = "File uploaded successfully"
-    redirect_to(root_path)
+    redirect_to(transactions_path)
   end
 end
