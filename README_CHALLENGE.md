@@ -5,6 +5,10 @@
 
 ## Executando o micro serviço:
 
+Entrar na pasta do projeto:
+
+`cd microservice`
+
 Executar comando para construir os projetos front-end e back-end:
 
 `docker-compose build`
@@ -25,4 +29,4 @@ Acesse o formulário no endereço http://localhost:8080
 
 Execute os testes automatizados:
 
-`docker-compose run api rails test`
+`docker-compose run api bundle exec rspec`
