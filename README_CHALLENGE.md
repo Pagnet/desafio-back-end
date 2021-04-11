@@ -20,3 +20,9 @@ Executar o comando para criar o banco de dados da api:
 A api estará disponível no endereço http://localhost:3000
 
 Acesse o formulário no endereço http://localhost:8080
+
+## Rodando os testes
+
+Execute os testes automatizados:
+
+`docker-compose run api rails test`
