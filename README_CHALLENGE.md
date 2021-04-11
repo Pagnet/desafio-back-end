@@ -5,7 +5,7 @@
 
 ## Executando o micro serviço:
 
-Acesse a pasta:
+Acesse a pasta do projeto:
 
 `cd microservice`
 
