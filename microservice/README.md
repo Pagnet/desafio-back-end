@@ -1,4 +1,4 @@
-# CNAE - Ruby Microservice
+# Ruby Microservice
 
 * Ruby version: 3.0.1
 
