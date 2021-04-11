@@ -9,7 +9,7 @@ services:
   api:
     build: 
       context: microservice
-      dockerfile: $PWD/microservice/Dockerfile
+      dockerfile: Dockerfile
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/microservice/app
