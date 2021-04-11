@@ -9,10 +9,14 @@ Acesse a pasta:
 
 `cd microservice`
 
-Executar os comandos para construir:
+Executar comando para construir o projeto:
 
 `docker-compose build`
 
-Executar os comandos para inicializar:
+Executar o comando para inicializar:
 
 `docker-compose up -d`
+
+Executar o comando para criar o banco de dados:
+
+`docker-compose run api rake db:create`
