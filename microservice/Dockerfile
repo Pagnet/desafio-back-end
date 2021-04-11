@@ -12,7 +12,7 @@ RUN bundle install
 
 COPY . /app
 
-COPY entrypoints/docker-entrypoint.sh /usr/bin/
+COPY ./entrypoints/docker-entrypoint.sh /usr/bin/
 
 RUN chmod +x /usr/bin/docker-entrypoint.sh
 
