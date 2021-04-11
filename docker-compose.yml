@@ -7,10 +7,12 @@ services:
     environment:
       POSTGRES_PASSWORD: admin
   api:
-    build: .
+    build: 
+      context: microservice
+      dockerfile: $PWD/microservice/Dockerfile
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/app
+      - .:/microservice/app
     ports:
       - "3000:3000"
     depends_on:
