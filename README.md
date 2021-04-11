@@ -1,3 +1,6 @@
+# Configuração do projeto
+
+[Acesse a documentação para configurar e executar o projeto](README_CHALLENGE.md)
 # Desafio programação - para vaga Back-end
 
 Por favor leiam este documento do começo ao fim, com muita atenção.
