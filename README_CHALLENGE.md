@@ -19,7 +19,7 @@ Executar o comando para inicializar os projetos:
 
 Executar o comando para criar o banco de dados da api:
 
-`docker-compose run api rake db:create`
+`docker-compose exec api rake db:create`
 
 A api estará disponível no endereço http://localhost:3000
 
@@ -29,4 +29,4 @@ Acesse o formulário no endereço http://localhost:8080
 
 Execute os testes automatizados:
 
-`docker-compose run api bundle exec rspec`
+`docker-compose exec api bundle exec rspec`
