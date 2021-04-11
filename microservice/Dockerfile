@@ -16,7 +16,7 @@ COPY entrypoints/docker-entrypoint.sh /usr/bin/
 
 RUN chmod +x /usr/bin/docker-entrypoint.sh
 
-ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]
+ENTRYPOINT ["entrypoints/docker-entrypoint.sh"]
 
 EXPOSE 3000
 
