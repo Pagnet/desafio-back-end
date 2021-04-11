@@ -3,7 +3,7 @@ services:
   database:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - ./microservice/tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: admin
   api:
