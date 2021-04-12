@@ -17,13 +17,17 @@ Executar o comando para inicializar os projetos:
 
 `docker-compose up -d`
 
-Executar o comando para criar o banco de dados da api:
+Executar o comando para criar o banco de dados:
 
 `docker-compose exec api rake db:create`
 
+Executar o comando para migrar o banco de dados:
+
+`docker-compose exec api rake db:migrate`
+
 A api estará disponível no endereço http://localhost:3000
 
-Acesse o formulário no endereço http://localhost:8080
+Acesse o front-end no endereço http://localhost:8080
 
 ## Rodando os testes
 
