@@ -3,8 +3,8 @@ require "rails_helper"
 RSpec.describe Transaction, type: :model do
   transactionType = TransactionType.create(numeric_type: 1,
                                            description: "Débito",
-                                           operation_type: "Entrada",
-                                           signal: "Positive")
+                                           operation_type: "entrada",
+                                           signal: "positive")
 
   store = Store.create(owner: "JOÃO MACEDO  ", name: "BAR DO JOÃO       ")
 
