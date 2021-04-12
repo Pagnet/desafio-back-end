@@ -2,10 +2,12 @@ require "rails_helper"
 
 RSpec.describe TransactionType, type: :model do
   subject {
-    described_class.new(numeric_type: 1,
-                        description: "Débito",
-                        operation_type: "entrada",
-                        signal: "positive")
+    described_class.new(
+      numeric_type: 1,
+      description: "Débito",
+      operation_type: "entrada",
+      signal: "positive",
+    )
   }
 
   it "is valid with correct attributes" do
