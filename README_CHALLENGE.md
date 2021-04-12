@@ -25,6 +25,10 @@ Executar o comando para migrar o banco de dados:
 
 `docker-compose exec api rake db:migrate`
 
+Executar o comando para efetuar o pré cadastro dos tipos de transações:
+
+`docker-compose exec api rake db:seed`
+
 A api estará disponível no endereço http://localhost:3000
 
 Acesse o front-end no endereço http://localhost:8080
