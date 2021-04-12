@@ -1,12 +1,7 @@
 module Repositories
-  class Transaction
-    def self.create(transaction)
-      # TransactionType.create(
-      #   numeric_type: transaction.numeric_type,
-      #   description: transaction.description,
-      #   operation_type: transaction.operation_type,
-      #   signal: transaction.signal,
-      # )
+  class TransactionRepository
+    def self.create(transactions)
+      Transaction.create(transactions)
     end
   end
 end
