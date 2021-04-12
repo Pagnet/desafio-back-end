@@ -2,7 +2,7 @@ module UseCases
   module Transactions
     class Import
       def self.execute(file)
-        parse_file(file)
+        Repositories::TransactionRepository.create(parse_file(file))
       end
 
       private
