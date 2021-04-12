@@ -3,9 +3,6 @@ module UseCases
     module Upload
       class CNAB
         def self.execute(file)
-          # validate_data(params)
-          # Repositories::TransactionRepository::create()
-          # @repo.create(params)
           parse_file(file)
         end
 
@@ -14,16 +11,6 @@ module UseCases
         def self.parse_file(file)
           transactions = []
           File.foreach(file.path).with_index do |line, index|
-            # puts "LINE HERE >>> #{line}"
-            # puts "rule_transaction_type >>> #{rule_transaction_type(line)}"
-            # puts "rule_occurrence_date #{rule_occurrence_date(line)}"
-            # puts "rule_amount #{format_amount(rule_amount(line))}"
-            # puts "rule_cpf #{rule_cpf(line)}"
-            # puts "rule_card_number #{rule_card_number(line)}"
-            # puts "rule_occurrence_time #{rule_occurrence_time(line)}"
-            # puts "rule_store_name #{rule_store_name(line)}"
-            # puts "rule_store_owner #{rule_store_owner(line)}"
-
             transaction_type = Repositories::TransactionTypeRepository::find_by_numeric_type(
               rule_transaction_type(line)
             )
