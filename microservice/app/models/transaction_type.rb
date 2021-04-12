@@ -4,9 +4,9 @@ class TransactionType < ApplicationRecord
   validates_presence_of :operation_type
   validates_presence_of :signal
 
-  enum operation_type: ["Entrada", "Saída"]
-  validates :operation_type, inclusion: { in: ["Entrada", "Saída"] }
+  enum operation_type: ["entrada", "saída"]
+  validates :operation_type, inclusion: { in: ["entrada", "saída"] }
 
-  enum signal: ["Positive", "Negative"]
-  validates :signal, inclusion: { in: ["Positive", "Negative"] }
+  enum signal: ["positive", "negative"]
+  validates :signal, inclusion: { in: ["positive", "negative"] }
 end
