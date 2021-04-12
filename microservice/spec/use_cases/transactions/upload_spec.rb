@@ -3,11 +3,8 @@ require "rails_helper"
 RSpec.describe "UseCases Transactions Upload" do
   describe "execute" do
     it "should parse file" do
-      transactionType = TransactionType.create(
+      transactionType = TransactionType.find_by(
         numeric_type: 3,
-        description: "Financiamento",
-        operation_type: "saída",
-        signal: "negative",
       )
 
       store = Store.create(
