@@ -1,16 +1,17 @@
 class TransactionsController < ApplicationController
   def upload
-    UseCase::Transaction::Upload.new(repo).call(transaction_params)
-    render json: { message: "File uploaded successfully" }
+    begin
+      Transaction.import_cnab(params[:file])
+
+      render json: { message: "File uploaded successfully", status: 200 }
+    rescue => exception
+      render json: { success: false, message: exception.message, status: 400 }
+    end
   end
 
   private
 
   def transaction_params
-    params.require(:transaction).permit(:file)
-  end
-
-  def repo
-    @repo ||= TransactionRepository.new
+    params.require(:transactions).permit(:file)
   end
 end
