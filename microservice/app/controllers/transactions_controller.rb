@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
   def upload
     begin
-      UseCases::Transactions::Upload::CNAB.execute(params[:file])
+      UseCases::Transactions::Import.execute(params[:file])
 
       render json: { message: "File uploaded successfully", status: 200 }
     rescue => exception

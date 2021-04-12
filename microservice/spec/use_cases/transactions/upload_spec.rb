@@ -27,7 +27,7 @@ RSpec.describe "UseCases Transactions Upload" do
         "application/txt"
       )
 
-      result = UseCases::Transactions::Upload::CNAB::parse_file(file)
+      result = UseCases::Transactions::Import::parse_file(file)
 
       expect(result).to eq(expectedResult)
     end

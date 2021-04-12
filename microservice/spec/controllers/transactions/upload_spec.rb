@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe TransactionsController, type: :controller do
   describe "upload" do
     it "call use case to upload cnab" do
-      allow(UseCases::Transactions::Upload::CNAB).to receive(:execute)
+      allow(UseCases::Transactions::Import).to receive(:execute)
 
       file = Rack::Test::UploadedFile.new(
         "#{Rails.root}/spec/support/attachments/CNAB.txt",
@@ -12,7 +12,7 @@ RSpec.describe TransactionsController, type: :controller do
 
       post "upload", params: { file: file }
 
-      expect(UseCases::Transactions::Upload::CNAB).to have_received(:execute)
+      expect(UseCases::Transactions::Import).to have_received(:execute)
 
       expect(response.status).to eq(200)
     end
