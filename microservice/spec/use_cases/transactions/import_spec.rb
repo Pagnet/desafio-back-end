@@ -45,4 +45,43 @@ RSpec.describe "Use case transactions import" do
 
     expect(resultCount).to eq(transactions)
   end
+
+  it "sum store transactions amount" do
+    file = Rack::Test::UploadedFile.new(
+      "#{Rails.root}/spec/support/attachments/CNAB-three-same-stores.txt",
+      "application/txt"
+    )
+
+    transactionsAmount = {
+      amount_transation_1: 142,
+      amount_transation_2: 112,
+      amount_transation_3: 152,
+    }
+
+    transactionsAmountTotal = 406
+
+    resultCount = UseCases::Transactions::Import::execute(file).count
+
+    store = Store.find_by(
+      name: "BAR DO JOÃO",
+      owner: "JOÃO MACEDO",
+    )
+
+    expect(store.amount_total).to eq(transactionsAmountTotal)
+    expect(resultCount).to eq(3)
+  end
+
+  it "execute sum_store_amount_total method" do
+    allow(UseCases::Transactions::Import).to receive(:sum_store_amount_total)
+
+    file = Rack::Test::UploadedFile.new(
+      "#{Rails.root}/spec/support/attachments/CNAB-three-same-stores.txt",
+      "application/txt"
+    )
+
+    resultCount = UseCases::Transactions::Import::execute(file).count
+
+    expect(UseCases::Transactions::Import).to have_received(:sum_store_amount_total).exactly(3).times
+    expect(resultCount).to eq(3)
+  end
 end
