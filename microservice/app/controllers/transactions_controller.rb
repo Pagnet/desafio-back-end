@@ -9,6 +9,10 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def list
+    render json: {}
+  end
+
   private
 
   def transaction_params
