@@ -30,9 +30,4 @@ class Transaction < ApplicationRecord
 
   belongs_to :store
   belongs_to :transaction_type
-
-  def self.import_cnab(file)
-    File.foreach(file.path).with_index do |line, index|
-    end
-  end
 end
