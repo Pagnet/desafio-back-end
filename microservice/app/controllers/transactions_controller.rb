@@ -10,7 +10,8 @@ class TransactionsController < ApplicationController
   end
 
   def list
-    render json: {}
+    transactions = UseCases::Transactions::List.execute
+    render json: transactions
   end
 
   private
