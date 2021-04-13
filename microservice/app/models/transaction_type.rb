@@ -9,4 +9,6 @@ class TransactionType < ApplicationRecord
 
   enum signal: ["positive", "negative"]
   validates :signal, inclusion: { in: ["positive", "negative"] }
+
+  has_many :transactions
 end
