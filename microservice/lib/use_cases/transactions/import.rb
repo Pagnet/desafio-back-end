@@ -20,7 +20,7 @@ module UseCases
             :owner => rule_store_owner(line),
           })
 
-          sum_store_amount_total(store, amount)
+          calc_store_amount_total(store, amount, transaction_type.signal)
 
           transactions << get_formated_transaction(
             line,
@@ -58,8 +58,12 @@ module UseCases
         })
       end
 
-      def self.sum_store_amount_total(store, amount)
-        store.amount_total += amount
+      def self.calc_store_amount_total(store, amount, signal)
+        if signal == "positive"
+          store.amount_total += amount
+        elsif signal == "negative"
+          store.amount_total -= amount
+        end
         store.save
       end
 
