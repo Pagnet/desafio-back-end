@@ -1,12 +1,10 @@
 require "rails_helper"
 
 RSpec.describe "Transaction Repository" do
-  it "should have the findAll method" do
-    allow(Transaction).to receive(:all)
+  it "should have all_with_relations method" do
+    transactions = Repositories::TransactionRepository::all_with_relations
 
-    Repositories::TransactionRepository::findAll
-
-    expect(Transaction).to have_received(:all).exactly(1).times
+    expect(transactions).to eq([])
   end
 
   it "should have the create method" do
