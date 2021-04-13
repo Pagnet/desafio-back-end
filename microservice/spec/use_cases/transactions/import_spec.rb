@@ -53,12 +53,14 @@ RSpec.describe "Use case transactions import" do
     )
 
     transactionsAmount = {
-      amount_transation_1: 142,
-      amount_transation_2: 112,
+      amount_transation_1: -142,
+      amount_transation_2: -112,
       amount_transation_3: 152,
     }
 
-    transactionsAmountTotal = 406
+    transactionsAmountTotal = transactionsAmount[:amount_transation_1] +
+                              transactionsAmount[:amount_transation_2] +
+                              transactionsAmount[:amount_transation_3]
 
     resultCount = UseCases::Transactions::Import::execute(file).count
 
@@ -71,8 +73,8 @@ RSpec.describe "Use case transactions import" do
     expect(resultCount).to eq(3)
   end
 
-  it "execute sum_store_amount_total method" do
-    allow(UseCases::Transactions::Import).to receive(:sum_store_amount_total)
+  it "execute calc_store_amount_total method" do
+    allow(UseCases::Transactions::Import).to receive(:calc_store_amount_total)
 
     file = Rack::Test::UploadedFile.new(
       "#{Rails.root}/spec/support/attachments/CNAB-three-same-stores.txt",
@@ -81,7 +83,7 @@ RSpec.describe "Use case transactions import" do
 
     resultCount = UseCases::Transactions::Import::execute(file).count
 
-    expect(UseCases::Transactions::Import).to have_received(:sum_store_amount_total).exactly(3).times
+    expect(UseCases::Transactions::Import).to have_received(:calc_store_amount_total).exactly(3).times
     expect(resultCount).to eq(3)
   end
 
