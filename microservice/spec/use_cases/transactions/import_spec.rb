@@ -84,4 +84,8 @@ RSpec.describe "Use case transactions import" do
     expect(UseCases::Transactions::Import).to have_received(:sum_store_amount_total).exactly(3).times
     expect(resultCount).to eq(3)
   end
+
+  it "throw exception when file not exists" do
+    expect { UseCases::Transactions::Import::execute(nil) }.to raise_error("File not found")
+  end
 end
