@@ -14,15 +14,19 @@ module UseCases
             rule_transaction_type(line)
           )
 
+          amount = format_amount(rule_amount(line))
+
           store = Repositories::StoreRepository::find_or_create({
             :name => rule_store_name(line),
             :owner => rule_store_owner(line),
           })
 
+          sum_store_amount_total(store, amount)
+
           transactions << {
             transaction_type_id: transaction_type.id,
             occurrence_date: rule_occurrence_date(line),
-            amount: format_amount(rule_amount(line)),
+            amount: amount,
             cpf: rule_cpf(line),
             card_number: rule_card_number(line),
             occurrence_time: rule_occurrence_time(line),
@@ -31,6 +35,11 @@ module UseCases
         end
 
         transactions
+      end
+
+      def self.sum_store_amount_total(store, amount)
+        store.amount_total += amount
+        store.save
       end
 
       def self.rule_transaction_type(line)
