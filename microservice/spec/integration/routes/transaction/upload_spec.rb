@@ -14,10 +14,11 @@ RSpec.describe "Transaction file upload request", :type => :request do
       "application/txt"
     )
 
-    @expected = { message: "File uploaded successfully", status: 200 }
+    @expected = { message: "File uploaded successfully" }
 
-    post "/transactions/upload", params: { :file => file }
+    post "/transactions/upload", params: { transaction: { :file => file } }
 
     expect(response.body).to eq(@expected.to_json)
+    expect(response.status).to eq(200)
   end
 end
