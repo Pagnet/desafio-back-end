@@ -3,14 +3,14 @@
 ![screenshot](./screenshot.png)
 
 ## Dependência
-- Docker 20.10.5
+- Docker v20.10.5
 
 ## Projetos desenvolvidos com:
 #### Microsserviço:
-- Ruby 3.0.1
-- Rails 6.1.3.1
+- Ruby v3.0.1
+- Rails v6.1.3.1
 #### Front-end:
-- VueJS 2.6.11
+- VueJS v2.6.11
 
 ## Executando o microsserviço:
 
