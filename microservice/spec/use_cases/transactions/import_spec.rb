@@ -28,7 +28,7 @@ RSpec.describe "Use case transactions import" do
       "application/txt"
     )
 
-    result = UseCases::Transactions::Import::parse_file(file)
+    result = Transactions::Import::parse_file(file)
 
     expect(result).to eq(expectedResult)
   end
@@ -39,7 +39,7 @@ RSpec.describe "Use case transactions import" do
       "application/txt"
     )
 
-    resultCount = UseCases::Transactions::Import::execute(file).count
+    resultCount = Transactions::Import::execute(file).count
 
     transactions = Transaction.all.count
 
@@ -62,7 +62,7 @@ RSpec.describe "Use case transactions import" do
                               transactionsAmount[:amount_transation_2] +
                               transactionsAmount[:amount_transation_3]
 
-    resultCount = UseCases::Transactions::Import::execute(file).count
+    resultCount = Transactions::Import::execute(file).count
 
     store = Store.find_by(
       name: "BAR DO JOÃO",
@@ -74,20 +74,20 @@ RSpec.describe "Use case transactions import" do
   end
 
   it "execute calc_store_amount_total method" do
-    allow(UseCases::Transactions::Import).to receive(:calc_store_amount_total)
+    allow(Transactions::Import).to receive(:calc_store_amount_total)
 
     file = Rack::Test::UploadedFile.new(
       "#{Rails.root}/spec/support/attachments/CNAB-three-same-stores.txt",
       "application/txt"
     )
 
-    resultCount = UseCases::Transactions::Import::execute(file).count
+    resultCount = Transactions::Import::execute(file).count
 
-    expect(UseCases::Transactions::Import).to have_received(:calc_store_amount_total).exactly(3).times
+    expect(Transactions::Import).to have_received(:calc_store_amount_total).exactly(3).times
     expect(resultCount).to eq(3)
   end
 
   it "throw exception when file not exists" do
-    expect { UseCases::Transactions::Import::execute(nil) }.to raise_error("File not found")
+    expect { Transactions::Import::execute(nil) }.to raise_error("File not found")
   end
 end
