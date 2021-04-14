@@ -3,9 +3,9 @@
 ![screenshot](./screenshot.png)
 
 ## Dependência
-- Docker
+- Docker 20.10.5
 
-### Projetos desenvolvido com:
+## Projetos desenvolvidos com:
 #### Microsserviço:
 - Ruby 3.0.1
 - Rails 6.1.3.1
