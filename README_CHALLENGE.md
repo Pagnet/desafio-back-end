@@ -1,11 +1,13 @@
 # Desafio back-end de Naiguel Santos
 
+![screenshot](./screenshot.png)
+
 ## Dependência
 - Docker
 
 ## Executando o micro serviço:
 
-Entrar na pasta do projeto:
+Abra o terminal na raiz do projeto e entre pasta `microservice`:
 
 `cd microservice`
 
@@ -29,8 +31,6 @@ Executar o comando para efetuar o pré cadastro dos tipos de transações:
 
 `docker-compose exec api rake db:seed`
 
-A api estará disponível no endereço http://localhost:3000
-
 ## Rodando os testes automatizados
 
 Execute o comando:
@@ -39,7 +39,7 @@ Execute o comando:
 
 ## Executando o front-end:
 
-Abra um novo terminal e entre na pasta do projeto:
+Abra um novo terminal na raiz do projeto e entre na pasta  `client`:
 
 `cd client`
 
@@ -51,4 +51,4 @@ Executar o comando para inicializar o projeto:
 
 `docker-compose up -d`
 
-Acesse o front-end no endereço http://localhost:8080
+Acesse o endereço http://localhost:8080
