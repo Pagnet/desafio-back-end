@@ -5,7 +5,7 @@
         {{numberOfTransactions}}
         </div>
         <div class="btn">
-            <button @click='getAllTransactions()' type="button" class="btn btn-warning">Obter transações</button>
+            <button @click='getAllTransactions()' type="button" class="btn btn-warning btn-get">Obter transações</button>
         </div>
     </div>
 </template>

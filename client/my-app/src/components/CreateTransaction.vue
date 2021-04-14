@@ -19,7 +19,7 @@
           <button
             type="button"
             @click="createTransaction()"
-            class="btn btn-danger"
+            class="btn btn-success"
           >
             Importar
           </button>

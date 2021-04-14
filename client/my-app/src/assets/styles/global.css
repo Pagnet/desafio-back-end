@@ -1,6 +1,6 @@
 .header {
     padding: 2%;
-    background-color:green;
+    background-color:#2c3645;
     font-size: 50px;
     text-align: center;
     width: 100%;
@@ -9,7 +9,7 @@
  
  .footer {
    padding: 2%;
-    background-color: red;
+    background-color: #33c4d6;
     font-size: 50px;
     text-align: center;
     width: 100%
@@ -25,16 +25,22 @@ h1 {
 
 .display-board {
   width: 100%;
-  background-color: rgba(0, 119, 128, 0.719);
+  background-color: #2c3645;
   padding: 5%;
+  color: #fff;
 }
 
 .number {
-  color: red;
+  color: #fff;
   font-size: 75px;
   text-align: center;
 }
 
 .mrgnbtm {
   margin-top: 20px;
+}
+.btn-warning {
+  color: #fff;
+  background-color: #33c4d6;
+  border-color: #33c4d6;
 }
