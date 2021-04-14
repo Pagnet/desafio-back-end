@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        CNAB Import
+        <img src="@/assets/logo-blu.png" alt="">
     </div>
 </template>
 
