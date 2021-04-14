@@ -105,5 +105,9 @@ module Transactions
     def self.validate_file(file)
       raise "File not found" if file.nil?
     end
+
+    def self.validate_line(line)
+      raise "Incorrect line" if line.length != Cnab.line_max_length
+    end
   end
 end

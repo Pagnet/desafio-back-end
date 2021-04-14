@@ -11,4 +11,7 @@ module Cnab
       store_name: 62..80,
     }
   end
+  def self.line_max_length
+    80
+  end
 end

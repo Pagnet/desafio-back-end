@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
       Transactions::Import.execute(transaction_params[:file])
       render json: { message: "File uploaded successfully" }, status: 200
     rescue => exception
-      render json: { message: exception.message }, status: 400
+      render json: { message: "Import error" }, status: 400
     end
   end
 
