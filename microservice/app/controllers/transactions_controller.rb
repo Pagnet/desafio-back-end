@@ -1,11 +1,10 @@
 class TransactionsController < ApplicationController
   def upload
     begin
-      UseCases::Transactions::Import.execute(params[:file])
-
-      render json: { message: "File uploaded successfully", status: 200 }
+      UseCases::Transactions::Import.execute(transaction_params[:file])
+      render json: { message: "File uploaded successfully" }, status: 200
     rescue => exception
-      render json: { success: false, message: exception.message, status: 400 }
+      render json: { message: exception.message }, status: 400
     end
   end
 
@@ -17,6 +16,6 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transactions).permit(:file)
+    params.require(:transaction).permit(:file)
   end
 end
