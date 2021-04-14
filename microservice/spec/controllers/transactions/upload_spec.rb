@@ -10,7 +10,7 @@ RSpec.describe TransactionsController, type: :controller do
         "application/txt"
       )
 
-      post "upload", params: { file: file }
+      post "upload", params: { transaction: { file: file } }
 
       expect(UseCases::Transactions::Import).to have_received(:execute)
 
