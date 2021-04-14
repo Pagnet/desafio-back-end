@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     createTransaction() {
-      console.log(this.file);
       this.$emit("createTransaction", this.file);
       this.clearForm();
     },

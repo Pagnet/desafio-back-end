@@ -11,5 +11,5 @@ export async function createTransaction(file) {
         method: 'POST',
         body: formData
     })
-    return response.json();
+    return response;
 }
