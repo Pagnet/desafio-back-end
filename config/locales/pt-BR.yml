@@ -16,7 +16,6 @@ pt-BR:
     - sex
     - sáb
     abbr_month_names:
-    -
     - jan
     - fev
     - mar
@@ -243,7 +242,7 @@ pt-BR:
           boleto: Boleto
           financing: Financiamento
           credit: Crédito
-          loan: Recebto Empréstimo
+          loan: Recebimento Empréstimo
           sales: Vendas
           ted: Recebto TED
           doc: Recebto DOC

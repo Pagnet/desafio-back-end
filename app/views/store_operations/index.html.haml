@@ -16,6 +16,6 @@
           %td.row= operation.store_name
           %td.row= operation.document
           %td.row= operation.card
-          %td.row= I18n.t(operation.operated_at, format: :simplified)
+          %td.row= I18n.l(operation.operated_at, format: :simplified)
           %td.row= number_to_currency(operation.signed_amount)
   %h2= I18n.t('.views.store_operations.index.footer', total: number_to_currency(StoreOperation.balance(@store_operations)))
