@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  database:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: admin
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database

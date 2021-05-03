@@ -1,0 +1,6 @@
+%section
+  %h1.title= I18n.t('.views.store_operations.new.title')
+  = form_for StoreOperation.new, url: store_operations_path do |f|
+    = f.label StoreOperation.human_attribute_name :file
+    = f.file_field :file, class: 'text-input button-import', required: true
+    = f.submit I18n.t('.views.store_operations.new.submit'), class: 'button right'
