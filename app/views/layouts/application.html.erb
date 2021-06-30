@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DesafioBackEndBlu</title>
+    <title>Desafio Back End Blu</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,37 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar nav-light" style="background: transparent linear-gradient(82deg,#007aff 50%,#0025E0 100%) 0% 0% no-repeat;height:80px">
+      <h1 class="text-white text-center" style="margin:0 auto;" id="interativetext">
+        Analisador de arquivos CNAB 
+      </h1>
+    </nav>
+    <article style="width:90%;height:70vh;margin:0 auto;">
+      <% if notice %>
+        <div class="alert alert-success" role="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger" role="alert">
+          <%= alert %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </article>
+    
+    <script>
+      const title = document.querySelector('#interativetext');
+      function typeWriter (elemento) {    
+        const textoArray = elemento.innerHTML.split('');      
+        elemento.innerHTML = ''      
+        textoArray.forEach((letra, i) => {      
+          setTimeout(() =>      
+          elemento.innerHTML += letra, 150 * i);
+        });
+      }  
+      setInterval(() => typeWriter(title), 8000);
+    </script>
+  
   </body>
 </html>

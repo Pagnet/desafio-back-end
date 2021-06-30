@@ -1,0 +1,58 @@
+<div class="container d-flex flex-column align-items-center justify-content-center my-5 card rounded-3" style="height:350px;width:500px;">
+    <%= form_with url: "/csv" do |f| %>
+        <div class="mb-3">
+            <%= f.label :cnab_input, "Faça upload do arquivo para análise", class:"form-label" %>
+            <%= f.file_field :cnab_input, class:"form-control", accept: ".txt", required: true %>
+        </div>
+        <div class="mx-auto" style="width:120px;">
+            <%= f.submit "Enviar", disable_with: 'Enviando...',class:"btn", id:"submit", style: "background: #13BDBD;width:100%" %>
+
+        </div>
+    
+    <% end %>
+
+    <div class="justify-content-center mt-3" id="loading_box" style="display:none">
+        <div class="spinner-border text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="ms-3">
+            Processando...
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("submit").onclick = function(e) {
+        if (document.getElementById("cnab_input").value == "") {
+            e.preventDefault();
+            alert("O campo está vazio selecione um arquivo .txt para continuar !");
+        } else {
+            document.getElementById('loading_box').style.display = "flex"
+        }
+    }
+
+    function toogle() {
+        document.getElementById('loading_box').style.display = "flex"
+    }
+</script>
