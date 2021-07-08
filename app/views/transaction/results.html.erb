@@ -1,0 +1,50 @@
+<div class="container" style="height:100%;">
+    <h5 style="margin-top:2rem">Lista das operações importadas</h5>
+
+   <div class="d-flex align-items-end mt-3" style="font-size:.8rem">
+        <table class="table table-striped table-hover" style="overflow-y:scroll;">
+              <thead>
+                <tr class="table-primary">
+                    <th colspan="4" >Loja</th>
+                    <th colspan="4" >Saldo em conta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if @transactions.any? %>
+                    <% @transactions.each do |t| %>
+                        <thead class="table-warning">
+                            <th colspan="4" ><%= t.first %></th>
+                            <th colspan="4" ><%= number_to_currency(t.last, negative_format: "(%u %n)")%></th>
+                        </thead>
+                        <tbody>
+                            <tr class="table-success">
+                                <td scope="col">Nome da loja</td>
+                                <td scope="col">Data da ocorrência</td>
+                                <td scope="col">Hora da ocorrência</td>
+                                <td scope="col">Cartão utilizado na transação</td>
+                                <td scope="col">Valor da movimentação</td>
+                                <td scope="col">Nome do representante da loja</td>
+                                <td scope="col">CPF do beneficiário</td>
+                                <td scope="col">Tipo da transação</td>
+                            </tr>
+                            <% @finded_transactions.where(store_name: t.first).order(date: :asc).each do |fd| %>
+                                <tr>
+                                    <td><%= fd.store_name %></td>
+                                    <td><%= l fd.date.to_date, format: :default %></td>
+                                    <td><%= fd.hour %></td>        
+                                    <td><%= fd.card %></td>
+                                    <td><%= number_to_currency(fd.value, negative_format: "(%u %n)") %></td>
+                                    <td><%= fd.store_owner %></td>
+                                    <td><%= fd.cpf %></td>
+                                    <td><%= fd.transaction_type %></td>
+                                </tr>
+                            <% end %>                            
+                        </tbody>
+                    <% end %>
+                <% else %>
+                    <td colspan="6" class="text-danger text-center">Nenhum dado disponível</td>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 <div class="container d-flex flex-column align-items-center justify-content-center my-5 card rounded-3" style="height:350px;width:500px;">
-    <%= form_with url: "/csv" do |f| %>
+    <%= form_with url: transaction_path do |f| %>
         <div class="mb-3">
             <%= f.label :cnab_input, "Faça upload do arquivo para análise", class:"form-label" %>
             <%= f.file_field :cnab_input, class:"form-control", accept: ".txt", required: true %>
@@ -42,7 +42,7 @@
     </div>
 </div>
 
-<script>
+<script>    
     document.getElementById("submit").onclick = function(e) {
         if (document.getElementById("cnab_input").value == "") {
             e.preventDefault();
