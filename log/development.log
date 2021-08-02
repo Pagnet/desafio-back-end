@@ -286,3 +286,2436 @@ Migrating to CreateSessions (20210801183249)
   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2390219225493051015)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:42:37 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 951)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 26.3ms | Allocations: 9887)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 64.0ms | Allocations: 25261)
+Completed 200 OK in 86ms (Views: 56.1ms | ActiveRecord: 18.6ms | Allocations: 34989)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:55:20 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 387)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1366)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 4277)
+Completed 200 OK in 64ms (Views: 22.3ms | ActiveRecord: 11.5ms | Allocations: 13242)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 15:55:23 -0300
+  
+AbstractController::ActionNotFound (The action 'failure' could not be found for OmniauthController
+Did you mean?  facebook
+               github
+               google_oauth2):
+  
+actionpack (6.1.4) lib/abstract_controller/base.rb:160:in `process'
+actionview (6.1.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4) lib/action_controller/metal.rb:238:in `block in action'
+devise (4.8.0) lib/devise/omniauth.rb:19:in `block in <main>'
+omniauth (2.0.4) lib/omniauth/strategy.rb:544:in `fail!'
+omniauth (2.0.4) lib/omniauth/strategy.rb:199:in `rescue in call!'
+omniauth (2.0.4) lib/omniauth/strategy.rb:191:in `call!'
+omniauth (2.0.4) lib/omniauth/strategy.rb:169:in `call'
+omniauth (2.0.4) lib/omniauth/strategy.rb:202:in `call!'
+omniauth (2.0.4) lib/omniauth/strategy.rb:169:in `call'
+omniauth (2.0.4) lib/omniauth/strategy.rb:202:in `call!'
+omniauth (2.0.4) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.4) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.4) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.2) lib/mini_profiler/profiler.rb:384:in `call'
+webpacker (5.4.0) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4) lib/rails/engine.rb:539:in `call'
+puma (5.4.0) lib/puma/configuration.rb:249:in `call'
+puma (5.4.0) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.4.0) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.4.0) lib/puma/request.rb:76:in `handle_request'
+puma (5.4.0) lib/puma/server.rb:440:in `process_client'
+puma (5.4.0) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:55:55 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 387)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1366)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 4275)
+Completed 200 OK in 31ms (Views: 8.6ms | ActiveRecord: 7.3ms | Allocations: 10786)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 15:55:57 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 298)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:55:57 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4094)
+Completed 200 OK in 17ms (Views: 12.1ms | ActiveRecord: 0.9ms | Allocations: 5214)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 15:55:58 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:55:58 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4092)
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.9ms | Allocations: 5211)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 15:56:22 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:56:22 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 4092)
+Completed 200 OK in 16ms (Views: 11.9ms | ActiveRecord: 1.5ms | Allocations: 5211)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 15:56:23 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:56:23 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 4094)
+Completed 200 OK in 15ms (Views: 11.3ms | ActiveRecord: 0.8ms | Allocations: 5216)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:56:48 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 387)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1366)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4275)
+Completed 200 OK in 28ms (Views: 8.5ms | ActiveRecord: 5.0ms | Allocations: 10644)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 15:56:50 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 260)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:56:50 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4093)
+Completed 200 OK in 16ms (Views: 8.1ms | ActiveRecord: 4.7ms | Allocations: 5214)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 15:56:51 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:56:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 4092)
+Completed 200 OK in 20ms (Views: 15.9ms | ActiveRecord: 0.8ms | Allocations: 5211)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 15:56:52 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:56:52 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.1ms | Allocations: 4092)
+Completed 200 OK in 37ms (Views: 30.5ms | ActiveRecord: 1.7ms | Allocations: 5211)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 15:58:04 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:58:04 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 4092)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.8ms | Allocations: 5212)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:58:11 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.0ms | Allocations: 950)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.6ms | Allocations: 5383)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 10733)
+Completed 200 OK in 78ms (Views: 34.5ms | ActiveRecord: 14.7ms | Allocations: 24779)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 15:58:13 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 298)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:58:13 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4094)
+Completed 200 OK in 14ms (Views: 7.6ms | ActiveRecord: 0.9ms | Allocations: 5217)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 15:59:23 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 835)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 15:59:23 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 387)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1315)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4216)
+Completed 200 OK in 22ms (Views: 8.5ms | ActiveRecord: 5.2ms | Allocations: 10506)
+
+
+Started GET "/rails/info/routes" for ::1 at 2021-08-01 15:59:47 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/actionpack-6.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [47 times] (Duration: 10.4ms | Allocations: 7122)
+  Rendered /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/actionpack-6.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.3ms | Allocations: 847)
+  Rendered /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 17.5ms | Allocations: 12983)
+  Rendered layout /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/layouts/application.html.erb (Duration: 18.8ms | Allocations: 13209)
+Completed 200 OK in 24ms (Views: 20.0ms | ActiveRecord: 1.2ms | Allocations: 14890)
+
+
+Started GET "/rails/info/routes?path=o" for ::1 at 2021-08-01 16:00:03 -0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"o"}
+Completed 200 OK in 15ms (Views: 1.0ms | ActiveRecord: 2.8ms | Allocations: 3577)
+
+
+Started GET "/rails/info/routes?path=omn" for ::1 at 2021-08-01 16:00:04 -0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"omn"}
+Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 2.6ms | Allocations: 1421)
+
+
+Started GET "/rails/info/routes?path=omn" for ::1 at 2021-08-01 16:00:04 -0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"omn"}
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 2.5ms | Allocations: 1418)
+
+
+Started GET "/rails/info/routes?path=om" for ::1 at 2021-08-01 16:00:06 -0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"om"}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 1406)
+
+
+Started GET "/rails/info/routes?path=omniauth" for ::1 at 2021-08-01 16:00:12 -0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"omniauth"}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 1420)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:00:38 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 18.7ms | Allocations: 5292)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 21.2ms | Allocations: 6688)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 6757)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 8.0ms | Allocations: 14140)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<ActionView::Base:0x0000000000c490>
+Did you mean?  user_github_omniauth_authorize_path):
+    20: 
+    21: <%- if devise_mapping.omniauthable? %>
+    22:   <%- resource_class.omniauth_providers.each do |provider| %>
+    23:     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", user_omniauth_authorize_path(resource_name, provider), method: :post %><br />
+    24:   <% end %>
+    25: <% end %>
+  
+app/views/devise/shared/_links.html.erb:23
+app/views/devise/shared/_links.html.erb:22:in `each'
+app/views/devise/shared/_links.html.erb:22
+app/views/devise/sessions/new.html.erb:26
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:01:01 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.2ms | Allocations: 2243)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 3566)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 3635)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.9ms | Allocations: 5917)
+
+
+  
+ActionView::Template::Error (undefined method `pry' for #<Binding:0x00007fd1586a87c8>
+Did you mean?  try):
+    20: 
+    21: <%- if devise_mapping.omniauthable? %>
+    22:   <%- resource_class.omniauth_providers.each do |provider| %>
+    23:     <% binding.pry %>
+    24:     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", user_omniauth_authorize_path(resource_name, provider), method: :post %><br />
+    25:   <% end %>
+    26: <% end %>
+  
+app/views/devise/shared/_links.html.erb:23
+app/views/devise/shared/_links.html.erb:22:in `each'
+app/views/devise/shared/_links.html.erb:22
+app/views/devise/sessions/new.html.erb:26
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:01:43 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 88996.4ms | Allocations: 51104)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 89004.4ms | Allocations: 55530)
+  Rendered layout layouts/application.html.erb (Duration: 89005.0ms | Allocations: 55608)
+Completed 500 Internal Server Error in 89039ms (ActiveRecord: 10.9ms | Allocations: 69600)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<ActionView::Base:0x000000000098d0>
+Did you mean?  user_github_omniauth_authorize_path):
+    21: <%- if devise_mapping.omniauthable? %>
+    22:   <%- resource_class.omniauth_providers.each do |provider| %>
+    23:     <% path = "user_#{provider.to_s}_omniauth_authorize_path" %>
+    24:     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", path.camelize(resource_name, provider), method: :post %><br />
+    25:   <% end %>
+    26: <% end %>
+  
+app/views/devise/shared/_links.html.erb:24
+app/views/devise/shared/_links.html.erb:22:in `each'
+app/views/devise/shared/_links.html.erb:22
+app/views/devise/sessions/new.html.erb:26
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:03:15 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 1745)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 3068)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3138)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.9ms | Allocations: 5446)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 2, expected 0..1)):
+    21: <%- if devise_mapping.omniauthable? %>
+    22:   <%- resource_class.omniauth_providers.each do |provider| %>
+    23:     <% path = "user_#{provider.to_s}_omniauth_authorize_path" %>
+    24:     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", path.camelize(resource_name, provider), method: :post %><br />
+    25:   <% end %>
+    26: <% end %>
+  
+app/views/devise/shared/_links.html.erb:24
+app/views/devise/shared/_links.html.erb:22:in `each'
+app/views/devise/shared/_links.html.erb:22
+app/views/devise/sessions/new.html.erb:26
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:04:02 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 178677.6ms | Allocations: 44921)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 178687.9ms | Allocations: 46244)
+  Rendered layout layouts/application.html.erb (Duration: 178693.2ms | Allocations: 46314)
+Completed 500 Internal Server Error in 178710ms (ActiveRecord: 2.6ms | Allocations: 48617)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 2, expected 0..1)):
+    22:   <%- resource_class.omniauth_providers.each do |provider| %>
+    23:     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", user_facebook_omniauth_authorize_path(resource_name, provider), method: :post %><br />
+    24:   <% end %>
+    25: <% end %>
+  
+app/views/devise/shared/_links.html.erb:25
+app/views/devise/shared/_links.html.erb:22:in `each'
+app/views/devise/shared/_links.html.erb:22
+app/views/devise/sessions/new.html.erb:26
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:07:03 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 746)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2067)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 7434)
+Completed 200 OK in 18ms (Views: 14.6ms | ActiveRecord: 0.8ms | Allocations: 9804)
+
+
+Started POST "/users/auth/facebook.user" for ::1 at 2021-08-01 16:07:04 -0300
+  
+AbstractController::ActionNotFound (The action 'passthru' could not be found for OmniauthController
+Did you mean?  github
+               failure
+               facebook
+               google_oauth2):
+  
+actionpack (6.1.4) lib/abstract_controller/base.rb:160:in `process'
+actionview (6.1.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.4) lib/action_dispatch/routing/mapper.rb:19:in `block in <class:Constraints>'
+actionpack (6.1.4) lib/action_dispatch/routing/mapper.rb:49:in `serve'
+actionpack (6.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.4) lib/action_dispatch/routing/route_set.rb:842:in `call'
+omniauth (2.0.4) lib/omniauth/strategy.rb:202:in `call!'
+omniauth (2.0.4) lib/omniauth/strategy.rb:169:in `call'
+omniauth (2.0.4) lib/omniauth/strategy.rb:202:in `call!'
+omniauth (2.0.4) lib/omniauth/strategy.rb:169:in `call'
+omniauth (2.0.4) lib/omniauth/strategy.rb:202:in `call!'
+omniauth (2.0.4) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.4) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.4) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.2) lib/mini_profiler/profiler.rb:384:in `call'
+webpacker (5.4.0) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4) lib/rails/engine.rb:539:in `call'
+puma (5.4.0) lib/puma/configuration.rb:249:in `call'
+puma (5.4.0) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.4.0) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.4.0) lib/puma/request.rb:76:in `handle_request'
+puma (5.4.0) lib/puma/server.rb:440:in `process_client'
+puma (5.4.0) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:09:49 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 378)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1357)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4269)
+Completed 200 OK in 32ms (Views: 10.5ms | ActiveRecord: 6.4ms | Allocations: 10636)
+
+
+Started POST "/users/auth/facebook.user" for ::1 at 2021-08-01 16:09:51 -0300
+Processing by OmniauthController#passthru as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 1.1ms | Allocations: 849)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:09:59 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 343)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1199)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4089)
+Completed 200 OK in 18ms (Views: 12.9ms | ActiveRecord: 1.5ms | Allocations: 5224)
+
+
+Started POST "/users/auth/facebook.user" for ::1 at 2021-08-01 16:10:00 -0300
+Processing by OmniauthController#passthru as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 8ms (ActiveRecord: 2.3ms | Allocations: 740)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:10:05 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 343)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1199)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 4099)
+Completed 200 OK in 16ms (Views: 11.9ms | ActiveRecord: 1.0ms | Allocations: 5218)
+
+
+Started GET "/users/password/new" for ::1 at 2021-08-01 16:10:08 -0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 219)
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 400)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1586)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 4473)
+Completed 200 OK in 36ms (Views: 20.5ms | ActiveRecord: 10.8ms | Allocations: 6855)
+
+
+Started POST "/users/auth/facebook.user" for ::1 at 2021-08-01 16:10:14 -0300
+Processing by OmniauthController#passthru as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 5ms (ActiveRecord: 2.6ms | Allocations: 740)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:10:24 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 378)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1357)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 4258)
+Completed 200 OK in 22ms (Views: 8.1ms | ActiveRecord: 4.9ms | Allocations: 10584)
+
+
+Started POST "/users/auth/facebook.user" for ::1 at 2021-08-01 16:10:27 -0300
+Processing by OmniauthController#passthru as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 9ms (ActiveRecord: 2.3ms | Allocations: 810)
+
+
+Started GET "/rails/info/routes?path=auth" for ::1 at 2021-08-01 16:10:44 -0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"auth"}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 2718)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:14:34 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 950)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 5374)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 10721)
+Completed 200 OK in 61ms (Views: 27.9ms | ActiveRecord: 12.7ms | Allocations: 24766)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 16:14:36 -0300
+Started GET "/users/auth/facebook/callback?error_code=1349187&error_message=Login+inseguro+bloqueado%3A+Voc%C3%AA+n%C3%A3o+pode+obter+um+token+de+acesso+ou+entrar+neste+aplicativo+a+partir+de+uma+p%C3%A1gina+insegura.+Experimente+recarregar+a+p%C3%A1gina+como+https%3A%2F%2F" for ::1 at 2021-08-01 16:14:43 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"error_code"=>"1349187", "error_message"=>"Login inseguro bloqueado: Você não pode obter um token de acesso ou entrar neste aplicativo a partir de uma página insegura. Experimente recarregar a página como https://"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 224)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:14:43 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4104)
+Completed 200 OK in 18ms (Views: 14.7ms | ActiveRecord: 0.8ms | Allocations: 5229)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 16:14:45 -0300
+Started GET "/users/auth/github/callback?code=a89aacc81d5d30bf2e1a&state=4edbdb86d0933c657ece6b33894341454e668d50a0c4b426" for ::1 at 2021-08-01 16:14:57 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"a89aacc81d5d30bf2e1a", "state"=>"4edbdb86d0933c657ece6b33894341454e668d50a0c4b426"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 137)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:14:59 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1205)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 4097)
+Completed 200 OK in 14ms (Views: 8.9ms | ActiveRecord: 1.7ms | Allocations: 5219)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 16:15:15 -0300
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:15:28 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 4102)
+Completed 200 OK in 13ms (Views: 9.5ms | ActiveRecord: 1.1ms | Allocations: 5227)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 16:15:30 -0300
+Started GET "/users/auth/facebook/callback?error_code=1349187&error_message=Login+inseguro+bloqueado%3A+Voc%C3%AA+n%C3%A3o+pode+obter+um+token+de+acesso+ou+entrar+neste+aplicativo+a+partir+de+uma+p%C3%A1gina+insegura.+Experimente+recarregar+a+p%C3%A1gina+como+https%3A%2F%2F" for ::1 at 2021-08-01 16:15:38 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"error_code"=>"1349187", "error_message"=>"Login inseguro bloqueado: Você não pode obter um token de acesso ou entrar neste aplicativo a partir de uma página insegura. Experimente recarregar a página como https://"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 137)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:15:38 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4104)
+Completed 200 OK in 19ms (Views: 13.9ms | ActiveRecord: 1.1ms | Allocations: 5229)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 16:16:04 -0300
+Started GET "/users/auth/facebook/callback?error_code=1349187&error_message=Login+inseguro+bloqueado%3A+Voc%C3%AA+n%C3%A3o+pode+obter+um+token+de+acesso+ou+entrar+neste+aplicativo+a+partir+de+uma+p%C3%A1gina+insegura.+Experimente+recarregar+a+p%C3%A1gina+como+https%3A%2F%2F" for ::1 at 2021-08-01 16:16:09 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"error_code"=>"1349187", "error_message"=>"Login inseguro bloqueado: Você não pode obter um token de acesso ou entrar neste aplicativo a partir de uma página insegura. Experimente recarregar a página como https://"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 783)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:16:09 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 388)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1316)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 4227)
+Completed 200 OK in 33ms (Views: 18.6ms | ActiveRecord: 5.1ms | Allocations: 10579)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 16:19:39 -0300
+Started GET "/users/auth/facebook/callback?error_code=1349187&error_message=Login+inseguro+bloqueado%3A+Voc%C3%AA+n%C3%A3o+pode+obter+um+token+de+acesso+ou+entrar+neste+aplicativo+a+partir+de+uma+p%C3%A1gina+insegura.+Experimente+recarregar+a+p%C3%A1gina+como+https%3A%2F%2F" for ::1 at 2021-08-01 16:19:44 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"error_code"=>"1349187", "error_message"=>"Login inseguro bloqueado: Você não pode obter um token de acesso ou entrar neste aplicativo a partir de uma página insegura. Experimente recarregar a página como https://"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 783)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:19:44 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 388)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1316)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 4229)
+Completed 200 OK in 38ms (Views: 22.4ms | ActiveRecord: 5.4ms | Allocations: 10526)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 16:19:46 -0300
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:22:30 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 4102)
+Completed 200 OK in 18ms (Views: 14.5ms | ActiveRecord: 0.9ms | Allocations: 5229)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 16:22:32 -0300
+Started GET "/users/auth/github/callback?code=ba6b725d3d1d549e1432&state=49e5462e756ddf6271808a37d22ecb7c71cef1760d87969a" for ::1 at 2021-08-01 16:22:32 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"ba6b725d3d1d549e1432", "state"=>"49e5462e756ddf6271808a37d22ecb7c71cef1760d87969a"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 137)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:22:34 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 4092)
+Completed 200 OK in 14ms (Views: 8.7ms | ActiveRecord: 1.5ms | Allocations: 5210)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 16:22:36 -0300
+Started GET "/users/auth/github/callback?code=96b4f848bd7619be239e&state=44c31371ae3f65970fc13e85d9e6a90c5236f1a32a26a3ab" for ::1 at 2021-08-01 16:22:36 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"96b4f848bd7619be239e", "state"=>"44c31371ae3f65970fc13e85d9e6a90c5236f1a32a26a3ab"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 137)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:22:38 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 4100)
+Completed 200 OK in 15ms (Views: 9.0ms | ActiveRecord: 2.2ms | Allocations: 5217)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 16:22:49 -0300
+Started GET "/users/auth/github/callback?code=81ee328d390f666c4c63&state=7c4a5c56e8ca1d2b80d47b02b994c1d5caae7ab01253a52b" for ::1 at 2021-08-01 16:22:49 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"81ee328d390f666c4c63", "state"=>"7c4a5c56e8ca1d2b80d47b02b994c1d5caae7ab01253a52b"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 783)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:22:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 388)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1316)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4217)
+Completed 200 OK in 21ms (Views: 7.1ms | ActiveRecord: 5.0ms | Allocations: 10564)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 16:23:25 -0300
+Started GET "/" for ::1 at 2021-08-01 16:26:45 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 15.6ms | Allocations: 229)
+Completed 200 OK in 20ms (Views: 16.5ms | ActiveRecord: 0.8ms | Allocations: 1540)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:26:56 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 761)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2155)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 5242)
+Completed 200 OK in 32ms (Views: 10.3ms | ActiveRecord: 7.4ms | Allocations: 14050)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 16:26:59 -0300
+Started GET "/users/auth/google_oauth2/callback?state=745c6845dd260ef09d35c7bb39b0367d8afe41c0998a1b82&code=4%2F0AX4XfWjIaSR1JaZxXZElTc5a3hA-dItlCLYqLnTHBfAeym5d84jLJOYsnS5Gfe4_xFDFoQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for ::1 at 2021-08-01 16:27:02 -0300
+Processing by OmniauthController#google_oauth2 as HTML
+  Parameters: {"state"=>"745c6845dd260ef09d35c7bb39b0367d8afe41c0998a1b82", "code"=>"4/0AX4XfWjIaSR1JaZxXZElTc5a3hA-dItlCLYqLnTHBfAeym5d84jLJOYsnS5Gfe4_xFDFoQ", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 207)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:27:03 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 4097)
+Completed 200 OK in 17ms (Views: 9.2ms | ActiveRecord: 2.0ms | Allocations: 5216)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 16:27:16 -0300
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:27:19 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 13.0ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 52.0ms | Allocations: 4094)
+Completed 200 OK in 78ms (Views: 59.8ms | ActiveRecord: 4.1ms | Allocations: 5218)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:30:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 761)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2152)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.9ms | Allocations: 14079)
+Completed 200 OK in 43ms (Views: 29.5ms | ActiveRecord: 5.3ms | Allocations: 21427)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 16:30:55 -0300
+Started GET "/users/auth/google_oauth2/callback?state=b968c81ea668a5260d202a96ca2f0d35312c1e7122528d8f&code=4%2F0AX4XfWjCTEFasr0PhmlgE8L4Bn2I9Xu_rWZziN-sUOS1cceFcfIu8eWvrgobcxR_atkjMw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for ::1 at 2021-08-01 16:30:58 -0300
+Processing by OmniauthController#google_oauth2 as HTML
+  Parameters: {"state"=>"b968c81ea668a5260d202a96ca2f0d35312c1e7122528d8f", "code"=>"4/0AX4XfWjCTEFasr0PhmlgE8L4Bn2I9Xu_rWZziN-sUOS1cceFcfIu8eWvrgobcxR_atkjMw", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 207)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:30:59 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 4148)
+Completed 200 OK in 39ms (Views: 23.8ms | ActiveRecord: 6.5ms | Allocations: 5265)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 16:31:30 -0300
+Started GET "/users/auth/github/callback?code=2a8493c703ce6a1ca69c&state=e02b0b3b7e755e5fd0ea5615a28f066de376e66ac9f02edf" for ::1 at 2021-08-01 16:31:30 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"2a8493c703ce6a1ca69c", "state"=>"e02b0b3b7e755e5fd0ea5615a28f066de376e66ac9f02edf"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 137)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:31:32 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4156)
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 1.0ms | Allocations: 5275)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 16:35:31 -0300
+Started GET "/users/auth/facebook/callback?error_code=1349187&error_message=Login+inseguro+bloqueado%3A+Voc%C3%AA+n%C3%A3o+pode+obter+um+token+de+acesso+ou+entrar+neste+aplicativo+a+partir+de+uma+p%C3%A1gina+insegura.+Experimente+recarregar+a+p%C3%A1gina+como+https%3A%2F%2F" for ::1 at 2021-08-01 16:35:34 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"error_code"=>"1349187", "error_message"=>"Login inseguro bloqueado: Você não pode obter um token de acesso ou entrar neste aplicativo a partir de uma página insegura. Experimente recarregar a página como https://"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 137)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:35:34 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.2ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4158)
+Completed 200 OK in 16ms (Views: 10.6ms | ActiveRecord: 0.9ms | Allocations: 5279)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 16:35:36 -0300
+Started GET "/users/auth/github/callback?code=b2b6e6940646dd9da572&state=027b3f0763846ac63780909387f1557034151a7704bd1294" for ::1 at 2021-08-01 16:35:36 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"b2b6e6940646dd9da572", "state"=>"027b3f0763846ac63780909387f1557034151a7704bd1294"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 137)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 16:35:37 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4153)
+Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 1.4ms | Allocations: 5271)
+
+
+Started GET "/]" for ::1 at 2021-08-01 18:35:04 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/]"):
+  
+Started GET "/" for ::1 at 2021-08-01 18:35:09 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.8ms | Allocations: 690)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:35:09 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 4154)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.9ms | Allocations: 5271)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 18:35:11 -0300
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:35:14 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 39.5ms | Allocations: 4159)
+Completed 200 OK in 50ms (Views: 40.5ms | ActiveRecord: 4.9ms | Allocations: 5286)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 18:35:15 -0300
+Started GET "/users/auth/github/callback?code=74526a315a0beb3602af&state=49c80366296cf56f24c36bfc6449db059c63a27f9c9f3b29" for ::1 at 2021-08-01 18:35:16 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"74526a315a0beb3602af", "state"=>"49c80366296cf56f24c36bfc6449db059c63a27f9c9f3b29"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 137)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:35:17 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4158)
+Completed 200 OK in 11ms (Views: 7.0ms | ActiveRecord: 1.0ms | Allocations: 5277)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:36:23 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 388)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4329)
+Completed 200 OK in 23ms (Views: 7.2ms | ActiveRecord: 7.0ms | Allocations: 10986)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 18:36:25 -0300
+Started GET "/users/auth/github/callback?code=c24e2984157e20cbfdf4&state=56c9ec0dc62218650c3caba706a774e16be7dda769c2c4e8" for ::1 at 2021-08-01 18:36:26 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"c24e2984157e20cbfdf4", "state"=>"56c9ec0dc62218650c3caba706a774e16be7dda769c2c4e8"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 209)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:36:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 4148)
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 1.6ms | Allocations: 5265)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:36:47 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 388)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 4330)
+Completed 200 OK in 23ms (Views: 10.6ms | ActiveRecord: 4.5ms | Allocations: 10621)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 18:36:49 -0300
+Started GET "/users/auth/github/callback?code=77a7c60f60c7feeebb8a&state=137f58dc3282a99321ae06ec81867298f2c479e74f7fa15d" for ::1 at 2021-08-01 18:36:50 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"77a7c60f60c7feeebb8a", "state"=>"137f58dc3282a99321ae06ec81867298f2c479e74f7fa15d"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "48518981"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "david.schnee1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "provider", "uid") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "david.schnee1@gmail.com"], ["encrypted_password", "$2a$12$/IaBi4ryFhs5qERbv6Yra.0zCROh.RDtoevovdApiOITkdl3lvTKC"], ["created_at", "2021-08-01 21:36:52.026678"], ["updated_at", "2021-08-01 21:36:52.026678"], ["provider", "github"], ["uid", "48518981"]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+Redirected to http://localhost:3000/users/auth/github/callback?code=c24e2984157e20cbfdf4&state=56c9ec0dc62218650c3caba706a774e16be7dda769c2c4e8
+Completed 500 Internal Server Error in 291ms (ActiveRecord: 10.1ms | Allocations: 9696)
+
+
+  
+NameError (undefined local variable or method `is_navigational_format' for #<OmniauthController:0x00000000014960>
+Did you mean?  is_navigational_format?):
+  
+app/controllers/omniauth_controller.rb:18:in `github'
+Started GET "/users/auth/github/callback?code=77a7c60f60c7feeebb8a&state=137f58dc3282a99321ae06ec81867298f2c479e74f7fa15d" for ::1 at 2021-08-01 18:37:15 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"code"=>"77a7c60f60c7feeebb8a", "state"=>"137f58dc3282a99321ae06ec81867298f2c479e74f7fa15d"}
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 241)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 18:37:15 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 365)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2141)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 5109)
+Completed 200 OK in 29ms (Views: 14.7ms | ActiveRecord: 5.2ms | Allocations: 11826)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:37:23 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 374)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1288)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4245)
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 1.1ms | Allocations: 5644)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:37:24 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 4148)
+Completed 200 OK in 25ms (Views: 16.2ms | ActiveRecord: 2.4ms | Allocations: 5259)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 18:37:26 -0300
+Started GET "/users/auth/github/callback?code=37e9ba0b64df75ab573a&state=dc440b20a12102b3c7fd403155a4bdecbc324b8c3331155b" for ::1 at 2021-08-01 18:37:27 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"37e9ba0b64df75ab573a", "state"=>"dc440b20a12102b3c7fd403155a4bdecbc324b8c3331155b"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "48518981"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+Redirected to http://localhost:3000/users/auth/github/callback?code=c24e2984157e20cbfdf4&state=56c9ec0dc62218650c3caba706a774e16be7dda769c2c4e8
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 2.8ms | Allocations: 4484)
+
+
+  
+NameError (undefined local variable or method `is_navigational_format' for #<OmniauthController:0x00000000016580>
+Did you mean?  is_navigational_format?):
+  
+app/controllers/omniauth_controller.rb:18:in `github'
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:37:41 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 388)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4335)
+Completed 200 OK in 23ms (Views: 9.1ms | ActiveRecord: 5.0ms | Allocations: 10690)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 18:37:43 -0300
+Started GET "/users/auth/github/callback?code=230e2c563dbe385b5e7a&state=ecc2676ff442678cb76e30988f76a4948ad425d07273ab6d" for ::1 at 2021-08-01 18:37:44 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"230e2c563dbe385b5e7a", "state"=>"ecc2676ff442678cb76e30988f76a4948ad425d07273ab6d"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "48518981"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+Redirected to http://localhost:3000/users/auth/github/callback?code=c24e2984157e20cbfdf4&state=56c9ec0dc62218650c3caba706a774e16be7dda769c2c4e8
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.6ms | Allocations: 4339)
+
+
+  
+NoMethodError (undefined method `set_flash_message' for #<OmniauthController:0x00000000017f48>):
+  
+app/controllers/omniauth_controller.rb:18:in `github'
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:38:03 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 388)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 4335)
+Completed 200 OK in 23ms (Views: 9.9ms | ActiveRecord: 4.7ms | Allocations: 10691)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 18:38:05 -0300
+Started GET "/users/auth/github/callback?code=595b9b1bdf57ca6541cc&state=d3f49ad98f29f90c5271432afa8b3476603d0313fb0e16c6" for ::1 at 2021-08-01 18:38:05 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"595b9b1bdf57ca6541cc", "state"=>"d3f49ad98f29f90c5271432afa8b3476603d0313fb0e16c6"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "48518981"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+Redirected to http://localhost:3000/users/auth/github/callback?code=c24e2984157e20cbfdf4&state=56c9ec0dc62218650c3caba706a774e16be7dda769c2c4e8
+Completed 302 Found in 10ms (ActiveRecord: 2.8ms | Allocations: 1261)
+
+
+Started GET "/users/auth/github/callback?code=c24e2984157e20cbfdf4&state=56c9ec0dc62218650c3caba706a774e16be7dda769c2c4e8" for ::1 at 2021-08-01 18:38:07 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"code"=>"c24e2984157e20cbfdf4", "state"=>"56c9ec0dc62218650c3caba706a774e16be7dda769c2c4e8"}
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 180)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 18:38:07 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 37ms (ActiveRecord: 7.9ms | Allocations: 2093)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:38:07 -0300
+Processing by DashboardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 107)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 3105)
+Completed 200 OK in 10ms (Views: 5.5ms | ActiveRecord: 0.8ms | Allocations: 4631)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:38:10 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 3.3ms | Allocations: 1949)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:38:10 -0300
+Processing by DashboardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 37)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 2969)
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.7ms | Allocations: 3853)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:38:11 -0300
+Processing by DashboardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 37)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2969)
+Completed 200 OK in 11ms (Views: 6.2ms | ActiveRecord: 1.9ms | Allocations: 3853)
+
+
+Started GET "/rails/info/routes" for ::1 at 2021-08-01 18:38:28 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/actionpack-6.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [48 times] (Duration: 9.1ms | Allocations: 7148)
+  Rendered /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/actionpack-6.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.3ms | Allocations: 730)
+  Rendered /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 16.1ms | Allocations: 12553)
+  Rendered layout /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/layouts/application.html.erb (Duration: 16.6ms | Allocations: 12778)
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 0.8ms | Allocations: 14425)
+
+
+Started GET "/users/sign_out" for ::1 at 2021-08-01 18:38:44 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/users/sign_out" for ::1 at 2021-08-01 18:38:55 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/users/sign_out" for ::1 at 2021-08-01 18:39:13 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/" for ::1 at 2021-08-01 18:40:32 -0300
+Processing by DashboardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1181)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1251)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.9ms | Allocations: 2965)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1> User logado! </h1>
+<%= 'Sair', link_to destroy_user_session_path, method: :delete, data:{ confirm: "Tem certeza que deseja sair ?"} %>%
+):
+1:    <h1> User logado! </h1>
+2:    <%= 'Sair', link_to destroy_user_session_path, method: :delete, data:{ confirm: "Tem certeza que deseja sair ?"} %>%
+  
+app/views/dashboards/index.html.erb:2: syntax error, unexpected ',', expecting ')'
+app/views/dashboards/index.html.erb:2: syntax error, unexpected ',', expecting ')'
+app/views/dashboards/index.html.erb:2: syntax error, unexpected ',', expecting ')'
+app/views/dashboards/index.html.erb:2: syntax error, unexpected ',', expecting ')'
+app/views/dashboards/index.html.erb:2: syntax error, unexpected ',', expecting ')'
+app/views/dashboards/index.html.erb:2: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2021-08-01 18:40:42 -0300
+Processing by DashboardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1160)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 1230)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.7ms | Allocations: 2935)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1> User logado! </h1>
+<%= 'Sair', link_to destroy_user_session_path, method: :delete, data:{ confirm: "Tem certeza que deseja sair ?"} %>
+):
+1:    <h1> User logado! </h1>
+2:    <%= 'Sair', link_to destroy_user_session_path, method: :delete, data:{ confirm: "Tem certeza que deseja sair ?"} %>
+  
+app/views/dashboards/index.html.erb:2: syntax error, unexpected ',', expecting ')'
+app/views/dashboards/index.html.erb:2: syntax error, unexpected ',', expecting ')'
+app/views/dashboards/index.html.erb:2: syntax error, unexpected ',', expecting ')'
+app/views/dashboards/index.html.erb:2: syntax error, unexpected ',', expecting ')'
+app/views/dashboards/index.html.erb:2: syntax error, unexpected ',', expecting ')'
+app/views/dashboards/index.html.erb:2: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2021-08-01 18:40:53 -0300
+Processing by DashboardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 194)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 3371)
+Completed 200 OK in 44ms (Views: 32.5ms | ActiveRecord: 2.8ms | Allocations: 5112)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-08-01 18:40:56 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 31ms (ActiveRecord: 14.8ms | Allocations: 7563)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:40:56 -0300
+Processing by DashboardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 85)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3025)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 1.0ms | Allocations: 3900)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:41:07 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 734)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2055)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 5058)
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 1.2ms | Allocations: 7138)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:41:14 -0300
+Processing by DashboardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 85)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3017)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.9ms | Allocations: 3896)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-08-01 18:41:16 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms | Allocations: 835)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:41:17 -0300
+Processing by DashboardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 85)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3017)
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 1.1ms | Allocations: 3895)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:41:19 -0300
+Processing by DashboardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 85)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 3017)
+Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 0.9ms | Allocations: 3895)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:41:20 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4148)
+Completed 200 OK in 15ms (Views: 10.2ms | ActiveRecord: 1.3ms | Allocations: 5256)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-08-01 18:41:21 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.7ms | Allocations: 839)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1200)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4132)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 4730)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-08-01 18:41:23 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 9ms (ActiveRecord: 2.8ms | Allocations: 804)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1194)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.5ms | Allocations: 4127)
+Completed 200 OK in 40ms (Views: 37.7ms | ActiveRecord: 0.0ms | Allocations: 4709)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:43:23 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 388)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4325)
+Completed 200 OK in 24ms (Views: 9.1ms | ActiveRecord: 6.0ms | Allocations: 10686)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 18:43:27 -0300
+Started GET "/users/auth/github/callback?code=28b298e72cef4da649e0&state=84528a2d9ed3751ec57d5a409a8a44a058ce6abbabfc9e61" for ::1 at 2021-08-01 18:43:28 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"28b298e72cef4da649e0", "state"=>"84528a2d9ed3751ec57d5a409a8a44a058ce6abbabfc9e61"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "48518981"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 2.6ms | Allocations: 1293)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:43:29 -0300
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 108)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 3103)
+Completed 200 OK in 23ms (Views: 16.1ms | ActiveRecord: 2.1ms | Allocations: 5373)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-08-01 18:43:32 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 26ms (ActiveRecord: 16.9ms | Allocations: 4758)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:43:32 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.8ms | Allocations: 686)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:43:32 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1209)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4154)
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 0.7ms | Allocations: 5268)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-08-01 18:43:37 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.8ms | Allocations: 824)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1196)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4128)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4723)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:43:40 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.8ms | Allocations: 671)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:43:40 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4148)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.7ms | Allocations: 5263)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:43:44 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.8ms | Allocations: 681)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:43:44 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4148)
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.8ms | Allocations: 5265)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 18:43:46 -0300
+Started GET "/users/auth/google_oauth2/callback?state=68954d60e270c8096d1b1fc7cf5fd2cb8b1ea085877668cb&code=4%2F0AX4XfWirtl0gCOLFiS_9vPJVXhkq-O4kC5rGstxKefxiVKOHkwa0rUCSwR5Ne5yO_tzBxg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for ::1 at 2021-08-01 18:43:49 -0300
+Processing by OmniauthController#google_oauth2 as HTML
+  Parameters: {"state"=>"68954d60e270c8096d1b1fc7cf5fd2cb8b1ea085877668cb", "code"=>"4/0AX4XfWirtl0gCOLFiS_9vPJVXhkq-O4kC5rGstxKefxiVKOHkwa0rUCSwR5Ne5yO_tzBxg", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "106403386924481177806"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "david.schnee1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 275ms (ActiveRecord: 6.8ms | Allocations: 4417)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 18:43:50 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 211)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 321)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1949)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4917)
+Completed 200 OK in 15ms (Views: 11.2ms | ActiveRecord: 0.8ms | Allocations: 6704)
+
+
+Started GET "/users/auth/google_oauth2/callback?state=68954d60e270c8096d1b1fc7cf5fd2cb8b1ea085877668cb&code=4%2F0AX4XfWgYQdPLFAzC9Z8dauu810v00b7dLKTTk9IoKTPg-fq0b4w40wWBVwGFbSCs97ZWxQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for ::1 at 2021-08-01 18:43:57 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"state"=>"68954d60e270c8096d1b1fc7cf5fd2cb8b1ea085877668cb", "code"=>"4/0AX4XfWgYQdPLFAzC9Z8dauu810v00b7dLKTTk9IoKTPg-fq0b4w40wWBVwGFbSCs97ZWxQ", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent"}
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 178)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 18:43:57 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4210)
+Completed 200 OK in 14ms (Views: 10.2ms | ActiveRecord: 0.8ms | Allocations: 5260)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:45:18 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 950)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 5374)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 14904)
+Completed 200 OK in 51ms (Views: 23.5ms | ActiveRecord: 11.2ms | Allocations: 28961)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 18:45:20 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 350)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 18:45:20 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 220)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 353)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2055)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 5012)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.8ms | Allocations: 6804)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:45:23 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4150)
+Completed 200 OK in 12ms (Views: 7.7ms | ActiveRecord: 1.1ms | Allocations: 5291)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 18:45:25 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 222)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 18:45:25 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 4201)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.9ms | Allocations: 5256)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:45:26 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.6ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 4157)
+Completed 200 OK in 23ms (Views: 19.1ms | ActiveRecord: 1.1ms | Allocations: 5279)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 18:45:27 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 222)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 18:45:27 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 4199)
+Completed 200 OK in 36ms (Views: 22.9ms | ActiveRecord: 4.3ms | Allocations: 5254)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 18:48:02 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/auth/google_oauth2/callback?state=e61f9431ed52196b86886fab7b2357c7a79ad23262fcff94&code=4%2F0AX4XfWgsrhGyOVCRARguwBCFokPKU2-lstPZWJ8xXxOwBsZZcloSj0iIwbhZqRIj9z4jkw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for ::1 at 2021-08-01 18:48:05 -0300
+Processing by OmniauthController#google_oauth2 as HTML
+  Parameters: {"state"=>"e61f9431ed52196b86886fab7b2357c7a79ad23262fcff94", "code"=>"4/0AX4XfWgsrhGyOVCRARguwBCFokPKU2-lstPZWJ8xXxOwBsZZcloSj0iIwbhZqRIj9z4jkw", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "106403386924481177806"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "david.schnee1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 271ms (ActiveRecord: 9.4ms | Allocations: 11422)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 18:48:06 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 239)
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 846)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 5449)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 11145)
+Completed 200 OK in 27ms (Views: 21.5ms | ActiveRecord: 0.9ms | Allocations: 14410)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 18:48:40 -0300
+Started GET "/users/auth/github/callback?code=43b28251c9a38d12d680&state=dabec1443a4d7f5c1bb263a5aa1a688aaef526292151699a" for ::1 at 2021-08-01 18:48:40 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"43b28251c9a38d12d680", "state"=>"dabec1443a4d7f5c1bb263a5aa1a688aaef526292151699a"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "48518981"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.3ms | Allocations: 1083)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:48:43 -0300
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 194)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3143)
+Completed 200 OK in 13ms (Views: 7.1ms | ActiveRecord: 1.6ms | Allocations: 5926)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-08-01 18:48:46 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms (ActiveRecord: 19.6ms | Allocations: 5228)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:48:46 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.8ms | Allocations: 702)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:48:46 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 434)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1917)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 4934)
+Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.7ms | Allocations: 6869)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 18:48:48 -0300
+Started GET "/users/auth/google_oauth2/callback?state=f5ecd8f7c2ddd127128908a623c06506374498f209f221fc&code=4%2F0AX4XfWj_G5sotbXdowq1v553IvokHSk5qrD2xjLdOUBlpZ3HtXQufApYYIhoRrqbgWi5Ew&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for ::1 at 2021-08-01 18:48:51 -0300
+Processing by OmniauthController#google_oauth2 as HTML
+  Parameters: {"state"=>"f5ecd8f7c2ddd127128908a623c06506374498f209f221fc", "code"=>"4/0AX4XfWj_G5sotbXdowq1v553IvokHSk5qrD2xjLdOUBlpZ3HtXQufApYYIhoRrqbgWi5Ew", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "106403386924481177806"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "david.schnee1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 313ms (ActiveRecord: 4.7ms | Allocations: 4160)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 18:48:52 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4201)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.8ms | Allocations: 5253)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 18:49:09 -0300
+Started GET "/users/auth/google_oauth2/callback?state=0c3d2de16c374d7eea236d2bf2a801c4c836b8b70bbea021&code=4%2F0AX4XfWhD_9RswuefH8ez6c9mtK9vuCl9LVI004jRzu2uyd9xddWp8V9huxGixIQXJCox8g&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for ::1 at 2021-08-01 18:49:12 -0300
+Processing by OmniauthController#google_oauth2 as HTML
+  Parameters: {"state"=>"0c3d2de16c374d7eea236d2bf2a801c4c836b8b70bbea021", "code"=>"4/0AX4XfWhD_9RswuefH8ez6c9mtK9vuCl9LVI004jRzu2uyd9xddWp8V9huxGixIQXJCox8g", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "106403386924481177806"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "david.schnee1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/omniauth_controller.rb:29:in `google_oauth2'
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 53040ms (ActiveRecord: 15.1ms | Allocations: 49197)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 18:50:05 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 44)
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 335)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1351)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 4322)
+Completed 200 OK in 27ms (Views: 20.0ms | ActiveRecord: 1.7ms | Allocations: 5673)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-08-01 18:50:09 -0300
+Started GET "/users/auth/google_oauth2/callback?state=021cadd7921eb14c00fa1a57274f73b18fc2339ad18aa6bd&code=4/0AX4XfWh4kPxonQk-AUoA1QLIRUfRuZqP-Hll9tr7q1hLeptVOwLmrDFGypKJsK5I5VOR4Q&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile%20openid&authuser=1&hd=maino.com.br&prompt=consent" for ::1 at 2021-08-01 18:50:12 -0300
+Processing by OmniauthController#google_oauth2 as HTML
+  Parameters: {"state"=>"021cadd7921eb14c00fa1a57274f73b18fc2339ad18aa6bd", "code"=>"4/0AX4XfWh4kPxonQk-AUoA1QLIRUfRuZqP-Hll9tr7q1hLeptVOwLmrDFGypKJsK5I5VOR4Q", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "hd"=>"maino.com.br", "prompt"=>"consent"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "109102184683441785128"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "david@maino.com.br"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "provider", "uid") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "david@maino.com.br"], ["encrypted_password", "$2a$12$3bsXN5AkuwunOKxF8WOah.8bEe/GoMbQb4wxpuQq/I7oqh0wD8hV2"], ["created_at", "2021-08-01 21:50:13.549144"], ["updated_at", "2021-08-01 21:50:13.549144"], ["provider", "google_oauth2"], ["uid", "109102184683441785128"]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+Redirected to http://localhost:3000/
+Completed 302 Found in 5855ms (ActiveRecord: 9.9ms | Allocations: 18805)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:50:19 -0300
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 108)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3103)
+Completed 200 OK in 13ms (Views: 7.0ms | ActiveRecord: 1.9ms | Allocations: 5380)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-08-01 18:50:25 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 34ms (ActiveRecord: 19.0ms | Allocations: 10062)
+
+
+Started GET "/" for ::1 at 2021-08-01 18:50:25 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 1.1ms | Allocations: 745)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 18:50:25 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 387)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1317)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 4320)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.8ms | Allocations: 5626)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 18:59:14 -0300
+Started GET "/users/auth/facebook/callback?error_code=1349187&error_message=Login+inseguro+bloqueado%3A+Voc%C3%AA+n%C3%A3o+pode+obter+um+token+de+acesso+ou+entrar+neste+aplicativo+a+partir+de+uma+p%C3%A1gina+insegura.+Experimente+recarregar+a+p%C3%A1gina+como+https%3A%2F%2F" for ::1 at 2021-08-01 19:00:32 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"error_code"=>"1349187", "error_message"=>"Login inseguro bloqueado: Você não pode obter um token de acesso ou entrar neste aplicativo a partir de uma página insegura. Experimente recarregar a página como https://"}
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 231)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 19:00:32 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 321)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1331)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 4288)
+Completed 200 OK in 26ms (Views: 18.6ms | ActiveRecord: 2.2ms | Allocations: 5615)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 19:00:35 -0300
+Started GET "/" for 127.0.0.1 at 2021-08-01 19:02:34 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 139)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-08-01 19:02:34 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 15.1ms | Allocations: 2438)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 5395)
+Completed 200 OK in 23ms (Views: 16.5ms | ActiveRecord: 5.4ms | Allocations: 5966)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2021-08-01 19:02:36 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Redirected to http://0.0.0.0:3000/users/sign_up
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 343)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-08-01 19:02:36 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.6ms | Allocations: 2486)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 5443)
+Completed 200 OK in 17ms (Views: 10.2ms | ActiveRecord: 6.0ms | Allocations: 5947)
+
+
+Started POST "/users/auth/github" for 127.0.0.1 at 2021-08-01 19:02:39 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Redirected to http://0.0.0.0:3000/users/sign_up
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 312)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-08-01 19:02:39 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 13.0ms | Allocations: 2486)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 5431)
+Completed 200 OK in 20ms (Views: 12.5ms | ActiveRecord: 6.9ms | Allocations: 5932)
+
+
+Started GET "/" for ::1 at 2021-08-01 19:02:45 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.7ms | Allocations: 685)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 19:02:45 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4148)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.7ms | Allocations: 5269)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 19:02:47 -0300
+Started GET "/" for ::1 at 2021-08-01 19:04:21 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 1.1ms | Allocations: 685)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 19:04:21 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 4148)
+Completed 200 OK in 11ms (Views: 6.3ms | ActiveRecord: 2.7ms | Allocations: 5271)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 19:04:22 -0300
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 19:04:23 -0300
+Started GET "/users/auth/facebook/callback?error_code=1349187&error_message=Login+inseguro+bloqueado%3A+Voc%C3%AA+n%C3%A3o+pode+obter+um+token+de+acesso+ou+entrar+neste+aplicativo+a+partir+de+uma+p%C3%A1gina+insegura.+Experimente+recarregar+a+p%C3%A1gina+como+https%3A%2F%2F" for ::1 at 2021-08-01 19:04:26 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"error_code"=>"1349187", "error_message"=>"Login inseguro bloqueado: Você não pode obter um token de acesso ou entrar neste aplicativo a partir de uma página insegura. Experimente recarregar a página como https://"}
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 178)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 19:04:26 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4199)
+Completed 200 OK in 12ms (Views: 6.5ms | ActiveRecord: 3.1ms | Allocations: 5248)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 21:53:31 -0300
+Started GET "/users/sign_up" for ::1 at 2021-08-01 21:54:26 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4216)
+Completed 200 OK in 15ms (Views: 10.3ms | ActiveRecord: 0.9ms | Allocations: 5270)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 21:59:50 -0300
+Started GET "/users/sign_up" for ::1 at 2021-08-01 22:04:03 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 4211)
+Completed 200 OK in 20ms (Views: 16.2ms | ActiveRecord: 1.3ms | Allocations: 5267)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:04:04 -0300
+Started GET "/users/sign_up" for ::1 at 2021-08-01 22:10:03 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 4199)
+Completed 200 OK in 27ms (Views: 9.3ms | ActiveRecord: 10.1ms | Allocations: 8619)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:10:05 -0300
+Started GET "/users/sign_up" for ::1 at 2021-08-01 22:10:13 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 4199)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.8ms | Allocations: 5252)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:10:18 -0300
+Started GET "/users/sign_up" for ::1 at 2021-08-01 22:10:28 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4199)
+Completed 200 OK in 15ms (Views: 10.6ms | ActiveRecord: 1.0ms | Allocations: 5252)
+
+
+Started GET "/" for ::1 at 2021-08-01 22:13:47 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.9ms | Allocations: 687)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:13:47 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 4148)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 0.9ms | Allocations: 5269)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:13:49 -0300
+Started GET "/users/sign_up" for ::1 at 2021-08-01 22:14:45 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 4199)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.8ms | Allocations: 5252)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:14:47 -0300
+Started GET "/users/sign_up" for ::1 at 2021-08-01 22:15:07 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 4199)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.8ms | Allocations: 5252)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:15:09 -0300
+Started GET "/users/sign_up" for ::1 at 2021-08-01 22:15:12 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4199)
+Completed 200 OK in 11ms (Views: 7.0ms | ActiveRecord: 1.3ms | Allocations: 5252)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:15:13 -0300
+Started GET "/users/sign_up" for ::1 at 2021-08-01 22:15:51 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 4211)
+Completed 200 OK in 13ms (Views: 9.8ms | ActiveRecord: 0.9ms | Allocations: 5265)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:15:53 -0300
+Started GET "/users/sign_up" for ::1 at 2021-08-01 22:17:51 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 4206)
+Completed 200 OK in 22ms (Views: 14.0ms | ActiveRecord: 1.5ms | Allocations: 5263)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-01 22:17:52 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 4211)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 1.0ms | Allocations: 5267)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:17:54 -0300
+Started GET "/users/sign_up" for ::1 at 2021-08-01 22:17:56 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1255)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4200)
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.9ms | Allocations: 5253)
+
+
+Started POST "/users/auth/github" for ::1 at 2021-08-01 22:17:59 -0300
+Started GET "/users/auth/github/callback?code=6d88dab577ce8a8ca85c&state=04767b4a7c1e40b78e6ebbe323828a6339d838c9a8386e79" for ::1 at 2021-08-01 22:18:00 -0300
+Processing by OmniauthController#github as HTML
+  Parameters: {"code"=>"6d88dab577ce8a8ca85c", "state"=>"04767b4a7c1e40b78e6ebbe323828a6339d838c9a8386e79"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "48518981"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_from_provider_data'
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 3.9ms | Allocations: 1074)
+
+
+Started GET "/" for ::1 at 2021-08-01 22:18:02 -0300
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 108)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3103)
+Completed 200 OK in 11ms (Views: 5.3ms | ActiveRecord: 1.6ms | Allocations: 5320)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-08-01 22:18:05 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 14.1ms | Allocations: 4627)
+
+
+Started GET "/" for ::1 at 2021-08-01 22:18:05 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.7ms | Allocations: 675)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:18:05 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1209)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 4154)
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 0.8ms | Allocations: 5268)
+
+
+Started GET "/users/password/new" for ::1 at 2021-08-01 22:18:06 -0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 365)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1247)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4190)
+Completed 200 OK in 14ms (Views: 10.6ms | ActiveRecord: 0.8ms | Allocations: 5939)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:18:08 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.6ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.0ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 40.3ms | Allocations: 4769)
+Completed 200 OK in 64ms (Views: 42.1ms | ActiveRecord: 8.1ms | Allocations: 5890)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:18:10 -0300
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:21:36 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 4148)
+Completed 200 OK in 11ms (Views: 7.2ms | ActiveRecord: 0.9ms | Allocations: 5269)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:21:38 -0300
+Started GET "/" for ::1 at 2021-08-01 22:21:48 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 139)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:21:48 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1209)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4154)
+Completed 200 OK in 12ms (Views: 8.8ms | ActiveRecord: 0.8ms | Allocations: 5267)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:21:51 -0300
+Started GET "/" for ::1 at 2021-08-01 22:24:02 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 19ms (ActiveRecord: 7.7ms | Allocations: 7056)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:24:02 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 947)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3503)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 9201)
+Completed 200 OK in 49ms (Views: 29.1ms | ActiveRecord: 6.2ms | Allocations: 17647)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:24:03 -0300
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:25:16 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4148)
+Completed 200 OK in 14ms (Views: 9.7ms | ActiveRecord: 1.0ms | Allocations: 5271)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:25:23 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 4150)
+Completed 200 OK in 14ms (Views: 10.2ms | ActiveRecord: 1.0ms | Allocations: 5290)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:25:53 -0300
+Started GET "/rails/info/routes" for ::1 at 2021-08-01 22:26:12 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/actionpack-6.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [48 times] (Duration: 9.7ms | Allocations: 7261)
+  Rendered /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/actionpack-6.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.6ms | Allocations: 847)
+  Rendered /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 18.4ms | Allocations: 13184)
+  Rendered layout /home/maino/.asdf/installs/ruby/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4/lib/rails/templates/layouts/application.html.erb (Duration: 19.3ms | Allocations: 13411)
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 0.7ms | Allocations: 15109)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:29:15 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 950)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 5374)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 11084)
+Completed 200 OK in 49ms (Views: 20.0ms | ActiveRecord: 11.7ms | Allocations: 25148)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:29:18 -0300
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:31:43 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 950)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 5374)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 11084)
+Completed 200 OK in 50ms (Views: 22.8ms | ActiveRecord: 10.3ms | Allocations: 25148)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:31:45 -0300
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:31:48 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 4163)
+Completed 200 OK in 43ms (Views: 32.8ms | ActiveRecord: 3.0ms | Allocations: 5305)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:32:02 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4150)
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 1.3ms | Allocations: 5299)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-01 22:32:03 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1206)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 4153)
+Completed 200 OK in 20ms (Views: 14.7ms | ActiveRecord: 1.4ms | Allocations: 5295)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2021-08-01 22:32:05 -0300
+Started GET "/" for 127.0.0.1 at 2021-08-01 22:32:27 -0300
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 226)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-08-01 22:32:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 347)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1212)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 4165)
+Completed 200 OK in 12ms (Views: 8.6ms | ActiveRecord: 1.0ms | Allocations: 5280)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2021-08-01 22:32:30 -0300
+Started GET "/users/auth/facebook/callback?error_code=1349187&error_message=Login+inseguro+bloqueado%3A+Voc%C3%AA+n%C3%A3o+pode+obter+um+token+de+acesso+ou+entrar+neste+aplicativo+a+partir+de+uma+p%C3%A1gina+insegura.+Experimente+recarregar+a+p%C3%A1gina+como+https%3A%2F%2F" for 127.0.0.1 at 2021-08-01 22:34:30 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"error_code"=>"1349187", "error_message"=>"Login inseguro bloqueado: Você não pode obter um token de acesso ou entrar neste aplicativo a partir de uma página insegura. Experimente recarregar a página como https://"}
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 259)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-08-01 22:34:30 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 220)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 351)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2056)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 5025)
+Completed 200 OK in 18ms (Views: 15.2ms | ActiveRecord: 0.8ms | Allocations: 6819)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2021-08-01 22:34:32 -0300
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-08-01 22:35:46 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4199)
+Completed 200 OK in 16ms (Views: 10.1ms | ActiveRecord: 1.4ms | Allocations: 5252)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2021-08-01 22:35:48 -0300
+Started GET "/users/auth/facebook/callback?error_code=1349187&error_message=Login+inseguro+bloqueado%3A+Voc%C3%AA+n%C3%A3o+pode+obter+um+token+de+acesso+ou+entrar+neste+aplicativo+a+partir+de+uma+p%C3%A1gina+insegura.+Experimente+recarregar+a+p%C3%A1gina+como+https%3A%2F%2F" for 127.0.0.1 at 2021-08-01 22:35:51 -0300
+Processing by OmniauthController#failure as HTML
+  Parameters: {"error_code"=>"1349187", "error_message"=>"Login inseguro bloqueado: Você não pode obter um token de acesso ou entrar neste aplicativo a partir de uma página insegura. Experimente recarregar a página como https://"}
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 178)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-08-01 22:35:51 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 35.7ms | Allocations: 4207)
+Completed 200 OK in 44ms (Views: 36.4ms | ActiveRecord: 1.2ms | Allocations: 5258)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-08-01 22:35:53 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1255)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 4212)
+Completed 200 OK in 21ms (Views: 15.3ms | ActiveRecord: 1.7ms | Allocations: 5266)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2021-08-01 22:35:55 -0300
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-08-01 22:36:08 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 299)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 4199)
+Completed 200 OK in 28ms (Views: 19.0ms | ActiveRecord: 2.4ms | Allocations: 5253)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2021-08-01 22:36:09 -0300

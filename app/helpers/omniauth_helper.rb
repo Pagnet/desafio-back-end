@@ -1,0 +1,2 @@
+module OmniauthHelper
+end

@@ -24,6 +24,9 @@ gem 'omniauth-github'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'activerecord-session_store'
+gem 'omniauth-rails_csrf_protection' 
+
+gem 'pry'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

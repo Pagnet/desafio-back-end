@@ -1,4 +1,5 @@
 require "active_support/core_ext/integer/time"
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
